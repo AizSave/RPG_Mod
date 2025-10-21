@@ -1,0 +1,678 @@
+# Translation corrected by Gemini
+
+[global]
+rpgmod=§!RPG Mod
+
+[buffmodifiers]
+enduranceattrflat=<mod> atrybut wytrzymałości
+speedattrflat=<mod> atrybut prędkości
+strengthattrflat=<mod> atrybut siły
+intelligenceattrflat=<mod> atrybut inteligencji
+graceattrflat=<mod> atrybut wdzięku
+
+dodgechance=<mod>% szansy na unik
+rangedweaponszoom=<mod> zoom broni dystansowej
+rangedweaponsrange=<mod>% zasięgu broni dystansowej
+mobdetectionrange=<mod> zasięg wykrywania mobów
+focusdamage=<mod>% obrażeń od skupienia
+focuschance=<mod>% szansy na skupienie
+ignitedamage=<mod>% obrażeń od podpalenia
+
+// Holy Damage
+holydamage=<mod>% świętych obrażeń
+holycritchance=<mod>% szansy na święty krytyk
+holycritdamage=<mod>% świętych obrażeń krytycznych
+holyeffect=<mod>% świętego efektu
+holyabilityspeed=<mod>% prędkości świętych zdolności
+
+throwingdamage=<mod>% obrażeń od rzutu
+throwingattackspeed=<mod>% prędkości ataku rzutem
+throwingcritchance=<mod>% szansy na krytyczny rzut
+throwingcritdamage=<mod>% krytycznych obrażeń od rzutu
+casttime=<mod>% czas rzucania
+
+transformationdelay=<mod>% opóźnienia transformacji
+noskills=Nie można używać umiejętności
+
+[stats]
+holy_damage=Święte obrażenia
+throwing_damage=Obrażenia od rzutu
+
+
+[enchantment]
+evasive=Unikowy
+stalking=Skradanie się
+regenerative=Regeneracyjny
+energetic=Energetyczny
+depleted=Wyczerpany
+
+
+[buff]
+overlevelbuff=Przekroczenie poziomu
+markedbuff=Oznaczony
+darkcursebuff=Mroczna klątwa
+magicpoisonbuff=Magiczna Trucizna
+ignitedbuff=Podpalony
+holydamagedealtbuff=Zadane święte obrażenia
+queenbeewashit=Królowa Pszczół została trafiona
+transformingbuff=Transformacja
+castingbuff=Rzucanie zaklęć
+
+
+[buffdesc]
+overlevelbuff1=§9Jedna z twoich klas lub atrybutów przekracza limit punktów
+overlevelbuff2=§6Nie będziesz mógł kontynuować, dopóki nie zostanie to naprawione
+darkcursebuff1=+25% otrzymywanych obrażeń
+darkcursebuff2=Wszystkie obrażenia zmniejszają również maksymalne zdrowie
+
+
+[mob]
+rpgmobname=[<class>] <name> poz. <level>
+rpgmobnamecolor=§<color>[<class>]§0 <name> §9poz. <level>§0
+
+rangerwolf=Wilk Tropiciela
+dancingflame=Tańczący Płomień
+
+necromancerskeleton=Szkielet
+necromancerskeletonwarrior=Szkielet Wojownik
+necromancerboneslinger=Kościany Miotacz
+necromancertomb=Grób
+
+
+[mobclass]
+boss=Boss
+warrior=Wojownik
+tank=Tank
+runner=Biegacz
+healer=Uzdrowiciel
+explosive=Wybuchowy
+glacial=Lodowy
+electric=Elektryczny
+flash=Błysk
+dark=Mroczny
+legend=Legenda
+
+
+[mobtrait]
+undead=Nieumarły
+demonic=Demoniczny
+
+
+[attributes]
+endurance=Wytrzymałość
+strength=Siła
+speed=Szybkość
+intelligence=Inteligencja
+grace=Wdzięk
+
+
+[classes]
+warrior=Wojownik
+ranger=Tropiciel
+wizard=Czarodziej
+necromancer=Nekromanta
+cleric=Kleryk
+rogue=Łotrzyk
+warlock=Czarnoksiężnik
+paladin=Paladyn
+druid=Druid
+
+
+[passives]
+passives=Pasywne
+
+// Warrior
+regeneration=Regeneracja
+muscles=Mięśnie
+legs=Nogi
+force=Siła
+unstoppable=Niepowstrzymany
+vigor=Wigor
+ironskin=Żelazna skóra
+unleashingrage=Uwolnienie gniewu
+unleashinghaste=Uwolnienie pośpiechu
+unyielding=Niezłomny
+lastbreath=Ostatni oddech
+
+// Ranger
+aim=Cel
+agility=Zręczność
+criticalshots=Krytyczne strzały
+energy=Energia
+recovery=Odzyskiwanie
+eagleeye=Orle oko
+focus=Skupienie
+erradication=Wytępienie
+predatorsense=Zmysł drapieżnika
+plasmagrenade=Granat plazmowy
+wolfcompanion=Wilczy towarzysz
+
+// Wizard
+arcanepower=Tajemna Moc
+manapower=Moc Many
+manaproficiency=Biegłość w Manie
+firepower=Siła Ognia
+quickmagic=Szybka Magia
+arcaneshield=Tajemna Tarcza
+fireshield=Tarcza Ognia
+iceshield=Tarcza Lodu
+flamingsteps=Płonące Kroki
+stormbound=Związany z Burzą
+
+// Necromancer
+darkpower=Mroczna Moc
+necroticpower=Moc Nekrotyczna
+darkmagic=Mroczna Magia
+necroticarmy=Armia Nekrotyczna
+darksummons=Mroczne Przywołania
+lifeleech=Wyssanie Życia
+necroticremains=Szczątki Nekrotyczne
+endlesslegion=Nieskończony Legion
+lichborn=Urodzony jako Lisz
+
+// Cleric
+healer=Uzdrowiciel
+shaman=Szaman
+vitalaura=Aura witalna
+divinejudge=Boski sędzia
+empoweredhealing=Wzmocnione leczenie
+sanctifiedmind=Uświęcony umysł
+sanctifiedarmor=Uświęcony pancerz
+radiantexpansion=Promienista ekspansja
+
+// Druid
+quickshift=Szybka Zmiana
+feralinstinct=Dziki Instynkt
+ironfur=Żelazne Futro
+naturesfavor=Łaska Natury
+beastpace=Krok Bestii
+primalburst=Pierwotny Wybuch
+elementalguard=Strażnik Żywiołów
+phoenixspirit=Duch Feniksa
+
+
+[passivesdesc]
+// Warrior
+unleashingrage=Każdy poziom zapewnia:\n\n+1% wszystkich obrażeń za każde 10% brakującego zdrowia
+unleashinghaste=Każdy poziom zapewnia:\n\n+1% prędkości ruchu za każde 10% brakującego zdrowia
+unyielding=Każdy poziom zapewnia:\n\n+5% prędkości ataku i -5% otrzymywanych obrażeń poniżej 20% zdrowia
+lastbreath=Zamiast umrzeć, stajesz się niewrażliwy na §a[[3 x <skilllevel>]] sekund§0\nGdy czas minie, umrzesz
+
+// Ranger
+plasmagrenade=Co 8 ataków dystansowych, wystrzel naprowadzany pocisk wybuchowy, który zadaje §i[[30 x <skilllevel>]]%§0 obrażeń broni
+wolfcompanion=Wilczy towarzysz będzie atakował oznaczone cele, zadając §i[[<playerlevel> + <intelligence> x <skilllevel>]] obrażeń przywoływacza
+
+// Wizard
+manapower=Każdy poziom zapewnia:\n\n+1% obrażeń magicznych za każde 10% niewykorzystanej many
+flamingsteps=Podczas biegania z aktywnym talizmanem lub transformacją, będziesz zostawiać za sobą płomienie\nPłomienie podpalą wrogów na 3 sekundy, zadając §i[[0.5 x <playerlevel> + 0.5 x <intelligence> x <skilllevel>]] Obrażeń Magicznych§0 na sekundę
+stormbound=Co §a[[11 - 0.5 x <skilllevel>]] sekund§0, piorun uderza w losowego wroga w zasięgu wzroku\nZadaje §i[[0.5 x <playerlevel> + 0.5 x <intelligence> x <skilllevel>]] Obrażeń Magicznych§0 i ogłusza na 1 sekundę
+arcaneshield=Tarcza, która zapobiega jednemu trafieniu\nTarcza odnowi się po §a[[20 - <skilllevel>]] sekundach§0 od użycia
+fireshield=Tarcza, która zapobiega jednemu trafieniu\nPo użyciu wyzwolisz eksplozję zadającą §i[[<playerlevel> + <intelligence> x <skilllevel>]] obrażeń magicznych§0\ni podpalisz moby, powtarzając 20% ich pierwotnych obrażeń na sekundę przez 5 sekund\nTarcza odnowi się po 26 sekundach od użycia
+iceshield=Tarcza, która zapobiega jednemu trafieniu\nPo użyciu wyzwolisz aurę lodu zadającą §i[[<playerlevel> + <intelligence> x <skilllevel>]] obrażeń magicznych§0\nzamrażając moby na 5 sekund i całkowicie zamrażając je na 1 sekundę\nTarcza odnowi się po 22 sekundach od użycia
+
+// Necromancer
+necroticpower=Wszystkie twoje ataki magiczne zatruwają na 5% ich obrażeń przez §a[[2 x <skilllevel>]] sekund§0
+darkmagic=Bonusy do obrażeń przywoływacza wpływają na obrażenia magiczne o §a[[5 x <skilllevel>]]%
+necroticarmy=Pokonani wrodzy wrogowie zamienią się w §bSzkielety§0 z §a-[[100 - 3 x <skilllevel>]]%§0 zdrowia i obrażeń
+darksummons=Zadaj §a+[[8 x <skilllevel>]]%§0 obrażeń przywoływacza zatrutym wrogom
+lifeleech=Odzyskuje §a[[0.05 x <skilllevel>]]%§0 zadanych obrażeń przywołania jako zdrowie
+necroticremains=Gdy nekrotyczny przywołaniec umiera, eksploduje, zadając §i[[0.1 x <intelligence> x <skilllevel>]] obrażeń magicznych§0 pobliskim wrogom, zatruwając ich na 20% obrażeń na sekundę przez 10 sekund
+endlesslegion=Co 4 poziomy tej umiejętności, zyskujesz +1 maksymalne przywołanie
+lichborn=Gdy umrzesz, przeżyjesz i odzyskasz §a[[10 x <skilllevel>]]%§0 zdrowia, jeśli nie jesteś już §bLiszem§0\nPrzez następne §a[[120 - 6 x <skilllevel>]] sekund§0 stajesz się §bLiszem§0 (szkieletem)\n\n\n§bLisz:§0 Transformacja w nieumarłego\n\nNie można używać przedmiotów\n+100% otrzymywanych obrażeń\n\nNaciśnij [input=transformationability1], aby wystrzelić kość, która zadaje §i[[<playerlevel> + <strength> + 0.2 x <intelligence>]] Obrażeń Magicznych§0 (2 zysk odporności)
+
+// Cleric
+vitalaura=Co §a[[15 - <skilllevel>]] sekund§0, uwalniasz wokół siebie magiczną aurę leczącą, która przywraca §a[[10 + <grace> ↓]] zdrowia§0\nLeczy cię również o połowę tej wartości
+divinejudge=Bonusy do obrażeń magicznych wpływają na obrażenia święte o §a[[5 x <skilllevel>]]%§0
+empoweredhealing=Gdy magicznie leczysz siebie lub sojusznika, zwiększ ich obrażenia o §a[[5 x <skilllevel>]]%§0 na 3 sekundy
+sanctifiedmind=Magiczne leczenie przywraca również manę równą §a[[5 x <skilllevel>]]%§0 wykonanego leczenia
+sanctifiedarmor=Magiczne leczenie przywraca również odporność równą §a[[2 x <skilllevel>]]%§0 wykonanego leczenia
+radiantexpansion=Gdy magicznie leczysz siebie lub sojusznika, zadaj §a[[5 x <skilllevel>]]%§0 leczenia jako obrażenia święte pobliskim wrogom wyleczonego celu
+
+// Druid
+naturesfavor=Zyskaj +§a[[2 x <skilllevel>]] regeneracji zdrowia§0 na sekundę, stojąc na trawie
+primalburst=Zwiększa obrażenia i prędkość o [[6 x <skillevel>]]% przez pierwsze 5 sekund po transformacji
+phoenixspirit=Wymaga co najmniej 4 punktów do działania:\n\nJeśli miałbyś umrzeć w transformacji z aktywną umiejętnością, zamiast tego przeżywasz z §a[4 + 8 x <skilllevel>]%§0 zdrowia, a ta umiejętność zostaje objęta 1-godzinnym czasem odnowienia\n\nNie uruchamia się, jeśli masz już co najmniej §a[[0.25 x <skilllevel> ↓]] umiejętność(-ci) transformacji§0 z czasem odnowienia dłuższym niż 1 minuta
+
+
+[activeskills]
+empty=Pusty
+
+// Warrior
+fury=Furia
+recovery=Odzyskiwanie
+provocation=Prowokacja
+berserkercharge=Szarża berserkera
+
+groundslam=Uderzenie w ziemię
+grounddestruction=Zniszczenie ziemi
+parry=Parowanie
+battlecry=Okrzyk bojowy
+
+ironguard=Żelazna straż
+intimidation=Zastraszenie
+
+objectthrowing=Rzucanie przedmiotami
+
+// Ranger
+shortdash=Krótki doskok
+longdash=Długi doskok
+lethalshot=Śmiertelny strzał
+venomshot=Trujący strzał
+explosiveshot=Wybuchowy strzał
+
+shotsrampage=Szał strzałów
+huntersmark=Znak łowcy
+beartrap=Pułapka na niedźwiedzie
+
+huntersinstinct=Instynkt łowcy
+arrowstorm=Burza strzał
+
+// Wizard
+arcaneoverload=Przeciążenie tajemne
+firedance=Taniec ognia
+iceball=Kula lodu
+zap=Porażenie
+manarecharge=Ładowanie many
+
+teleport=Teleportacja
+inferno=Piekło
+fireenchantment=Zaklęcie ognia
+iceenchantment=Zaklęcie lodu
+
+fireball=Kula ognia
+lightning=Piorun
+
+// Necromancer
+skeletonhorde=Horda szkieletów
+skeletonwarrior=Szkielet wojownik
+sacrifice=Ofiara
+siegecry=Okrzyk oblężniczy
+
+boneslingerhorde=Horda miotaczy kości
+tomb=Grób
+necroticbloom=Nekrotyczny rozkwit
+wardingtaunt=Ochronna prowokacja
+
+unholyground=Nieświęta ziemia
+necroticbarrage=Nekrotyczny ostrzał
+
+// Cleric
+smite=Uderzenie
+divineblessing=Boskie błogosławieństwo
+purify=Oczyszczenie
+lightinfusion=Infuzja światła
+
+holyguard=Święta straż
+judgment=Sąd
+sanctuary=Sanktuarium
+
+divineintervention=Boska interwencja
+resurrection=Wskrzeszenie
+wrathoflight=Gniew światła
+
+// Druid
+wolftransformation=Transformacja w wilka
+queenbeetransformation=Transformacja w królową pszczół
+
+beartransformation=Transformacja w niedźwiedzia
+foxtransformation=Transformacja w lisa
+rattransformation=Transformacja w szczura
+
+treanttransformation=Transformacja w Drzewca
+
+
+[activeskillsdesc]
+// Warrior
+fury=Przez następne 6 sekund zwiększ swoje obrażenia w walce wręcz i prędkość ataku o §a[[20 x <skilllevel>]]%
+recovery=Przez następne 10 sekund znacznie zwiększa regenerację zdrowia w walce, przywracając §a[[20 + <endurance> x <skilllevel>]] zdrowia§0 w czasie trwania
+provocation=Przez następne §a[[2 x <skilllevel>]] sekund§0 zmuś pobliskich wrogów do skupienia na tobie swoich ataków
+berserkercharge=Szarżuj do przodu na niewielką odległość, zadając §i[[10 x <playerlevel> + 2 x <strength> x <skilllevel> + 2 x <speed> x <skilllevel>]] obrażeń§0 wszystkim napotkanym wrogom\nZużywa 50% wytrzymałości
+
+groundslam=Atak obszarowy, który zadaje §i[[5 x <strength>]] obrażeń w walce wręcz§0 i §9ogłusza§0 na §a[[1 x <skilllevel>]] sekund§0
+grounddestruction=Atak obszarowy, który zadaje §i[[5 x <playerlevel> + 5 x <strength> x <skilllevel>]] obrażeń w walce wręcz§0 i §9ogłusza§0 na 2 sekundy
+parry=Stań się niewrażliwy na 0,5 sekundy i zwróć 500% pierwotnych otrzymanych obrażeń\nZużywa 100% wytrzymałości
+battlecry=Przez następne 10 sekund zwiększ swoje i pobliskich sojuszników wszystkie obrażenia i prędkość ruchu o §a[[10 x <skilllevel>]]%
+
+ironguard=-50% otrzymywanych obrażeń przez §a[[4 x <skilllevel>]] sekund
+intimidation=Przez następne §a[[<skilllevel>]] sekund§0 spraw, by pobliscy wrogowie uciekli
+
+objectthrowing=Krok 1: Chwyć przedmiot przed sobą\nKrok 2: Rzuć nim do przodu, zadając §i[[20 x <playerlevel> + 10 x <strength> x <skilllevel>]] obrażeń w walce wręcz§0
+
+// Ranger
+shortdash=Wykonaj krótki doskok\nZużywa 15% wytrzymałości
+longdash=Wykonaj długi doskok\nZużywa 25% wytrzymałości
+lethalshot=Wystrzel §hŚmiertelną Strzałę§0 w najbliższego wroga, zadając §i[[5 x <playerlevel> + 5 x <strength> x <skilllevel>]] obrażeń Tropiciela§0
+venomshot=Wystrzel §bTrującą Strzałę§0 w najbliższego wroga, zadając §i[[4 x <playerlevel> + 2 x <strength> x <skilllevel> + 2 x <intelligence> x <skilllevel>]] obrażeń Tropiciela§0
+explosiveshot=Wystrzel §iWybuchową Strzałę§0 w najbliższego wroga, zadając §i[[4 x <playerlevel> + 2 x <strength> x <skilllevel> + 2 x <intelligence> x <skilllevel>]] obrażeń Tropiciela§0
+
+shotsrampage=Gdy masz co najmniej 1 ładunek Szału Strzałów, trafienie wroga atakiem dystansowym daje 1 dodatkowy ładunek na 5 sekund\nKażdy ładunek Szału Strzałów zwiększa prędkość ataku o 5%, do maksymalnie 30 ładunków
+huntersmark=§hOznacz§0 pobliskiego wroga z najwyższym zdrowiem na 10 sekund\nJeśli zabijesz oznaczony cel, zyskasz §a+[[20 x <skilllevel>]]%§0 prędkości ataku dystansowego i prędkości ruchu na 5 sekund
+beartrap=Umieść na ziemi pułapkę na niedźwiedzie, która zniknie po uruchomieniu lub po 20 sekundach\nJeśli wróg ją uruchomi, otrzyma §i[[10 x <playerlevel>]] obrażeń§0 i zostanie uwięziony na 5 sekund
+
+huntersinstinct=Przez następne 12 sekund zwiększ swoją §7szansę na unik§0 o §a[[5 x <skilllevel>]]%\n§hOznacz§0 na 5 sekund wrogów, których unikniesz
+arrowstorm=Wystrzel podstawową strzałę w każdego bliskiego wroga, zadając §i[[2 x <playerlevel> + <strength> x <skilllevel> + <speed> x <skilllevel>]] obrażeń Tropiciela§0 każdą strzałą
+
+// Wizard
+arcaneoverload=Gdy aktywna, zwiększa twoją prędkość ataku magicznego o §a[[30 x <skilllevel>]]%§0, ale nie będziesz mógł się poruszać\nKończy się, gdy skończy ci się mana lub jeśli zostanie użyta ponownie\nZużywa §a[[10 + 2 x <skilllevel>]] many na sekundę
+manarecharge=Gdy aktywna, zyskujesz §a+[[<skilllevel>]] regeneracji many§0, ale zostaniesz sparaliżowany i otrzymasz podwójne obrażenia\nKończy się po ponownym użyciu
+firedance=Przywołuje 4 §bTańczące Płomienie§0, z których każdy zadaje §i[[<playerlevel> + <intelligence> x <skilllevel>]] obrażeń magicznych§0\nPrzywołuje kolejny co 5 sekund\nWszystkie przywołania znikają 20 sekund po aktywacji umiejętności\nZużywa §a[[30 + 6 x <skilllevel>]] many
+iceball=Rzuć §aKulą Lodu§0 w najbliższego wroga, zadając §i[[5 x <playerlevel> + 5 x <intelligence> x <skilllevel>]] obrażeń magicznych§0\nZużywa §a[[40 + 8 x <skilllevel>]] many
+zap=Rozpocznij porażenie, które przeskakuje między mobami przez 2 sekundy, zadając §i[[<playerlevel> + <intelligence> x <skilllevel>]] obrażeń magicznych§0 i ogłuszając na 1 sekundę\nZużywa §a[[10 + 2 x <skilllevel>]] many
+
+teleport=Teleportuje cię przed siebie\nZużywa 8 many
+inferno=Podpal wszystkich pobliskich wrogów, zadając §i[[0.5 x <playerlevel> + 0.5 x <intelligence> x <skilllevel>]] obrażeń od ognia§0 na sekundę przez 10 sekund\nZużywa §a[[30 + 6 x <skilllevel>]] many
+fireenchantment=Przez następne 10 sekund ataki twoje i pobliskich sojuszników podpalają wrogów, zadając §a[[5 x <skilllevel>]]%§0 obrażeń na sekundę przez 5 sekund\nZużywa §a[[20 + 4 x <skilllevel>]] many
+iceenchantment=Przez następne 10 sekund ataki twoje i pobliskich sojuszników zamrażają wrogów na §a[[2 x <skilllevel>]] sekund§0\nZużywa 20 many
+
+fireball=Rzuć §iKulą Ognia§0 w najbliższego wroga, zadając §i[[5 x <playerlevel> + 5 x <intelligence> x <skilllevel>]] obrażeń magicznych§0\nZużywa §a[[60 + 12 x <skilllevel>]] many
+lightning=Rozpocznij błyskawicę, która przeskakuje między mobami przez 1 sekundę, zadając §i[[4 x <playerlevel> + 4 x <intelligence> x <skilllevel>]] obrażeń magicznych§0 i ogłuszając na 2 sekundy\nNie może trafić tego samego celu wielokrotnie\nZużywa §a[[30 + 6 x <skilllevel>]] many
+
+// Necromancer
+skeletonhorde=Przywołuje §a[[1 + <skilllevel>]] §bSzkieletów§0
+skeletonwarrior=Przywołuje §bSzkielet Wojownika§0 z §a+[[40 x <skilllevel>]]%§0 zdrowia i obrażeń
+sacrifice=Najbliższy nekrotyczny przywołaniec umiera, a ty odzyskujesz §a[[10 + <endurance> x <skilllevel> + <intelligence> + <skilllevel> - <grace> ↓]] zdrowia§0 jako magiczne leczenie
+siegecry=Zyskaj §a+[[50 x <skilllevel>]]%§0 prędkości przywoływania na 6 sekund
+
+boneslingerhorde=Przywołuje §a[[1 + <skilllevel>]]§0 §bKościanych Miotaczy§0
+tomb=Generuje strukturę, która przywołuje §bSzkieleta§0 co §a[[10 - <skilllevel>]] sekund§0\nGrób ma zdrowie równe §a[[5 x <playerlevel> x <skilllevel>]]§0\nGrób traci 2% swojego całkowitego zdrowia na sekundę
+necroticbloom=Przyspiesza działanie trucizny na wszystkich pobliskich wrogach, skracając jej czas trwania do 10%, ale zwiększając obrażenia na sekundę, aby utrzymać całkowite obrażenia
+wardingtaunt=Najbliższy nekrotyczny przywołaniec zmusza pobliskich wrogów w promieniu §a[[50 x <skilllevel>]]§0 do obrania go za cel
+
+unholyground=Rozszerza wokół ciebie aurę zepsucia na 10 sekund\nWrogowie w tym obszarze otrzymują §i[[<playerlevel> + <intelligence> x <skilllevel> - <grace>]] obrażeń od trucizny§0 na sekundę i są §7Ograniczeni
+necroticbarrage=Wszystkie nekrotyczne przywołania eksplodują po śmierci, zadając §i[[5 x <playerlevel> + 5 x <intelligence> x <skilllevel>]] obrażeń magicznych§0 pobliskim wrogom\ni zatruwając ich na 10 sekund 20% pierwotnych obrażeń na sekundę
+
+// Cleric
+smite=Zesłaj promień świętego światła na najbliższego wroga, zadając §i[[4 x <playerlevel> + 2 x <intelligence> x <skilllevel> + 2 x <grace> x <skilllevel>]] świętych obrażeń§0\nZadaje podwójne obrażenia nieumarłym i demonicznym mobom\nZużywa §a[[10 + 2 x <skilllevel>]] many§0
+divineblessing=Magiczna aura lecznicza, która przywraca §a[[20 + 3 x <grace> x <skilllevel> ↓]] zdrowia§0 tobie i twoim sojusznikom\nZużywa §a[[20 + 4 x <skilllevel>]] many§0
+purify=Oczyść siebie i pobliskich sojuszników ze wszystkich negatywnych efektów\nZużywa 10 many
+lightinfusion=Przez następne 8 sekund zyskujesz §a+[[20 x <skilllevel>]]%§0 magicznego leczenia i świętych obrażeń
+
+holyguard=Zastosuj na sobie i wszystkich pobliskich sojusznikach Świętą Tarczę na maksymalnie 30 sekund\nOtrzymują oni §a+[[10 x <skilllevel>]]%§0 otrzymanego magicznego leczenia, a tarcza blokuje jedno trafienie przed zniszczeniem\nZużywa §a[[40 + 8 x <skilllevel>]] many§0
+judgment=Wyzwól falę promienistej energii, zadając §i[[4 x <playerlevel> + 2 x <intelligence> x <skilllevel> + 2 x <grace> x <skilllevel>]] świętych obrażeń§0 wszystkim pobliskim wrogom\nNieumarłe i demoniczne moby są §7Ograniczone§0 na 5 sekund\nZużywa §a[[20 + 4 x <skilllevel>]] many§0
+sanctuary=Stwórz świętą strefę na 8 sekund\nTy i sojusznicy wewnątrz jesteście odporni na negatywne efekty i zyskujecie §a[[0.2 x <grace> x <skilllevel>]]§0 regeneracji zdrowia na sekundę\nNieumarłe i demoniczne moby wewnątrz są §7Ograniczone§0\nZużywa §a[[30 + 6 x <skilllevel>]] many§0
+
+divineintervention=Natychmiast ulecz najbardziej rannego bliskiego sojusznika do jego maksymalnego zdrowia i zapewnij odporność na wszystkie obrażenia na §a[[<skilllevel>]]§0 sekund\nZużywa §a[[60 + 12 x <skilllevel>]] many§0
+resurrection=Wskrześ ostatniego martwego sojusznika na tej samej wyspie z §a[[10 x <skilllevel>]]%§0 jego maksymalnego zdrowia na twojej pozycji\nNie możesz wskrzeszać graczy, którzy zginęli ponad 10 sekund temu\nZużywa §a[[100 - 10 x <skilllevel>]]%§0 twojej many (co najmniej §a[[60 + 12 x <skilllevel>]]§0)
+wrathoflight=Przywołaj kolumnę światła na najbliższego wroga, zadając §i[[2 x <playerlevel> + <intelligence> x <skilllevel> + <grace> x <skilllevel>]] świętych obrażeń§0 na sekundę przez 5 sekund w obszarze\nNieumarłe i demoniczne moby wewnątrz są §7Ograniczone§0\nZużywa §a[[40 + 8 x <skilllevel>]] many§0
+
+// Druid
+wolftransformation=Transformacja w wilka trwa 3 sekundy\n\nPrędkość ruchu: 60\n\nNaciśnij [input=transformationability1], aby wykonać doskok z ugryzieniem: Skocz do przodu i ugryź, zadając §i[[2 x <playerlevel> + <strength> x <skilllevel> + <speed> x <skilllevel>]] obrażeń w walce wręcz§0 (3 zysk odporności)\n\nNaciśnij [input=transformationability2], aby szczekać: Zmuś pobliskich wrogów do obrania cię za cel na 2 sekundy\n\nPrzytrzymaj [input=trinketability], aby sprintować
+queenbeetransformation=Transformacja w królową pszczół trwa 2 sekundy\n\nPrędkość ruchu: 30\n-50% wykrywania wrogów\n§6+1000% otrzymywanych obrażeń§0\nOtrzymanie ciosu przywołuje maksymalną liczbę pszczół zamiast śmierci (60s odnowienia)\n\nNaciśnij [input=transformationability1], aby strzelić miodem: Zadaje §i[[2 x <playerlevel> + <strength> x <skilllevel>]] obrażeń dystansowych§0 (2 zysk odporności)\n\nNaciśnij [input=transformationability2], aby przywołać §9Pszczołę§0 do §a[[2 x <skilllevel>]]§0\n\nPrzytrzymaj [input=trinketability], aby rozkazać pszczołom atakować
+
+beartransformation=Transformacja w niedźwiedzia trwa 4 sekundy\n\nPrędkość ruchu: 20\n-50% otrzymywanych obrażeń\n\nNaciśnij [input=transformationability1], aby uderzyć w ziemię: Atak obszarowy, który zadaje §i[[4 x <playerlevel> + 4 x <strength> x <skilllevel>]] obrażeń w walce wręcz§0\ni §9ogłusza§0 na §a[[0.5 x <skilllevel>]] sekund§0 (4 zysk odporności)\n\nNaciśnij [input=transformationability2], aby ryczeć: Spraw, by pobliscy wrogowie uciekli na 1 sekundę\n\nPrzytrzymaj [input=trinketability], aby sprintować
+foxtransformation=Transformacja w lisa trwa 3 sekundy\n\nPrędkość ruchu: 50\n§6+50% otrzymywanych obrażeń§0\n\nNaciśnij [input=transformationability1], aby strzelać kulami ognia: Zadaje §i[[<playerlevel> + 0.5 x <intelligence> x <skilllevel>]] obrażeń magicznych§0 (2 zysk odporności)\n\nNaciśnij [input=transformationability2], aby przywołać §bTańczący Płomień§0 do §a[[2 + <skilllevel>]]§0, z których każdy zadaje takie same obrażenia jak kula ognia\n\nNaciśnij [input=trinketability], aby wykonać doskok\n§!Lis Vulpes Nova!
+rattransformation=Transformacja w szczura trwa 2 sekundy\n\nPrędkość ruchu: 25\n-50% wykrywania wrogów\nZapewnia maksymalną szansę na unik\n§6+1000% otrzymywanych obrażeń§0\n\nNaciśnij [input=transformationability1], aby ugryźć: Zadaje §i[[0.5 x <playerlevel> + 0.5 x <strength> x <skilllevel> + 0.5 x <intelligence> x <skilllevel>]] obrażeń w walce wręcz§0 i zatruwa cel\nna 100% zadanych obrażeń na sekundę przez 10 sekund\n\nPrzytrzymaj [input=trinketability], aby sprintować
+
+treanttransformation=Transformacja w Drzewca trwa 4 sekundy\n\nPrędkość ruchu: 0\n-§a[50 + 5 <skilllevel>]%§0 otrzymywanych obrażeń\n+50% pancerza\nWrogowie ignorują cię, jeśli jesteś ukryty przez 3 sekundy\n\nNaciśnij [input=transformationability1], aby strzelać losowymi nasionami: Zadaje §i[[0.5 x <playerlevel> + <strength> x <skilllevel>]] obrażeń dystansowych§0 z losowymi efektami (1 zysk odporności)\n\nNaciśnij [input=transformationability2], aby przywołać §9Sadzonkę Drzewa§0\n\nPrzytrzymaj [input=trinketability], aby się ujawnić i sprintować, jeśli się poruszasz
+
+
+[mastery]
+bastion=Bastion
+bloodborn=Krwiopijca
+chronomancer=Chronokrata
+barbarian=Barbarzyńca
+berserker=Berserker
+sniper=Snajper
+marksman=Strzelec wyborowy
+hunter=Łowca
+trapper=Traper
+pyromancer=Piromanta
+frostweaver=Tkacz mrozu
+stormcaller=Władca burz
+ironinvoker=Żelazny przywoływacz
+plaguebearer=Nosiciel zarazy
+darkeminence=Mroczna eminencja
+inquisitor=Inkwizytor
+timekeeper=Strażnik czasu
+shapeshifter=Zmiennokształtny
+
+
+[masterydesc]
+bastion=Zyskaj odporność na sekundę równą 25% twojej regeneracji zdrowia
+bloodborn=Leczysz się za 5% obrażeń zadanych wrogom\nZawsze tracisz 5% maksymalnego zdrowia na sekundę, ale nie możesz umrzeć od tego efektu\nRegeneracja zdrowia zawsze wynosi 0
+chronomancer=Skraca czas odnowienia wszystkich aktywnych umiejętności o 20%
+barbarian=+100% maksymalnego zdrowia i +200% regeneracji zdrowia, ale twój pancerz zawsze będzie wynosił 0
+berserker=Gdy zdrowie spadnie poniżej 50%, zyskujesz +25% szansy na trafienie krytyczne w walce wręcz\nTrafienia krytyczne w walce wręcz zwiększają twoją prędkość ataku i prędkość ruchu o 25% na 2 sekundy
+sniper=Ataki dystansowe zadają do +100% obrażeń w zależności od odległości do celu
+marksman=Wrogowie, których oznaczysz, są oznaczeni dla wszystkich graczy
+hunter=Gdy oznaczysz wroga, jest on §7Ograniczony§0 na 5 sekund
+trapper=+50% obrażeń zadawanych uwięzionym lub ograniczonym wrogom
+pyromancer=Twoje podpalenia mogą się kumulować na tym samym wrogu
+frostweaver=+50% obrażeń zadawanych wrogom z mroźnym spowolnieniem, zamrożeniem lub mroźnym oparzeniem
+stormcaller=Co 20 sekund wszyscy wrogowie w zasięgu wzroku zostają trafieni piorunem\nZadaj im wszystkim §i[[<playerlevel> + <intelligence>]] obrażeń magicznych§0 i ogłusz ich na 1 sekundę
+ironinvoker=Twoje przywołania, które można zranić, zyskują tarczę, która blokuje jeden atak i ładuje się po 10 sekundach
+plaguebearer=Twoje trucizny działają na wrogów dwa razy dłużej
+darkeminence=Za każdym razem, gdy stracisz więcej niż 15% swojego maksymalnego zdrowia w jednym ataku,\nprzywołujesz §bSzkielet Wojownika§0, który przejmuje obrażenia przekraczające te 15% (3s odnowienia)
+inquisitor=Twoje ataki i efekty osądzają wszystkich twoich wrogów jako demonicznych
+timekeeper=Magiczne leczenie, czy to na sobie, czy na sojuszniku, skraca czas odnowienia aktywnych umiejętności celu o 0,02 sekundy za każdy uleczony punkt
+shapeshifter=Po transformacji stajesz się niewrażliwy na 3 sekundy (5s odnowienia)
+
+
+[skillsdesckeys]
+skilllevel=Poziom umiejętności
+playerlevel=Poziom gracza
+endurance=Wytrzymałość
+speed=Szybkość
+strength=Siła
+intelligence=Inteligencja
+grace=Wdzięk
+
+
+[extraskilldesc]
+// Basic Mechanics
+manausage=Jeśli nie masz wystarczającej ilości many, czas odnowienia jest podwajany
+setmax=Negatywne efekty są ustawione na maksimum i nie mogą być usunięte przez inne wzmocnienia
+
+// Damages
+holydamage=§9Święte obrażenia:§0 2% zadanych świętych obrażeń zostanie zamienione na leczenie dla mobów, które leczysz magicznie\nPodpala również nieumarłych i demonicznych mobów na 10 sekund, lub w ogniu na 5 sekund, jeśli obrażenia wynoszą 100 lub więcej
+throwingdamage=§7Obrażenia od rzutu:§0 Bonusy do obrażeń w walce wręcz i dystansowej wpływają na obrażenia od rzutu o 50% każdy
+
+// Buffs
+marked=§hOznaczony:§0 Zadaj +20% obrażeń (+ §hobrażeń od skupienia§0) i +10% szansy na trafienie krytyczne mobom, które oznaczysz\n„Najbliższy wróg” priorytetowo traktuje oznaczonych wrogów
+constrained=§7Ograniczony:§0 -50% prędkości ruchu
+
+// Chance Modifiers
+dodgechance=§7Szansa na unik:§0 Szansa na uniknięcie nadchodzących ataków. Nie może przekroczyć 80%
+focuschance=§hSzansa na skupienie:§0 Szansa na §hoznaczenie§0 moba na 5 sekund, gdy go bezpośrednio zaatakujesz
+
+// Flat Modifiers
+mobdetection=§9Wykrywanie mobów:§0 Wyświetla pobliskie moby na mapie. Większy zasięg wykrywania ujawnia moby z większej odległości
+ignitedamage=§iObrażenia od podpalenia:§0 Zwiększa obrażenia od podpalenia w czasie, ale nie wpływa na obrażenia od bezpośredniego trafienia
+
+// Projectiles
+lethalarrow=§hŚmiertelna strzała:§0 Naprowadzana strzała, która gwarantuje trafienie krytyczne
+venomarrow=§bTrująca strzała:§0 Naprowadzana strzała, która zatruwa wrogów. Powtarza 10% swoich pierwotnych obrażeń na sekundę przez 30 sekund
+explosivearrow=§iWybuchowa strzała:§0 Naprowadzana strzała, która powoduje magiczną eksplozję o równej sile
+iceball=§aKula lodu:§0 Magiczny pocisk, który eksploduje i zamraża moby na 5 sekund, a także całkowicie zamraża je na 1 sekundę
+fireball=§iKula ognia:§0 Magiczny pocisk, który eksploduje i podpala moby, powtarzając 20% ich pierwotnych obrażeń na sekundę przez 5 sekund
+
+// Summons
+dancingflame=§bTańczący Płomień:§0 Przywołanie, które działa jak pocisk. Podpala wrogów przy trafieniu.\nPowtarza 20% swoich pierwotnych obrażeń na sekundę przez 5 sekund
+
+// Damageable Summons
+necromancerskeleton=§bSzkielet:§0 Nekrotyczne przywołanie, które można zranić\nZdrowie: §a[[5 x <playerlevel> + 5 x <intelligence> ↓]]§0\nObrażenia: §a[[<playerlevel> + <intelligence>]]§0\nSzybkość: 60\nTraci 2% całkowitego zdrowia na sekundę
+necromancerskeletonwarrior=§bSzkielet Wojownik:§0 Nekrotyczne przywołanie, które można zranić\nZdrowie: §a[[8 x <playerlevel> + 8 x <intelligence> ↓]]§0\nObrażenia: §a[[2 x <playerlevel> + 2 x <intelligence>]]§0\nSzybkość: 60\nTraci 2% całkowitego zdrowia na sekundę
+necromancerboneslinger=§bKościany Miotacz:§0 Nekrotyczne przywołanie, które można zranić\nZdrowie: §a[[2 x <playerlevel> + 2 x <intelligence> ↓]]§0\nObrażenia: §a[[<playerlevel> + <intelligence>]]§0 (zasięg 320)\nSzybkość: 60\nTraci 2% całkowitego zdrowia na sekundę
+
+bee=§9Pszczoła:§0 Przywołanie, które można zranić\nZdrowie: 1\nObrażenia: §a[[<playerlevel> + <intelligence> ↓]]§0\nPrędkość: 100\n\nUmiera po ataku, ale zatruwa cel na 20% zadanych obrażeń na sekundę przez 10 sekund
+dryadsapling=§9Sadzonka Drzewa:§0 Przywołanie, które można zranić\nZdrowie: §a[[2 x <playerlevel> + 2 x <intelligence> ↓]]§0\nObrażenia: §a[[3 x <playerlevel> + 3 x <intelligence>]]§0\n\nPrędkość: 65\nTraci 2% całkowitego zdrowia na sekundę
+
+[item]
+scrollofoblivion=Zwój Zapomnienia
+ringsbox=Pudełko na Pierścienie
+
+// Attribute Rings
+endurancewoodring=Drewniany Pierścień Wytrzymałości
+endurancecopperring=Miedziany Pierścień Wytrzymałości
+enduranceironring=Żelazny Pierścień Wytrzymałości
+endurancegoldring=Złoty Pierścień Wytrzymałości
+
+speedwoodring=Drewniany Pierścień Szybkości
+speedcopperring=Miedziany Pierścień Szybkości
+speedgoldring=Złoty Pierścień Szybkości
+speedironring=Żelazny Pierścień Szybkości
+
+strengthwoodring=Drewniany Pierścień Siły
+strengthcopperring=Miedziany Pierścień Siły
+strengthgoldring=Złoty Pierścień Siły
+strengthironring=Żelazny Pierścień Siły
+
+intelligencewoodring=Drewniany Pierścień Inteligencji
+intelligencecopperring=Miedziany Pierścień Inteligencji
+intelligencegoldring=Złoty Pierścień Inteligencji
+intelligenceironring=Żelazny Pierścień Inteligencji
+
+gracewoodring=Drewniany Pierścień Wdzięku
+gracecopperring=Miedziany Pierścień Wdzięku
+graceironring=Żelazny Pierścień Wdzięku
+gracegoldring=Złoty Pierścień Wdzięku
+
+
+[itemtooltip]
+holydamagetip=Święte obrażenia: <value>
+throwingdamagetip=Obrażenia od rzutu: <value>
+
+scrollofoblivion=Daje 2 punkty resetu
+ringsboxtip=Może przechowywać pierścienie atrybutów
+
+
+[message]
+xp=PD
+levelup=Awans!
+dodge=Unik!
+
+newmobkill=Zdobyłeś <exp> doświadczenia za pierwsze zabicie <mob>
+newlevel=Gratulacje! Osiągnąłeś poziom <level>. Naciśnij [input=openrpgmenu], aby otworzyć menu RPG
+
+noupdatesincombat=Nie możesz modyfikować swoich atrybutów, klas ani umiejętności podczas walki
+noactiveskill=Nie masz już tej aktywnej umiejętności, awansuj ją ponownie, jeśli chcesz jej użyć
+
+equipfirst=Najpierw musisz wyposażyć aktywną umiejętność w tym slocie
+activeskillinuse=Ta umiejętność jest już w użyciu
+anotheractiveskillinuse=Masz już inną umiejętność w użyciu
+incooldown=W trakcie odnawiania
+notenoughstamina=Za mało wytrzymałości
+canotusemounted=Nie można używać na wierzchowcu ani w transformacji
+
+notarget=W pobliżu nie ma celów
+nograbbableobject=Przed tobą nie ma żadnego obiektu do chwycenia
+notargetfollower=W pobliżu nie ma żadnych przywołań docelowych
+nodeathplayers=Na tym poziomie nie można wskrzesić żadnych martwych graczy
+
+
+[ui]
+menutitle=MOD RPG autorstwa Save
+attributes=Atrybuty
+mastery=Mistrzostwo
+activeskills=Umiejętności aktywne
+classes=Klasy
+
+level=Poziom <level>
+classlevel=<class> poziom <level>
+lvl=Poz <level>
+eachlevel=Każdy poziom zapewnia:
+experience=PD: <exp> / <nextexp>
+totalexperience=Całkowite PD: <exp>
+onlytranformed=Tylko w transformacji
+
+points=Punkty: <points>
+resetpoints=Punkty resetu: <points>
+attrpoints=Punkty atrybutów: <points>
+masterypoints=Punkty Mistrzostwa: <points>
+classpoints=Punkty klas: <points>
+passivepoints=Punkty pasywne: <points>
+activeskillpoints=Punkty umiejętności aktywnych: <points>
+
+activeskillsuse=Ten mod zamienia koło ekspresji (domyślnie klawisz T) w koło umiejętności aktywnych
+activeskillsusetip1=Zaleca się zmianę sterowania kołem ekspresji na łatwo dostępny klawisz
+activeskillsusetip2=Tylko pierwsze cztery umiejętności pojawiają się w kole umiejętności aktywnych. Do reszty będziesz musiał używać klawiszy
+activeskillsequipinstructions=Kliknij na slot, aby wyposażyć aktywną umiejętność. Nie możesz zdjąć aktywnej umiejętności w trakcie odnawiania
+noactiveskills=Nie masz żadnych umiejętności aktywnych. Odblokuj je poprzez klasy
+
+activeskillcast=§9Czas rzucania: <seconds>s
+activeskillcooldown=§9Czas odnowienia: <seconds>s
+activeskillcooldownmod=§9Czas odnowienia: [[<seconds> <sign> <mod> x <skilllevel>]]s
+requiredclasslevel=§bWymagany poziom klasy <level>
+requiredactiveskill=§bWymaga '<skill>' poziomu <level>
+maxlevel=§aMaksymalny poziom: <level>
+
+clicktoseebase=[input=mouse1], aby zobaczyć bazę
+clicktoseelevel=[input=mouse1], aby zobaczyć poziom <level>
+
+classlevelseparation=- Poziom klasy <level> -
+
+inuse=W użyciu
+
+upcomingclass=§6Nadchodząca klasa\n§9Ta klasa jest obecnie w fazie rozwoju\ni będzie dostępna w przyszłej aktualizacji
+disabledclass=Ta klasa jest wyłączona w tym świecie
+
+addcolumn=Dodaj kolumnę
+removecolumn=Usuń kolumnę
+
+rate=Oceń MOD RPG!
+
+clicktoopen=[input=mouse1], aby otworzyć
+
+
+[controls]
+openrpgmenu=Otwórz menu RPG
+activeskillslot1=Slot umiejętności aktywnej 1
+activeskillslot2=Slot umiejętności aktywnej 2
+activeskillslot3=Slot umiejętności aktywnej 3
+activeskillslot4=Slot umiejętności aktywnej 4
+activeskillslot5=Slot umiejętności aktywnej 5
+activeskillslot6=Slot umiejętności aktywnej 6
+activeskillslot7=Slot umiejętności aktywnej 7
+activeskillslot8=Slot umiejętności aktywnej 8
+activeskillslot9=Slot umiejętności aktywnej 9
+activeskillslot10=Slot umiejętności aktywnej 10
+activeskillslot11=Slot umiejętności aktywnej 11
+activeskillslot12=Slot umiejętności aktywnej 12
+transformationability1=Zdolność transformacji 1
+transformationability2=Zdolność transformacji 2
+
+
+[settingsui]
+restart_text=Ustawienia oznaczone (*) wymagają ponownego uruchomienia gry, aby zaczęły obowiązywać
+client_text="Ustawienia klienta" są czysto wizualne i można je dowolnie modyfikować.
+server_text="Ustawienia serwera" bezpośrednio wpływają na rozgrywkę. Nie można ich zmieniać w grze, a jeśli dołączysz do znajomego lub serwera, zastosowane zostaną ich ustawienia, a nie Twoje.
+
+// Default
+default_section=Wartości domyślne (Klient)
+default_text=Te ustawienia można modyfikować w innych menu, ale po uruchomieniu gry zawsze powrócą do tych wartości
+showClassIcons=Pokaż ikony klas
+twelveSkillSlots=12 gniazd umiejętności
+
+// Mechanics
+mechanics_section=Mechanika (Serwer)
+
+boomerangsDealThrowingDamage=Bumerangi zadają obrażenia od rzutu (*)
+
+// Experience
+experience_section=Doświadczenie (Serwer)
+
+experienceMod=% Modyfikator doświadczenia
+experienceMod_text=Modyfikuje ilość doświadczenia zdobywanego za pokonywanie potworów
+
+firstKillBonus=% Premia za pierwsze zabójstwo
+firstKillBonus_text=Premia do doświadczenia za pierwsze pokonanie potwora (nie jest dodawana, jest mnożona przez inne modyfikatory)
+
+bossKillBonus=% Premia za zabicie bossa
+bossKillBonus_text=Premia do doświadczenia za pokonanie bossa (nie jest dodawana, jest mnożona przez inne modyfikatory)
+
+startingExperience=Doświadczenie początkowe
+startingExperience_text=Doświadczenie, z którym zaczną nowi gracze
+
+firstExperienceReq=Wymaganie początkowe
+experienceReqInc=Przyrost wymagania
+squareExperienceReqInc=Kwadratowy przyrost wymagania
+cubeExperienceReqInc=Sześcienny przyrost wymagania
+experience_calc=Wymagane doświadczenie do osiągnięcia następnego poziomu wynosi:\n\nWymaganie początkowe + Przyrost wymagania * poziom +\n+ Kwadratowy przyrost wymagania * (poziom ^ 2) +\n+ Sześcienny przyrost wymagania * (poziom ^ 3)\n\nGdzie „poziom” to twój aktualny poziom
+
+// Classes
+classes_section=Klasy (Serwer)
+
+multiClass=Wieloklasowość
+multiClass_text=Ogranicz liczbę różnych klas, które można posiadać jednocześnie. Ustaw na 0, aby nie było limitu
+
+classes_enabled=Możesz wyłączyć klasy, których nie chcesz udostępniać

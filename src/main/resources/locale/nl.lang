@@ -1,0 +1,678 @@
+# Translation corrected by Gemini
+
+[global]
+rpgmod=§!RPG Mod
+
+[buffmodifiers]
+enduranceattrflat=<mod> uithoudingsvermogen attribuut
+speedattrflat=<mod> snelheid attribuut
+strengthattrflat=<mod> kracht attribuut
+intelligenceattrflat=<mod> intelligentie attribuut
+graceattrflat=<mod> gratie attribuut
+
+dodgechance=<mod>% ontwijkkans
+rangedweaponszoom=<mod> zoom van afstandswapens
+rangedweaponsrange=<mod>% bereik van afstandswapens
+mobdetectionrange=<mod> mob detectiebereik
+focusdamage=<mod>% focusschade
+focuschance=<mod>% focuskans
+ignitedamage=<mod>% brandschade
+
+// Holy Damage
+holydamage=<mod>% heilige schade
+holycritchance=<mod>% heilige kritieke kans
+holycritdamage=<mod>% heilige kritieke schade
+holyeffect=<mod>% heilig effect
+holyabilityspeed=<mod>% heilige vaardigheidssnelheid
+
+throwingdamage=<mod>% werpschade
+throwingattackspeed=<mod>% werpaanvalsnelheid
+throwingcritchance=<mod>% werpkritieke kans
+throwingcritdamage=<mod>% werpkritieke schade
+casttime=<mod>% werptijd
+
+transformationdelay=<mod>% transformatievertraging
+noskills=Kan geen vaardigheden gebruiken
+
+[stats]
+holy_damage=Heilige schade
+throwing_damage=Werpschade
+
+
+[enchantment]
+evasive=Ontwijkend
+stalking=Besluipen
+regenerative=Regeneratief
+energetic=Energetisch
+depleted=Uitgeput
+
+
+[buff]
+overlevelbuff=Overniveau
+markedbuff=Gemarkeerd
+darkcursebuff=Donkere vloek
+magicpoisonbuff=Magisch Gif
+ignitedbuff=In Brand
+holydamagedealtbuff=Heilige schade toegebracht
+queenbeewashit=Koningin der bijen is geraakt
+transformingbuff=Transformerend
+castingbuff=Bezwering
+
+
+[buffdesc]
+overlevelbuff1=§9Een van je klassen of attributen overschrijdt een puntenlimiet
+overlevelbuff2=§6Je kunt niet doorgaan totdat het is opgelost
+darkcursebuff1=+25% inkomende schade
+darkcursebuff2=Alle schade vermindert ook de maximale gezondheid
+
+
+[mob]
+rpgmobname=[<class>] <name> lvl <level>
+rpgmobnamecolor=§<color>[<class>]§0 <name> §9lvl <level>§0
+
+rangerwolf=Verkenner Wolf
+dancingflame=Dansende Vlam
+
+necromancerskeleton=Skelet
+necromancerskeletonwarrior=Skeletkrijger
+necromancerboneslinger=Bottenwerper
+necromancertomb=Graf
+
+
+[mobclass]
+boss=Baas
+warrior=Krijger
+tank=Tank
+runner=Renner
+healer=Genezer
+explosive=Explosief
+glacial=Gletsjer
+electric=Elektrisch
+flash=Flits
+dark=Donker
+legend=Legende
+
+
+[mobtrait]
+undead=Ondood
+demonic=Demonisch
+
+
+[attributes]
+endurance=Uithoudingsvermogen
+strength=Kracht
+speed=Snelheid
+intelligence=Intelligentie
+grace=Gratie
+
+
+[classes]
+warrior=Krijger
+ranger=Verkenner
+wizard=Tovenaar
+necromancer=Necromancer
+cleric=Geestelijke
+rogue=Schoft
+warlock=Heksenmeester
+paladin=Paladijn
+druid=Druïde
+
+
+[passives]
+passives=Passieven
+
+// Warrior
+regeneration=Regeneratie
+muscles=Spieren
+legs=Benen
+force=Kracht
+unstoppable=Niet te stoppen
+vigor=Kracht
+ironskin=IJzerhuid
+unleashingrage=Ontketenende woede
+unleashinghaste=Ontketenende haast
+unyielding=Onverzettelijk
+lastbreath=Laatste adem
+
+// Ranger
+aim=Doel
+agility=Behendigheid
+criticalshots=Kritieke schoten
+energy=Energie
+recovery=Herstel
+eagleeye=Adelaars oog
+focus=Focus
+erradication=Uitroeiing
+predatorsense=Roofdierenzin
+plasmagrenade=Plasmagranaat
+wolfcompanion=Wolf metgezel
+
+// Wizard
+arcanepower=Arcane Kracht
+manapower=Mana Kracht
+manaproficiency=Mana Vaardigheid
+firepower=Vuurkracht
+quickmagic=Snelle Magie
+arcaneshield=Arcane Schild
+fireshield=Vuurschild
+iceshield=IJsschild
+flamingsteps=Vlammende Stappen
+stormbound=Stormgebonden
+
+// Necromancer
+darkpower=Donkere Kracht
+necroticpower=Necrotische Kracht
+darkmagic=Donkere Magie
+necroticarmy=Necrotisch Leger
+darksummons=Donkere Oproepen
+lifeleech=Levensroof
+necroticremains=Necrotische Overblijfselen
+endlesslegion=Eindeloze Legioen
+lichborn=Lich Geboren
+
+// Cleric
+healer=Genezer
+shaman=Sjamaan
+vitalaura=Vitale aura
+divinejudge=Goddelijke rechter
+empoweredhealing=Versterkte genezing
+sanctifiedmind=Geheiligde geest
+sanctifiedarmor=Geheiligde harnas
+radiantexpansion=Stralende uitbreiding
+
+// Druid
+quickshift=Snelle verschuiving
+feralinstinct=Wild instinct
+ironfur=IJzeren vacht
+naturesfavor=Gunst van de natuur
+beastpace=Beestachtig tempo
+primalburst=Oeruitbarsting
+elementalguard=Elementaire bewaker
+phoenixspirit=Feniksgeest
+
+
+[passivesdesc]
+// Warrior
+unleashingrage=Elk niveau biedt:\n\n+1% Alle schade voor elke 10% ontbrekende gezondheid
+unleashinghaste=Elk niveau biedt:\n\n+1% Bewegingssnelheid voor elke 10% ontbrekende gezondheid
+unyielding=Elk niveau biedt:\n\n+5% Aanvalssnelheid en -5% Inkomende schade terwijl onder 20% gezondheid
+lastbreath=In plaats van te sterven, word je onkwetsbaar voor §a[[3 x <skilllevel>]] seconden§0\nZodra de tijd om is, zul je sterven
+
+// Ranger
+plasmagrenade=Elke 8 afstandsaanvallen, vuur een geleid explosief projectiel af dat §i[[30 x <skilllevel>]]%§0 van de wapenschade aanricht
+wolfcompanion=Een wolf metgezel zal gemarkeerde vijanden aanvallen en §i[[<playerlevel> + <intelligence> x <skilllevel>]] oproepersschade aanrichten
+
+// Wizard
+manapower=Elk niveau biedt:\n\n+1% Magische schade voor elke 10% ongebruikte mana
+flamingsteps=Wanneer je rent met een actief snuisterij of transformatie, laat je vlammen achter op de grond\nDe vlammen zullen vijanden 3 seconden in brand steken, en §i[[0.5 x <playerlevel> + 0.5 x <intelligence> x <skilllevel>]] Magische schade§0 per seconde aanrichten
+stormbound=Elke §a[[11 - 0.5 x <skilllevel>]] seconden§0, slaat een bliksemflits een willekeurige vijand in je zicht\nRicht §i[[0.5 x <playerlevel> + 0.5 x <intelligence> x <skilllevel>]] Magische schade§0 aan en verdooft 1 seconde
+arcaneshield=Een schild dat één treffer voorkomt\nHet schild zal herstellen §a[[20 - <skilllevel>]] seconden§0 na gebruik
+fireshield=Een schild dat één treffer voorkomt\nBij gebruik, laat je een explosie los die §i[[<playerlevel> + <intelligence> x <skilllevel>]] Magische schade§0 aanricht\nen mobs in brand steekt, waarbij 20% van hun oorspronkelijke schade per seconde gedurende 5 seconden wordt herhaald\nHet schild zal 26 seconden na gebruik herstellen
+iceshield=Een schild dat één treffer voorkomt\nBij gebruik, laat je een ijsaura los die §i[[<playerlevel> + <intelligence> x <skilllevel>]] Magische schade§0 aanricht\nmobs 5 seconden bevriest, en ze 1 seconde volledig bevriest\nHet schild zal 22 seconden na gebruik herstellen
+
+// Necromancer
+necroticpower=Al je Magische aanvallen vergiftigen voor 5% van hun schade gedurende §a[[2 x <skilllevel>]] seconden§0
+darkmagic=Oproepersschade bonussen beïnvloeden Magische schade met §a[[5 x <skilllevel>]]%
+necroticarmy=Verslagen vijandige vijanden zullen veranderen in §bSkeletten§0 met §a-[[100 - 3 x <skilllevel>]]%§0 Gezondheid en schade
+darksummons=Richt §a+[[8 x <skilllevel>]]%§0 Oproepersschade aan vergiftigde vijanden
+lifeleech=Herstelt §a[[0.05 x <skilllevel>]]%§0 van de aangerichte oproepersschade als gezondheid
+necroticremains=Wanneer een necrotische oproep sterft, explodeert deze, en richt §i[[0.1 x <intelligence> x <skilllevel>]] Magische schade§0 aan nabije vijanden, en vergiftigt ze voor 20% van de schade per seconde gedurende 10 seconden
+endlesslegion=Elke 4 niveaus van deze vaardigheid, krijg je +1 maximale oproep
+lichborn=Wanneer je sterft, overleef je en herstel je §a[[10 x <skilllevel>]]%§0 Gezondheid als je nog geen §bLich§0 bent\nVoor de volgende §a[[120 - 6 x <skilllevel>]] seconden§0, word je een §bLich§0 (een skelet)\n\n\n§bLich:§0 Ondode transformatie\n\nKan geen items gebruiken\n+100% Schade ontvangen\n\nDruk op [input=transformationability1] om een bot te schieten dat §i[[<playerlevel> + <strength> + 0.2 x <intelligence>]] Magische schade§0 aanricht (2 veerkrachtwinst)
+
+// Cleric
+vitalaura=Elke §a[[15 - <skilllevel>]] seconden§0, laat je een magische genezende aura om je heen los die §a[[10 + <grace> ↓]] gezondheid§0 herstelt\nHet geneest je ook voor de helft van dat bedrag
+divinejudge=Magische schade bonussen beïnvloeden Heilige schade met §a[[5 x <skilllevel>]]%
+empoweredhealing=Wanneer je jezelf of een bondgenoot magisch geneest, verhoog je hun schade met §a[[5 x <skilllevel>]]%§0 gedurende 3 seconden
+sanctifiedmind=Magische genezing herstelt ook mana gelijk aan §a[[5 x <skilllevel>]]%§0 van de gedane genezing
+sanctifiedarmor=Magische genezing herstelt ook veerkracht gelijk aan §a[[2 x <skilllevel>]]%§0 van de gedane genezing
+radiantexpansion=Wanneer je jezelf of een bondgenoot magisch geneest, richt je §a[[5 x <skilllevel>]]%§0 van de genezing aan als Heilige schade aan nabije vijanden van het genezen doelwit
+
+// Druid
+naturesfavor=Krijg +§a[[2 x <skilllevel>]] Gezondheidsregeneratie§0 per seconde terwijl je op gras staat
+primalburst=Verhoogt schade en snelheid met [[6 x <skillevel>]]% voor de eerste 5 seconden na transformatie
+phoenixspirit=Vereist minimaal 4 punten om te werken:\n\nAls je zou sterven terwijl je getransformeerd bent met een actieve vaardigheid, overleef je in plaats daarvan met §a[4 + 8 x <skilllevel>]%§0 gezondheid, en die vaardigheid wordt op een afkoeltijd van 1 uur geplaatst\n\nWordt niet geactiveerd als je al minimaal §a[[0.25 x <skilllevel> ↓]] transformatievaardigheid(en)§0 hebt met een afkoeltijd langer dan 1 minuut
+
+
+[activeskills]
+empty=Leeg
+
+// Warrior
+fury=Woede
+recovery=Herstel
+provocation=Provocatie
+berserkercharge=Berserker aanval
+
+groundslam=Grondslag
+grounddestruction=Grondvernietiging
+parry=Pareren
+battlecry=Strijdkreet
+
+ironguard=IJzeren bewaker
+intimidation=Intimidatie
+
+objectthrowing=Object gooien
+
+// Ranger
+shortdash=Korte sprint
+longdash=Lange sprint
+lethalshot=Dodelijke schot
+venomshot=Gifschot
+explosiveshot=Explosief schot
+
+shotsrampage=Schoten razernij
+huntersmark=Jagersmerk
+beartrap=Berenval
+
+huntersinstinct=Jagersinstinct
+arrowstorm=Pijlenstorm
+
+// Wizard
+arcaneoverload=Arcane overbelasting
+firedance=Vuurdans
+iceball=IJsbal
+zap=Zap
+manarecharge=Mana opladen
+
+teleport=Teleporteren
+inferno=Inferno
+fireenchantment=Vuurbetovering
+iceenchantment=IJsbetovering
+
+fireball=Vuurbal
+lightning=Bliksem
+
+// Necromancer
+skeletonhorde=Skelettenhorde
+skeletonwarrior=Skeletkrijger
+sacrifice=Offer
+siegecry=Belegeringskreet
+
+boneslingerhorde=Bottenwerperhorde
+tomb=Graf
+necroticbloom=Necrotische bloei
+wardingtaunt=Afwerende spot
+
+unholyground=Onheilige grond
+necroticbarrage=Necrotische barrage
+
+// Cleric
+smite=Slaan
+divineblessing=Goddelijke zegen
+purify=Zuiveren
+lightinfusion=Lichtinfusie
+
+holyguard=Heilige bewaker
+judgment=Oordeel
+sanctuary=Heiligdom
+
+divineintervention=Goddelijke interventie
+resurrection=Wederopstanding
+wrathoflight=Toorn van het licht
+
+// Druid
+wolftransformation=Wolfstransformatie
+queenbeetransformation=Koninginnebijtransformatie
+
+beartransformation=Berentransformatie
+foxtransformation=Vostransformatie
+rattransformation=Rattentransformatie
+
+treanttransformation=Boomwezen-transformatie
+
+
+[activeskillsdesc]
+// Warrior
+fury=Verhoog de komende 6 seconden je contactschade en aanvalssnelheid met §a[[20 x <skilllevel>]]%
+recovery=Verhoogt de komende 10 seconden de gevechtsgezondheidsregeneratie aanzienlijk, waardoor §a[[20 + <endurance> x <skilllevel>]] gezondheid§0 gedurende de duur wordt hersteld
+provocation=Dwing de komende §a[[2 x <skilllevel>]] seconden§0 nabije vijanden om hun aanvallen op jou te richten
+berserkercharge=Storm een korte afstand naar voren en richt §i[[10 x <playerlevel> + 2 x <strength> x <skilllevel> + 2 x <speed> x <skilllevel>]] schade§0 aan alle vijanden die je passeert\nVerbruikt 50% uithoudingsvermogen
+
+groundslam=Gebiedsaanval die §i[[5 x <strength>]] contactschade§0 aanricht en §9verdooft§0 gedurende §a[[1 x <skilllevel>]] seconden§0
+grounddestruction=Gebiedsaanval die §i[[5 x <playerlevel> + 5 x <strength> x <skilllevel>]] contactschade§0 aanricht en §9verdooft§0 gedurende 2 seconden
+parry=Word 0,5 seconde onkwetsbaar en retourneer 500% van de oorspronkelijke ontvangen schade\nVerbruikt 100% uithoudingsvermogen
+battlecry=Verhoog de komende 10 seconden je en nabije bondgenoten hun alle schade en bewegingssnelheid met §a[[10 x <skilllevel>]]%
+
+ironguard=-50% inkomende schade gedurende §a[[4 x <skilllevel>]] seconden
+intimidation=Laat de komende §a[[<skilllevel>]] seconden§0 nabije vijanden wegrennen
+
+objectthrowing=Stap 1: Grijp een object voor je\nStap 2: Gooi het naar voren en richt §i[[20 x <playerlevel> + 10 x <strength> x <skilllevel>]] contactschade§0 aan
+
+// Ranger
+shortdash=Voer een korte sprint uit\nVerbruikt 15% uithoudingsvermogen
+longdash=Voer een lange sprint uit\nVerbruikt 25% uithoudingsvermogen
+lethalshot=Schiet een §hDodelijke pijl§0 op de dichtstbijzijnde vijand, die §i[[5 x <playerlevel> + 5 x <strength> x <skilllevel>]] Verkenner-schade§0 aanricht
+venomshot=Schiet een §bGifpijl§0 op de dichtstbijzijnde vijand, die §i[[4 x <playerlevel> + 2 x <strength> x <skilllevel> + 2 x <intelligence> x <skilllevel>]] Verkenner-schade§0 aanricht
+explosiveshot=Schiet een §iExplosieve pijl§0 op de dichtstbijzijnde vijand, die §i[[4 x <playerlevel> + 2 x <strength> x <skilllevel> + 2 x <intelligence> x <skilllevel>]] Verkenner-schade§0 aanricht
+
+shotsrampage=Zolang je minstens 1 stapel Schoten razernij hebt, levert het raken van een vijand met een afstandsaanval 1 extra stapel op gedurende 5 seconden\nElke stapel Schoten razernij verhoogt de aanvalssnelheid met 5%, tot een maximum van 30 stapels
+huntersmark=§hMarkeer§0 de nabije vijand met de hoogste gezondheid gedurende 10 seconden\nAls je een gemarkeerd doelwit doodt, krijg je §a+[[20 x <skilllevel>]]%§0 afstandsaanvalsnelheid en bewegingssnelheid gedurende 5 seconden
+beartrap=Plaats een berenval op de grond die verdwijnt als hij wordt geactiveerd of na 20 seconden\nAls een vijand hem activeert, lopen ze §i[[10 x <playerlevel>]] schade§0 op en zitten ze 5 seconden vast
+
+huntersinstinct=Verhoog de komende 12 seconden je §7ontwijkkans§0 met §a[[5 x <skilllevel>]]%\n§hMarkeer§0 gedurende 5 seconden de vijanden die je ontwijkt
+arrowstorm=Schiet een basispijl op elke nabije vijand, die §i[[2 x <playerlevel> + <strength> x <skilllevel> + <speed> x <skilllevel>]] Verkenner-schade§0 per pijl aanricht
+
+// Wizard
+arcaneoverload=Terwijl actief, verhoogt je magische aanvalssnelheid met §a[[30 x <skilllevel>]]%§0, maar je kunt niet bewegen\nEindigt wanneer je mana op is, of als het opnieuw wordt gebruikt\nVerbruikt §a[[10 + 2 x <skilllevel>]] mana per seconde
+manarecharge=Terwijl actief, krijg je §a+[[<skilllevel>]] mana-regeneratie§0, maar je wordt verlamd en loopt dubbele schade op\nEindigt wanneer het opnieuw wordt gebruikt
+firedance=Roept 4 §bDansende vlammen§0 op, die elk §i[[<playerlevel> + <intelligence> x <skilllevel>]] magische schade§0 aanrichten\nRoept elke 5 seconden een nieuwe op\nAlle oproepen verdwijnen 20 seconden nadat de vaardigheid is geactiveerd\nVerbruikt §a[[30 + 6 x <skilllevel>]] mana
+iceball=Gooi een §aIJsbal§0 naar de dichtstbijzijnde vijand, die §i[[5 x <playerlevel> + 5 x <intelligence> x <skilllevel>]] magische schade§0 aanricht\nVerbruikt §a[[40 + 8 x <skilllevel>]] mana
+zap=Start een zap die 2 seconden tussen mobs springt, §i[[<playerlevel> + <intelligence> x <skilllevel>]] magische schade§0 aanricht en 1 seconde verdooft\nVerbruikt §a[[10 + 2 x <skilllevel>]] mana
+
+teleport=Teleporteert voor je\nVerbruikt 8 mana
+inferno=Steek alle nabije vijanden in brand, die §i[[0.5 x <playerlevel> + 0.5 x <intelligence> x <skilllevel>]] brandschade§0 per seconde gedurende 10 seconden aanrichten\nVerbruikt §a[[30 + 6 x <skilllevel>]] mana
+fireenchantment=De komende 10 seconden steken aanvallen van jou en nabije bondgenoten vijanden in brand, die §a[[5 x <skilllevel>]]%§0 van de schade per seconde gedurende 5 seconden aanrichten\nVerbruikt §a[[20 + 4 x <skilllevel>]] mana
+iceenchantment=De komende 10 seconden bevriezen aanvallen van jou en nabije bondgenoten vijanden gedurende §a[[2 x <skilllevel>]] seconden§0\nVerbruikt 20 mana
+
+fireball=Gooi een §iVuurbal§0 naar de dichtstbijzijnde vijand, die §i[[5 x <playerlevel> + 5 x <intelligence> x <skilllevel>]] magische schade§0 aanricht\nVerbruikt §a[[60 + 12 x <skilllevel>]] mana
+lightning=Start een bliksem die 1 seconde tussen mobs springt, §i[[4 x <playerlevel> + 4 x <intelligence> x <skilllevel>]] magische schade§0 aanricht en 2 seconden verdooft\nKan niet meerdere keren hetzelfde doelwit raken\nVerbruikt §a[[30 + 6 x <skilllevel>]] mana
+
+// Necromancer
+skeletonhorde=Roept §a[[1 + <skilllevel>]] §bSkeletten§0 op
+skeletonwarrior=Roept een §bSkeletkrijger§0 op met §a+[[40 x <skilllevel>]]%§0 gezondheid en schade
+sacrifice=De dichtstbijzijnde necrotische oproep sterft, en je herstelt dan §a[[10 + <endurance> x <skilllevel> + <intelligence> + <skilllevel> - <grace> ↓]] gezondheid§0 als magische genezing
+siegecry=Krijg §a+[[50 x <skilllevel>]]%§0 oproepsnelheid gedurende 6 seconden
+
+boneslingerhorde=Roept §a[[1 + <skilllevel>]]§0 §bBottenwerpers§0 op
+tomb=Genereert een structuur die elke §a[[10 - <skilllevel>]] seconden§0 een §bSkelet§0 oproept\nHet graf heeft gezondheid gelijk aan §a[[5 x <playerlevel> x <skilllevel>]]§0\nHet graf verliest 2% van zijn totale gezondheid per seconde
+necroticbloom=Versnelt het effect van gif op alle nabije vijanden door de duur ervan te verkorten tot 10%, maar de schade per seconde te verhogen om de totale schade te behouden
+wardingtaunt=De dichtstbijzijnde necrotische oproep dwingt nabije vijanden binnen een straal van §a[[50 x <skilllevel>]]§0 om hem aan te vallen
+
+unholyground=Verlengt een aura van corruptie om je heen gedurende 10 seconden\nVijanden binnen dit gebied lopen §i[[<playerlevel> + <intelligence> x <skilllevel> - <grace>]] gifschade§0 per seconde op en zijn §7beperkt
+necroticbarrage=Alle necrotische oproepen exploderen bij het sterven en richten §i[[5 x <playerlevel> + 5 x <intelligence> x <skilllevel>]] magische schade§0 aan nabije vijanden\nen vergiftigen ze gedurende 10 seconden met 20% van de oorspronkelijke schade per seconde
+
+// Cleric
+smite=Roep een straal heilig licht neer op de dichtstbijzijnde vijand, die §i[[4 x <playerlevel> + 2 x <intelligence> x <skilllevel> + 2 x <grace> x <skilllevel>]] heilige schade§0 aanricht\nRicht dubbele schade aan ondode en demonische mobs\nVerbruikt §a[[10 + 2 x <skilllevel>]] mana§0
+divineblessing=Magische genezingsaura die §a[[20 + 3 x <grace> x <skilllevel> ↓]] gezondheid§0 herstelt voor jou en je bondgenoten\nVerbruikt §a[[20 + 4 x <skilllevel>]] mana§0
+purify=Reinig jezelf en nabije bondgenoten van alle negatieve effecten\nVerbruikt 10 mana
+lightinfusion=De komende 8 seconden krijg je §a+[[20 x <skilllevel>]]%§0 magische genezing en heilige schade
+
+holyguard=Pas op jezelf en alle nabije bondgenoten een heilig schild toe voor maximaal 30 seconden\nZe krijgen §a+[[10 x <skilllevel>]]%§0 ontvangen magische genezing en het schild blokkeert één treffer voordat het breekt\nVerbruikt §a[[40 + 8 x <skilllevel>]] mana§0
+judgment=Laat een golf van stralende energie los, die §i[[4 x <playerlevel> + 2 x <intelligence> x <skilllevel> + 2 x <grace> x <skilllevel>]] heilige schade§0 aanricht aan alle nabije vijanden\nOndode en demonische mobs zijn §7beperkt§0 gedurende 5 seconden\nVerbruikt §a[[20 + 4 x <skilllevel>]] mana§0
+sanctuary=Creëer een heilige zone gedurende 8 seconden\nJij en bondgenoten binnenin zijn immuun voor negatieve effecten en krijgen §a[[0.2 x <grace> x <skilllevel>]]§0 gezondheidsregeneratie per seconde\nOndode en demonische mobs binnenin zijn §7beperkt§0\nVerbruikt §a[[30 + 6 x <skilllevel>]] mana§0
+
+divineintervention=Genees onmiddellijk de meest beschadigde nabije bondgenoot tot hun maximale gezondheid en verleen immuniteit voor alle schade gedurende §a[[<skilllevel>]]§0 seconden\nVerbruikt §a[[60 + 12 x <skilllevel>]] mana§0
+resurrection=Herleef de laatst overleden spelerbondgenoot op hetzelfde eiland met §a[[10 x <skilllevel>]]%§0 van hun maximale gezondheid op jouw positie\nJe kunt geen spelers herleven die meer dan 10 seconden geleden zijn overleden\nVerbruikt §a[[100 - 10 x <skilllevel>]]%§0 van je mana (minstens §a[[60 + 12 x <skilllevel>]]§0)
+wrathoflight=Roep een kolom van licht op de dichtstbijzijnde vijand, die §i[[2 x <playerlevel> + <intelligence> x <skilllevel> + <grace> x <skilllevel>]] heilige schade§0 per seconde gedurende 5 seconden in het gebied aanricht\nOndode en demonische mobs binnenin zijn §7beperkt§0\nVerbruikt §a[[40 + 8 x <skilllevel>]] mana§0
+
+// Druid
+wolftransformation=Duurt 3 seconden om te transformeren in een wolf\n\nBewegingssnelheid: 60\n\nDruk op [input=transformationability1] om een sprintbeet uit te voeren: Spring naar voren en bijt, en richt §i[[2 x <playerlevel> + <strength> x <skilllevel> + <speed> x <skilllevel>]] contactschade§0 aan (3 veerkrachtwinst)\n\nDruk op [input=transformationability2] om te blaffen: Dwing nabije vijanden om je 2 seconden aan te vallen\n\nHoud [input=trinketability] ingedrukt om te sprinten
+queenbeetransformation=Duurt 2 seconden om te transformeren in een koningin der bijen\n\nBewegingssnelheid: 30\n-50% vijanddetectie\n§6+1000% inkomende schade§0\nEen klap krijgen roept maximale bijen op in plaats van te sterven (60s afkoeltijd)\n\nDruk op [input=transformationability1] om honing te schieten: Richt §i[[2 x <playerlevel> + <strength> x <skilllevel>]] afstandsschade§0 aan (2 veerkrachtwinst)\n\nDruk op [input=transformationability2] om een §9Bij§0 op te roepen tot §a[[2 x <skilllevel>]]§0\n\nHoud [input=trinketability] ingedrukt om je bijen te bevelen aan te vallen
+
+beartransformation=Duurt 4 seconden om te transformeren in een beer\n\nBewegingssnelheid: 20\n-50% inkomende schade\n\nDruk op [input=transformationability1] om een grondslag uit te voeren: Gebiedsaanval die §i[[4 x <playerlevel> + 4 x <strength> x <skilllevel>]] contactschade§0 aanricht\nen §9verdooft§0 gedurende §a[[0.5 x <skilllevel>]] seconden§0 (4 veerkrachtwinst)\n\nDruk op [input=transformationability2] om te grommen: Laat nabije vijanden 1 seconde wegrennen\n\nHoud [input=trinketability] ingedrukt om te sprinten
+foxtransformation=Duurt 3 seconden om te transformeren in een vos\n\nBewegingssnelheid: 50\n§6+50% inkomende schade§0\n\nDruk op [input=transformationability1] om vuurballen te schieten: Richt §i[[<playerlevel> + 0.5 x <intelligence> x <skilllevel>]] magische schade§0 aan (2 veerkrachtwinst)\n\nDruk op [input=transformationability2] om een §bDansende vlam§0 op te roepen tot §a[[2 + <skilllevel>]]§0, die elk dezelfde schade aanrichten als een vuurbal\n\nDruk op [input=trinketability] om te sprinten\n§!Vulpes Nova-vos!
+rattransformation=Duurt 2 seconden om te transformeren in een rat\n\nBewegingssnelheid: 25\n-50% vijanddetectie\nGeeft maximale ontwijkkans\n§6+1000% inkomende schade§0\n\nDruk op [input=transformationability1] om te bijten: Richt §i[[0.5 x <playerlevel> + 0.5 x <strength> x <skilllevel> + 0.5 x <intelligence> x <skilllevel>]] contactschade§0 aan en vergiftigt het doelwit\nvoor 100% van de aangerichte schade per seconde gedurende 10 seconden\n\nHoud [input=trinketability] ingedrukt om te sprinten
+
+treanttransformation=Duurt 4 seconden om te transformeren in een Boomwezen\n\nBewegingssnelheid: 0\n-§a[50 + 5 <skilllevel>]%§0 inkomende schade\n+50% pantser\nVijanden negeren je als je 3 seconden verborgen bent\n\nDruk op [input=transformationability1] om willekeurige zaden te schieten: Richt §i[[0.5 x <playerlevel> + <strength> x <skilllevel>]] afstandsschade§0 aan met willekeurige effecten (1 veerkrachtwinst)\n\nDruk op [input=transformationability2] om een §9Dryad Sapling§0 op te roepen\n\nHoud [input=trinketability] ingedrukt om te onthullen en te sprinten als je beweegt
+
+
+[mastery]
+bastion=Bastion
+bloodborn=Bloedgeboren
+chronomancer=Tijdmagiër
+barbarian=Barbaar
+berserker=Berserker
+sniper=Sluipschutter
+marksman=Scherpschutter
+hunter=Jager
+trapper=Vallensteller
+pyromancer=Pyromaan
+frostweaver=Vorstwever
+stormcaller=Stormroeper
+ironinvoker=IJzeren oproeper
+plaguebearer=Pestdrager
+darkeminence=Donkere eminentie
+inquisitor=Inquisiteur
+timekeeper=Tijdbewaarder
+shapeshifter=Vormveranderaar
+
+
+[masterydesc]
+bastion=Krijg veerkracht per seconde gelijk aan 25% van je gezondheidsregeneratie
+bloodborn=Genees voor 5% van de schade die je aan vijanden toebrengt\nVerlies altijd 5% van je maximale gezondheid per seconde, maar je kunt niet sterven aan dit effect\nGezondheidsregeneratie is altijd 0
+chronomancer=Vermindert de afkoeltijd van alle actieve vaardigheden met 20%
+barbarian=+100% maximale gezondheid en +200% gezondheidsregeneratie, maar je pantser zal altijd 0 zijn
+berserker=Wanneer de gezondheid onder de 50% is, krijg je +25% kans op een kritieke treffer in de nabijheid\nKritieke treffers in de nabijheid verhogen je aanvalssnelheid en bewegingssnelheid met 25% gedurende 2 seconden
+sniper=Afstands-aanvallen hebben tot +100% schade op basis van de afstand tot het doelwit
+marksman=Vijanden die je markeert, zijn gemarkeerd voor alle spelers
+hunter=Wanneer je een vijand markeert, is deze 5 seconden lang §7Beperkt§0
+trapper=+50% schade aan gevangen of beperkte vijanden
+pyromancer=Je ontstekingen kunnen zich op dezelfde vijand stapelen
+frostweaver=+50% schade aan vijanden met Frostslow, Freezing of Frostburn
+stormcaller=Elke 20 seconden worden alle vijanden in het zicht getroffen door een blikseminslag\nRicht §i[[<playerlevel> + <intelligence>]] magische schade§0 aan en verdoof ze allemaal gedurende 1 seconde
+ironinvoker=Je beschadigbare oproepen krijgen een schild dat één aanval blokkeert en na 10 seconden weer oplaadt
+plaguebearer=Je vergiften duren twee keer zo lang op vijanden
+darkeminence=Telkens wanneer je meer dan 15% van je maximale gezondheid verliest door een enkele aanval,\nroep je een §bSkeletkrijger§0 op die de schade boven die 15% oploopt (3s afkoeltijd)
+inquisitor=Jouw aanvallen en effecten beoordelen al je vijanden als demonisch
+timekeeper=Magische genezing, hetzij op jezelf of een bondgenoot, vermindert de afkoeltijden van de actieve vaardigheden van het doelwit met 0,02 seconden per genezen punt
+shapeshifter=Na transformatie word je 3 seconden onkwetsbaar (5s afkoeltijd)
+
+
+[skillsdesckeys]
+skilllevel=Vaardigheidsniveau
+playerlevel=Spelersniveau
+endurance=Uithoudingsvermogen
+speed=Snelheid
+strength=Kracht
+intelligence=Intelligentie
+grace=Gratie
+
+
+[extraskilldesc]
+// Basic Mechanics
+manausage=Als je niet genoeg mana hebt, wordt de afkoeltijd verdubbeld
+setmax=Negatieve effecten worden als maximaal ingesteld en kunnen niet worden verwijderd door andere buffs
+
+// Damages
+holydamage=§9Heilige schade:§0 2% van de aangerichte Heilige schade wordt omgezet in genezing voor mobs die je magisch geneest\nSteekt ook Ondode en Demonische mobs 10 seconden in brand, of in lichterlaaie gedurende 5 seconden als de schade 100 of meer is
+throwingdamage=§7Werpschade:§0 Contact- en afstandsschadebonussen beïnvloeden werpschade elk met 50%
+
+// Buffs
+marked=§hGemarkeerd:§0 Richt +20% schade (+ §hfocusschade§0) en +10% kritieke kans aan op mobs die je markeert\n"Dichtstbijzijnde vijand" geeft voorrang aan gemarkeerde vijanden
+constrained=§7Beperkt:§0 -50% Bewegingssnelheid
+
+// Chance Modifiers
+dodgechance=§7Ontwijkkans:§0 Kans om inkomende aanvallen te ontwijken. Kan niet hoger zijn dan 80%
+focuschance=§hFocuskans:§0 Kans om een mob 5 seconden te §hmarkeren§0 wanneer je hem rechtstreeks aanvalt
+
+// Flat Modifiers
+mobdetection=§9Mobdetectie:§0 Toont nabije mobs op de kaart. Een hoger detectiebereik onthult mobs van verder weg
+ignitedamage=§iBrandschade:§0 Verhoogt brandschade na verloop van tijd, maar heeft geen invloed op directe trefferschade
+
+// Projectiles
+lethalarrow=§hDodelijke pijl:§0 Geleide pijl die een kritieke treffer garandeert
+venomarrow=§bGifpijl:§0 Geleide pijl die vijanden vergiftigt. Herhaalt 10% van de oorspronkelijke schade per seconde gedurende 30 seconden
+explosivearrow=§iExplosieve pijl:§0 Geleide pijl die een magische explosie met gelijke schade veroorzaakt
+iceball=§aIJsbal:§0 Magisch projectiel dat explodeert en mobs 5 seconden bevriest, en ze ook 1 seconde volledig bevriest
+fireball=§iVuurbal:§0 Magisch projectiel dat explodeert en mobs in brand steekt en 20% van hun oorspronkelijke schade per seconde gedurende 5 seconden herhaalt
+
+// Summons
+dancingflame=§bDansende Vlam:§0 Oproep die fungeert als een projectiel. Steekt vijanden in brand bij een treffer.\nHerhaalt 20% van de oorspronkelijke schade per seconde gedurende 5 seconden
+
+// Damageable Summons
+necromancerskeleton=§bSkelet:§0 Necrotische beschadigbare oproep\nGezondheid: §a[[5 x <playerlevel> + 5 x <intelligence> ↓]]§0\nSchade: §a[[<playerlevel> + <intelligence>]]§0\nSnelheid: 60\nVerliest 2% van de Totale Gezondheid per seconde
+necromancerskeletonwarrior=§bSkeletkrijger:§0 Necrotische beschadigbare oproep\nGezondheid: §a[[8 x <playerlevel> + 8 x <intelligence> ↓]]§0\nSchade: §a[[2 x <playerlevel> + 2 x <intelligence>]]§0\nSnelheid: 60\nVerliest 2% van de Totale Gezondheid per seconde
+necromancerboneslinger=§bBottenwerper:§0 Necrotische beschadigbare oproep\nGezondheid: §a[[2 x <playerlevel> + 2 x <intelligence> ↓]]§0\nSchade: §a[[<playerlevel> + <intelligence>]]§0 (320 afstand)\nSnelheid: 60\nVerliest 2% van de Totale Gezondheid per seconde
+
+bee=§9Bij:§0 Beschadigbare oproep\nGezondheid: 1\nSchade: §a[[<playerlevel> + <intelligence> ↓]]§0\nSnelheid: 100\n\nSterft bij aanval, maar vergiftigt het doelwit voor 20% van de aangerichte schade per seconde gedurende 10 seconden
+dryadsapling=§9Dryad Sapling:§0 Beschadigbare oproep\nGezondheid: §a[[2 x <playerlevel> + 2 x <intelligence> ↓]]§0\nSchade: §a[[3 x <playerlevel> + 3 x <intelligence>]]§0\n\nSnelheid: 65\nVerliest 2% van de Totale Gezondheid per seconde
+
+[item]
+scrollofoblivion=Rol van vergetelheid
+ringsbox=Ringendoos
+
+// Attribute Rings
+endurancewoodring=Houten ring van uithoudingsvermogen
+endurancecopperring=Koperen ring van uithoudingsvermogen
+enduranceironring=IJzeren ring van uithoudingsvermogen
+endurancegoldring=Gouden ring van uithoudingsvermogen
+
+speedwoodring=Houten ring van snelheid
+speedcopperring=Koperen ring van snelheid
+speedgoldring=Gouden ring van snelheid
+speedironring=IJzeren ring van snelheid
+
+strengthwoodring=Houten ring van kracht
+strengthcopperring=Koperen ring van kracht
+strengthgoldring=Gouden ring van kracht
+strengthironring=IJzeren ring van kracht
+
+intelligencewoodring=Houten ring van intelligentie
+intelligencecopperring=Koperen ring van intelligentie
+intelligencegoldring=Gouden ring van intelligentie
+intelligenceironring=IJzeren ring van intelligentie
+
+gracewoodring=Houten ring van gratie
+gracecopperring=Koperen ring van gratie
+graceironring=IJzeren ring van gratie
+gracegoldring=Gouden ring van gratie
+
+
+[itemtooltip]
+holydamagetip=Heilige schade: <value>
+throwingdamagetip=Werpschade: <value>
+
+scrollofoblivion=Geeft 2 resetpunten
+ringsboxtip=Kan attribuutringen opslaan
+
+
+[message]
+xp=XP
+levelup=Niveau omhoog!
+dodge=Ontwijken!
+
+newmobkill=Je hebt <exp> ervaring gekregen voor het voor de eerste keer doden van <mob>
+newlevel=Gefeliciteerd! Je hebt niveau <level> bereikt. Druk op [input=openrpgmenu] om het RPG-menu te openen
+
+noupdatesincombat=Je kunt je attributen, klassen of vaardigheden niet wijzigen tijdens een gevecht
+noactiveskill=Je hebt die actieve vaardigheid niet meer, level hem opnieuw als je hem wilt gebruiken
+
+equipfirst=Je moet eerst een actieve vaardigheid in dit slot uitrusten
+activeskillinuse=Deze vaardigheid is al in gebruik
+anotheractiveskillinuse=Je hebt al een andere vaardigheid in gebruik
+incooldown=Afkoelen
+notenoughstamina=Niet genoeg uithoudingsvermogen
+canotusemounted=Kan niet gebruikt worden te paard of getransformeerd
+
+notarget=Er zijn geen doelen in de buurt
+nograbbableobject=Er is geen grijpbaar object voor je
+notargetfollower=Er zijn geen doel-oproepen in de buurt
+nodeathplayers=Op dit niveau kunnen geen dode spelers worden herrezen
+
+
+[ui]
+menutitle=RPG MOD door Save
+attributes=Attributen
+mastery=Meesterschap
+activeskills=Actieve vaardigheden
+classes=Klassen
+
+level=Niveau <level>
+classlevel=<class> niveau <level>
+lvl=Lvl <level>
+eachlevel=Elk niveau biedt:
+experience=XP: <exp> / <nextexp>
+totalexperience=Totaal XP: <exp>
+onlytranformed=Alleen wanneer getransformeerd
+
+points=Punten: <points>
+resetpoints=Resetpunten: <points>
+attrpoints=Attribuutpunten: <points>
+masterypoints=Meesterschapspunten: <points>
+classpoints=Klassenpunten: <points>
+passivepoints=Passieve punten: <points>
+activeskillpoints=Actieve vaardigheidspunten: <points>
+
+activeskillsuse=Deze mod verandert het expressiewiel (standaard T-toets) in het actieve vaardighedenwiel
+activeskillsusetip1=Het wordt aanbevolen om de bediening van het expressiewiel te wijzigen in een gemakkelijk toegankelijke toets
+activeskillsusetip2=Alleen de eerste vier vaardigheden verschijnen in het Actieve Vaardighedenwiel. Voor de rest moet je toetsen gebruiken
+activeskillsequipinstructions=Klik op een slot om een actieve vaardigheid uit te rusten. Je kunt een actieve vaardigheid niet uitrusten tijdens het afkoelen
+noactiveskills=Je hebt geen actieve vaardigheden. Ontgrendel ze via de klassen
+
+activeskillcast=§9Werptijd: <seconds>s
+activeskillcooldown=§9Afkoelen: <seconds>s
+activeskillcooldownmod=§9Afkoelen: [[<seconds> <sign> <mod> x <skilllevel>]]s
+requiredclasslevel=§bKlasseniveau <level> vereist
+requiredactiveskill=§bVereist '<skill>' niveau <level>
+maxlevel=§aMaximaal niveau: <level>
+
+clicktoseebase=[input=mouse1] om basis te zien
+clicktoseelevel=[input=mouse1] om niveau <level> te zien
+
+classlevelseparation=- Klasseniveau <level> -
+
+inuse=In gebruik
+
+upcomingclass=§6Aankomende klasse\n§9Deze klasse is momenteel in ontwikkeling\nen zal beschikbaar zijn in een toekomstige update
+disabledclass=Deze klasse is uitgeschakeld in deze wereld
+
+addcolumn=Kolom toevoegen
+removecolumn=Kolom verwijderen
+
+rate=Beoordeel RPG Mod!
+
+clicktoopen=[input=mouse1] om te openen
+
+
+[controls]
+openrpgmenu=Open RPG-menu
+activeskillslot1=Actief vaardigheidsslot 1
+activeskillslot2=Actief vaardigheidsslot 2
+activeskillslot3=Actief vaardigheidsslot 3
+activeskillslot4=Actief vaardigheidsslot 4
+activeskillslot5=Actief vaardigheidsslot 5
+activeskillslot6=Actief vaardigheidsslot 6
+activeskillslot7=Actief vaardigheidsslot 7
+activeskillslot8=Actief vaardigheidsslot 8
+activeskillslot9=Actief vaardigheidsslot 9
+activeskillslot10=Actief vaardigheidsslot 10
+activeskillslot11=Actief vaardigheidsslot 11
+activeskillslot12=Actief vaardigheidsslot 12
+transformationability1=Transformatie Vaardigheid 1
+transformationability2=Transformatie Vaardigheid 2
+
+
+[settingsui]
+restart_text=Instellingen gemarkeerd met (*) vereisen een herstart van het spel om van kracht te worden
+client_text="Clientinstellingen" zijn puur visueel en kunnen vrij worden aangepast.
+server_text="Serverinstellingen" hebben rechtstreeks invloed op de gameplay. Ze kunnen niet in het spel worden gewijzigd en als je je bij een vriend of server voegt, zijn hun instellingen van toepassing in plaats van die van jou.
+
+// Default
+default_section=Standaardwaarden (Client)
+default_text=Deze instellingen kunnen in andere menu's worden aangepast, maar ze zullen altijd terugkeren naar deze waarden wanneer je het spel start
+showClassIcons=Klassenpictogrammen weergeven
+twelveSkillSlots=12 vaardigheidssloten
+
+// Mechanics
+mechanics_section=Mechanica (Server)
+
+boomerangsDealThrowingDamage=Boemerangs richten werpschade aan (*)
+
+// Experience
+experience_section=Ervaring (Server)
+
+experienceMod=% Ervaringsmod
+experienceMod_text=Wijzigt de hoeveelheid ervaring die wordt opgedaan door het verslaan van mobs
+
+firstKillBonus=% Eerste moordbonus
+firstKillBonus_text=Een ervaringsboost bij het voor de eerste keer verslaan van een mob (niet opgeteld, vermenigvuldigd met andere modifiers)
+
+bossKillBonus=% Baasmoordbonus
+bossKillBonus_text=Een ervaringsboost bij het verslaan van een baas (niet opgeteld, vermenigvuldigd met andere modifiers)
+
+startingExperience=Startervaring
+startingExperience_text=De ervaring waarmee nieuwe spelers beginnen
+
+firstExperienceReq=Vereiste Initieel
+experienceReqInc=Vereiste Toename
+squareExperienceReqInc=Vereiste Kwadratische Toename
+cubeExperienceReqInc=Vereiste Kubieke Toename
+experience_calc=De ervaringsvereiste om het volgende niveau te bereiken is:\n\nVereiste Initieel + Vereiste Toename * niveau +\n+ Vereiste Kwadratische Toename * (niveau ^ 2) +\n+ Vereiste Kubieke Toename * (niveau ^ 3)\n\nWaar 'niveau' je huidige niveau is
+
+// Classes
+classes_section=Klassen (Server)
+
+multiClass=Multi-klasse
+multiClass_text=Beperk hoeveel verschillende klassen tegelijkertijd kunnen worden gehouden. Stel in op 0 voor geen limiet
+
+classes_enabled=U kunt de klassen uitschakelen die u niet beschikbaar wilt hebben

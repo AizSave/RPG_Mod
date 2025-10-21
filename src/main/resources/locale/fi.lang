@@ -1,0 +1,584 @@
+# Translation made by AI
+
+[global]
+rpgmod=§!RPG Mod
+
+[buffmodifiers]
+enduranceattrflat=<mod> kestävyysominaisuus
+speedattrflat=<mod> nopeusominaisuus
+strengthattrflat=<mod> voimakkuusominaisuus
+intelligenceattrflat=<mod> älykkyysominaisuus
+graceattrflat=<mod> sulo-ominaisuus
+
+dodgechance=<mod>% väistömahdollisuus
+rangedweaponszoom=<mod> etäaseiden zoomaus
+rangedweaponsrange=<mod>% etäaseiden kantama
+mobdetectionrange=<mod> mobien havaitsemisalue
+focusdamage=<mod>% keskittymisvaurio
+focuschance=<mod>% keskittymismahdollisuus
+ignitedamage=<mod>% sytytysvahinko
+
+// Holy Damage
+holydamage=<mod>% pyhää vahinkoa
+holycritchance=<mod>% pyhän kriittisen osuman mahdollisuus
+holycritdamage=<mod>% pyhää kriittistä vahinkoa
+holyeffect=<mod>% pyhää vaikutusta
+holyabilityspeed=<mod>% pyhän kyvyn nopeutta
+
+throwingdamage=<mod>% heittovahinko
+throwingattackspeed=<mod>% heittohyökkäysnopeus
+throwingcritchance=<mod>% heiton kriittinen mahdollisuus
+throwingcritdamage=<mod>% heiton kriittinen vahinko
+casttime=<mod>% heittoaika
+
+transformationdelay=<mod>% muodonmuutoksen viive
+noskills=Ei voi käyttää taitoja
+
+[stats]
+holy_damage=Pyhä vahinko
+throwing_damage=Heittovahinko
+
+
+[enchantment]
+evasive=Väistelevä
+stalking=Vaaniminen
+regenerative=Uudistuva
+energetic=Energinen
+depleted=Ehtynyt
+
+
+[buff]
+overlevelbuff=Ylitason
+markedbuff=Merkitty
+darkcursebuff=Pimeä kirous
+magicpoisonbuff=Taikamyrkky
+ignitedbuff=Sytytetty
+holydamagedealtbuff=Tehty pyhä vahinko
+queenbeewashit=Kuningatarmehiläinen osui
+transformingbuff=Muodonmuutos
+castingbuff=Loitsiminen
+
+
+[buffdesc]
+overlevelbuff1=§9Yksi luokistasi tai ominaisuuksistasi ylittää pisterajan
+overlevelbuff2=§6Et voi jatkaa, ennen kuin se on korjattu
+darkcursebuff1=+25% saapuvaa vahinkoa
+darkcursebuff2=Kaikki vahinko vähentää myös enimmäisterveyttä
+
+
+[mob]
+rpgmobname=[<class>] <name> taso <level>
+rpgmobnamecolor=§<color>[<class>]§0 <name> §9taso <level>§0
+
+rangerwolf=Metsänvartijan susi
+dancingflame=Tanssiva liekki
+necromancerskeleton=Luuranko
+necromancerskeletonwarrior=Luurankosoturi
+necromancerboneslinger=Luunheittäjä
+necromancertomb=Hauta
+
+
+[mobclass]
+boss=Pomo
+warrior=Soturi
+tank=Tankki
+runner=Juoksija
+healer=Parantaja
+explosive=Räjähtävä
+glacial=Jäinen
+electric=Sähköinen
+flash=Välähdys
+dark=Pimeä
+legend=Legenda
+
+
+[mobtrait]
+undead=Epäkuollut
+demonic=Demoninen
+
+
+[attributes]
+endurance=Kestävyys
+strength=Voimakkuus
+speed=Nopeus
+intelligence=Älykkyys
+grace=Sulo
+
+
+[classes]
+warrior=Soturi
+ranger=Metsänvartija
+wizard=Velho
+necromancer=Nekromantikko
+cleric=Pappi
+rogue=Rosvo
+warlock=Noita
+paladin=Paladiini
+druid=Druidi
+
+
+[passives]
+passives=Passiiviset
+
+// Soturi
+regeneration=Uudistuminen
+muscles=Lihakset
+legs=Jalat
+force=Voima
+unstoppable=Pysäyttämätön
+vigor=Vigori
+ironskin=Rautaiho
+unleashingrage=Vapauttava raivo
+unleashinghaste=Vapauttava kiire
+unyielding=Periksiantamaton
+lastbreath=Viimeinen hengenveto
+
+// Metsänvartija
+aim=Tähtäys
+agility=Ketterys
+criticalshots=Kriittiset laukaukset
+energy=Energia
+recovery=Palautuminen
+eagleeye=Kotkansilmä
+focus=Keskittyminen
+erradication=Hävitys
+predatorsense=Saalistajan aisti
+plasmagrenade=Plasmakranaatti
+wolfcompanion=Susi-kumppani
+
+// Velho
+arcanepower=Salaperäinen voima
+manapower=Manan voima
+manaproficiency=Manan taito
+firepower=Tulivoima
+quickmagic=Nopea taika
+arcaneshield=Salaperäinen kilpi
+fireshield=Tulikilpi
+iceshield=Jääkilpi
+flamingsteps=Liekkiaskeleet
+stormbound=Myrskyn sitoma
+
+// Nekromantikko
+darkpower=Pimeä voima
+necroticpower=Nekroottinen voima
+darkmagic=Pimeä taika
+necroticarmy=Nekroottinen armeija
+darksummons=Pimeät kutsut
+lifeleech=Elämän imeminen
+necroticremains=Nekroottiset jäännökset
+endlesslegion=Loputon legioona
+lichborn=Lich-syntyinen
+
+// Cleric
+healer=Parantaja
+shaman=Shamaani
+vitalaura=Elintärkeä aura
+divinejudge=Jumalallinen tuomari
+empoweredhealing=Voimaantunut parannus
+sanctifiedmind=Pyhitetty mieli
+sanctifiedarmor=Pyhitetty panssari
+radiantexpansion=Säteilevä laajennus
+
+// Druid
+quickshift=Nopea vaihto
+feralinstinct=Villieläimen vaisto
+ironfur=Rautaturkki
+naturesfavor=Luonnon suosio
+beastpace=Pedon askel
+primalburst=Alkukantainen purkaus
+elementalguard=Elementaalivartija
+phoenixspirit=Feeniksin henki
+
+
+[passivesdesc]
+
+// Soturi
+unleashingrage=Jokainen taso antaa:\n\n+1% kaikkea vahinkoa jokaista 10% puuttuvaa terveyttä kohden
+unleashinghaste=Jokainen taso antaa:\n\n+1% liikkumisnopeutta jokaista 10% puuttuvaa terveyttä kohden
+unyielding=Jokainen taso antaa:\n\n+5% hyökkäysnopeutta ja -5% saapuvaa vahinkoa alle 20% terveydellä
+lastbreath=Sen sijaan, että kuolisit, tulet haavoittumattomaksi §a[[3 x <skilllevel>]] sekunniksi§0\nKun aika loppuu, kuolet
+
+// Metsänvartija
+plasmagrenade=Joka 8. etähyökkäys ampuu ohjatun räjähtävän ammuksen, joka tekee §i[[30 x <skilllevel>]]%§0 aseen vahingosta
+wolfcompanion=Susi-kumppani hyökkää merkittyjen vihollisten kimppuun tehden §i[[<playerlevel> + <intelligence> x <skilllevel>]] kutsujan vahinkoa§0
+
+// Velho
+manapower=Jokainen taso antaa:\n\n+1% taikavahinkoa jokaista 10% käyttämätöntä manaa kohden
+flamingsteps=Kun juokset aktiivisen helyen tai muodonmuutoksen kanssa, jätät maahan liekkejä\nLiekit sytyttävät viholliset tuleen 3 sekunniksi, tehden §i[[0.5 x <playerlevel> + 0.5 x <intelligence> x <skilllevel>]] taikavahinkoa§0 sekunnissa
+stormbound=Joka §a[[11 - 0.5 x <skilllevel>]] sekunti§0, salama iskee satunnaiseen viholliseen näkökentässäsi\nTekee §i[[0.5 x <playerlevel> + 0.5 x <intelligence> x <skilllevel>]] taikavahinkoa§0 ja tainnuttaa 1 sekunniksi
+arcaneshield=Kilpi, joka estää yhden osuman\nKilpi palautuu §a[[20 - <skilllevel>]] sekunnin§0 kuluttua käytöstä
+fireshield=Kilpi, joka estää yhden osuman\nKäytettäessä vapautat räjähdyksen, joka tekee §i[[<playerlevel> + <intelligence> x <skilllevel>]] taikavahinkoa§0\nja sytyttää mobit tuleen, toistaen 20% niiden alkuperäisestä vahingosta sekunnissa 5 sekunnin ajan\nKilpi palautuu 26 sekunnin kuluttua käytöstä
+iceshield=Kilpi, joka estää yhden osuman\nKäytettäessä vapautat jää-auran, joka tekee §i[[<playerlevel> + <intelligence> x <skilllevel>]] taikavahinkoa§0\njäädyttäen mobit 5 sekunniksi ja jäädyttäen ne kokonaan 1 sekunniksi\nKilpi palautuu 22 sekunnin kuluttua käytöstä
+
+// Nekromantikko
+necroticpower=Kaikki taikahyökkäyksesi myrkyttävät 5% niiden vahingosta §a[[2 x <skilllevel>]] sekunnin§0 ajan
+darkmagic=Kutsujan vahinkobonukset vaikuttavat taikavahinkoon §a[[5 x <skilllevel>]]%
+necroticarmy=Voitetut vihamieliset viholliset muuttuvat §bLuurangoiksi§0, joilla on §a-[[100 - 3 x <skilllevel>]]%§0 terveyttä ja vahinkoa
+darksummons=Tee §a+[[8 x <skilllevel>]]%§0 kutsujan vahinkoa myrkytetyille vihollisille
+lifeleech=Palauttaa §a[[0.05 x <skilllevel>]]%§0 tehdystä kutsujan vahingosta terveytenä
+necroticremains=Kun nekroottinen kutsu kuolee, se räjähtää ja tekee §i[[0.1 x <intelligence> x <skilllevel>]] taikavahinkoa§0 lähellä oleville vihollisille ja myrkyttää heidät 20% vahingosta sekunnissa 10 sekunnin ajan
+endlesslegion=Joka 4. tämän taidon taso saat +1 maksimikutsua
+lichborn=Kun kuolet, selviydyt ja palautat §a[[10 x <skilllevel>]]%§0 terveyttä, jos et ole jo §bLich§0\nSeuraavien §a[[120 - 6 x <skilllevel>]] sekunnin§0 ajan sinusta tulee §bLich§0 (luuranko)\n\n\n§bLich:§0 Epäkuollut muodonmuutos\n\nEi voi käyttää esineitä\n+100% Vahingonotto\n\nPaina [input=transformationability1] ampuaksesi luun, joka tekee §i[[<playerlevel> + <strength> + 0.2 x <intelligence>]] taikavahinkoa§0
+
+// Cleric
+vitalaura=Joka §a[[15 - <skilllevel>]] sekunti§0 vapautat ympärillesi maagisen parantavan auran, joka palauttaa §a[[10 + <grace> ↓]] terveyttä§0\nSe parantaa myös sinut puolella siitä määrästä
+divinejudge=Taikavahingon bonukset vaikuttavat pyhään vahinkoon §a[[5 x <skilllevel>]]%§0
+empoweredhealing=Kun parannat maagisesti itsesi tai liittolaisen, lisää heidän vahinkoaan §a[[5 x <skilllevel>]]%§0 3 sekunniksi
+sanctifiedmind=Maaginen parannus palauttaa myös manaa, joka vastaa §a[[5 x <skilllevel>]]%§0 tehdystä parannuksesta
+sanctifiedarmor=Maaginen parannus palauttaa myös sietokykyä, joka vastaa §a[[2 x <skilllevel>]]%§0 tehdystä parannuksesta
+radiantexpansion=Kun parannat maagisesti itsesi tai liittolaisen, tee §a[[5 x <skilllevel>]]%§0 parannuksesta pyhänä vahinkona parannetun kohteen lähellä oleville vihollisille
+
+// Druid
+naturesfavor=Saa +§a[[2 x <skilllevel>]] terveyden palautumista§0 sekunnissa seisoessasi ruohikolla
+primalburst=Lisää vahinkoa ja nopeutta [[6 x <skillevel>]]% ensimmäisten 5 sekunnin ajan muodonmuutoksen jälkeen
+phoenixspirit=Vaatii vähintään 4 pistettä toimiakseen:\n\nJos kuolisit muodonmuutoksen aikana aktiivisen taidon kanssa, selviydyt sen sijaan §a[4 + 8 x <skilllevel>]]%§0 terveydellä, ja kyseinen taito asetetaan 1 tunnin jäähtymisaikaan\n\nEi laukea, jos sinulla on jo vähintään §a[[0.25 x <skilllevel> ↓]] muodonmuutostaito(ja)§0 yli 1 minuutin jäähtymisajalla
+
+
+[activeskills]
+empty=Tyhjä
+
+// Soturi
+fury=Raivo
+recovery=Palautuminen
+provocation=Provokaatio
+berserkercharge=Berserker-ryntäys
+
+groundslam=Maanisku
+grounddestruction=Maan tuho
+parry=Torjunta
+battlecry=Sotahuuto
+
+ironguard=Rautavartio
+intimidation=Pelottelu
+
+objectthrowing=Esineen heittäminen
+
+// Metsänvartija
+shortdash=Suorita lyhyt syöksy\nKuluttaa 15% kestävyydestä
+longdash=Suorita pitkä syöksy\nKuluttaa 25% kestävyydestä
+lethalshot=Tappava laukaus
+venomshot=Myrkkylaukaus
+explosiveshot=Räjähtävä laukaus
+
+shotsrampage=Laukausten riehunta
+huntersmark=Metsästäjän merkki
+beartrap=Karhunrauta
+
+huntersinstinct=Seuraavien 12 sekunnin ajan lisää §7väistömahdollisuuttasi§0 §a[[5 x <skilllevel>]]%§0\n§hMerkitse§0 5 sekunniksi viholliset, jotka väistät
+arrowstorm=Nuolimyrsky
+
+// Velho
+arcaneoverload=Salaperäinen ylikuormitus
+firedance=Tulitanssi
+iceball=Jääpallo
+zap=Sähköisku
+manarecharge=Manan lataus
+
+teleport=Teleportaatio
+inferno=Inferno
+fireenchantment=Tulen lumous
+iceenchantment=Jään lumous
+
+fireball=Tulipallo
+lightning=Salama
+
+// Nekromantikko
+skeletonhorde=Luurankolauma
+skeletonwarrior=Luurankosoturi
+sacrifice=Lähin nekroottinen kutsu kuolee, ja palautat sitten §a[[10 + <endurance> x <skilllevel> + <intelligence> + <skilllevel> - <grace> ↓]] terveyttä§0 maagisena parannuksena
+siegecry=Piirityshuuto
+
+boneslingerhorde=Luunheittäjälauma
+tomb=Hauta
+necroticbloom=Nekroottinen kukinta
+wardingtaunt=Suojeleva pilkka
+
+unholyground=Epäpyhä maa
+necroticbarrage=Nekroottinen sulkutuli
+
+// Cleric
+smite=Iskeä
+divineblessing=Maaginen parantava aura, joka palauttaa §a[[20 + 3 x <grace> x <skilllevel> ↓]] terveyttä§0 sinulle ja liittolaisillesi\nKuluttaa §a[[20 + 4 x <skilllevel>]] manaa§0
+purify=Puhdistaa
+lightinfusion=Valon infuusio
+holyguard=Pyhä vartija
+judgment=Tuomio
+sanctuary=Pyhäkkö
+divineintervention=Jumalallinen väliintulo
+resurrection=Ylösnousemus
+wrathoflight=Valon viha
+
+// Druid
+wolftransformation=Suden muodonmuutos
+queenbeetransformation=Kuningatarmehiläisen muodonmuutos
+beartransformation=Karhun muodonmuutos
+foxtransformation=Ketun muodonmuutos
+rattransformation=Rotan muodonmuutos
+treanttransformation=Kestää 4 sekuntia muuttua Puuksi\n\nLiikkumisnopeus: 0\n-§a[50 + 5 <skilllevel>]%§0 Saapuva vahinko\n+50% Panssari\nViholliset jättävät sinut huomiotta, jos olet piilossa 3 sekunnin ajan\n\nPaina [input=transformationability1] ampuaksesi satunnaisia siemeniä: Tee §i[[0.5 x <playerlevel> + <strength> x <skilllevel>]] etäisyysvahinkoa§0 satunnaisilla vaikutuksilla (1 sietokyvyn lisäys)\n\nPaina [input=transformationability2] kutsua §9Dryad Sapling§0\n\nPidä [input=trinketability] painettuna paljastaaksesi ja sprintataksesi, jos liikut
+
+
+[mastery]
+bastion=Bastioni
+bloodborn=Verisyntyinen
+chronomancer=Kronomaagi
+barbarian=Barbaari
+berserker=Berserkki
+sniper=Tarkka-ampuja
+marksman=Ampuja
+hunter=Metsästäjä
+trapper=Ansoittaja
+pyromancer=Pyromaani
+frostweaver=Hallankutoja
+stormcaller=Myrskykutsuja
+ironinvoker=Rautakutsuja
+plaguebearer=Ruttokantaja
+darkeminence=Pimeä eminenssi
+inquisitor=Inkvisiittori
+timekeeper=Ajanvartija
+shapeshifter=Muodonmuuttaja
+
+
+[masterydesc]
+bastion=Saa sietokykyä sekunnissa, joka vastaa 25% terveyden palautumisestasi
+bloodborn=Paranna 5% vihollisille tekemästäsi vahingosta\nMenetät aina 5% maksimiterveydestäsi sekunnissa, mutta et voi kuolla tähän vaikutukseen\nTerveyden palautuminen on aina 0
+chronomancer=Vähentää kaikkien aktiivisten taitojen jäähtymisaikaa 20%
+barbarian=+100% maksimiterveyttä ja +200% terveyden palautumista, mutta panssarisi on aina 0
+berserker=Kun terveys on alle 50%, saat +25% lähitaistelun kriittisen osuman mahdollisuuden\nLähitaistelun kriittiset osumat lisäävät hyökkäysnopeutta ja liikkumisnopeutta 25% 2 sekunniksi
+sniper=Etäisyyshyökkäyksillä on jopa +100% vahinkoa kohteen etäisyyden perusteella
+marksman=Merkitsemäsi viholliset merkitään kaikille pelaajille
+hunter=Kun merkitset vihollisen, se on §7Rajoitettu§0 5 sekunnin ajan
+trapper=+50% vahinkoa ansassa oleville tai rajoitetuille vihollisille
+pyromancer=Sytytyksesi voivat pinoutua samalle viholliselle
+frostweaver=+50% vahinkoa vihollisille, joilla on Frostslow, Freezing tai Frostburn
+stormcaller=Joka 20. sekunti kaikki näkyvissä olevat viholliset osuvat salamaniskuun\nTee §i[[<playerlevel> + <intelligence>]] taikavahinkoa§0 ja tainnuta heidät kaikki 1 sekunniksi
+ironinvoker=Vahingoitettavissa olevat kutsusi saavat kilven, joka estää yhden hyökkäyksen ja latautuu 10 sekunnin kuluttua
+plaguebearer=Myrkkysi kestävät vihollisilla kaksi kertaa kauemmin
+darkeminence=Aina kun menetät yli 15% maksimiterveydestäsi yhdestä hyökkäyksestä,\nkutsut §bLuurankosoturin§0, joka ottaa vahingon, joka ylittää 15% (3s jäähy)
+inquisitor=Hyökkäyksesi ja vaikutuksesi tuomitsevat kaikki vihollisesi demoneiksi
+timekeeper=Maaginen parannus, joko itsellesi tai liittolaiselle, lyhentää kohteen aktiivisten taitojen jäähtymisaikaa 0,02 sekuntia parannettua pistettä kohden
+shapeshifter=Muodonmuutoksen jälkeen tulet haavoittumattomaksi 3 sekunniksi (5s jäähy)
+
+
+[skillsdesckeys]
+skilllevel=Taitotaso
+playerlevel=Pelaajan taso
+endurance=Kestävyys
+speed=Nopeus
+strength=Voimakkuus
+intelligence=Älykkyys
+grace=Sulo
+
+
+[extraskilldesc]
+// Perusmekaniikat
+manausage=Jos sinulla ei ole tarpeeksi manaa, sen jäähtymisaika kaksinkertaistuu
+setmax=Negatiiviset vaikutukset asetetaan maksimiin, eikä niitä voi poistaa muilla buffeilla
+holydamage=§9Pyhä vahinko:§0 2% tehdystä pyhästä vahingosta muunnetaan parannukseksi mobeille, jotka parannat maagisesti\nSytyttää myös epäkuolleet ja demoniset mobit tuleen 10 sekunniksi, tai liekkeihin 5 sekunniksi, jos vahinko on 100 tai enemmän
+
+// Buffit
+marked=§hMerkitty:§0 Tee +20% vahinkoa (+ §hkeskittymisvaurio§0) ja +10% kriittisen osuman mahdollisuutta merkitsemillesi mobeille\n"Lähin vihollinen" priorisoi merkittyjä vihollisia
+constrained=§7Rajoitettu:§0 -50% liikkumisnopeutta
+
+// Mahdollisuusmuuntimet
+dodgechance=§7Väistömahdollisuus:§0 Mahdollisuus väistää saapuvia hyökkäyksiä. Ei voi ylittää 80%
+focuschance=§hKeskittymismahdollisuus:§0 Mahdollisuus §hmerkitä§0 mobi 5 sekunniksi, kun hyökkäät sitä suoraan
+
+// Tasaiset muuntimet
+mobdetection=§9Mobien havaitseminen:§0 Näyttää lähellä olevat mobit kartalla. Suurempi havaitsemisalue paljastaa mobit kauempaa
+ignitedamage=§iSytytysvahinko:§0 Lisää sytytysvahinkoa ajan myötä, mutta ei vaikuta suoraan osumavahinkoon
+
+// Ammukset
+lethalarrow=§hTappava nuoli:§0 Ohjattu nuoli, joka antaa kriittisen osuman
+venomarrow=§bMyrkkynuoli:§0 Ohjattu nuoli, joka myrkyttää vihollisia. Toistaa 10% alkuperäisestä vahingostaan sekunnissa 30 sekunnin ajan
+explosivearrow=§iRäjähtävä nuoli:§0 Ohjattu nuoli, joka aiheuttaa samanvahinkoisen maagisen räjähdyksen
+iceball=§aJääpallo:§0 Maaginen ammus, joka räjähtää ja jäädyttää mobit 5 sekunniksi ja jäädyttää ne myös kokonaan 1 sekunniksi
+fireball=§iTulipallo:§0 Maaginen ammus, joka räjähtää ja sytyttää mobit tuleen toistaen 20% niiden alkuperäisestä vahingosta sekunnissa 5 sekunnin ajan
+
+// Kutsut
+dancingflame=§bTanssiva liekki:§0 Kutsu, joka toimii kuin ammus. Sytyttää viholliset tuleen osuessaan.\nToistaa 20% alkuperäisestä vahingostaan sekunnissa 5 sekunnin ajan
+
+// Vahingoitettavissa olevat kutsut
+necromancerskeleton=§bLuuranko:§0 Nekroottinen vahingoitettavissa oleva kutsu\nTerveys: §a[[5 x <playerlevel> + 5 x <intelligence> ↓]]§0\nVahinko: §a[[<playerlevel> + <intelligence>]]§0\nNopeus: 60\nMenettää 2% kokonaisterveydestään sekunnissa
+necromancerskeletonwarrior=§bLuurankosoturi:§0 Nekroottinen vahingoitettavissa oleva kutsu\nTerveys: §a[[8 x <playerlevel> + 8 x <intelligence> ↓]]§0\nVahinko: §a[[2 x <playerlevel> + 2 x <intelligence>]]§0\nNopeus: 60\nMenettää 2% kokonaisterveydestään sekunnissa
+necromancerboneslinger=§bLuunheittäjä:§0 Nekroottinen vahingoitettavissa oleva kutsu\nTerveys: §a[[2 x <playerlevel> + 2 x <intelligence> ↓]]§0\nVahinko: §a[[<playerlevel> + <intelligence>]]§0 (320 etäisyys)\nNopeus: 60\nMenettää 2% kokonaisterveydestään sekunnissa
+bee=§9Mehiläinen:§0 Vahingoitettavissa oleva kutsu\nTerveys: 1\nVahinko: §a[[<playerlevel> + <intelligence> ↓]]§0\nNopeus: 100\n\nKuolee hyökätessään, mutta myrkyttää kohteen 20% tehdystä vahingosta sekunnissa 10 sekunnin ajan
+dryadsapling=§9Dryad Sapling:§0 Vahingoitettavissa oleva kutsu\nTerveys: §a[[2 x <playerlevel> + 2 x <intelligence> ↓]]§0\nVahinko: §a[[3 x <playerlevel> + 3 x <intelligence>]]§0\n\nNopeus: 65\nMenettää 2% kokonaisterveydestään sekunnissa
+
+[item]
+scrollofoblivion=Unohduksen käärö
+ringsbox=Sormuslaatikko
+
+// Ominaisuussormukset
+endurancewoodring=Kestävyyspuusormus
+endurancecopperring=Kestävyyskuparisormus
+enduranceironring=Kestävyysrautasormus
+endurancegoldring=Kestävyyskultasormus
+
+speedwoodring=Nopeuspuusormus
+speedcopperring=Nopeuskuparisormus
+speedgoldring=Nopeuskultasormus
+speedironring=Nopeusrautasormus
+
+strengthwoodring=Voimakkuuspuusormus
+strengthcopperring=Voimakkuuskuparisormus
+strengthgoldring=Voimakkuuskultasormus
+strengthironring=Voimakkuusrautasormus
+
+intelligencewoodring=Älykkyyspuusormus
+intelligencecopperring=Älykkyyskuparisormus
+intelligencegoldring=Älykkyyskultasormus
+intelligenceironring=Älykkyysrautasormus
+
+gracewoodring=Sulopuusormus
+gracecopperring=Sulokuparisormus
+graceironring=Sulorautasormus
+gracegoldring=Sulokultasormus
+
+
+[itemtooltip]
+holydamagetip=Pyhä vahinko: <value>
+throwingdamagetip=Heittovahinko: <value>
+scrollofoblivion=Antaa 2 nollauspistettä
+ringsboxtip=Voi säilyttää ominaisuussormuksia
+
+
+[message]
+xp=XP
+levelup=Taso ylös!
+dodge=Väistö!
+
+newmobkill=Sait <exp> kokemusta tapasi <mob> ensimmäistä kertaa
+newlevel=Onnittelut! Saavutit tason <level>. Avaa RPG-valikko painamalla [input=openrpgmenu]
+
+noupdatesincombat=Et voi muokata ominaisuuksiasi, luokkiasi tai taitojasi taistelun aikana
+noactiveskill=Sinulla ei ole enää sitä aktiivista taitoa, nosta sen tasoa uudelleen, jos haluat käyttää sitä
+
+equipfirst=Sinun on ensin varustettava aktiivinen taito tähän paikkaan
+activeskillinuse=Tämä taito on jo käytössä
+anotheractiveskillinuse=Sinulla on jo toinen taito käytössä
+incooldown=Jäähtymässä
+notenoughstamina=Ei tarpeeksi kestävyyttä
+canotusemounted=Ei voi käyttää ratsastettuna tai muodonmuutettuna
+
+notarget=Lähellä ei ole kohteita
+nograbbableobject=Edessäsi ei ole tartuttavaa esinettä
+notargetfollower=Lähellä ei ole kohdekutsuja
+nodeathplayers=Tällä tasolla ei voi herättää kuolleita pelaajia
+
+
+[ui]
+menutitle=RPG-MOD, tekijä Save
+attributes=Ominaisuudet
+mastery=Mestaruus
+activeskills=Aktiiviset taidot
+classes=Luokat
+
+level=Taso <level>
+classlevel=<class> taso <level>
+lvl=T <level>
+eachlevel=Jokainen taso antaa:
+experience=XP: <exp> / <nextexp>
+totalexperience=Kokonais-XP: <exp>
+onlytranformed=Vain muodonmuutettuna
+
+points=Pisteet: <points>
+resetpoints=Nollauspisteet: <points>
+attrpoints=Ominaisuuspisteet: <points>
+masterypoints=Mestaruuspisteet: <points>
+classpoints=Luokkapisteet: <points>
+passivepoints=Passiiviset pisteet: <points>
+activeskillpoints=Aktiiviset taitopisteet: <points>
+
+activeskillsuse=Tämä modi muuttaa ilmaisupyörän (oletuksena T-näppäin) aktiivisten taitojen pyöräksi
+activeskillsusetip1=On suositeltavaa vaihtaa ilmaisupyörän ohjaus helposti saavutettavaan näppäimeen
+activeskillsusetip2=Vain neljä ensimmäistä taitoa näkyvät Aktiivisten taitojen pyörässä. Sinun on käytettävä näppäimiä lopuille
+activeskillsequipinstructions=Napsauta paikkaa varustaaksesi aktiivisen taidon. Et voi poistaa aktiivista taitoa, joka on jäähtymässä
+noactiveskills=Sinulla ei ole aktiivisia taitoja. Avaa ne luokkien kautta
+
+activeskillcast=§9Loitsimisaika: <seconds>s
+activeskillcooldown=§9Jäähtymisaika: <seconds>s
+activeskillcooldownmod=§9Jäähtymisaika: [[<seconds> <sign> <mod> x <skilllevel>]]s
+requiredclasslevel=§bLuokkataso <level> vaaditaan
+requiredactiveskill=§bVaatii '<skill>' tason <level>
+maxlevel=§aMaksimitaso: <level>
+
+clicktoseebase=[input=mouse1] nähdäksesi perustan
+clicktoseelevel=[input=mouse1] nähdäksesi tason <level>
+
+classlevelseparation=- Luokkataso <level> -
+
+inuse=Käytössä
+
+upcomingclass=§6Tuleva luokka\n§9Tämä luokka on parhaillaan kehitteillä\nja se on saatavilla tulevassa päivityksessä
+disabledclass=Tämä luokka on poistettu käytöstä tässä maailmassa
+
+addcolumn=Lisää sarake
+removecolumn=Poista sarake
+
+rate=Arvostele RPG Mod!
+
+clicktoopen=[input=mouse1] avataksesi
+
+
+[controls]
+openrpgmenu=Avaa RPG-valikko
+activeskillslot1=Aktiivisen taidon paikka 1
+activeskillslot2=Aktiivisen taidon paikka 2
+activeskillslot3=Aktiivisen taidon paikka 3
+activeskillslot4=Aktiivisen taidon paikka 4
+activeskillslot5=Aktiivisen taidon paikka 5
+activeskillslot6=Aktiivisen taidon paikka 6
+activeskillslot7=Aktiivisen taidon paikka 7
+activeskillslot8=Aktiivisen taidon paikka 8
+activeskillslot9=Aktiivisen taidon paikka 9
+activeskillslot10=Aktiivisen taidon paikka 10
+activeskillslot11=Aktiivisen taidon paikka 11
+activeskillslot12=Aktiivisen taidon paikka 12
+transformationability1=Muodonmuutostaito 1
+transformationability2=Muodonmuutostaito 2
+
+
+[settingsui]
+restart_text=Tähdellä (*) merkityt asetukset vaativat pelin uudelleenkäynnistyksen tullakseen voimaan
+client_text="Asiakasasetukset" ovat puhtaasti visuaalisia ja niitä voi säätää vapaasti.
+server_text="Palvelinasetukset" vaikuttavat suoraan pelattavuuteen. Niitä ei voi muuttaa pelin sisällä, ja jos liityt ystävän tai palvelimen peliin, heidän asetuksensa ovat voimassa sinun sijastasi.
+
+// Default
+default_section=Oletusarvot (Asiakas)
+default_text=Näitä asetuksia voi säätää muissa valikoissa, mutta ne palaavat aina näihin arvoihin, kun aloitat pelin
+showClassIcons=Näytä luokkakuvakkeet
+twelveSkillSlots=12 taitopaikkaa
+
+// Mechanics
+mechanics_section=Mekaniikka (Palvelin)
+
+boomerangsDealThrowingDamage=Bumerangit tekevät heittovahinkoa (*)
+
+// Experience
+experience_section=Kokemus (Palvelin)
+
+experienceMod=% Kokemusmodi
+experienceMod_text=Muokkaa vihollisten voittamisesta saatavan kokemuksen määrää
+
+firstKillBonus=% Ensimmäisen tapon bonus
+firstKillBonus_text=Kokemuslisä, kun voitat vihollisen ensimmäistä kertaa (ei lisätä, kerrotaan muilla muokkaimilla)
+
+bossKillBonus=% Pomon tapon bonus
+bossKillBonus_text=Kokemuslisä, kun voitat pomon (ei lisätä, kerrotaan muilla muokkaimilla)
+
+startingExperience=Aloituskokemus
+startingExperience_text=Kokemus, jolla uudet pelaajat aloittavat
+
+firstExperienceReq=Alkuvaatimus
+experienceReqInc=Vaatimuksen lisäys
+squareExperienceReqInc=Neliöllinen vaatimuksen lisäys
+cubeExperienceReqInc=Kuutiollinen vaatimuksen lisäys
+experience_calc=Kokemusvaatimus seuraavalle tasolle pääsemiseksi on:\n\nAlkuvaatimus + Vaatimuksen lisäys * taso +\n+ Neliöllinen vaatimuksen lisäys * (taso ^ 2) +\n+ Kuutiollinen vaatimuksen lisäys * (taso ^ 3)\n\nMissä 'taso' on nykyinen tasosi
+
+// Classes
+classes_section=Luokat (Palvelin)
+
+multiClass=Moniluokka
+multiClass_text=Rajoita, kuinka monta eri luokkaa voi olla samanaikaisesti. Aseta arvoksi 0, jos rajaa ei ole
+
+classes_enabled=Voit poistaa käytöstä luokat, joita et halua olevan saatavilla

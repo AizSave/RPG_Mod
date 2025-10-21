@@ -1,0 +1,584 @@
+# Translation made by AI
+
+[global]
+rpgmod=§!RPG Mod
+
+[buffmodifiers]
+enduranceattrflat=<mod> udholdenhedsattribut
+speedattrflat=<mod> hastighedsattribut
+strengthattrflat=<mod> styrkeattribut
+intelligenceattrflat=<mod> intelligensattribut
+graceattrflat=<mod> yndeattribut
+
+dodgechance=<mod>% undvigelseschance
+rangedweaponszoom=<mod> zoom på afstandsvåben
+rangedweaponsrange=<mod>% rækkevidde på afstandsvåben
+mobdetectionrange=<mod> pøbeldetekteringsrækkevidde
+focusdamage=<mod>% fokusskade
+focuschance=<mod>% fokuschance
+ignitedamage=<mod>% brændskade
+
+// Holy Damage
+holydamage=<mod>% hellig skade
+holycritchance=<mod>% hellig kritisk chance
+holycritdamage=<mod>% hellig kritisk skade
+holyeffect=<mod>% hellig effekt
+holyabilityspeed=<mod>% hellig evnehastighed
+
+throwingdamage=<mod>% kaste skade
+throwingattackspeed=<mod>% kaste angrebshastighed
+throwingcritchance=<mod>% kaste kritisk chance
+throwingcritdamage=<mod>% kaste kritisk skade
+casttime=<mod>% kaste tid
+
+transformationdelay=<mod>% transformationsforsinkelse
+noskills=Kan ikke bruge færdigheder
+
+[stats]
+holy_damage=Hellig skade
+throwing_damage=Kaste skade
+
+
+[enchantment]
+evasive=Undvigende
+stalking=Forfølgelse
+regenerative=Regenerativ
+energetic=Energisk
+depleted=Udtømt
+
+
+[buff]
+overlevelbuff=Over niveau
+markedbuff=Mærket
+darkcursebuff=Mørk forbandelse
+magicpoisonbuff=Magisk Gift
+ignitedbuff=Antændt
+holydamagedealtbuff=Hellig skade påført
+queenbeewashit=Dronningebien blev ramt
+transformingbuff=Transformerende
+castingbuff=Casting
+
+
+[buffdesc]
+overlevelbuff1=§9En af dine klasser eller attributter overskrider en pointgrænse
+overlevelbuff2=§6Du kan ikke fortsætte, før det er rettet
+darkcursebuff1=+25% indkommende skade
+darkcursebuff2=Al skade reducerer også maks. helbred
+
+
+[mob]
+rpgmobname=[<class>] <name> lvl <level>
+rpgmobnamecolor=§<color>[<class>]§0 <name> §9lvl <level>§0
+
+rangerwolf=Ranger Ulv
+dancingflame=Dansende Flamme
+necromancerskeleton=Skelet
+necromancerskeletonwarrior=Skeletkriger
+necromancerboneslinger=Knoglekaster
+necromancertomb=Grav
+
+
+[mobclass]
+boss=Boss
+warrior=Kriger
+tank=Tank
+runner=Løber
+healer=Helbreder
+explosive=Eksplosiv
+glacial=Iskold
+electric=Elektrisk
+flash=Glimt
+dark=Mørk
+legend=Legende
+
+
+[mobtrait]
+undead=Udød
+demonic=Dæmonisk
+
+
+[attributes]
+endurance=Udholdenhed
+strength=Styrke
+speed=Hastighed
+intelligence=Intelligens
+grace=Ynde
+
+
+[classes]
+warrior=Kriger
+ranger=Ranger
+wizard=Troldmand
+necromancer=Nekromantiker
+cleric=Præst
+rogue=Slyngel
+warlock=Heksemester
+paladin=Paladin
+druid=Druide
+
+
+[passives]
+passives=Passive
+
+// Kriger
+regeneration=Regeneration
+muscles=Muskler
+legs=Ben
+force=Kraft
+unstoppable=Ustoppelig
+vigor=Vigor
+ironskin=Jernhud
+unleashingrage=Frigørende raseri
+unleashinghaste=Frigørende hast
+unyielding=Urokkelig
+lastbreath=Sidste åndedræt
+
+// Ranger
+aim=Sigt
+agility=Smidighed
+criticalshots=Kritiske skud
+energy=Energi
+recovery=Gendannelse
+eagleeye=Ørneøje
+focus=Fokus
+erradication=Udryddelse
+predatorsense=Rovdyrsans
+plasmagrenade=Plasmagranat
+wolfcompanion=Ulvekammerat
+
+// Troldmand
+arcanepower=Arkan Kraft
+manapower=Mana Kraft
+manaproficiency=Mana Færdighed
+firepower=Ildkraft
+quickmagic=Hurtig Magi
+arcaneshield=Arkan Skjold
+fireshield=Ildskjold
+iceshield=Isskjold
+flamingsteps=Flammende Skridt
+stormbound=Stormbundet
+
+// Nekromantiker
+darkpower=Mørk Kraft
+necroticpower=Nekrotisk Kraft
+darkmagic=Mørk Magi
+necroticarmy=Nekrotisk Hær
+darksummons=Mørke Tilkaldelser
+lifeleech=Livstyveri
+necroticremains=Nekrotiske Rester
+endlesslegion=Uendelig Legion
+lichborn=Lichfødt
+
+// Cleric
+healer=Helbreder
+shaman=Shaman
+vitalaura=Vital aura
+divinejudge=Guddommelig dommer
+empoweredhealing=Forstærket helbredelse
+sanctifiedmind=Helliggjort sind
+sanctifiedarmor=Helliggjort rustning
+radiantexpansion=Strålende udvidelse
+
+// Druid
+quickshift=Hurtigt Skift
+feralinstinct=Vildt Instinkt
+ironfur=Jernpels
+naturesfavor=Naturens Gunst
+beastpace=Dyrets Tempo
+primalburst=Urbrist
+elementalguard=Elementær Vagt
+phoenixspirit=Føniksånd
+
+
+[passivesdesc]
+
+// Kriger
+unleashingrage=Hvert niveau giver:\n\n+1% al skade for hver 10% manglende helbred
+unleashinghaste=Hvert niveau giver:\n\n+1% bevægelseshastighed for hver 10% manglende helbred
+unyielding=Hvert niveau giver:\n\n+5% angrebshastighed og -5% indkommende skade, når helbredet er under 20%
+lastbreath=I stedet for at dø, bliv usårlig i §a[[3 x <skilllevel>]] sekunder§0\nNår tiden er gået, dør du
+
+// Ranger
+plasmagrenade=Hver 8. afstandangreb affyrer et styret eksplosivt projektil, der giver §i[[30 x <skilllevel>]]%§0 af våbnets skade
+wolfcompanion=En ulvekammerat vil angribe mærkede fjender og give §i[[<playerlevel> + <intelligence> x <skilllevel>]] tilkalderskade§0
+
+// Troldmand
+manapower=Hvert niveau giver:\n\n+1% Magisk Skade for hver 10% ubrugt Mana
+flamingsteps=Når du løber med en aktiv pyntegenstand eller transformation, efterlader du flammer på jorden\nFlammerne vil antænde fjender i 3 sekunder og give §i[[0.5 x <playerlevel> + 0.5 x <intelligence> x <skilllevel>]] Magisk Skade§0 pr. sekund
+stormbound=Hver §a[[11 - 0.5 x <skilllevel>]] sekunder§0, rammer et lyn en tilfældig fjende i dit synsfelt\nGiver §i[[0.5 x <playerlevel> + 0.5 x <intelligence> x <skilllevel>]] Magisk Skade§0 og lammer i 1 sekund
+arcaneshield=Et skjold, der forhindrer et hit\nSkjoldet vil komme sig §a[[20 - <skilllevel>]] sekunder§0 efter brug
+fireshield=Et skjold, der forhindrer et hit\nNår det bruges, vil du udløse en eksplosion, der giver §i[[<playerlevel> + <intelligence> x <skilllevel>]] Magisk Skade§0\nog antænder pøbler, der gentager 20% af deres oprindelige skade pr. sekund i 5 sekunder\nSkjoldet vil komme sig 26 sekunder efter brug
+iceshield=Et skjold, der forhindrer et hit\nNår det bruges, vil du udløse en is-aura, der giver §i[[<playerlevel> + <intelligence> x <skilllevel>]] Magisk Skade§0\nfryser pøbler i 5 sekunder og fryser dem helt i 1 sekund\nSkjoldet vil komme sig 22 sekunder efter brug
+
+// Nekromantiker
+necroticpower=Alle dine magiske angreb forgifter for 5% af deres skade i §a[[2 x <skilllevel>]] sekunder§0
+darkmagic=Tilkalderskadebonusser påvirker magisk skade med §a[[5 x <skilllevel>]]%
+necroticarmy=Besejrede fjendtlige fjender bliver til §bSkeletter§0 med §a-[[100 - 3 x <skilllevel>]]%§0 helbred og skade
+darksummons=Giv §a+[[8 x <skilllevel>]]%§0 tilkalderskade til forgiftede fjender
+lifeleech=Gendanner §a[[0.05 x <skilllevel>]]%§0 af den påførte tilkalderskade som helbred
+necroticremains=Når en nekrotisk tilkaldelse dør, eksploderer den og giver §i[[0.1 x <intelligence> x <skilllevel>]] magisk skade§0 til nærliggende fjender og forgifter dem med 20% af skaden pr. sekund i 10 sekunder
+endlesslegion=Hver 4. niveau af denne færdighed får du +1 maks. tilkaldelse
+lichborn=Når du dør, overlever du og gendanner §a[[10 x <skilllevel>]]%§0 helbred, hvis du ikke allerede er en §bLich§0\nI de næste §a[[120 - 6 x <skilllevel>]] sekunder§0 bliver du en §bLich§0 (et skelet)\n\n\n§bLich:§0 Udød transformation\n\nKan ikke bruge genstande\n+100% Skade Modtaget\n\nTryk på [input=transformationability1] for at skyde et ben, der giver §i[[<playerlevel> + <strength> + 0.2 x <intelligence>]] Magisk Skade§0
+
+// Cleric
+vitalaura=Hver §a[[15 - <skilllevel>]] sekunder§0 frigiver du en magisk helbredende aura omkring dig, der gendanner §a[[10 + <grace> ↓]] helbred§0\nDen helbreder dig også for halvdelen af det beløb
+divinejudge=Magisk skadebonus påvirker hellig skade med §a[[5 x <skilllevel>]]%§0
+empoweredhealing=Når du magisk helbreder dig selv eller en allieret, øges deres skade med §a[[5 x <skilllevel>]]%§0 i 3 sekunder
+sanctifiedmind=Magisk helbredelse gendanner også mana svarende til §a[[5 x <skilllevel>]]%§0 af den udførte helbredelse
+sanctifiedarmor=Magisk helbredelse gendanner også modstandsdygtighed svarende til §a[[2 x <skilllevel>]]%§0 af den udførte helbredelse
+radiantexpansion=Når du magisk helbreder dig selv eller en allieret, giver du §a[[5 x <skilllevel>]]%§0 af helbredelsen som hellig skade til nærliggende fjender af det helbredte mål
+
+// Druid
+naturesfavor=Få +§a[[2 x <skilllevel>]] Helbredsregeneration§0 pr. sekund, mens du står på græs
+primalburst=Øger Skade og Hastighed med [[6 x <skillevel>]]% i de første 5 sekunder efter transformation
+phoenixspirit=Kræver mindst 4 point for at virke:\n\nHvis du ville dø, mens du er transformeret med en aktiv færdighed, overlever du i stedet med §a[4 + 8 x <skilllevel>]]%§0 helbred, og den færdighed sættes på en 1-times nedkøling\n\nUdløses ikke, hvis du allerede har mindst §a[[0.25 x <skilllevel> ↓]] transformationsfærdighed(er)§0 på en nedkøling længere end 1 minut
+
+
+[activeskills]
+empty=Tom
+
+// Kriger
+fury=Raseri
+recovery=Gendannelse
+provocation=Provokation
+berserkercharge=Bersærkerangreb
+
+groundslam=Jordslag
+grounddestruction=Jordødelæggelse
+parry=Parade
+battlecry=Kampråb
+
+ironguard=Jernvagt
+intimidation=Intimidering
+
+objectthrowing=Objektkast
+
+// Ranger
+shortdash=Udfør en kort spurt\nForbruger 15% udholdenhed
+longdash=Udfør en lang spurt\nForbruger 25% udholdenhed
+lethalshot=Dødbringende skud
+venomshot=Giftskud
+explosiveshot=Eksplosivt skud
+
+shotsrampage=Skudrampage
+huntersmark=Jægermærke
+beartrap=Bjørnefælde
+
+huntersinstinct=I de næste 12 sekunder øges din §7undvigelseschance§0 med §a[[5 x <skilllevel>]]%\n§hMærk§0 i 5 sekunder de fjender, du undviger
+arrowstorm=Pilestorm
+
+// Troldmand
+arcaneoverload=Arkan Overbelastning
+firedance=Ilddans
+iceball=Iskugle
+zap=Stød
+manarecharge=Mana Genopladning
+
+teleport=Teleporter
+inferno=Inferno
+fireenchantment=Ildfortryllelse
+iceenchantment=Isfortryllelse
+
+fireball=Ildkugle
+lightning=Lyn
+
+// Nekromantiker
+skeletonhorde=Skelethorde
+skeletonwarrior=Skeletkriger
+sacrifice=Den nærmeste nekrotiske tilkaldelse dør, og du gendanner derefter §a[[10 + <endurance> x <skilllevel> + <intelligence> + <skilllevel> - <grace> ↓]] helbred§0 som magisk helbredelse
+siegecry=Belejringskrig
+
+boneslingerhorde=Knoglekasterhorde
+tomb=Grav
+necroticbloom=Nekrotisk Blomstring
+wardingtaunt=Afværgende Hån
+
+unholyground=Uhellig Jord
+necroticbarrage=Nekrotisk Spærreild
+
+// Cleric
+smite=Smadre
+divineblessing=Magisk helbredende aura, der gendanner §a[[20 + 3 x <grace> x <skilllevel> ↓]] helbred§0 til dig og dine allierede\nForbruger §a[[20 + 4 x <skilllevel>]] mana§0
+purify=Rens
+lightinfusion=Lysinfusion
+holyguard=Hellig vagt
+judgment=Dom
+sanctuary=Helligdom
+divineintervention=Guddommelig indgriben
+resurrection=Genopstandelse
+wrathoflight=Lysets vrede
+
+// Druid
+wolftransformation=Ulvetransformation
+queenbeetransformation=Dronningbietransformation
+beartransformation=Bjørnetransformation
+foxtransformation=Rævetransformation
+rattransformation=Rottetransformation
+treanttransformation=Tager 4 sekunder at transformere til en Træmand\n\nBevægelseshastighed: 0\n-§a[50 + 5 <skilllevel>]%§0 Indkommende Skade\n+50% Panser\nFjender ignorerer dig, hvis du er skjult i 3 sekunder\n\nTryk [input=transformationability1] for at skyde tilfældige frø: Påfør §i[[0.5 x <playerlevel> + <strength> x <skilllevel>]] Afstandsskade§0 med tilfældige effekter (1 modstandsdygtighedsgevinst)\n\nTryk [input=transformationability2] for at tilkalde en §9Dryad Sapling§0\n\nHold [input=trinketability] nede for at afsløre og sprinte, hvis du bevæger dig
+
+
+[mastery]
+bastion=Bastion
+bloodborn=Blodbåren
+chronomancer=Tidsmagiker
+barbarian=Barbar
+berserker=Bersærker
+sniper=Snigskytte
+marksman=Skytte
+hunter=Jæger
+trapper=Fælder
+pyromancer=Pyromantiker
+frostweaver=Frostvæver
+stormcaller=Stormkalder
+ironinvoker=Jerninvoker
+plaguebearer=Pestbærer
+darkeminence=Mørk eminence
+inquisitor=Inkvisitor
+timekeeper=Tidsvogter
+shapeshifter=Formskifter
+
+
+[masterydesc]
+bastion=Få modstandsdygtighed pr. sekund svarende til 25% af din helbredsregeneration
+bloodborn=Helbred for 5% af den skade, du påfører fjender\nMister altid 5% af din maksimale sundhed pr. sekund, men kan ikke dø af denne effekt\nHelbredsregenerering er altid 0
+chronomancer=Reducerer nedkølingen af alle aktive færdigheder med 20%
+barbarian=+100% maksimal sundhed og +200% sundhedsregenerering, men din rustning vil altid være 0
+berserker=Når du er under 50% sundhed, får du +25% nærkampskritisk chance\nNærkampskritiske træffere øger din angrebshastighed og bevægelseshastighed med 25% i 2 sekunder
+sniper=Afstandsangreb har op til +100% skade baseret på afstanden til målet
+marksman=Fjender, du markerer, er markeret for alle spillere
+hunter=Når du markerer en fjende, er den §7Begrænset§0 i 5 sekunder
+trapper=+50% skade på fangede eller begrænsede fjender
+pyromancer=Dine antændelser kan stables på den samme fjende
+frostweaver=+50% skade på fjender med Frostslow, Freezing eller Frostburn
+stormcaller=Hvert 20. sekund bliver alle fjender i synsfeltet ramt af et lynnedslag\nGiv §i[[<playerlevel> + <intelligence>]] magisk skade§0 og bedøv dem alle i 1 sekund
+ironinvoker=Dine skadelige tilkaldelser får et skjold, der blokerer et angreb og genoplades efter 10 sekunder
+plaguebearer=Dine gifte varer dobbelt så længe på fjender
+darkeminence=Hver gang du mister mere end 15% af din maksimale sundhed fra et enkelt angreb,\ntilkalder du en §bSkeletkriger§0, der tager skaden, der overstiger de 15% (3s nedkøling)
+inquisitor=Dine angreb og effekter dømmer alle dine fjender som dæmoniske
+timekeeper=Magisk helbredelse, uanset om det er på dig selv eller en allieret, reducerer målets aktive færdighedsnedkøling med 0,02 sekunder pr. helbredt point
+shapeshifter=Efter transformation bliver du usårlig i 3 sekunder (5s nedkøling)
+
+
+[skillsdesckeys]
+skilllevel=Færdighedsniveau
+playerlevel=Spillerniveau
+endurance=Udholdenhed
+speed=Hastighed
+strength=Styrke
+intelligence=Intelligens
+grace=Ynde
+
+
+[extraskilldesc]
+// Grundlæggende Mekanik
+manausage=Hvis du ikke har nok mana, fordobles dens nedkøling
+setmax=Negative effekter er sat som maks. og kan ikke fjernes af andre buffs
+holydamage=§9Hellig skade:§0 2% af den påførte hellige skade vil blive omdannet til helbredelse for pøbler, du magisk helbreder\nSætter også udøde og dæmoniske pøbler i brand i 10 sekunder, eller i lys lue i 5 sekunder, hvis skaden er 100 eller mere
+
+// Buffs
+marked=§hMærket:§0 Giv +20% Skade (+ §hFokusskade§0) og +10% Kritisk Chance til pøbler, du mærker\n"Nærmeste fjende" prioriterer mærkede fjender
+constrained=§7Begrænset:§0 -50% bevægelseshastighed
+
+// Chance-modifikatorer
+dodgechance=§7Undvigelseschance:§0 Chance for at undvige indkommende angreb. Kan ikke overstige 80%
+focuschance=§hFokuschance:§0 Chance for at §hmærke§0 en pøbel i 5 sekunder, når du angriber den direkte
+
+// Flade modifikatorer
+mobdetection=§9Pøbeldetektering:§0 Viser nærliggende pøbler på kortet. En højere detekteringsrækkevidde afslører pøbler fra længere væk
+ignitedamage=§iBrændskade:§0 Øger brændskade over tid, men påvirker ikke direkte træfskade
+
+// Projektiler
+lethalarrow=§hDødbringende pil:§0 Styret pil, der giver et kritisk hit
+venomarrow=§bGiftpil:§0 Styret pil, der forgifter fjender. Gentager 10% af sin oprindelige skade pr. sekund i 30 sekunder
+explosivearrow=§iEksplosiv pil:§0 Styret pil, der forårsager en magisk eksplosion med samme skade
+iceball=§aIskugle:§0 Magisk projektil, der eksploderer og fryser pøbler i 5 sekunder, og fryser dem også helt i 1 sekund
+fireball=§iIldkugle:§0 Magisk projektil, der eksploderer og antænder pøbler, der gentager 20% af deres oprindelige skade pr. sekund i 5 sekunder
+
+// Tilkaldelser
+dancingflame=§bDansende Flamme:§0 Tilkaldelse, der fungerer som et projektil. Antænder fjender ved træf.\nGentager 20% af sin oprindelige skade pr. sekund i 5 sekunder
+
+// Skadelige tilkaldelser
+necromancerskeleton=§bSkelet:§0 Nekrotisk skadelig tilkaldelse\nHelbred: §a[[5 x <playerlevel> + 5 x <intelligence> ↓]]§0\nSkade: §a[[<playerlevel> + <intelligence>]]§0\nHastighed: 60\nMister 2% af samlet helbred pr. sekund
+necromancerskeletonwarrior=§bSkeletkriger:§0 Nekrotisk skadelig tilkaldelse\nHelbred: §a[[8 x <playerlevel> + 8 x <intelligence> ↓]]§0\nSkade: §a[[2 x <playerlevel> + 2 x <intelligence>]]§0\nHastighed: 60\nMister 2% af samlet helbred pr. sekund
+necromancerboneslinger=§bKnoglekaster:§0 Nekrotisk skadelig tilkaldelse\nHelbred: §a[[2 x <playerlevel> + 2 x <intelligence> ↓]]§0\nSkade: §a[[<playerlevel> + <intelligence>]]§0 (320 afstand)\nHastighed: 60\nMister 2% af samlet helbred pr. sekund
+bee=§9Bi:§0 Skadelig tilkaldelse\nHelbred: 1\nSkade: §a[[<playerlevel> + <intelligence> ↓]]§0\nHastighed: 100\n\nDør ved angreb, men forgifter målet for 20% af den påførte skade pr. sekund i 10 sekunder
+dryadsapling=§9Dryad Sapling:§0 Skadelig tilkaldelse\nHelbred: §a[[2 x <playerlevel> + 2 x <intelligence> ↓]]§0\nSkade: §a[[3 x <playerlevel> + 3 x <intelligence>]]§0\n\nHastighed: 65\nMister 2% af samlet helbred pr. sekund
+
+[item]
+scrollofoblivion=Glemselsrulle
+ringsbox=Ringæske
+
+// Attributringe
+endurancewoodring=Udholdenhedstræring
+endurancecopperring=Udholdenhedskobberring
+enduranceironring=Udholdenhedsjerning
+endurancegoldring=Udholdenhedsguldring
+
+speedwoodring=Hastighedstræring
+speedcopperring=Hastighedskobberring
+speedgoldring=Hastighedsguldring
+speedironring=Hastighedsjerning
+
+strengthwoodring=Styrketræring
+strengthcopperring=Styrkekobberring
+strengthgoldring=Styrkeguldring
+strengthironring=Styrkejerning
+
+intelligencewoodring=Intelligenstræring
+intelligencecopperring=Intelligenskobberring
+intelligencegoldring=Intelligensguldring
+intelligenceironring=Intelligensjerning
+
+gracewoodring=Yndetræring
+gracecopperring=Yndekobberring
+graceironring=Yndejerning
+gracegoldring=Yndeguldring
+
+
+[itemtooltip]
+holydamagetip=Hellig skade: <value>
+throwingdamagetip=Kaste skade: <value>
+scrollofoblivion=Giver 2 nulstillingspoint
+ringsboxtip=Kan opbevare attributringe
+
+
+[message]
+xp=XP
+levelup=Niveau op!
+dodge=Undvig!
+
+newmobkill=Du fik <exp> erfaring for at dræbe <mob> for første gang
+newlevel=Tillykke! Du har nået niveau <level>. Tryk på [input=openrpgmenu] for at åbne RPG-menuen
+
+noupdatesincombat=Du kan ikke ændre dine attributter, klasser eller færdigheder under kamp
+noactiveskill=Du har ikke længere den aktive færdighed, opgrader den igen, hvis du vil bruge den
+
+equipfirst=Først skal du udstyre en aktiv færdighed i denne plads
+activeskillinuse=Denne færdighed er allerede i brug
+anotheractiveskillinuse=Du har allerede en anden færdighed i brug
+incooldown=På nedkøling
+notenoughstamina=Ikke nok udholdenhed
+canotusemounted=Kan ikke bruges monteret eller transformeret
+
+notarget=Der er ingen mål i nærheden
+nograbbableobject=Der er ingen genstand, der kan gribes, foran dig
+notargetfollower=Der er ingen mål-tilkaldelser i nærheden
+nodeathplayers=Ingen døde spillere kan genoplives på dette niveau
+
+
+[ui]
+menutitle=RPG-MOD af Save
+attributes=Attributter
+mastery=Mestring
+activeskills=Aktive færdigheder
+classes=Klasser
+
+level=Niveau <level>
+classlevel=<class> niveau <level>
+lvl=Lvl <level>
+eachlevel=Hvert niveau giver:
+experience=XP: <exp> / <nextexp>
+totalexperience=Samlet XP: <exp>
+onlytranformed=Kun når transformeret
+
+points=Point: <points>
+resetpoints=Nulstillingspoint: <points>
+attrpoints=Attributpoint: <points>
+masterypoints=Mestringspoint: <points>
+classpoints=Klassepoint: <points>
+passivepoints=Passive point: <points>
+activeskillpoints=Aktive færdighedspoint: <points>
+
+activeskillsuse=Denne mod forvandler udtrykshjulet (T-tasten som standard) til hjulet med aktive færdigheder
+activeskillsusetip1=Det anbefales at ændre udtrykshjulets kontrol til en let tilgængelig tast
+activeskillsusetip2=Kun de første fire færdigheder vises i hjulet med aktive færdigheder. Du skal bruge taster til resten
+activeskillsequipinstructions=Klik på en plads for at udstyre en aktiv færdighed. Du kan ikke fjerne en aktiv færdighed på nedkøling
+noactiveskills=Du har ingen aktive færdigheder. Lås dem op gennem klasserne
+
+activeskillcast=§9Kastetid: <seconds>s
+activeskillcooldown=§9Nedkøling: <seconds>s
+activeskillcooldownmod=§9Nedkøling: [[<seconds> <sign> <mod> x <skilllevel>]]s
+requiredclasslevel=§bKlasseniveau <level> påkrævet
+requiredactiveskill=§bKræver '<skill>' niveau <level>
+maxlevel=§aMaks. niveau: <level>
+
+clicktoseebase=[input=mouse1] for at se base
+clicktoseelevel=[input=mouse1] for at se niveau <level>
+
+classlevelseparation=- Klasseniveau <level> -
+
+inuse=I brug
+
+upcomingclass=§6Kommende klasse\n§9Denne klasse er i øjeblikket under udvikling\nog vil være tilgængelig i en fremtidig opdatering
+disabledclass=Denne klasse er deaktiveret i denne verden
+
+addcolumn=Tilføj kolonne
+removecolumn=Fjern kolonne
+
+rate=Bedøm RPG Mod!
+
+clicktoopen=[input=mouse1] for at åbne
+
+
+[controls]
+openrpgmenu=Åbn RPG-menu
+activeskillslot1=Aktiv færdighedsplads 1
+activeskillslot2=Aktiv færdighedsplads 2
+activeskillslot3=Aktiv færdighedsplads 3
+activeskillslot4=Aktiv færdighedsplads 4
+activeskillslot5=Aktiv færdighedsplads 5
+activeskillslot6=Aktiv færdighedsplads 6
+activeskillslot7=Aktiv færdighedsplads 7
+activeskillslot8=Aktiv færdighedsplads 8
+activeskillslot9=Aktiv færdighedsplads 9
+activeskillslot10=Aktiv færdighedsplads 10
+activeskillslot11=Aktiv færdighedsplads 11
+activeskillslot12=Aktiv færdighedsplads 12
+transformationability1=Transformationsfærdighed 1
+transformationability2=Transformationsfærdighed 2
+
+
+[settingsui]
+restart_text=Indstillinger markeret med (*) kræver genstart af spillet for at træde i kraft
+client_text="Klientindstillinger" er rent visuelle og kan justeres frit.
+server_text="Serverindstillinger" påvirker gameplayet direkte. De kan ikke ændres i spillet, og hvis du slutter dig til en ven eller server, vil deres indstillinger gælde i stedet for dine.
+
+// Default
+default_section=Standardværdier (Klient)
+default_text=Disse indstillinger kan justeres i andre menuer, men de vil altid vende tilbage til disse værdier, når du starter spillet
+showClassIcons=Vis klasseikoner
+twelveSkillSlots=12 færdighedspladser
+
+// Mechanics
+mechanics_section=Mekanik (Server)
+
+boomerangsDealThrowingDamage=Boemeranger giver kaste skade (*)
+
+// Experience
+experience_section=Erfaring (Server)
+
+experienceMod=% Erfaringsmod
+experienceMod_text=Ændrer mængden af erfaring opnået ved at besejre fjender
+
+firstKillBonus=% Første drabsbonus
+firstKillBonus_text=En erfaringsforøgelse ved at besejre en fjende for første gang (ikke tilføjet, multipliceret med andre modifikatorer)
+
+bossKillBonus=% Boss drabsbonus
+bossKillBonus_text=En erfaringsforøgelse ved at besejre en boss (ikke tilføjet, multipliceret med andre modifikatorer)
+
+startingExperience=Start erfaring
+startingExperience_text=Den erfaring nye spillere vil starte med
+
+firstExperienceReq=Startkrav
+experienceReqInc=Kravforøgelse
+squareExperienceReqInc=Kvadratisk kravforøgelse
+cubeExperienceReqInc=Kubisk kravforøgelse
+experience_calc=Erfaringskravet for at nå det næste niveau er:\n\nStartkrav + Kravforøgelse * niveau +\n+ Kvadratisk kravforøgelse * (niveau ^ 2) +\n+ Kubisk kravforøgelse * (niveau ^ 3)\n\nHvor 'niveau' er dit nuværende niveau
+
+// Classes
+classes_section=Klasser (Server)
+
+multiClass=Multi-klasse
+multiClass_text=Begræns hvor mange forskellige klasser der kan holdes på samme tid. Sæt det til 0 for ingen grænse
+
+classes_enabled=Du kan deaktivere de klasser, du ikke vil have tilgængelige

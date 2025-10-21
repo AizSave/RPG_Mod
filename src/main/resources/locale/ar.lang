@@ -1,0 +1,665 @@
+# Translation made by AI
+
+[global]
+rpgmod=§!RPG Mod
+
+
+[buffmodifiers]
+enduranceattrflat=<mod> سمة التحمل
+speedattrflat=<mod> سمة السرعة
+strengthattrflat=<mod> سمة القوة
+intelligenceattrflat=<mod> سمة الذكاء
+graceattrflat=<mod> سمة الرشاقة
+
+dodgechance=<mod>% فرصة المراوغة
+rangedweaponszoom=<mod> تكبير الأسلحة بعيدة المدى
+rangedweaponsrange=<mod>% مدى الأسلحة بعيدة المدى
+mobdetectionrange=<mod> نطاق كشف الوحوش
+focusdamage=<mod>% ضرر التركيز
+focuschance=<mod>% فرصة التركيز
+ignitedamage=<mod>% ضرر الحرق
+
+// Holy Damage
+holydamage=<mod>% ضرر مقدس
+holycritchance=<mod>% فرصة حرجة مقدسة
+holycritdamage=<mod>% ضرر حرج مقدس
+holyeffect=<mod>% تأثير مقدس
+holyabilityspeed=<mod>% سرعة القدرة المقدسة
+
+throwingdamage=<mod>% ضرر الرمي
+throwingattackspeed=<mod>% سرعة هجوم الرمي
+throwingcritchance=<mod>% فرصة حرجة للرمي
+throwingcritdamage=<mod>% ضرر حرج للرمي
+casttime=<mod>% وقت الإلقاء
+
+transformationdelay=<mod>% تأخير التحول
+noskills=لا يمكن استخدام المهارات
+
+[stats]
+holy_damage=ضرر مقدس
+throwing_damage=ضرر الرمي
+
+
+[enchantment]
+evasive=مراوغ
+stalking=متربص
+regenerative=متجدد
+energetic=نشيط
+depleted=مستنفد
+
+
+[buff]
+overlevelbuff=فوق المستوى
+markedbuff=معلم
+darkcursebuff=لعنة الظلام
+magicpoisonbuff=سم سحري
+ignitedbuff=مشتعل
+holydamagedealtbuff=الضرر المقدس الملحق
+queenbeewashit=تم ضرب ملكة النحل
+transformingbuff=تحويل
+castingbuff=صب
+transformingbuff=تحويل
+castingbuff=صب
+transformingbuff=تحويل
+castingbuff=صب
+
+
+[buffdesc]
+overlevelbuff1=§9إحدى فئاتك أو سماتك تتجاوز حد النقاط
+overlevelbuff2=§6لن تتمكن من المتابعة حتى يتم إصلاحها
+darkcursebuff1=+25% ضرر وارد
+darkcursebuff2=كل الضرر يقلل أيضًا من الصحة القصوى
+
+
+[mob]
+rpgmobname=[<class>] <name> المستوى <level>
+rpgmobnamecolor=§<color>[<class>]§0 <name> §9المستوى <level>§0
+
+rangerwolf=ذئب الحارس
+dancingflame=اللهب الراقص
+necromancerskeleton=هيكل عظمي
+necromancerskeletonwarrior=محارب هيكل عظمي
+necromancerboneslinger=قاذف العظام
+necromancertomb=قبر
+
+
+[mobclass]
+boss=زعيم
+warrior=محارب
+tank=دبابة
+runner=عداء
+healer=معالج
+explosive=متفجر
+glacial=جليدي
+electric=كهربائي
+flash=وميض
+dark=مظلم
+legend=أسطورة
+
+
+[mobtrait]
+undead=أوندد
+demonic=شيطاني
+
+
+[attributes]
+endurance=التحمل
+strength=القوة
+speed=السرعة
+intelligence=الذكاء
+grace=الرشاقة
+
+
+[classes]
+warrior=محارب
+ranger=حارس
+wizard=ساحر
+necromancer=مستحضر الأرواح
+cleric=رجل دين
+rogue=لص
+warlock=ساحر
+paladin=بالادين
+druid=درويد
+
+
+[passives]
+passives=سلبيات
+
+// محارب
+regeneration=تجديد
+muscles=عضلات
+legs=أرجل
+force=قوة
+unstoppable=لا يمكن إيقافه
+vigor=قوة
+ironskin=جلد حديدي
+unleashingrage=إطلاق العنان للغضب
+unleashinghaste=إطلاق العنان للسرعة
+unyielding=صامد
+lastbreath=النفس الأخير
+
+// حارس
+aim=تصويب
+agility=رشاقة
+criticalshots=طلقات حرجة
+energy=طاقة
+recovery=استرداد
+eagleeye=عين الصقر
+focus=تركيز
+erradication=استئصال
+predatorsense=حاسة المفترس
+plasmagrenade=قنبلة بلازما
+wolfcompanion=رفيق الذئب
+
+// ساحر
+arcanepower=قوة غامضة
+manapower=قوة المانا
+manaproficiency=إتقان المانا
+firepower=قوة نارية
+quickmagic=سحر سريع
+arcaneshield=درع غامض
+fireshield=درع ناري
+iceshield=درع جليدي
+flamingsteps=خطوات ملتهبة
+stormbound=مقيد بالعاصفة
+
+// مستحضر الأرواح
+darkpower=قوة الظلام
+necroticpower=قوة النخر
+darkmagic=سحر الظلام
+necroticarmy=جيش النخر
+darksummons=استدعاءات الظلام
+lifeleech=امتصاص الحياة
+necroticremains=بقايا النخر
+endlesslegion=فيلق لا نهاية له
+lichborn=مولود ليش
+
+// Cleric
+healer=معالج
+shaman=شامان
+vitalaura=هالة حيوية
+divinejudge=قاضي إلهي
+empoweredhealing=شفاء معزز
+sanctifiedmind=عقل مقدس
+sanctifiedarmor=درع مقدس
+radiantexpansion=توسع مشع
+
+// Druid
+quickshift=تحول سريع
+feralinstinct=غريزة وحشية
+ironfur=فرو حديدي
+naturesfavor=نعمة الطبيعة
+beastpace=خطى الوحش
+primalburst=انفجار بدائي
+elementalguard=حارس العناصر
+phoenixspirit=روح العنقاء
+
+
+[passivesdesc]
+// محارب
+unleashingrage=كل مستوى يوفر:\n\n+1% كل الضرر لكل 10% من الصحة المفقودة
+unleashinghaste=كل مستوى يوفر:\n\n+1% سرعة الحركة لكل 10% من الصحة المفقودة
+unyielding=كل مستوى يوفر:\n\n+5% سرعة الهجوم و -5% ضرر وارد عندما تكون الصحة أقل من 20%
+lastbreath=بدلاً من الموت ، تصبح منيعًا لمدة §a[[3 x <skilllevel>]] ثانية§0\nبمجرد انتهاء الوقت ، ستموت
+
+// حارس
+plasmagrenade=كل 8 هجمات بعيدة المدى ، أطلق قذيفة متفجرة موجهة تسبب §i[[30 x <skilllevel>]]%§0 من ضرر السلاح
+wolfcompanion=سيهاجم رفيق الذئب الأعداء المعلمين مسببًا §i[[<playerlevel> + <intelligence> x <skilllevel>]] ضرر المستدعي§0
+
+// ساحر
+manapower=كل مستوى يوفر:\n\n+1% ضرر سحري لكل 10% من المانا غير المستخدمة
+flamingsteps=عند الجري باستخدام حلية أو تحويل نشط، سوف تترك ألسنة لهب على الأرض.\nستُشعل ألسنة اللهب الأعداء لمدة 3 ثوانٍ، وتلحق بهم ضررًا سحريًا قدره §i[[0.5 x <playerlevel> + 0.5 x <intelligence> x <skilllevel>]]§0 في الثانية.
+stormbound=§aكل [[11 - 0.5 x <skilllevel>]] ثانية§0، تضرب صاعقة برق عدوًا عشوائيًا في مجال رؤيتك\nإلحاق §i[[0.5 x <playerlevel> + 0.5 x <intelligence> x <skilllevel>]] ضرر سحري§0 وصعق لمدة ثانية واحدة
+arcaneshield=درع يمنع ضربة واحدة\nسيتعافى الدرع بعد §a[[20 - <skilllevel>]] ثانية§0 من استخدامه
+fireshield=درع يمنع ضربة واحدة\nعند استخدامه ، ستطلق انفجارًا يسبب §i[[<playerlevel> + <intelligence> x <skilllevel>]] ضرر سحري§0\nويشعل الوحوش ، مكررًا 20% من ضررهم الأصلي في الثانية لمدة 5 ثوانٍ\nسيتعافى الدرع بعد 26 ثانية من استخدامه
+iceshield=درع يمنع ضربة واحدة\nعند استخدامه ، ستطلق هالة جليدية تسبب §i[[<playerlevel> + <intelligence> x <skilllevel>]] ضرر سحري§0\nتجمد الوحوش لمدة 5 ثوانٍ ، وتجمدهم تمامًا لمدة ثانية واحدة\nسيتعافى الدرع بعد 22 ثانية من استخدامه
+
+// مستحضر الأرواح
+necroticpower=كل هجماتك السحرية تُسمم بنسبة 5% من ضررها لمدة §a[[2 x <skilllevel>]] ثانية§0.
+darkmagic=مكافآت ضرر المستدعي تؤثر على الضرر السحري بنسبة §a[[5 x <skilllevel>]]%
+necroticarmy=الأعداء المعادون المهزومون سيتحولون إلى §bهياكل عظمية§0 مع §a-[[100 - 3 x <skilllevel>]]%§0 صحة وضرر
+darksummons=تسبب §a+[[8 x <skilllevel>]]%§0 ضرر المستدعي للأعداء المسمومين
+lifeleech=يستعيد §a[[0.05 x <skilllevel>]]%§0 من ضرر الاستدعاء الذي تم إلحاقه كنقاط صحة
+necroticremains=عندما يموت مستدعى نخرى ، ينفجر ، مسببًا §i[[0.1 x <intelligence> x <skilllevel>]] ضرر سحري§0 للأعداء القريبين ، ويسممهم بنسبة 20% من الضرر في الثانية لمدة 10 ثوانٍ
+endlesslegion=كل 4 مستويات من هذه المهارة ، تحصل على +1 استدعاء أقصى
+lichborn=عندما تموت، تنجو وتستعيد §a[[10 x <skilllevel>]]%§0 من صحتك إذا لم تكن بالفعل §bليش§0\nللثواني §a[[120 - 6 x <skilllevel>]]§0 القادمة، تصبح §bليش§0 (هيكل عظمي)\n\n\n§bليش:§0 تحول إلى ميت حي\n\nلا يمكن استخدام العناصر.\n+100% ضرر متلقى.\n\nاضغط على [input=transformationability1] لإطلاق عظمة تُلحق ضررًا سحريًا بمقدار §i[[<playerlevel> + <strength> + 0.2 x <intelligence>]]§0
+
+// Cleric
+vitalaura=كل §a[[15 - <skilllevel>]] ثانية§0، تطلق هالة شفاء سحرية من حولك تستعيد §a[[10 + <grace> ↓]] صحة§0\nكما أنها تشفيك بنصف هذا المقدار
+divinejudge=مكافآت الضرر السحري تؤثر على الضرر المقدس بنسبة §a[[5 x <skilllevel>]]%
+empoweredhealing=عندما تشفي نفسك أو حليفًا بطريقة سحرية ، قم بزيادة ضررهم بنسبة §a[[5 x <skilllevel>]]%§0 لمدة 3 ثوانٍ
+sanctifiedmind=الشفاء السحري يعيد أيضًا المانا بما يعادل §a[[5 x <skilllevel>]]%§0 من الشفاء المنجز
+sanctifiedarmor=الشفاء السحري يعيد أيضًا المرونة بما يعادل §a[[2 x <skilllevel>]]%§0 من الشفاء المنجز
+radiantexpansion=عندما تشفي نفسك أو حليفًا بطريقة سحرية ، تسبب §a[[5 x <skilllevel>]]%§0 من الشفاء كضرر مقدس للأعداء القريبين من الهدف المشفي
+
+// Druid
+naturesfavor=اكتسب +§a[[2 x <skilllevel>]] تجديد صحة§0 في الثانية أثناء الوقوف على العشب
+primalburst=يزيد الضرر والسرعة بنسبة [[6 x <skillevel>]]% لأول 5 ثوانٍ بعد التحول
+phoenixspirit=يتطلب 4 نقاط على الأقل للعمل:\n\nإذا كنت ستموت أثناء التحول بمهارة نشطة، فإنك تنجو بدلاً من ذلك بنسبة §a[4 + 8 x <skilllevel>]%§0 صحة، وتوضع تلك المهارة في فترة تهدئة لمدة ساعة واحدة\n\nلا يتم تفعيلها إذا كان لديك بالفعل ما لا يقل عن §a[[0.25 x <skilllevel> ↓]] مهارة تحول§0 في فترة تهدئة أطول من دقيقة واحدة
+
+
+[activeskills]
+empty=فارغ
+
+// محارب
+fury=غضب
+recovery=استرداد
+provocation=استفزاز
+berserkercharge=هجوم البرسركر
+
+groundslam=ضربة أرضية
+grounddestruction=تدمير أرضي
+parry=صد
+battlecry=صرخة معركة
+
+ironguard=حارس حديدي
+intimidation=ترهيب
+
+objectthrowing=رمي الأشياء
+
+// ساحر
+arcaneoverload=زيادة التحميل الغامض
+firedance=رقصة النار
+iceball=كرة الجليد
+zap=صعقة
+manarecharge=إعادة شحن المانا
+
+teleport=انتقال فوري
+inferno=جحيم
+fireenchantment=سحر النار
+iceenchantment=سحر الجليد
+
+fireball=كرة نارية
+lightning=برق
+
+// مستحضر الأرواح
+skeletonhorde=حشد الهياكل العظمية
+skeletonwarrior=محارب هيكل عظمي
+sacrifice=تضحية
+siegecry=صرخة الحصار
+
+boneslingerhorde=حشد قاذفي العظام
+tomb=قبر
+necroticbloom=ازدهار نخرى
+wardingtaunt=استفزاز وقائي
+
+unholyground=أرض غير مقدسة
+necroticbarrage=وابل نخرى
+
+// رجل دين
+smite=ضربة
+divineblessing=نعمة إلهية
+purify=تطهير
+lightinfusion=تسريب الضوء
+
+holyguard=حارس مقدس
+judgment=حكم
+sanctuary=ملاذ
+
+divineintervention=تدخل إلهي
+resurrection=إحياء
+wrathoflight=غضب النور
+
+// درويد
+wolftransformation=تحول الذئب
+queenbeetransformation=تحول ملكة النحل
+
+beartransformation=تحول الدب
+foxtransformation=تحول الثعلب
+rattransformation=تحول الفأر
+
+treanttransformation=تحول الشجرة
+
+
+[activeskillsdesc]
+// محارب
+fury=للثواني الست القادمة ، قم بزيادة ضرر المشاجرة وسرعة الهجوم بنسبة §a[[20 x <skilllevel>]]%
+recovery=للثواني العشر القادمة ، يعزز بشكل كبير تجديد الصحة القتالية ، ويعيد §a[[20 + <endurance> x <skilllevel>]] صحة§0 على مدار المدة
+provocation=للثواني §a[[2 x <skilllevel>]]§0 القادمة ، أجبر الأعداء القريبين على تركيز هجماتهم عليك
+berserkercharge=اندفع للأمام مسافة قصيرة ، مسببًا §i[[10 x <playerlevel> + 2 x <strength> x <skilllevel> + 2 x <speed> x <skilllevel>]] ضرر§0 لجميع الأعداء الذين مررت بهم\nيستهلك 50% من القدرة على التحمل
+
+groundslam=هجوم منطقة يسبب §i[[5 x <strength>]] ضرر مشاجرة§0 و §9يصعق§0 لمدة §a[[1 x <skilllevel>]] ثانية§0
+grounddestruction=هجوم منطقة يسبب §i[[5 x <playerlevel> + 5 x <strength> x <skilllevel>]] ضرر مشاجرة§0 و §9يصعق§0 لمدة ثانيتين
+parry=كن منيعًا لمدة 0.5 ثانية وأعد 500% من الضرر الأصلي الذي تلقيته\nيستهلك 100% من القدرة على التحمل
+battlecry=للثواني العشر القادمة ، قم بزيادة كل ضررك وسرعة حركتك أنت وحلفائك القريبين بنسبة §a[[10 x <skilllevel>]]%
+
+ironguard=-50% ضرر وارد لمدة §a[[4 x <skilllevel>]] ثانية
+intimidation=للثواني §a[[<skilllevel>]]§0 القادمة ، اجعل الأعداء القريبين يهربون
+
+objectthrowing=الخطوة 1: امسك شيئًا أمامك\nالخطوة 2: ارمه للأمام مسببًا §i[[20 x <playerlevel> + 10 x <strength> x <skilllevel>]] ضرر مشاجرة§0
+
+// حارس
+shortdash=قم باندفاعة قصيرة\nتستهلك 15% من القدرة على التحمل
+longdash=قم باندفاعة طويلة\nتستهلك 25% من القدرة على التحمل
+lethalshot=أطلق §hسهمًا قاتلاً§0 على أقرب عدو ، مسببًا §i[[5 x <playerlevel> + 5 x <strength> x <skilllevel>]] ضرر الحارس§0
+venomshot=أطلق §bسهمًا سامًا§0 على أقرب عدو ، مسببًا §i[[4 x <playerlevel> + 2 x <strength> x <skilllevel> + 2 x <intelligence> x <skilllevel>]] ضرر الحارس§0
+explosiveshot=أطلق §iسهمًا متفجرًا§0 على أقرب عدو ، مسببًا §i[[4 x <playerlevel> + 2 x <strength> x <skilllevel> + 2 x <intelligence> x <skilllevel>]] ضرر الحارس§0
+
+shotsrampage=بينما لديك كومة واحدة على الأقل من هيجان الطلقات ، فإن إصابة عدو بهجوم بعيد المدى تمنح كومة إضافية واحدة لمدة 5 ثوانٍ\nتزيد كل كومة من هيجان الطلقات من سرعة الهجوم بنسبة 5% ، بحد أقصى 30 كومة
+huntersmark=§hعلم§0 أقرب عدو بأعلى صحة لمدة 10 ثوانٍ\nإذا قتلت هدفًا معلمًا ، فستحصل على §a+[[20 x <skilllevel>]]%§0 سرعة هجوم بعيدة المدى وسرعة حركة لمدة 5 ثوانٍ
+beartrap=ضع فخ دببة على الأرض يختفي إذا تم تشغيله أو بعد 20 ثانية\nإذا قام عدو بتشغيله ، فسوف يتلقى §i[[10 x <playerlevel>]] ضرر§0 ويتم احتجازه لمدة 5 ثوانٍ
+
+huntersinstinct=للثواني الـ 12 القادمة ، قم بزيادة §7فرصة المراوغة§0 بنسبة §a[[5 x <skilllevel>]]%\n§hعلم§0 لمدة 5 ثوانٍ الأعداء الذين تراوغهم
+arrowstorm=أطلق سهمًا أساسيًا على كل عدو قريب ، مسببًا §i[[2 x <playerlevel> + <strength> x <skilllevel> + <speed> x <skilllevel>]] ضرر الحارس§0 لكل سهم
+
+// ساحر
+arcaneoverload=أثناء التنشيط ، يزيد من سرعة هجومك السحري بنسبة §a[[30 x <skilllevel>]]%§0 ، لكنك لن تتمكن من الحركة\nينتهي عندما ينفد المانا ، أو إذا تم استخدامه مرة أخرى\nيستهلك §a[[10 + 2 x <skilllevel>]] مانا في الثانية
+manarecharge=أثناء التنشيط، تكسب §a+[[<skilllevel>]] تجديد مانا§0، لكنك ستكون مشلولًا وتتلقى ضررًا مضاعفًا\nينتهي عند الاستخدام مرة أخرى
+firedance=يستدعي 4 §bلهيب راقص§0 ، كل منها يسبب §i[[<playerlevel> + <intelligence> x <skilllevel>]] ضرر سحري§0\nاستدعاء واحد آخر كل 5 ثوانٍ\nتختفي جميع الاستدعاءات بعد 20 ثانية من تفعيل المهارة\nيستهلك §a[[30 + 6 x <skilllevel>]] مانا
+iceball=ألقِ §aكرة جليدية§0 على أقرب عدو ، مسببًا §i[[5 x <playerlevel> + 5 x <intelligence> x <skilllevel>]] ضرر سحري§0\nيستهلك §a[[40 + 8 x <skilllevel>]] مانا
+zap=ابدأ صعقة تقفز بين الوحوش لمدة ثانيتين ، مسببة §i[[<playerlevel> + <intelligence> x <skilllevel>]] ضرر سحري§0 وتصعق لمدة ثانية واحدة\nيستهلك §a[[10 + 2 x <skilllevel>]] مانا
+
+teleport=ينقلك أمامك\nيستهلك 8 مانا
+inferno=أشعل النار في جميع الأعداء القريبين ، مسببًا §i[[0.5 x <playerlevel> + 0.5 x <intelligence> x <skilllevel>]] ضرر ناري§0 في الثانية لمدة 10 ثوانٍ\nيستهلك §a[[30 + 6 x <skilllevel>]] مانا
+fireenchantment=للثواني العشر القادمة ، تشعل هجماتك وهجمات الحلفاء القريبين النار في الأعداء ، مسببة §a[[5 x <skilllevel>]]%§0 من الضرر في الثانية لمدة 5 ثوانٍ\nيستهلك §a[[20 + 4 x <skilllevel>]] مانا
+iceenchantment=للثواني العشر القادمة ، تجمد هجماتك وهجمات الحلفاء القريبين الأعداء لمدة §a[[2 x <skilllevel>]] ثانية§0\nيستهلك 20 مانا
+
+fireball=ألقِ §iكرة نارية§0 على أقرب عدو ، مسببًا §i[[5 x <playerlevel> + 5 x <intelligence> x <skilllevel>]] ضرر سحري§0\nيستهلك §a[[60 + 12 x <skilllevel>]] مانا
+lightning=ابدأ برقًا يقفز بين الوحوش لمدة ثانية واحدة ، مسببًا §i[[4 x <playerlevel> + 4 x <intelligence> x <skilllevel>]] ضرر سحري§0 ويصعق لمدة ثانيتين\nلا يمكن أن يصيب نفس الهدف عدة مرات\nيستهلك §a[[30 + 6 x <skilllevel>]] مانا
+
+// مستحضر الأرواح
+skeletonhorde=يستدعي §a[[1 + <skilllevel>]] §bهياكل عظمية§0
+skeletonwarrior=يستدعي §bمحاربًا هيكليًا§0 بـ §a+[[40 x <skilllevel>]]%§0 إضافية من الصحة والضرر
+sacrifice=يموت أقرب مستدعى نخرى، ثم تستعيد §a[[10 + <endurance> x <skilllevel> + <intelligence> + <skilllevel> - <grace> ↓]] صحة§0 كشفاء سحري
+siegecry=اكتسب §a+[[50 x <skilllevel>]]%§0 سرعة استدعاء لمدة 6 ثوانٍ
+
+boneslingerhorde=يستدعي §a[[1 + <skilllevel>]]§0 §bقاذفي العظام§0
+tomb=ينشئ هيكلاً يستدعي §bهيكلًا عظميًا§0 كل §a[[10 - <skilllevel>]] ثانية§0\nيتمتع القبر بصحة تساوي §a[[5 x <playerlevel> x <skilllevel>]]§0\nيفقد القبر 2% من إجمالي صحته في الثانية
+necroticbloom=يسرع من تأثير السم على جميع الأعداء القريبين عن طريق تقليل مدته إلى 10% ، ولكن زيادة ضرره في الثانية للحفاظ على إجمالي الضرر
+wardingtaunt=يجبر أقرب مستدعى نخرى قابل للضرر الأعداء القريبين داخل دائرة نصف قطرها §a[[50 x <skilllevel>]]§0 على استهدافه
+
+unholyground=يمد هالة من الفساد من حولك لمدة 10 ثوانٍ\nيتلقى الأعداء داخل هذه المنطقة §i[[<playerlevel> + <intelligence> x <skilllevel> - <grace>]] ضرر سم§0 في الثانية ويكونون §7مقيدين
+necroticbarrage=ينفجر جميع المستدعين النخريين القابلين للضرر عند الموت ، مسببين §i[[5 x <playerlevel> + 5 x <intelligence> x <skilllevel>]] ضرر سحري§0 للأعداء القريبين\nويسممونهم لمدة 10 ثوانٍ بنسبة 20% من الضرر الأصلي في الثانية
+
+// رجل دين
+smite=استدعاء شعاع من الضوء المقدس على أقرب عدو ، مسببًا §i[[4 x <playerlevel> + 2 x <intelligence> x <skilllevel> + 2 x <grace> x <skilllevel>]] ضرر مقدس§0\nيسبب ضررًا مضاعفًا للوحوش الأوندد والشيطانية\nيستهلك §a[[10 + 2 x <skilllevel>]] مانا§0
+divineblessing=هالة شفاء سحرية تستعيد §a[[20 + 3 x <grace> x <skilllevel> ↓]] صحة§0 لك ولحلفائك\nتستهلك §a[[20 + 4 x <skilllevel>]] مانا§0
+purify=طهر نفسك وحلفائك القريبين من جميع التأثيرات السلبية\nتستهلك 10 مانا
+lightinfusion=للثواني الثماني القادمة ، تكتسب §a+[[20 x <skilllevel>]]%§0 شفاء سحري وضرر مقدس
+
+holyguard=طبق على نفسك وجميع الحلفاء القريبين درعًا مقدسًا لمدة تصل إلى 30 ثانية\nيكتسبون §a+[[10 x <skilllevel>]]%§0 شفاء سحري مستلم ويمنع الدرع ضربة واحدة قبل أن ينكسر\nيستهلك §a[[40 + 8 x <skilllevel>]] مانا§0
+judgment=أطلق موجة من الطاقة المشعة ، مسببًا §i[[4 x <playerlevel> + 2 x <intelligence> x <skilllevel> + 2 x <grace> x <skilllevel>]] ضرر مقدس§0 لجميع الأعداء القريبين\nيتم §7تقييد§0 الوحوش الأوندد والشيطانية لمدة 5 ثوانٍ\nتستهلك §a[[20 + 4 x <skilllevel>]] مانا§0
+sanctuary=أنشئ منطقة مقدسة لمدة 8 ثوانٍ\nأنت وحلفاؤك بالداخل محصنون ضد التأثيرات السلبية وتكتسبون §a[[0.2 x <grace> x <skilllevel>]]§0 تجديد صحة في الثانية\nيتم §7تقييد§0 الوحوش الأوندد والشيطانية بالداخل\nتستهلك §a[[30 + 6 x <skilllevel>]] مانا§0
+
+divineintervention=اشفِ على الفور أقرب حليف متضرر إلى أقصى صحته وامنحه حصانة من كل الضرر لمدة §a[[<skilllevel>]]§0 ثانية\nتستهلك §a[[60 + 12 x <skilllevel>]] مانا§0
+resurrection=أحِ آخر حليف لاعب ميت في نفس جزيرتك بنسبة §a[[10 x <skilllevel>]]%§0 من صحتهم القصوى في موقعك\nلا يمكنك إحياء اللاعبين الذين ماتوا منذ أكثر من 10 ثوانٍ\nتستهلك §a[[100 - 10 x <skilllevel>]]%§0 من المانا (على الأقل §a[[60 + 12 x <skilllevel>]]§0)
+wrathoflight=استدعاء عمود من الضوء على أقرب عدو ، مسببًا §i[[2 x <playerlevel> + <intelligence> x <skilllevel> + <grace> x <skilllevel>]] ضرر مقدس§0 في الثانية لمدة 5 ثوانٍ في المنطقة\nيتم §7تقييد§0 الوحوش الأوندد والشيطانية بالداخل\nتستهلك §a[[40 + 8 x <skilllevel>]] مانا§0
+
+// درويد
+wolftransformation=يستغرق 3 ثوانٍ للتحول إلى ذئب\n\nسرعة الحركة: 60\n\nاضغط على [input=transformationability1] للعض السريع: اقفز للأمام وعض، مسببًا §i[[2 x <playerlevel> + <strength> x <skilllevel> + <speed> x <skilllevel>]] ضرر مشاجرة§0 (3 كسب مرونة)\n\nاضغط على [input=transformationability2] للنباح: اجبر الأعداء القريبين على استهدافك لمدة ثانيتين\n\nاضغط باستمرار على [input=trinketability] للركض
+queenbeetransformation=يستغرق ثانيتين للتحول إلى ملكة النحل\n\nسرعة الحركة: 30\n-50% اكتشاف العدو\n§6+1000% الضرر الوارد§0\nتلقي ضربة يستدعي الحد الأقصى من النحل بدلاً من الموت (فترة تهدئة 60 ثانية)\n\nاضغط على [input=transformationability1] لإطلاق العسل: ألحق ضررًا عن بعد بمقدار §i[[2 x <playerlevel> + <strength> x <skilllevel>]]§0 (2 كسب مرونة)\n\nاضغط على [input=transformationability2] لاستدعاء §9نحلة§0 تصل إلى §a[[2 x <skilllevel>]]§0\n\nاستمر في الضغط على [input=trinketability] لتأمر نحلك بالهجوم
+beartransformation=يستغرق 4 ثوانٍ للتحول إلى دب\n\nسرعة الحركة: 20\n-50% ضرر وارد\n\nاضغط على [input=transformationability1] لضربة الأرض: هجوم منطقة يسبب §i[[4 x <playerlevel> + 4 x <strength> x <skilllevel>]] ضرر مشاجرة§0 و §9يصعق§0 لمدة §a[[0.5 x <skilllevel>]] ثانية§0 (4 كسب مرونة)\n\nاضغط على [input=transformationability2] للزمجرة: اجعل الأعداء القريبين يهربون لمدة ثانية واحدة\n\nاضغط باستمرار على [input=trinketability] للركض
+foxtransformation=يستغرق 3 ثوانٍ للتحول إلى ثعلب\n\nسرعة الحركة: 50\n§6+50% ضرر وارد§0\n\nاضغط على [input=transformationability1] لإطلاق كرات نارية: تسبب §i[[<playerlevel> + 0.5 x <intelligence> x <skilllevel>]] ضرر سحري§0 (2 كسب مرونة)\n\nاضغط على [input=transformationability2] لاستدعاء §bلهيب راقص§0 حتى §a[[2 + <skilllevel>]]§0، كل منها يسبب نفس الضرر مثل الكرة النارية\n\nاضغط على [input=trinketability] للاندفاع\n§!Vulpes Nova fox!
+rattransformation=يستغرق ثانيتين للتحول إلى فأر\n\nسرعة الحركة: 25\n-50% كشف العدو\nيمنح أقصى فرصة مراوغة\n§6+1000% ضرر وارد§0\n\nاضغط على [input=transformationability1] للعض: يسبب §i[[0.5 x <playerlevel> + 0.5 x <strength> x <skilllevel> + 0.5 x <intelligence> x <skilllevel>]] ضرر مشاجرة§0 ويسمم الهدف بنسبة 100% من الضرر الذي تم إلحاقه في الثانية لمدة 10 ثوانٍ\n\nاضغط باستمرار على [input=trinketability] للركض
+treanttransformation=يستغرق 4 ثوانٍ للتحول إلى Treant\n\nسرعة الحركة: 0\n-§a[50 + 5 <skilllevel>]%§0 ضرر وارد\n+50% درع\nيتجاهلك الأعداء إذا كنت مختبئًا لمدة 3 ثوانٍ\n\nاضغط على [input=transformationability1] لإطلاق بذور عشوائية: ألحق §i[[0.5 x <playerlevel> + <strength> x <skilllevel>]] ضررًا بعيد المدى§0 بتأثيرات عشوائية (1 كسب مرونة)\n\nاضغط على [input=transformationability2] لاستدعاء §9Dryad Sapling§0\n\nاضغط باستمرار على [input=trinketability] للكشف والركض إذا كنت تتحرك
+
+
+[mastery]
+bastion=حصن
+bloodborn=مولود الدم
+chronomancer=كرونومانسر
+barbarian=بربري
+berserker=برسركر
+sniper=قناص
+marksman=رامي
+hunter=صياد
+trapper=صياد
+pyromancer=بيرومانسر
+frostweaver=ناسج الصقيع
+stormcaller=منادي العاصفة
+ironinvoker=مستدعي الحديد
+plaguebearer=حامل الطاعون
+darkeminence=ظلام بارز
+inquisitor=محقق
+timekeeper=حارس الوقت
+shapeshifter=مغير الشكل
+
+
+[masterydesc]
+bastion=اكتسب مرونة في الثانية تساوي 25% من تجديد صحتك
+bloodborn=اشفِ بنسبة 5% من الضرر الذي تلحقه بالأعداء\nتفقد دائمًا 5% من صحتك القصوى في الثانية، لكن لا يمكن أن تموت من هذا التأثير\nتجديد الصحة دائمًا 0
+chronomancer=يقلل من فترة تهدئة جميع المهارات النشطة بنسبة 20%
+barbarian=+100% صحة قصوى و +200% تجديد صحة، لكن درعك سيكون دائمًا 0
+berserker=عندما تكون الصحة أقل من 50%، احصل على +25% فرصة حرجة للمشاجرة\nالضربات الحرجة للمشاجرة تزيد من سرعة هجومك وسرعة حركتك بنسبة 25% لمدة ثانيتين
+sniper=الهجمات بعيدة المدى تصل إلى +100% ضرر بناءً على المسافة إلى الهدف
+marksman=الأعداء الذين تضع عليهم علامة يتم تمييزهم لجميع اللاعبين
+hunter=عندما تضع علامة على عدو، يتم تقييده لمدة 5 ثوانٍ
+trapper=+50% ضرر للأعداء المحاصرين أو المقيدين
+pyromancer=يمكن أن تتراكم اشتعالاتك على نفس العدو
+frostweaver=+50% ضرر للأعداء الذين يعانون من Frostslow أو Freezing أو Frostburn
+stormcaller=كل 20 ثانية، يتعرض جميع الأعداء في مجال الرؤية لضربة صاعقة\nإلحاق §i[[<playerlevel> + <intelligence>]] ضرر سحري§0 وصعق لمدة ثانية واحدة لجميعهم
+ironinvoker=تكتسب استدعاءاتك القابلة للتلف درعًا يمنع هجومًا واحدًا ويعاد شحنه بعد 10 ثوانٍ
+plaguebearer=تدوم سمومك ضعف المدة على الأعداء
+darkeminence=كلما فقدت أكثر من 15% من صحتك القصوى من هجوم واحد،\nفإنك تستدعي §bمحاربًا هيكليًا§0 يتحمل الضرر الذي يتجاوز تلك النسبة البالغة 15% (3s فترة تهدئة)
+inquisitor=هجماتك وتأثيراتك تحكم على جميع أعدائك بأنهم شياطين
+timekeeper=الشفاء السحري، سواء على نفسك أو على حليف، يقلل من فترات تهدئة المهارات النشطة للهدف بمقدار 0.02 ثانية لكل نقطة يتم شفاؤها
+shapeshifter=بعد التحول، تصبح منيعًا لمدة 3 ثوانٍ (فترة تهدئة 5 ثوانٍ)
+
+
+[skillsdesckeys]
+skilllevel=مستوى المهارة
+playerlevel=مستوى اللاعب
+endurance=التحمل
+speed=السرعة
+strength=القوة
+intelligence=الذكاء
+grace=الرشاقة
+
+
+[extraskilldesc]
+// الميكانيكا الأساسية
+manausage=إذا لم يكن لديك ما يكفي من المانا ، فإن فترة التهدئة الخاصة به تتضاعف
+setmax=يتم تعيين التأثيرات السلبية على أنها قصوى ولا يمكن إزالتها بواسطة التعزيزات الأخرى
+
+// الأضرار
+holydamage=§9ضرر مقدس:§0 سيتم تحويل 2% من الضرر المقدس الملحق إلى شفاء للوحوش التي تشفيها بالسحر\nكما يشعل النار في الوحوش الأوندد والشيطانية لمدة 10 ثوانٍ ، أو يحرقها لمدة 5 ثوانٍ إذا كان الضرر 100 أو أكثر
+throwingdamage=§7ضرر الرمي:§0 تؤثر مكافآت الضرر المشاجرة والبعيدة المدى على ضرر الرمي بنسبة 50% لكل منهما
+
+// التعزيزات
+marked=§hمعلم:§0 تسبب +20% ضرر (+ §hضرر التركيز§0) و +10% فرصة حرجة للوحوش التي تعلمها\n"أقرب عدو" يعطي الأولوية للأعداء المعلمين
+constrained=§7مقيد:§0 -50% سرعة الحركة
+
+// معدلات الفرصة
+dodgechance=§7فرصة المراوغة:§0 فرصة لمراوغة الهجمات الواردة. لا يمكن أن تتجاوز 80%
+focuschance=§hفرصة التركيز:§0 فرصة §hلتعليم§0 وحش لمدة 5 ثوانٍ عند مهاجمته مباشرة
+
+// معدلات ثابتة
+mobdetection=§9كشف الوحوش:§0 يعرض الوحوش القريبة على الخريطة. يكشف نطاق الكشف الأعلى عن الوحوش من مسافة أبعد
+ignitedamage=§iضرر الحرق:§0 يزيد من ضرر الحرق بمرور الوقت ، لكنه لا يؤثر على ضرر الضربة المباشرة
+
+// المقذوفات
+lethalarrow=§hالسهم القاتل:§0 سهم موجه يمنح ضربة حرجة
+venomarrow=§bالسهم السام:§0 سهم موجه يسمم الأعداء. يكرر 10% من ضرره الأصلي في الثانية لمدة 30 ثانية
+explosivearrow=§iالسهم المتفجر:§0 سهم موجه يسبب انفجارًا سحريًا بنفس الضرر
+iceball=§aكرة جليدية:§0 قذيفة سحرية تنفجر وتجمد الوحوش لمدة 5 ثوانٍ ، وتجمدهم أيضًا تمامًا لمدة ثانية واحدة
+fireball=§iكرة نارية:§0 قذيفة سحرية تنفجر وتشعل النار في الوحوش مكررة 20% من ضررها الأصلي في الثانية لمدة 5 ثوانٍ
+
+// الاستدعاءات
+dancingflame=§bاللهب الراقص:§0 استدعاء يعمل كقذيفة. يشعل النار في الأعداء عند الاصطدام\nيكرر 20% من ضرره الأصلي في الثانية لمدة 5 ثوانٍ
+
+// Damageable Summons
+necromancerskeleton=§bهيكل عظمي:§0 مستدعى نخرى قابل للضرر\nالصحة: §a[[5 x <playerlevel> + 5 x <intelligence> ↓]]§0\nالضرر: §a[[<playerlevel> + <intelligence>]]§0\nالسرعة: 60\nيفقد 2% من إجمالي الصحة في الثانية
+necromancerskeletonwarrior=§bمحارب هيكل عظمي:§0 مستدعى نخرى قابل للضرر\nالصحة: §a[[8 x <playerlevel> + 8 x <intelligence> ↓]]§0\nالضرر: §a[[2 x <playerlevel> + 2 x <intelligence>]]§0\nالسرعة: 60\nيفقد 2% من إجمالي الصحة في الثانية
+necromancerboneslinger=§bقاذف العظام:§0 مستدعى نخرى قابل للضرر\nالصحة: §a[[2 x <playerlevel> + 2 x <intelligence> ↓]]§0\nالضرر: §a[[<playerlevel> + <intelligence>]]§0 (مسافة 320)\nالسرعة: 60\nيفقد 2% من إجمالي الصحة في الثانية
+bee=§9نحلة:§0 استدعاء قابل للتلف\nالصحة: 1\nالضرر: §a[[<playerlevel> + <intelligence> ↓]]§0\nالسرعة: 100\n\nتموت عند الهجوم، لكنها تسمم الهدف بنسبة 20% من الضرر الناتج في الثانية لمدة 10 ثوانٍ.
+dryadsapling=§9شتلة درياد:§0 استدعاء قابل للضرر\nالصحة: §a[[2 x <playerlevel> + 2 x <intelligence> ↓]]§0\nالضرر: §a[[3 x <playerlevel> + 3 x <intelligence>]]§0\n\nالسرعة: 65\nيفقد 2% من إجمالي الصحة كل ثانية
+
+[item]
+scrollofoblivion=مخطوطة النسيان
+ringsbox=صندوق الخواتم
+
+// خواتم السمات
+endurancewoodring=خاتم خشبي للتحمل
+endurancecopperring=خاتم نحاسي للتحمل
+enduranceironring=خاتم حديدي للتحمل
+endurancegoldring=خاتم ذهبي للتحمل
+
+speedwoodring=خاتم خشبي للسرعة
+speedcopperring=خاتم نحاسي للسرعة
+speedgoldring=خاتم ذهبي للسرعة
+speedironring=خاتم حديدي للسرعة
+
+strengthwoodring=خاتم خشبي للقوة
+strengthcopperring=خاتم نحاسي للقوة
+strengthgoldring=خاتم ذهبي للقوة
+strengthironring=خاتم حديدي للقوة
+
+intelligencewoodring=خاتم خشبي للذكاء
+intelligencecopperring=خاتم نحاسي للذكاء
+intelligencegoldring=خاتم ذهبي للذكاء
+intelligenceironring=خاتم حديدي للذكاء
+
+gracewoodring=خاتم خشبي للرشاقة
+gracecopperring=خاتم نحاسي للرشاقة
+graceironring=خاتم حديدي للرشاقة
+gracegoldring=خاتم ذهبي للرشاقة
+
+
+[itemtooltip]
+holydamagetip=ضرر مقدس: <value>
+throwingdamagetip=ضرر الرمي: <value>
+
+scrollofoblivion=يمنح نقطتي إعادة تعيين
+ringsboxtip=يمكن تخزين خواتم السمات
+
+
+[message]
+xp=خبرة
+levelup=ارتقاء المستوى!
+dodge=مراوغة!
+
+newmobkill=لقد اكتسبت <exp> خبرة لقتلك <mob> لأول مرة
+newlevel=تهانينا! لقد وصلت إلى المستوى <level>. اضغط على [input=openrpgmenu] لفتح قائمة RPG
+
+noupdatesincombat=لا يمكنك تعديل سماتك أو فئاتك أو مهاراتك أثناء القتال
+noactiveskill=لم تعد لديك تلك المهارة النشطة ، ارفع مستواها مرة أخرى إذا كنت تريد استخدامها
+
+equipfirst=تحتاج أولاً إلى تجهيز مهارة نشطة في هذه الخانة
+activeskillinuse=هذه المهارة قيد الاستخدام بالفعل
+anotheractiveskillinuse=لديك بالفعل مهارة أخرى قيد الاستخدام
+incooldown=في فترة التهدئة
+notenoughstamina=لا توجد قدرة على التحمل كافية
+canotusemounted=لا يمكن استخدامها أثناء الركوب أو التحول
+
+notarget=لا توجد أهداف قريبة
+nograbbableobject=لا يوجد شيء يمكن الإمساك به أمامك
+notargetfollower=لا توجد استدعاءات مستهدفة قريبة
+nodeathplayers=لا يمكن إحياء أي لاعبين ميتين في هذا المستوى
+
+
+[ui]
+menutitle=تعديل RPG بواسطة Save
+attributes=السمات
+mastery=إتقان
+activeskills=المهارات النشطة
+classes=الفئات
+
+level=المستوى <level>
+classlevel=<class> المستوى <level>
+lvl=م <level>
+eachlevel=كل مستوى يوفر:
+experience=الخبرة: <exp> / <nextexp>
+totalexperience=إجمالي الخبرة: <exp>
+onlytranformed=فقط عند التحول
+
+points=نقاط: <points>
+resetpoints=نقاط إعادة التعيين: <points>
+attrpoints=نقاط السمة: <points>
+masterypoints=نقاط الإتقان: <points>
+classpoints=نقاط الفئة: <points>
+passivepoints=نقاط السلبية: <points>
+activeskillpoints=نقاط المهارة النشطة: <points>
+
+activeskillsuse=يحول هذا التعديل عجلة التعبير (مفتاح T افتراضيًا) إلى عجلة المهارات النشطة
+activeskillsusetip1=يوصى بتغيير التحكم في عجلة التعبير إلى مفتاح يسهل الوصول إليه
+activeskillsusetip2=تظهر المهارات الأربع الأولى فقط في عجلة المهارات النشطة. ستحتاج إلى استخدام المفاتيح للباقي.
+activeskillsequipinstructions=انقر فوق خانة لتجهيز مهارة نشطة. لا يمكنك إلغاء تجهيز مهارة نشطة في فترة التهدئة
+noactiveskills=ليس لديك مهارات نشطة. افتحها من خلال الفئات
+
+activeskillcast=§9وقت الإلقاء: <seconds>s
+activeskillcooldown=§9فترة التهدئة: <seconds> ثانية
+activeskillcooldownmod=§9فترة التهدئة: [[<seconds> <sign> <mod> x مستوى المهارة]] ثانية
+requiredclasslevel=§bالمستوى المطلوب للفئة <level>
+requiredactiveskill=§bيتطلب '<skill>' المستوى <level>
+maxlevel=§aالمستوى الأقصى: <level>
+
+clicktoseebase=[input=mouse1] لرؤية القاعدة
+clicktoseelevel=[input=mouse1] لرؤية المستوى <level>
+
+classlevelseparation=- مستوى الفئة <level> -
+
+inuse=قيد الاستخدام
+
+upcomingclass=§6الفئة القادمة\n§9هذه الفئة قيد التطوير حاليًا\nوستكون متاحة في تحديث مستقبلي
+disabledclass=هذه الفئة معطلة في هذا العالم
+
+addcolumn=إضافة عمود
+removecolumn=إزالة عمود
+
+rate=قيم تعديل RPG!
+
+clicktoopen=[input=mouse1] للفتح
+
+
+[controls]
+openrpgmenu=فتح قائمة RPG
+activeskillslot1=فتحة المهارة النشطة 1
+activeskillslot2=فتحة المهارة النشطة 2
+activeskillslot3=فتحة المهارة النشطة 3
+activeskillslot4=فتحة المهارة النشطة 4
+activeskillslot5=فتحة المهارة النشطة 5
+activeskillslot6=فتحة المهارة النشطة 6
+activeskillslot7=فتحة المهارة النشطة 7
+activeskillslot8=فتحة المهارة النشطة 8
+activeskillslot9=فتحة المهارة النشطة 9
+activeskillslot10=فتحة المهارة النشطة 10
+activeskillslot11=فتحة المهارة النشطة 11
+activeskillslot12=فتحة المهارة النشطة 12
+transformationability1=قدرة التحول 1
+transformationability2=قدرة التحول 2
+
+
+[settingsui]
+restart_text=الإعدادات المميزة بـ (*) تتطلب إعادة تشغيل اللعبة لتصبح سارية المفعول
+client_text="إعدادات العميل" هي مرئية بحتة ويمكن تعديلها بحرية.
+server_text="إعدادات الخادم" تؤثر بشكل مباشر على طريقة اللعب. لا يمكن تغييرها داخل اللعبة، وإذا انضممت إلى صديق أو خادم، فسيتم تطبيق إعداداتهم بدلاً من إعداداتك.
+
+// Default
+default_section=القيم الافتراضية (العميل)
+default_text=يمكن تعديل هذه الإعدادات في قوائم أخرى، لكنها ستعود دائمًا إلى هذه القيم عند بدء اللعبة
+showClassIcons=إظهار أيقونات الفئة
+twelveSkillSlots=12 خانة مهارة
+
+// الميكانيكا
+mechanics_section=الميكانيكا (الخادم)
+
+boomerangsDealThrowingDamage=البومرانج يسبب ضرر الرمي (*)
+
+// الخبرة
+experience_section=الخبرة (الخادم)
+
+experienceMod=٪ تعديل الخبرة
+experienceMod_text=يعدل مقدار الخبرة المكتسبة من هزيمة الوحوش
+
+firstKillBonus=٪ مكافأة القتل الأول
+firstKillBonus_text=زيادة في الخبرة عند هزيمة وحش لأول مرة (لا تضاف ، بل تضرب بالمعدلات الأخرى)
+
+bossKillBonus=٪ مكافأة قتل الزعيم
+bossKillBonus_text=زيادة في الخبرة عند هزيمة زعيم (لا تضاف ، بل تضرب بالمعدلات الأخرى)
+
+startingExperience=الخبرة الابتدائية
+startingExperience_text=الخبرة التي سيبدأ بها اللاعبون الجدد
+
+firstExperienceReq=المتطلبات الأولية
+experienceReqInc=زيادة المتطلبات
+squareExperienceReqInc=زيادة مربعة للمتطلبات
+cubeExperienceReqInc=زيادة مكعبة للمتطلبات
+experience_calc=متطلبات الخبرة للوصول إلى المستوى التالي هي:\n\nالمتطلبات الأولية + زيادة المتطلبات * المستوى +\n+ زيادة مربعة للمتطلبات * (المستوى ^ 2) +\n+ زيادة مكعبة للمتطلبات * (المستوى ^ 3)\n\nحيث 'المستوى' هو مستواك الفعلي
+
+// Classes
+classes_section=(الخادم) الفئات
+
+multiClass=متعدد الفئات
+multiClass_text=حدد عدد الفئات المختلفة التي يمكن الاحتفاظ بها في نفس الوقت. اضبطه على 0 بلا حدود
+
+classes_enabled=يمكنك تعطيل الفئات التي لا تريد أن تكون متاحة

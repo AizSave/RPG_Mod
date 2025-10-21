@@ -1,0 +1,677 @@
+# Translation made by AI
+
+[global]
+rpgmod=§!RPG Mod
+
+[buffmodifiers]
+enduranceattrflat=<mod> 耐力属性
+speedattrflat=<mod> 速度属性
+strengthattrflat=<mod> 力量属性
+intelligenceattrflat=<mod> 智力属性
+graceattrflat=<mod> 优雅属性
+
+dodgechance=<mod>% 闪避几率
+rangedweaponszoom=<mod> 远程武器变焦
+rangedweaponsrange=<mod>% 远程武器射程
+mobdetectionrange=<mod> 生物探测范围
+focusdamage=<mod>% 专注伤害
+focuschance=<mod>% 专注几率
+ignitedamage=<mod>% 点燃伤害
+
+// Holy Damage
+holydamage=<mod>%神圣伤害
+holycritchance=<mod>%神圣暴击率
+holycritdamage=<mod>%神圣暴击伤害
+holyeffect=<mod>%神圣效果
+holyabilityspeed=<mod>%神圣技能速度
+
+throwingdamage=<mod>%投掷伤害
+throwingattackspeed=<mod>%投掷攻击速度
+throwingcritchance=<mod>%投掷暴击率
+throwingcritdamage=<mod>%投掷暴击伤害
+casttime=<mod>% 施法时间
+
+transformationdelay=<mod>% 变身延迟
+noskills=无法使用技能
+
+[stats]
+holy_damage=神圣伤害
+throwing_damage=投掷伤害
+
+
+[enchantment]
+evasive=闪避
+stalking=潜行
+regenerative=再生
+energetic=精力充沛
+depleted=枯竭
+
+
+[buff]
+overlevelbuff=超等级
+markedbuff=已标记
+darkcursebuff=黑暗诅咒
+magicpoisonbuff=魔法毒药
+ignitedbuff=已点燃
+holydamagedealtbuff=造成神圣伤害
+queenbeewashit=蜂后被击中
+transformingbuff=变形中
+castingbuff=施法中
+
+
+[buffdesc]
+overlevelbuff1=§9你的一个职业或属性超过了点数限制
+overlevelbuff2=§6在修复之前你将无法继续
+darkcursebuff1=+25% 受到伤害
+darkcursebuff2=所有伤害也会降低最大生命值
+
+
+[mob]
+rpgmobname=[<class>] <name> 等级 <level>
+rpgmobnamecolor=§<color>[<class>]§0 <name> §9等级 <level>§0
+
+rangerwolf=游侠狼
+dancingflame=舞动之焰
+necromancerskeleton=骷髅
+necromancerskeletonwarrior=骷髅战士
+necromancerboneslinger=投骨者
+necromancertomb=坟墓
+
+
+[mobclass]
+boss=首领
+warrior=战士
+tank=坦克
+runner=奔跑者
+healer=治疗者
+explosive=爆炸性
+glacial=冰川
+electric=电
+flash=闪光
+dark=黑暗
+legend=传奇
+
+
+[mobtrait]
+undead=亡灵
+demonic=恶魔
+
+
+[attributes]
+endurance=耐力
+strength=力量
+speed=速度
+intelligence=智力
+grace=优雅
+
+
+[classes]
+warrior=战士
+ranger=游侠
+wizard=巫师
+necromancer=死灵法师
+cleric=牧师
+rogue=盗贼
+warlock=术士
+paladin=圣骑士
+druid=德鲁伊
+
+
+[passives]
+passives=被动
+
+// 战士
+regeneration=再生
+muscles=肌肉
+legs=腿
+force=力量
+unstoppable=不可阻挡
+vigor=活力
+ironskin=铁皮
+unleashingrage=释放怒火
+unleashinghaste=释放急速
+unyielding=不屈
+lastbreath=最后一口气
+
+// 游侠
+aim=瞄准
+agility=敏捷
+criticalshots=暴击
+energy=能量
+recovery=恢复
+eagleeye=鹰眼
+focus=专注
+erradication=根除
+predatorsense=捕食者感知
+plasmagrenade=等离子手榴弹
+wolfcompanion=狼伙伴
+
+// 巫师
+arcanepower=奥术之力
+manapower=法力之力
+manaproficiency=法力精通
+firepower=火力
+quickmagic=快速魔法
+arcaneshield=奥术护盾
+fireshield=火焰护盾
+iceshield=冰霜护盾
+flamingsteps=烈焰步伐
+stormbound=风暴束缚
+
+// 死灵法师
+darkpower=黑暗之力
+necroticpower=亡灵之力
+darkmagic=黑暗魔法
+necroticarmy=亡灵大军
+darksummons=黑暗召唤
+lifeleech=生命偷取
+necroticremains=亡灵残骸
+endlesslegion=无尽军团
+lichborn=巫妖之躯
+
+// Cleric
+healer=治疗者
+shaman=萨满
+vitalaura=活力光环
+divinejudge=神圣审判者
+empoweredhealing=强化治疗
+sanctifiedmind=圣化心智
+sanctifiedarmor=圣化护甲
+radiantexpansion=光辉扩张
+
+// Druid
+quickshift=快速切换
+feralinstinct=野性本能
+ironfur=铁皮
+naturesfavor=自然恩惠
+beastpace=野兽步伐
+primalburst=原始爆发
+elementalguard=元素守护
+phoenixspirit=凤凰之魂
+
+
+[passivesdesc]
+
+// 战士
+unleashingrage=每级提供：\n\n每损失 10% 生命值，所有伤害 +1%
+unleashinghaste=每级提供：\n\n每损失 10% 生命值，移动速度 +1%
+unyielding=每级提供：\n\n生命值低于 20% 时，攻击速度 +5%，受到伤害 -5%
+lastbreath=死亡时，你会获得§a[[3 x <skilllevel>]]秒§0的无敌时间\n时间结束后，你将死亡
+
+// 游侠
+plasmagrenade=每 8 次远程攻击，发射一枚制导爆炸射弹，造成武器伤害的 §i[[30 x <skilllevel>]]%§0
+wolfcompanion=狼伙伴会攻击被标记的敌人，造成 §i[[<playerlevel> + <intelligence> x <skilllevel>]] 的召唤师伤害§0
+
+// 巫师
+manapower=每级提供：\n\n每 10% 未使用的法力，魔法伤害 +1%
+flamingsteps=当佩戴活动饰品或变身时奔跑，你会在地上留下火焰\n火焰会点燃敌人 3 秒，每秒造成 §i[[0.5 x <playerlevel> + 0.5 x <intelligence> x <skilllevel>]] 魔法伤害§0
+stormbound=每 §a[[11 - 0.5 x <skilllevel>]] 秒§0，一道闪电会击中你视野内的一个随机敌人\n造成 §i[[0.5 x <playerlevel> + 0.5 x <intelligence> x <skilllevel>]] 魔法伤害§0 并眩晕 1 秒
+arcaneshield=一个可以抵挡一次攻击的护盾\n护盾将在使用后 §a[[20 - <skilllevel>]] 秒§0 后恢复
+fireshield=一个可以抵挡一次攻击的护盾\n使用时，你会释放一次爆炸，造成 §i[[<playerlevel> + <intelligence> x <skilllevel>]] 魔法伤害§0\n并点燃生物，在 5 秒内每秒重复其原始伤害的 20%\n护盾将在使用后 26 秒后恢复
+iceshield=一个可以抵挡一次攻击的护盾\n使用时，你会释放一道冰霜光环，造成 §i[[<playerlevel> + <intelligence> x <skilllevel>]] 魔法伤害§0\n使生物冰冻 5 秒，并完全冰冻 1 秒\n护盾将在使用后 22 秒后恢复
+
+// 死灵法师
+necroticpower=你的所有魔法攻击都会在§a[[2 x <skilllevel>]]秒§0内造成其伤害的5%的毒素伤害
+darkmagic=召唤师伤害加成会影响魔法伤害§a[[5 x <skilllevel>]]%
+necroticarmy=被击败的敌对敌人将变成§b骷髅§0，其生命值和伤害为§a-[[100 - 3 x <skilllevel>]]%§0
+darksummons=对中毒的敌人造成§a+[[8 x <skilllevel>]]%§0的召唤师伤害
+lifeleech=将造成的召唤师伤害的§a[[0.05 x <skilllevel>]]%§0恢复为生命值
+necroticremains=当一个亡灵召唤物死亡时，它会爆炸，对附近的敌人造成§i[[0.1 x <intelligence> x <skilllevel>]]的魔法伤害§0，并在10秒内每秒对它们造成20%的伤害
+endlesslegion=此技能每升4级，你将获得+1最大召唤物
+lichborn=当你死亡时，如果你还不是一个§b巫妖§0，你会存活下来并恢复§a[[10 x <skilllevel>]]%§0的生命值\n在接下来的§a[[120 - 6 x <skilllevel>]]秒§0内，你将成为一个§b巫妖§0（一个骷髅）\n\n\n§b巫妖:§0 亡灵变身\n\n无法使用物品\n+100% 承受伤害\n\n按 [input=transformationability1] 发射一根骨头，造成 §i[[<playerlevel> + <strength> + 0.2 x <intelligence>]] 魔法伤害§0 (2 韧性增益)
+
+// Cleric
+vitalaura=每§a[[15 - <skilllevel>]]秒§0，你会在周围释放一个魔法治疗光环，恢复§a[[10 + <grace> ↓]]点生命值§0\n它还会为你恢复该数值的一半
+divinejudge=魔法伤害加成会影响神圣伤害§a[[5 x <skilllevel>]]%§0
+empoweredhealing=当你魔法治疗自己或盟友时，他们的伤害会在3秒内增加§a[[5 x <skilllevel>]]%§0
+sanctifiedmind=魔法治疗还会恢复相当于治疗量§a[[5 x <skilllevel>]]%§0的法力值
+sanctifiedarmor=魔法治疗还会恢复相当于治疗量§a[[2 x <skilllevel>]]%§0的韧性
+radiantexpansion=当你魔法治疗自己或盟友时，对被治疗目标附近的敌人造成相当于治疗量§a[[5 x <skilllevel>]]%§0的神圣伤害
+
+// Druid
+naturesfavor=站在草地上时，每秒获得 +§a[[2 x <skilllevel>]] 生命恢复§0
+primalburst=变身后的前 5 秒内，伤害和速度提高 [[6 x <skillevel>]]%
+phoenixspirit=至少需要 4 点才能生效：\n\n如果你在变身状态下使用主动技能死亡，你将以 §a[4 + 8 x <skilllevel>]]%§0 的生命值存活，并且该技能将进入 1 小时冷却\n\n如果你已经有至少 §a[[0.25 x <skilllevel> ↓]] 个变身技能§0 冷却时间超过 1 分钟，则不会触发
+
+
+[activeskills]
+empty=空
+
+// 战士
+fury=狂怒
+recovery=恢复
+provocation=挑衅
+berserkercharge=狂战士冲锋
+
+groundslam=地面猛击
+grounddestruction=地面毁灭
+parry=格挡
+battlecry=战吼
+
+ironguard=铁卫
+intimidation=恐吓
+
+objectthrowing=投掷物体
+
+// 游侠
+shortdash=短冲刺
+longdash=长冲刺
+lethalshot=致命射击
+venomshot=剧毒射击
+explosiveshot=爆炸射击
+
+shotsrampage=射击狂暴
+huntersmark=猎人印记
+beartrap=捕熊夹
+
+huntersinstinct=猎人本能
+arrowstorm=箭雨
+
+// 巫师
+arcaneoverload=奥术超载
+firedance=火焰之舞
+iceball=冰球
+zap=电击
+manarecharge=法力再充
+
+teleport=传送
+inferno=地狱火
+fireenchantment=火焰附魔
+iceenchantment=冰霜附魔
+
+fireball=火球术
+lightning=闪电
+
+// 死灵法师
+skeletonhorde=骷髅部落
+skeletonwarrior=骷髅战士
+sacrifice=牺牲
+siegecry=围攻呐喊
+
+boneslingerhorde=投骨者部落
+tomb=坟墓
+necroticbloom=亡灵之花
+wardingtaunt=守护嘲讽
+
+unholyground=邪恶之地
+necroticbarrage=亡灵弹幕
+
+// 牧师
+smite=惩击
+divineblessing=神圣祝福
+purify=净化
+lightinfusion=光之注入
+
+holyguard=神圣守卫
+judgment=审判
+sanctuary=圣所
+
+divineintervention=神圣干预
+resurrection=复活
+wrathoflight=光之怒
+
+// 德鲁伊
+wolftransformation=狼人变身
+queenbeetransformation=蜂后变身
+
+beartransformation=熊人变身
+foxtransformation=狐狸变身
+rattransformation=老鼠变身
+
+treanttransformation=树人变身
+
+
+[activeskillsdesc]
+// 战士
+fury=在接下来的 6 秒内，你的近战伤害和攻击速度提高 §a[[20 x <skilllevel>]]%
+recovery=在接下来的 10 秒内，大幅提高战斗中的生命恢复，在持续时间内恢复 §a[[20 + <endurance> x <skilllevel>]] 生命值§0
+provocation=在接下来的 §a[[2 x <skilllevel>]] 秒内§0，强迫附近的敌人将攻击集中在你身上
+berserkercharge=向前冲一小段距离，对所有经过的敌人造成 §i[[10 x <playerlevel> + 2 x <strength> x <skilllevel> + 2 x <speed> x <skilllevel>]] 伤害§0\n消耗 50% 耐力
+
+groundslam=区域攻击，造成 §i[[5 x <strength>]] 近战伤害§0 并 §9眩晕§0 §a[[1 x <skilllevel>]] 秒§0
+grounddestruction=区域攻击，造成 §i[[5 x <playerlevel> + 5 x <strength> x <skilllevel>]] 近战伤害§0 并 §9眩晕§0 2 秒
+parry=在 0.5 秒内无敌，并返还 500% 的原始伤害\n消耗 100% 耐力
+battlecry=在接下来的 10 秒内，你和附近盟友的所有伤害和移动速度提高 §a[[10 x <skilllevel>]]%
+
+ironguard=在 §a[[4 x <skilllevel>]] 秒内 -50% 受到伤害
+intimidation=在接下来的 §a[[<skilllevel>]] 秒内§0，让附近的敌人逃跑
+
+objectthrowing=第 1 步：抓住你面前的一个物体\n第 2 步：向前投掷，造成 §i[[20 x <playerlevel> + 10 x <strength> x <skilllevel>]] 近战伤害§0
+
+// 游侠
+shortdash=进行一次短冲刺\n消耗 15% 耐力
+longdash=进行一次长冲刺\n消耗 25% 耐力
+lethalshot=向最近的敌人发射一支 §h致命箭§0，造成 §i[[5 x <playerlevel> + 5 x <strength> x <skilllevel>]] 游侠伤害§0
+venomshot=向最近的敌人发射一支 §b剧毒箭§0，造成 §i[[4 x <playerlevel> + 2 x <strength> x <skilllevel> + 2 x <intelligence> x <skilllevel>]] 游侠伤害§0
+explosiveshot=向最近的敌人发射一支 §i爆炸箭§0，造成 §i[[4 x <playerlevel> + 2 x <strength> x <skilllevel> + 2 x <intelligence> x <skilllevel>]] 游侠伤害§0
+
+shotsrampage=当你至少有 1 层射击狂暴时，用远程攻击击中敌人会获得 1 层额外的射击狂暴，持续 5 秒\n每层射击狂暴会使攻击速度提高 5%，最多 30 层
+huntersmark=§h标记§0 附近生命值最高的敌人 10 秒\n如果你杀死一个被标记的目标，你将在 5 秒内获得 §a+[[20 x <skilllevel>]]%§0 的远程攻击速度和移动速度
+beartrap=在地上放置一个捕熊夹，如果被触发或 20 秒后会消失\n如果敌人触发它，他们将受到 §i[[10 x <playerlevel>]] 伤害§0 并被困住 5 秒
+
+huntersinstinct=在接下来的 12 秒内，你的 §7闪避几率§0 提高 §a[[5 x <skilllevel>]]%\n§h标记§0 你闪避的敌人 5 秒
+arrowstorm=向每个近处的敌人发射一支基本箭，每支箭造成 §i[[2 x <playerlevel> + <strength> x <skilllevel> + <speed> x <skilllevel>]] 游侠伤害§0
+
+// 巫师
+arcaneoverload=激活时，你的魔法攻击速度提高 §a[[30 x <skilllevel>]]%§0，但你将无法移动\n当你的法力耗尽或再次使用时结束\n每秒消耗 §a[[10 + 2 x <skilllevel>]] 法力
+manarecharge=激活时，你获得 §a+[[<skilllevel>]] 法力恢复§0，但你将被麻痹并受到双倍伤害\n再次使用时结束
+firedance=召唤 4 个 §b舞动之焰§0，每个造成 §i[[<playerlevel> + <intelligence> x <skilllevel>]] 魔法伤害§0\n每 5 秒召唤一个\n所有召唤物在技能激活后 20 秒消失\n消耗 §a[[30 + 6 x <skilllevel>]] 法力
+iceball=向最近的敌人投掷一个 §a冰球§0，造成 §i[[5 x <playerlevel> + 5 x <intelligence> x <skilllevel>]] 魔法伤害§0\n消耗 §a[[40 + 8 x <skilllevel>]] 法力
+zap=发动一次电击，在 2 秒内在生物之间跳跃，造成 §i[[<playerlevel> + <intelligence> x <skilllevel>]] 魔法伤害§0 并眩晕 1 秒\n消耗 §a[[10 + 2 x <skilllevel>]] 法力
+
+teleport=传送到你面前\n消耗 8 法力
+inferno=点燃所有附近的敌人，在 10 秒内每秒造成 §i[[0.5 x <playerlevel> + 0.5 x <intelligence> x <skilllevel>]] 火焰伤害§0\n消耗 §a[[30 + 6 x <skilllevel>]] 法力
+fireenchantment=在接下来的 10 秒内，你和附近盟友的攻击会点燃敌人，在 5 秒内每秒造成 §a[[5 x <skilllevel>]]%§0 的伤害\n消耗 §a[[20 + 4 x <skilllevel>]] 法力
+iceenchantment=在接下来的 10 秒内，你和附近盟友的攻击会使敌人冰冻 §a[[2 x <skilllevel>]] 秒§0\n消耗 20 法力
+
+fireball=向最近的敌人投掷一个 §i火球术§0，造成 §i[[5 x <playerlevel> + 5 x <intelligence> x <skilllevel>]] 魔法伤害§0\n消耗 §a[[60 + 12 x <skilllevel>]] 法力
+lightning=发动一次闪电，在 1 秒内在生物之间跳跃，造成 §i[[4 x <playerlevel> + 4 x <intelligence> x <skilllevel>]] 魔法伤害§0 并眩晕 2 秒\n不能多次击中同一个目标\n消耗 §a[[30 + 6 x <skilllevel>]] 法力
+
+// 死灵法师
+skeletonhorde=召唤 §a[[1 + <skilllevel>]] 个 §b骷髅§0
+skeletonwarrior=召唤一个 §b骷髅战士§0，其生命值和伤害提高 §a+[[40 x <skilllevel>]]%§0
+sacrifice=最近的亡灵召唤物死亡，然后你以魔法治疗的形式恢复 §a[[10 + <endurance> x <skilllevel> + <intelligence> + <skilllevel> - <grace> ↓]] 生命值§0
+siegecry=在 6 秒内获得 §a+[[50 x <skilllevel>]]%§0 的召唤速度
+
+boneslingerhorde=召唤 §a[[1 + <skilllevel>]]§0 个 §b投骨者§0
+tomb=生成一个每 §a[[10 - <skilllevel>]] 秒§0 召唤一个 §b骷髅§0 的建筑\n坟墓的生命值等于 §a[[5 x <playerlevel> x <skilllevel>]]§0\n坟墓每秒损失其总生命值的 2%
+necroticbloom=通过将其持续时间缩短至 10% 来加速所有附近敌人身上的毒药效果，但增加其每秒伤害以维持总伤害
+wardingtaunt=最近的亡灵召唤物会迫使 §a[[50 x <skilllevel>]] 半径§0 内的附近敌人以其为目标
+
+unholyground=在你周围延伸一个腐败光环，持续 10 秒\n此区域内的敌人每秒受到 §i[[<playerlevel> + <intelligence> x <skilllevel> - <grace>]] 毒素伤害§0 并被 §7束缚
+necroticbarrage=所有亡灵召唤物在死亡时爆炸，对附近的敌人造成 §i[[5 x <playerlevel> + 5 x <intelligence> x <skilllevel>]] 魔法伤害§0\n并在 10 秒内用 20% 的原始伤害毒害他们
+
+// 牧师
+smite=向最近的敌人召唤一道圣光，造成 §i[[4 x <playerlevel> + 2 x <intelligence> x <skilllevel> + 2 x <grace> x <skilllevel>]] 神圣伤害§0\n对亡灵和恶魔生物造成双倍伤害\n消耗 §a[[10 + 2 x <skilllevel>]] 法力§0
+divineblessing=魔法治疗光环，为你和你的盟友恢复 §a[[20 + 3 x <grace> x <skilllevel> ↓]] 生命值§0\n消耗 §a[[20 + 4 x <skilllevel>]] 法力§0
+purify=清除你和附近盟友的所有负面效果\n消耗 10 法力
+lightinfusion=在接下来的 8 秒内，你获得 §a+[[20 x <skilllevel>]]%§0 的魔法治疗和神圣伤害
+
+holyguard=为你和所有附近的盟友施加一个持续长达 30 秒的神圣护盾\n他们获得 §a+[[10 x <skilllevel>]]%§0 的魔法治疗，护盾在破裂前格挡一次攻击\n消耗 §a[[40 + 8 x <skilllevel>]] 法力§0
+judgment=释放一道光辉能量波，对所有附近的敌人造成 §i[[4 x <playerlevel> + 2 x <intelligence> x <skilllevel> + 2 x <grace> x <skilllevel>]] 神圣伤害§0\n亡灵和恶魔生物被 §7束缚§0 5 秒\n消耗 §a[[20 + 4 x <skilllevel>]] 法力§0
+sanctuary=创建一个持续 8 秒的神圣区域\n你和区域内的盟友免疫负面效果，并每秒获得 §a[[0.2 x <grace> x <skilllevel>]]§0 的生命恢复\n区域内的亡灵和恶魔生物被 §7束缚§0\n消耗 §a[[30 + 6 x <skilllevel>]] 法力§0
+
+divineintervention=立即将受损最严重的近处盟友治疗至其最大生命值，并在 §a[[<skilllevel>]]§0 秒内免疫所有伤害\n消耗 §a[[60 + 12 x <skilllevel>]] 法力§0
+resurrection=在你所在的位置复活你同一岛屿上最后死亡的玩家盟友，其生命值为其最大生命值的 §a[[10 x <skilllevel>]]%§0\n你不能复活死亡超过 10 秒的玩家\n消耗你 §a[[100 - 10 x <skilllevel>]]%§0 的法力（至少 §a[[60 + 12 x <skilllevel>]]§0）
+wrathoflight=在最近的敌人身上召唤一道光柱，在 5 秒内每秒对区域内的敌人造成 §i[[2 x <playerlevel> + <intelligence> x <skilllevel> + <grace> x <skilllevel>]] 神圣伤害§0\n区域内的亡灵和恶魔生物被 §7束缚§0\n消耗 §a[[40 + 8 x <skilllevel>]] 法力§0
+
+// 德鲁伊
+wolftransformation=需要 3 秒才能变身为狼\n\n移动速度：60\n\n按 [input=transformationability1] 进行冲刺撕咬：向前跳跃并撕咬，造成 §i[[2 x <playerlevel> + <strength> x <skilllevel> + <speed> x <skilllevel>]] 近战伤害§0（3 韧性增益）\n\n按 [input=transformationability2] 咆哮：迫使附近的敌人以你为目标，持续 2 秒\n\n按住 [input=trinketability] 冲刺
+queenbeetransformation=需要 2 秒才能变身为蜂后\n\n移动速度：30\n-50% 敌人探测\n§6+1000% 受到伤害§0\n受到攻击会召唤最大数量的蜜蜂而不是死亡（冷却时间 60 秒）\n\n按 [input=transformationability1] 射击蜂蜜：造成 §i[[2 x <playerlevel> + <strength> x <skilllevel>]] 远程伤害§0（2 韧性增益）\n\n按 [input=transformationability2] 召唤最多 §a[[2 x <skilllevel>]]§0 只 §9蜜蜂§0\n\n按住 [input=trinketability] 指挥你的蜜蜂攻击
+
+beartransformation=需要 4 秒才能变身为熊\n\n移动速度：20\n-50% 受到伤害\n\n按 [input=transformationability1] 进行地面猛击：区域攻击，造成 §i[[4 x <playerlevel> + 4 x <strength> x <skilllevel>]] 近战伤害§0\n并 §9眩晕§0 §a[[0.5 x <skilllevel>]] 秒§0（4 韧性增益）\n\n按 [input=transformationability2] 咆哮：让附近的敌人逃跑 1 秒\n\n按住 [input=trinketability] 冲刺
+foxtransformation=需要 3 秒才能变身为狐狸\n\n移动速度：50\n§6+50% 受到伤害§0\n\n按 [input=transformationability1] 射击火球：造成 §i[[<playerlevel> + 0.5 x <intelligence> x <skilllevel>]] 魔法伤害§0（2 韧性增益）\n\n按 [input=transformationability2] 召唤最多 §a[[2 + <skilllevel>]]§0 个 §b舞动之焰§0，每个造成的伤害与火球相同\n\n按 [input=trinketability] 冲刺\n§!Vulpes Nova 狐狸！
+rattransformation=需要 2 秒才能变身为老鼠\n\n移动速度：25\n-50% 敌人探测\n获得最大闪避几率\n§6+1000% 受到伤害§0\n\n按 [input=transformationability1] 撕咬：造成 §i[[0.5 x <playerlevel> + 0.5 x <strength> x <skilllevel> + 0.5 x <intelligence> x <skilllevel>]] 近战伤害§0 并使目标中毒\n在 10 秒内每秒造成 100% 的伤害\n\n按住 [input=trinketability] 冲刺
+
+treanttransformation=需要 4 秒才能变身为树人\n\n移动速度：0\n-§a[50 + 5 <skilllevel>]%§0 受到伤害\n+50% 护甲\n如果隐藏 3 秒，敌人会忽略你\n\n按 [input=transformationability1] 射击随机种子：造成 §i[[0.5 x <playerlevel> + <strength> x <skilllevel>]] 远程伤害§0，带有随机效果（1 韧性增益）\n\n按 [input=transformationability2] 召唤一个 §9德鲁伊树苗§0\n\n按住 [input=trinketability] 显形并在移动时冲刺
+
+
+[mastery]
+bastion=堡垒
+bloodborn=血裔
+chronomancer=时空法师
+barbarian=野蛮人
+berserker=狂战士
+sniper=狙击手
+marksman=神射手
+hunter=猎人
+trapper=陷阱师
+pyromancer=纵火者
+frostweaver=冰霜编织者
+stormcaller=风暴召唤者
+ironinvoker=钢铁召唤师
+plaguebearer=瘟疫使者
+darkeminence=黑暗尊主
+inquisitor=审判官
+timekeeper=时间守护者
+shapeshifter=变形者
+
+
+[masterydesc]
+bastion=每秒获得相当于你生命恢复 25% 的韧性
+bloodborn=治疗你对敌人造成伤害的 5%\n每秒总是损失 5% 的最大生命值，但不会因此效果而死亡\n生命恢复总是 0
+chronomancer=所有主动技能的冷却时间减少 20%
+barbarian=+100% 最大生命值和 +200% 生命恢复，但你的护甲将永远为 0
+berserker=当生命值低于 50% 时，获得 +25% 的近战暴击几率\n近战暴击会使你的攻击速度和移动速度提高 25%，持续 2 秒
+sniper=远程攻击根据与目标的距离最多可造成 +100% 的伤害
+marksman=你标记的敌人对所有玩家都有效
+hunter=当你标记一个敌人时，它会被§7束缚§0 5 秒
+trapper=对被困或被束缚的敌人造成 +50% 的伤害
+pyromancer=你的点燃可以在同一个敌人身上叠加
+frostweaver=对带有冰霜减速、冰冻或霜燃的敌人造成 +50% 的伤害
+stormcaller=每 20 秒，视野内的所有敌人都会被闪电击中\n对他们所有人造成 §i[[<playerlevel> + <intelligence>]] 魔法伤害§0 并眩晕 1 秒
+ironinvoker=你的可受伤害召唤物获得一个护盾，可以格挡一次攻击，并在 10 秒后重新充能
+plaguebearer=你的毒药在敌人身上持续时间加倍
+darkeminence=每当你从一次攻击中损失超过 15% 的最大生命值时，\n你就会召唤一个§b骷髅战士§0，它会承受超过 15% 的伤害（冷却时间 3 秒）
+inquisitor=你的攻击和效果会将你所有的敌人判定为恶魔
+timekeeper=魔法治疗，无论是对自己还是盟友，都会使目标的激活技能冷却时间每治疗一点减少 0.02 秒
+shapeshifter=变身后，你在 3 秒内无敌（冷却时间 5 秒）
+
+
+[skillsdesckeys]
+skilllevel=技能等级
+playerlevel=玩家等级
+endurance=耐力
+speed=速度
+strength=力量
+intelligence=智力
+grace=优雅
+
+
+[extraskilldesc]
+// 基本机制
+manausage=如果你的法力不足，其冷却时间将加倍
+setmax=负面效果被设置为最大值，不能被其他增益移除
+
+// 伤害
+holydamage=§9神圣伤害：§0 造成的神圣伤害的2%将转化为对你魔法治疗的生物的治疗\n还会让亡灵和恶魔生物着火10秒，如果伤害达到100或更高，则会燃烧5秒
+throwingdamage=§7投掷伤害：§0 近战和远程伤害加成各影响投掷伤害50%
+
+// 增益
+marked=§h已标记：§0 对你标记的生物造成 +20% 伤害（+ §h专注伤害§0）和 +10% 暴击几率\n“最近的敌人”优先攻击被标记的敌人
+constrained=§7束缚：§0 -50% 移动速度
+
+// 几率修正
+dodgechance=§7闪避几率：§0 闪避来袭攻击的几率。不能超过 80%
+focuschance=§h专注几率：§0直接攻击时有几率§h标记§0一个生物5秒
+
+// 固定修正
+mobdetection=§9生物探测：§0 在地图上显示附近的生物。更高的探测范围会显示更远的生物
+ignitedamage=§i点燃伤害：§0 随时间增加点燃伤害，但不影响直接命中伤害
+
+// 射弹
+lethalarrow=§h致命箭：§0 保证暴击的制导箭
+venomarrow=§b剧毒箭：§0 使敌人中毒的制导箭。在 30 秒内每秒重复其原始伤害的 10%
+explosivearrow=§i爆炸箭：§0 造成同等伤害的魔法爆炸的制导箭
+iceball=§a冰球：§0 爆炸并使生物冰冻 5 秒，并完全冰冻 1 秒的魔法射弹
+fireball=§i火球术：§0 爆炸并点燃生物，在 5 秒内每秒重复其原始伤害的 20% 的魔法射弹
+
+// 召唤物
+dancingflame=§b舞动之焰：§0 像射弹一样行动的召唤物。击中时点燃敌人。\n在 5 秒内每秒重复其原始伤害的 20%
+
+// 可受伤害的召唤物
+necromancerskeleton=§b骷髅：§0 可受伤害的亡灵召唤物\n生命值：§a[[5 x <playerlevel> + 5 x <intelligence> ↓]]§0\n伤害：§a[[<playerlevel> + <intelligence>]]§0\n速度：60\n每秒损失总生命值的 2%
+necromancerskeletonwarrior=§b骷髅战士：§0 可受伤害的亡灵召唤物\n生命值：§a[[8 x <playerlevel> + 8 x <intelligence> ↓]]§0\n伤害：§a[[2 x <playerlevel> + 2 x <intelligence>]]§0\n速度：60\n每秒损失总生命值的 2%
+necromancerboneslinger=§b投骨者：§0 可受伤害的亡灵召唤物\n生命值：§a[[2 x <playerlevel> + 2 x <intelligence> ↓]]§0\n伤害：§a[[<playerlevel> + <intelligence>]]§0（320 距离）\n速度：60\n每秒损失总生命值的 2%
+bee=§9蜜蜂：§0 可受伤害的召唤物\n生命值：1\n伤害：§a[[<playerlevel> + <intelligence> ↓]]§0\n速度：100\n\n攻击时死亡，但在 10 秒内每秒对目标造成 20% 的伤害
+dryadsapling=§9德鲁伊树苗：§0 可受伤害的召唤物\n生命值：§a[[2 x <playerlevel> + 2 x <intelligence> ↓]]§0\n伤害：§a[[3 x <playerlevel> + 3 x <intelligence>]]§0\n\n速度：65\n每秒损失总生命值的 2%
+
+[item]
+scrollofoblivion=遗忘卷轴
+ringsbox=戒指盒
+
+// 属性戒指
+endurancewoodring=耐力木戒指
+endurancecopperring=耐力铜戒指
+enduranceironring=耐力铁戒指
+endurancegoldring=耐力金戒指
+
+speedwoodring=速度木戒指
+speedcopperring=速度铜戒指
+speedgoldring=速度金戒指
+speedironring=速度铁戒指
+
+strengthwoodring=力量木戒指
+strengthcopperring=力量铜戒指
+strengthgoldring=力量金戒指
+strengthironring=力量铁戒指
+
+intelligencewoodring=智力木戒指
+intelligencecopperring=智力铜戒指
+intelligencegoldring=智力金戒指
+intelligenceironring=智力铁戒指
+
+gracewoodring=优雅木戒指
+gracecopperring=优雅铜戒指
+graceironring=优雅铁戒指
+gracegoldring=优雅金戒指
+
+
+[itemtooltip]
+holydamagetip=神圣伤害：<value>
+throwingdamagetip=投掷伤害：<value>
+
+scrollofoblivion=授予 2 个重置点
+ringsboxtip=可以存放属性戒指
+
+
+[message]
+xp=经验值
+levelup=升级！
+dodge=闪避！
+
+newmobkill=你第一次杀死 <mob> 获得了 <exp> 经验值
+newlevel=恭喜！你已达到 <level> 级。按 [input=openrpgmenu] 打开 RPG 菜单
+
+noupdatesincombat=你在战斗中不能修改你的属性、职业或技能
+noactiveskill=你不再拥有该主动技能，如果你想使用它，请重新升级
+
+equipfirst=你首先需要在此插槽中装备一个主动技能
+activeskillinuse=此技能已在使用中
+anotheractiveskillinuse=你已经有另一个技能在使用中
+incooldown=冷却中
+notenoughstamina=耐力不足
+canotusemounted=骑乘或变身时无法使用
+
+notarget=附近没有目标
+nograbbableobject=你面前没有可抓取的物体
+notargetfollower=附近没有目标召唤物
+nodeathplayers=此级别没有可复活的死亡玩家
+
+
+[ui]
+menutitle=Save 的 RPG 模组
+attributes=属性
+mastery=精通
+activeskills=主动技能
+classes=职业
+
+level=等级 <level>
+classlevel=<class> 等级 <level>
+lvl=等 <level>
+eachlevel=每级提供：
+experience=经验值：<exp> / <nextexp>
+totalexperience=总经验值：<exp>
+onlytranformed=仅在变身时
+
+points=点数: <points>
+resetpoints=重置点：<points>
+attrpoints=属性点：<points>
+masterypoints=精通点数: <points>
+classpoints=职业点：<points>
+passivepoints=被动点：<points>
+activeskillpoints=主动技能点：<points>
+
+activeskillsuse=此模组将表情轮盘（默认为 T 键）变成主动技能轮盘
+activeskillsusetip1=建议将表情轮盘的控制更改为一个易于访问的键
+activeskillsusetip2=主动技能轮盘中只显示前四个技能。其余技能需要使用按键
+activeskillsequipinstructions=点击一个插槽来装备一个主动技能。你不能卸下正在冷却的主动技能
+noactiveskills=你没有主动技能。通过职业解锁它们
+
+activeskillcast=§9施法时间: <seconds>s
+activeskillcooldown=§9冷却时间：<seconds>秒
+activeskillcooldownmod=§9冷却时间：[[<seconds> <sign> <mod> x <skilllevel>]]秒
+requiredclasslevel=§b需要职业等级 <level>
+requiredactiveskill=§b需要“<skill>”等级 <level>
+maxlevel=§a最高等级：<level>
+
+clicktoseebase=[input=mouse1] 查看基础
+clicktoseelevel=[input=mouse1] 查看等级 <level>
+
+classlevelseparation=- 职业等级 <level> -
+
+inuse=使用中
+
+upcomingclass=§6即将推出的职业\n§9此职业目前正在开发中\n并将在未来的更新中提供
+disabledclass=该职业在此世界中被禁用
+
+addcolumn=添加列
+removecolumn=删除列
+
+rate=评价 RPG 模组！
+
+clicktoopen=[input=mouse1] 打开
+
+
+[controls]
+openrpgmenu=打开 RPG 菜单
+activeskillslot1=主动技能槽 1
+activeskillslot2=主动技能槽 2
+activeskillslot3=主动技能槽 3
+activeskillslot4=主动技能槽 4
+activeskillslot5=主动技能槽 5
+activeskillslot6=主动技能槽 6
+activeskillslot7=主动技能槽 7
+activeskillslot8=主动技能槽 8
+activeskillslot9=主动技能槽 9
+activeskillslot10=主动技能槽 10
+activeskillslot11=主动技能槽 11
+activeskillslot12=主动技能槽 12
+transformationability1=变身能力 1
+transformationability2=变身能力 2
+
+
+[settingsui]
+restart_text=标有 (*) 的设置需要重新启动游戏才能生效
+client_text="客户端设置"纯属视觉效果，可随意调整。
+server_text="服务器设置"直接影响游戏玩法。它们不能在游戏中更改，如果您加入朋友或服务器，将应用他们的设置而不是您的设置。
+
+// Default
+default_section=默认值 (客户端)
+default_text=这些设置可以在其他菜单中调整，但开始游戏时它们将始终返回这些值
+showClassIcons=显示职业图标
+twelveSkillSlots=12个技能槽
+
+// 机制
+mechanics_section=机制 (服务器)
+
+boomerangsDealThrowingDamage=回旋镖造成投掷伤害 (*)
+
+// 经验
+experience_section=经验 (服务器)
+
+experienceMod=% 经验模组
+experienceMod_text=修改击败生物获得的经验值
+
+firstKillBonus=% 首次击杀奖励
+firstKillBonus_text=首次击败生物时的经验加成（不相加，与其他修正值相乘）
+
+bossKillBonus=% Boss击杀奖励
+bossKillBonus_text=击败首领时的经验加成（不相加，与其他修正值相乘）
+
+startingExperience=初始经验
+startingExperience_text=新玩家开始时的经验值
+
+firstExperienceReq=初始要求
+experienceReqInc=要求增量
+squareExperienceReqInc=要求平方增量
+cubeExperienceReqInc=要求立方增量
+experience_calc=达到下一级别所需的经验值为：\n\n初始要求 + 要求增量 * 等级 +\n+ 要求平方增量 * (等级 ^ 2) +\n+ 要求立方增量 * (等级 ^ 3)\n\n其中“等级”是您的当前等级
+
+// Classes
+classes_section=职业 (服务器)
+
+multiClass=多职业
+multiClass_text=限制可以同时拥有的不同职业的数量。设置为 0 表示没有限制
+
+classes_enabled=您可以禁用不希望可用的职业
