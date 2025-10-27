@@ -52,7 +52,7 @@ public class LoadPlayerDataPacket extends Packet {
     @Override
     public void processClient(NetworkPacket packet, Client client) {
         PlayerDataList.setPlayerData(playerName, playerData, false);
-        if (Objects.equals(client.getPlayer().playerName, playerName) && CustomUIManager.expBar != null) {
+        if (client.getPlayer() != null && Objects.equals(client.getPlayer().playerName, playerName) && CustomUIManager.expBar != null) {
             CustomUIManager.expBar.updateExpBar(playerData);
             RPGSkillUIManager.updateContent(playerData);
         }

@@ -7,14 +7,28 @@ import necesse.engine.sound.SoundManager;
 import necesse.entity.mobs.PlayerMob;
 import necesse.gfx.GameResources;
 import rpgclasses.buffs.IgnitedBuff;
-import rpgclasses.content.player.SkillsLogic.ActiveSkills.ActiveSkill;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.CastActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.PlayerData;
 import rpgclasses.utils.RPGUtils;
 
 import java.awt.*;
 
 public class Inferno extends CastActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.damageParam(0.6F),
+            SkillParam.staticParam(10)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
+    @Override
+    public SkillParam getManaParam() {
+        return SkillParam.manaParam(30);
+    }
 
     public Inferno(int levelMax, int requiredClassLevel) {
         super("inferno", "#990000", levelMax, requiredClassLevel);
@@ -26,7 +40,7 @@ public class Inferno extends CastActiveSkill {
     }
 
     @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 20000;
     }
 
@@ -34,11 +48,12 @@ public class Inferno extends CastActiveSkill {
     public void castedRunServer(PlayerMob player, PlayerData playerData, int activeSkillLevel, int seed) {
         super.castedRunServer(player, playerData, activeSkillLevel, seed);
 
-        float damage = 0.5F * playerData.getLevel() + 0.5F * playerData.getIntelligence(player) * activeSkillLevel;
+        float damage = params[0].value(playerData.getLevel(), activeSkillLevel);
+        float time = params[1].value();
         RPGUtils.streamMobsAndPlayers(player, 200)
                 .filter(RPGUtils.isValidTargetFilter(player))
                 .forEach(
-                        target -> IgnitedBuff.apply(player, target, damage, 10F, false)
+                        target -> IgnitedBuff.apply(player, target, damage, time, false)
                 );
     }
 
@@ -57,16 +72,6 @@ public class Inferno extends CastActiveSkill {
                 )
         ).setOnlyVision(false);
         areaList.executeClient(player.getLevel(), player.x, player.y);
-    }
-
-    @Override
-    public float manaUsage(PlayerMob player, int activeSkillLevel) {
-        return 30 + activeSkillLevel * 6;
-    }
-
-    @Override
-    public String[] getExtraTooltips() {
-        return new String[]{"manausage"};
     }
 
 }

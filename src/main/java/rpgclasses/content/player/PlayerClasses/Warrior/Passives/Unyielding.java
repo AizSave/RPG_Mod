@@ -4,9 +4,21 @@ import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.mobs.buffs.BuffModifiers;
 import rpgclasses.buffs.Skill.PrincipalPassiveBuff;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.content.player.SkillsLogic.Passives.SimpleBuffPassive;
 
 public class Unyielding extends SimpleBuffPassive {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(5).setDecimals(2, 0),
+            SkillParam.staticParam(5).setDecimals(2, 0),
+            SkillParam.staticParam(20).setDecimals(2, 0)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
     public Unyielding(int levelMax, int requiredClassLevel) {
         super("unyielding", "#ff0000", levelMax, requiredClassLevel, false);
     }
@@ -34,13 +46,12 @@ public class Unyielding extends SimpleBuffPassive {
 
             public void updateBuff(ActiveBuff activeBuff) {
                 float healthPercent = activeBuff.owner.getHealthPercent();
-                if (healthPercent <= 0.2F) {
-                    float increment = getLevel(activeBuff) * 0.05F;
+                if (healthPercent <= params[2].value()) {
                     activeBuff.setModifier(
-                            BuffModifiers.ATTACK_SPEED, increment
+                            BuffModifiers.ATTACK_SPEED, params[0].value()
                     );
                     activeBuff.setModifier(
-                            BuffModifiers.INCOMING_DAMAGE_MOD, 1F - increment
+                            BuffModifiers.INCOMING_DAMAGE_MOD, 1F - params[1].value()
                     );
                     this.isVisible = true;
                 } else {

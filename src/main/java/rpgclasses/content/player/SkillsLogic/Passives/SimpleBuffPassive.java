@@ -34,20 +34,23 @@ abstract public class SimpleBuffPassive extends Passive {
         }
     }
 
+    public void giveDatalessSecondaryPassiveBuff(Mob target, float duration) {
+        giveDatalessSecondaryPassiveBuff(target, (int) (duration * 1000));
+    }
+
     public void giveDatalessSecondaryPassiveBuff(Mob target, int duration) {
         ActiveBuff ab = new ActiveBuff(BuffRegistry.getBuff(getSecondaryBuffStringID()), target, duration, null);
         target.buffManager.addBuff(ab, target.isServer());
     }
 
-    public void giveSecondaryPassiveBuff(PlayerMob player, Mob target, PlayerData playerData, int passiveLevel, int duration) {
+    public void giveSecondaryPassiveBuff(PlayerMob player, Mob target, int passiveLevel, float duration) {
+        giveSecondaryPassiveBuff(player, target, passiveLevel, (int) (duration * 1000));
+    }
+
+    public void giveSecondaryPassiveBuff(PlayerMob player, Mob target, int passiveLevel, int duration) {
         ActiveBuff ab = new ActiveBuff(BuffRegistry.getBuff(getSecondaryBuffStringID()), target, duration, null);
         ab.getGndData().setInt("skillLevel", passiveLevel);
         ab.getGndData().setInt("playerLevel", passiveLevel);
-        ab.getGndData().setFloat("endurance", playerData.getEndurance(player));
-        ab.getGndData().setFloat("speed", playerData.getSpeed(player));
-        ab.getGndData().setFloat("strength", playerData.getStrength(player));
-        ab.getGndData().setFloat("intelligence", playerData.getIntelligence(player));
-        ab.getGndData().setFloat("grace", playerData.getGrace(player));
         target.buffManager.addBuff(ab, player.isServer());
     }
 

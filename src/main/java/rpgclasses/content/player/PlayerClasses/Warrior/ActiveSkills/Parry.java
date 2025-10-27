@@ -13,10 +13,21 @@ import necesse.entity.particle.Particle;
 import necesse.gfx.GameResources;
 import rpgclasses.buffs.Skill.ActiveSkillBuff;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.SimpleBuffActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.PlayerData;
 import rpgclasses.utils.RPGColors;
 
 public class Parry extends SimpleBuffActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(0.5F),
+            SkillParam.staticParam(500).setDecimals(2, 0),
+            SkillParam.staticParam(100).setDecimals(2, 0)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
 
     public Parry(int levelMax, int requiredClassLevel) {
         super("parry", RPGColors.HEX.gold, levelMax, requiredClassLevel);
@@ -44,7 +55,7 @@ public class Parry extends SimpleBuffActiveSkill {
             public void onBeforeHit(ActiveBuff activeBuff, MobBeforeHitEvent event) {
                 super.onBeforeHit(activeBuff, event);
                 if (!event.isPrevented() && event.damage.damage > 0 && activeBuff.owner.isServer() && event.attacker.getAttackOwner() != null) {
-                    event.attacker.getAttackOwner().isServerHit(new GameDamage(DamageTypeRegistry.TRUE, 5F * event.damage.damage), activeBuff.owner.x, activeBuff.owner.y, 100, activeBuff.owner);
+                    event.attacker.getAttackOwner().isServerHit(new GameDamage(DamageTypeRegistry.TRUE, params[1].value() * event.damage.damage), activeBuff.owner.x, activeBuff.owner.y, 100, activeBuff.owner);
                     event.prevent();
                     event.showDamageTip = false;
                     event.playHitSound = false;
@@ -55,11 +66,11 @@ public class Parry extends SimpleBuffActiveSkill {
 
     @Override
     public int getDuration(int activeSkillLevel) {
-        return 500;
+        return (int) (params[0].value() * 1000);
     }
 
     @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 8000;
     }
 
@@ -70,6 +81,6 @@ public class Parry extends SimpleBuffActiveSkill {
 
     @Override
     public float consumedStaminaBase() {
-        return 1F;
+        return params[2].value();
     }
 }

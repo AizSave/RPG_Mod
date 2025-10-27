@@ -7,13 +7,25 @@ import necesse.engine.util.MovedRectangle;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.particle.Particle;
 import necesse.gfx.GameResources;
-import rpgclasses.content.player.SkillsLogic.ActiveSkills.ActiveSkill;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.CastActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.PlayerData;
 
 import java.awt.geom.Point2D;
 
 public class Teleport extends CastActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{};
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
+    @Override
+    public SkillParam getManaParam() {
+        return SkillParam.manaParam(8, false);
+    }
+
     public Teleport(int levelMax, int requiredClassLevel) {
         super("teleport", "#6633cc", levelMax, requiredClassLevel);
     }
@@ -73,23 +85,13 @@ public class Teleport extends CastActiveSkill {
     }
 
     @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 8000;
     }
 
     @Override
     public int getCooldownModPerLevel() {
         return super.getCooldownModPerLevel() - 1200;
-    }
-
-    @Override
-    public float manaUsage(PlayerMob player, int activeSkillLevel) {
-        return 8;
-    }
-
-    @Override
-    public String[] getExtraTooltips() {
-        return new String[]{"manausage"};
     }
 
 }

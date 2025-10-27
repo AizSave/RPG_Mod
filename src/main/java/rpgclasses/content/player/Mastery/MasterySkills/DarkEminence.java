@@ -9,11 +9,21 @@ import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.itemAttacker.FollowPosition;
 import rpgclasses.buffs.Skill.MasteryBuff;
 import rpgclasses.content.player.Mastery.Mastery;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.PlayerData;
 import rpgclasses.data.PlayerDataList;
 import rpgclasses.mobs.summons.damageable.DamageableFollowingMob;
 
 public class DarkEminence extends Mastery {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(15).setDecimals(2, 0),
+            SkillParam.staticParam(3)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
 
     public DarkEminence(String stringID, String color) {
         super(stringID, color);
@@ -36,7 +46,7 @@ public class DarkEminence extends Mastery {
                             long lastUse = activeBuff.getGndData().getLong("lastUse");
                             long now = player.getTime();
 
-                            if (lastUse + 3000 > now) return;
+                            if (lastUse + (int) (params[0].value() * 1000) > now) return;
 
                             activeBuff.getGndData().setLong("lastUse", now);
 

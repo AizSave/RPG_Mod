@@ -11,6 +11,7 @@ import necesse.level.gameObject.GameObject;
 import necesse.level.maps.Level;
 import org.jetbrains.annotations.NotNull;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.ActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.EquippedActiveSkill;
 import rpgclasses.data.PlayerData;
 import rpgclasses.projectiles.ObjectProjectile;
@@ -21,6 +22,14 @@ import java.awt.*;
 import java.awt.geom.Point2D;
 
 public class ObjectThrowing extends ActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.damageParam(20)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
 
     public ObjectThrowing(int levelMax, int requiredClassLevel) {
         super("objectthrowing", RPGColors.HEX.iron, levelMax, requiredClassLevel);
@@ -66,12 +75,12 @@ public class ObjectThrowing extends ActiveSkill {
         Point2D.Float dir = getDir(player);
         float targetX = dir.x * 100 + player.x;
         float targetY = dir.y * 100 + player.y;
-        return new ObjectProjectile(player.getLevel(), player, playerData.grabbedObject, player.x, player.y, targetX, targetY, 100, 500, new GameDamage(DamageTypeRegistry.MELEE, 20 * playerData.getLevel() + 10 * playerData.getStrength(player) * activeSkillLevel), 300);
+        return new ObjectProjectile(player.getLevel(), player, playerData.grabbedObject, player.x, player.y, targetX, targetY, 100, 500, new GameDamage(DamageTypeRegistry.MELEE, params[0].value(playerData.getLevel(), activeSkillLevel)), 300);
     }
 
     @Override
-    public String canActive(PlayerMob player, PlayerData playerData, boolean isInUSe) {
-        String canActive = super.canActive(player, playerData, isInUSe);
+    public String canActive(PlayerMob player, PlayerData playerData, int activeSkillLevel, boolean isInUSe) {
+        String canActive = super.canActive(player, playerData, activeSkillLevel, isInUSe);
         if (canActive != null) return canActive;
 
         if (isInUSe) return null;
@@ -105,7 +114,7 @@ public class ObjectThrowing extends ActiveSkill {
     }
 
     @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 16000;
     }
 

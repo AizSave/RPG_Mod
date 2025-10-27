@@ -8,7 +8,6 @@ import necesse.engine.network.PacketWriter;
 import necesse.engine.network.client.Client;
 import necesse.engine.network.client.ClientClient;
 import necesse.engine.network.packet.PacketDisconnect;
-import necesse.engine.network.packet.PacketRequestPlayerData;
 import necesse.engine.network.server.Server;
 import necesse.engine.network.server.ServerClient;
 import necesse.engine.util.GameRandom;
@@ -52,8 +51,6 @@ public class ActiveAbilityRunPacket extends Packet {
                         equippedActiveSkill.getActiveSkill().runClient(player, playerData, activeSkillLevel, seed, equippedActiveSkill.isInUse());
                     }
                 }
-            } else {
-                client.network.sendPacket(new PacketRequestPlayerData(this.slot));
             }
         }
     }
@@ -67,12 +64,14 @@ public class ActiveAbilityRunPacket extends Packet {
             PlayerData playerData = PlayerDataList.getPlayerData(player);
             EquippedActiveSkill equippedActiveSkill = playerData.equippedActiveSkills[skillSlot];
 
-            if (!equippedActiveSkill.isEmpty() && equippedActiveSkill.getActiveSkill().canActive(player, playerData, equippedActiveSkill.isInUse()) == null) {
+            if (equippedActiveSkill.getActiveSkill() != null) {
                 int activeSkillLevel = equippedActiveSkill.getActiveSkill().getLevel(playerData);
-                if (activeSkillLevel > 0) {
-                    int seed = Item.getRandomAttackSeed(GameRandom.globalRandom);
-                    equippedActiveSkill.getActiveSkill().runServer(player, playerData, activeSkillLevel, seed, equippedActiveSkill.isInUse());
-                    server.network.sendToClientsWithEntityExcept(new ActiveAbilityRunPacket(this.slot, skillSlot), client.playerMob, client);
+                if (!equippedActiveSkill.isEmpty() && equippedActiveSkill.getActiveSkill().canActive(player, playerData, activeSkillLevel, equippedActiveSkill.isInUse()) == null) {
+                    if (activeSkillLevel > 0) {
+                        int seed = Item.getRandomAttackSeed(GameRandom.globalRandom);
+                        equippedActiveSkill.getActiveSkill().runServer(player, playerData, activeSkillLevel, seed, equippedActiveSkill.isInUse());
+                        server.network.sendToClientsWithEntityExcept(new ActiveAbilityRunPacket(this.slot, skillSlot), client.playerMob, client);
+                    }
                 }
             }
         } else {

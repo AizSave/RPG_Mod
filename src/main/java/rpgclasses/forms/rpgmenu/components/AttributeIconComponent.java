@@ -7,8 +7,8 @@ import necesse.gfx.forms.components.FormButton;
 import necesse.gfx.gameTooltips.GameTooltipManager;
 import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.gfx.gameTooltips.TooltipLocation;
-import rpgclasses.forms.rpgmenu.BorderFormGameBackground;
 import rpgclasses.content.player.Attribute;
+import rpgclasses.forms.rpgmenu.BorderFormGameBackground;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -35,9 +35,9 @@ public class AttributeIconComponent extends FormButton {
         int textureHeight = attribute.texture.getWidth();
         attribute.texture.initDraw().draw(this.x + (this.width - textureWidth) / 2, this.y + (this.height - textureHeight) / 2);
         if (isHovering()) {
-            ListGameTooltips tooltips = attribute.getToolTips();
+            ListGameTooltips tooltips = attribute.getBaseToolTips(player);
             GameTooltipManager.addTooltip(tooltips, new BorderFormGameBackground(12), TooltipLocation.FORM_FOCUS);
-            String[] extraTooltipsString = attribute.getFinalExtraTooltips(player, true);
+            String[] extraTooltipsString = attribute.getAllExtraTooltips(player, 1, true);
             for (String extraTooltip : extraTooltipsString) {
                 GameTooltipManager.addTooltip(new ListGameTooltips(Localization.translate("extraskilldesc", extraTooltip)), new BorderFormGameBackground(12), TooltipLocation.FORM_FOCUS);
             }

@@ -18,7 +18,7 @@ abstract public class SimplePassiveBuffActiveSkill extends ActiveSkill {
         if (isInUse && player.buffManager.hasBuff(getBuffStringID())) {
             removeBuffOnRun(player);
         } else {
-            giveBuffOnRun(player, playerData, activeSkillLevel);
+            giveBuffOnRun(player, activeSkillLevel);
         }
     }
 
@@ -27,12 +27,12 @@ abstract public class SimplePassiveBuffActiveSkill extends ActiveSkill {
         return true;
     }
 
-    public void giveBuffOnRun(PlayerMob player, PlayerData playerData, int activeSkillLevel) {
-        giveBuff(player, player, playerData, activeSkillLevel);
+    public void giveBuffOnRun(PlayerMob player, int activeSkillLevel) {
+        giveBuff(player, player, activeSkillLevel);
     }
 
-    public void giveBuff(PlayerMob buffOwner, Mob target, PlayerData playerData, int activeSkillLevel) {
-        ActiveBuff ab = getActiveBuff(buffOwner, target, playerData, activeSkillLevel);
+    public void giveBuff(PlayerMob buffOwner, Mob target, int activeSkillLevel) {
+        ActiveBuff ab = getActiveBuff(target, activeSkillLevel);
         target.buffManager.addBuff(ab, buffOwner.isServer());
     }
 
@@ -44,19 +44,14 @@ abstract public class SimplePassiveBuffActiveSkill extends ActiveSkill {
         target.buffManager.removeBuff(getBuffStringID(), true);
     }
 
-    public ActiveBuff getActiveBuff(String buffID, PlayerMob buffOwner, Mob target, PlayerData playerData, int activeSkillLevel) {
+    public ActiveBuff getActiveBuff(String buffID, Mob target, int activeSkillLevel) {
         ActiveBuff ab = new ActiveBuff(BuffRegistry.getBuff(buffID), target, 1000, null);
         ab.getGndData().setInt("skillLevel", activeSkillLevel);
-        ab.getGndData().setFloat("endurance", playerData.getEndurance(buffOwner));
-        ab.getGndData().setFloat("speed", playerData.getSpeed(buffOwner));
-        ab.getGndData().setFloat("strength", playerData.getStrength(buffOwner));
-        ab.getGndData().setFloat("intelligence", playerData.getIntelligence(buffOwner));
-        ab.getGndData().setFloat("grace", playerData.getGrace(buffOwner));
         return ab;
     }
 
-    public ActiveBuff getActiveBuff(PlayerMob buffOwner, Mob target, PlayerData playerData, int activeSkillLevel) {
-        return this.getActiveBuff(getBuffStringID(), buffOwner, target, playerData, activeSkillLevel);
+    public ActiveBuff getActiveBuff(Mob target, int activeSkillLevel) {
+        return this.getActiveBuff(getBuffStringID(), target, activeSkillLevel);
     }
 
     @Override

@@ -4,10 +4,20 @@ import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.mobs.buffs.BuffModifiers;
 import rpgclasses.buffs.Skill.PrincipalPassiveBuff;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.content.player.SkillsLogic.Passives.SimpleBuffPassive;
 import rpgclasses.registry.RPGModifiers;
 
 public class DivineJudge extends SimpleBuffPassive {
+    public static SkillParam[] params = new SkillParam[]{
+            new SkillParam("5 x <skilllevel>").setDecimals(2, 0)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
     public DivineJudge(int levelMax, int requiredClassLevel) {
         super("divinejudge", "#ffff66", levelMax, requiredClassLevel);
     }
@@ -35,7 +45,7 @@ public class DivineJudge extends SimpleBuffPassive {
             }
 
             public void updateBuff(ActiveBuff activeBuff) {
-                float transference = getLevel(activeBuff) * 0.05F;
+                float transference = params[0].value(getLevel(activeBuff));
 
                 activeBuff.setModifier(
                         RPGModifiers.HOLY_DAMAGE, activeBuff.owner.buffManager.getModifier(BuffModifiers.MAGIC_DAMAGE) * transference

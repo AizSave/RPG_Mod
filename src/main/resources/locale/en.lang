@@ -194,45 +194,45 @@ phoenixspirit=Phoenix Spirit
 
 [passivesdesc]
 // Warrior
-unleashingrage=Each level provides:\n\n+1% All Damage for every 10% of Health missing
-unleashinghaste=Each level provides:\n\n+1% Movement Speed for every 10% of Health missing
-unyielding=Each level provides:\n\n+5% Attack Speed and -5% Incoming Damage while below 20% Health
-lastbreath=Instead of dying, become invulnerable for §a[[3 x <skilllevel>]] seconds§0\nOnce the time is up, you will die
+unleashingrage=Each level provides:\n\n+[[0]]% All Damage for every [[1]]% of Health missing
+unleashinghaste=Each level provides:\n\n+[[0]]% Movement Speed for every [[1]]% of Health missing
+unyielding=Each level provides:\n\n+[[0]]% Attack Speed and -[[1]]% Incoming Damage while below [[2]]% Health
+lastbreath=Instead of dying, become invulnerable for [[0]] seconds\nOnce the time is up, you will die
 
 // Ranger
-plasmagrenade=Every 8 Range attacks, fire a guided explosive projectile that deals §i[[30 x <skilllevel>]]%§0 of the weapon's damage
-wolfcompanion=A wolf companion will attack marked enemies dealing §i[[<playerlevel> + <intelligence> x <skilllevel>]] Summoner Damage
+plasmagrenade=Every [[0]] Range attacks, fire a guided explosive projectile that deals [[0]]% of the weapon's damage
+wolfcompanion=A wolf companion will attack marked enemies dealing [[0]] Summoner Damage
 
 // Wizard
-manapower=Each level provides:\n\n+1% Magic Damage for every 10% non used Mana
-flamingsteps=When running with an active trinket or transformation, you will leave flames on the ground\nThe flames will ignite enemies for 3 seconds, dealing §i[[0.5 x <playerlevel> + 0.5 x <intelligence> x <skilllevel>]] Magic Damage§0 per second
-stormbound=Every §a[[11 - 0.5 x <skilllevel>]] seconds§0, a bolt of lightning strikes a random enemy in your vision\nDeal §i[[0.5 x <playerlevel> + 0.5 x <intelligence> x <skilllevel>]] Magic Damage§0 and stun 1 second
-arcaneshield=A shield that prevents one hit\nThe shield will recover §a[[20 - <skilllevel>]] seconds§0 after using it
-fireshield=A shield that prevents one hit\nWhen used, you will release an explosion dealing §i[[<playerlevel> + <intelligence> x <skilllevel>]] Magic Damage§0\nand igniting mobs, repeating 20% of their original damage per second for 5 seconds\nThe shield will recover 26 seconds after using it
-iceshield=A shield that prevents one hit\nWhen used, you will release an ice aura dealing §i[[<playerlevel> + <intelligence> x <skilllevel>]] Magic Damage§0\nfreezing mobs for 5 seconds, and totally freezing them for 1 second\nThe shield will recover 22 seconds after using it
+manapower=Each level provides:\n\n+[[0]]% Magic Damage for every [[1]]% non used Mana
+flamingsteps=When running with an active trinket or transformation, you will leave flames on the ground\nThe flames will ignite enemies for [[0]] seconds, dealing [[1]] Magic Damage per second
+stormbound=Every [[0]] seconds, a bolt of lightning strikes a random enemy in your vision\nDeal [[1]] Magic Damage and stun [[2]] seconds
+arcaneshield=A shield that prevents one hit\nThe shield will recover [[0]] seconds after using it
+fireshield=A shield that prevents one hit\nWhen used, you will release an explosion dealing [[0]] Magic Damage\nand igniting mobs, repeating 20% of their original damage per second for 5 seconds\nThe shield will recover [[1]] seconds after using it
+iceshield=A shield that prevents one hit\nWhen used, you will release an ice aura dealing [[0]] Magic Damage\nfreezing mobs for 5 seconds, and totally freezing them for 1 second\nThe shield will recover [[1]] seconds after using it
 
 // Necromancer
-necroticpower=All your Magic attacks poison for 5% of their Damage for §a[[2 x <skilllevel>]] seconds§0
-darkmagic=Summoner Damage bonuses affect Magic Damage by §a[[5 x <skilllevel>]]%
-necroticarmy=Defeated hostile enemies will turn into §bSkeletons§0 with §a-[[100 - 3 x <skilllevel>]]%§0 Health and Damage
-darksummons=Deal §a+[[8 x <skilllevel>]]%§0 Summoner Damage to poisoned enemies
-lifeleech=Recovers §a[[0.05 x <skilllevel>]]%§0 of the Summon Damage dealt as Health
-necroticremains=When a necrotic summon dies, it explodes, dealing §i[[0.1 x <intelligence> x <skilllevel>]] Magic Damage§0 to nearby enemies, poisoning them for 20% of the damage per second for 10 seconds
-endlesslegion=Every 4 levels of this skill, you gain +1 max summon
-lichborn=When you die, you survive and recover §a[[10 x <skilllevel>]]%§0 Health if you are not already a §bLich§0\nFor the next §a[[120 - 6 x <skilllevel>]] seconds§0, you become a §bLich§0 (a skeleton)\n\n\n§bLich:§0 Undead transformation\n\nCannot use items\n+100% Damage Taken\n\nPress [input=transformationability1] to shoot a bone that deals §i[[<playerlevel> + <strength> + 0.2 x <intelligence>]] Magic Damage§0 (2 resilience gain)
+necroticpower=All your Magic attacks poison for [[0]]% of their Damage for 10 seconds
+darkmagic=Summoner Damage bonuses affect Magic Damage by [[0]]%
+necroticarmy=Defeated hostile enemies will turn into §bSkeletons§0 with -[[0]]% Health and Damage
+darksummons=Deal +[[0]]% Summoner Damage to poisoned enemies
+lifeleech=Recovers [[0]]% of the Summon Damage dealt as Health
+necroticremains=When a necrotic summon dies, it poisons nearby enemies, dealing [[0]] damage per second for [1] seconds
+endlesslegion=Every [[0]] levels of this skill, you gain +1 max summon
+lichborn=When you die, you survive and recover [[0]]% Health if you are not already a §bLich§0\nFor the next [[1]] seconds, you become a §bLich§0 (a skeleton)\n\n\n§bLich:§0 Undead transformation\n\nMovement Speed: 40\n+[[2]]% Damage Taken\n\nPress [input=transformationability1] to shoot a bone that deals [[3]] Magic Damage ([[4]] resilience gain)
 
 // Cleric
-vitalaura=Every §a[[15 - <skilllevel>]] seconds§0, you release a magic healing aura around you that restores §a[[10 + <grace> ↓]] health§0\nIt also heals you for half that amount
-divinejudge=Magic Damage bonuses affect Holy Damage by §a[[5 x <skilllevel>]]%§0
-empoweredhealing=When you magically heal yourself or an ally, increase their damage by §a[[5 x <skilllevel>]]%§0 for 3 seconds
-sanctifiedmind=Magical healing also restores mana equal to §a[[5 x <skilllevel>]]%§0 of the healing done
-sanctifiedarmor=Magical healing also restores resilience equal to §a[[2 x <skilllevel>]]%§0 of the healing done
-radiantexpansion=When you magically heal yourself or an ally, deal §a[[5 x <skilllevel>]]%§0 of the healing as Holy Damage to nearby enemies of the healed target
+vitalaura=Every 10 seconds, you release a magic healing aura around you that restores [[1]] health\nIt also heals you for half that amount
+divinejudge=Magic Damage bonuses affect Holy Damage by [[0]]%
+empoweredhealing=When you magically heal yourself or an ally, increase their damage by [[0]] for [[1]] seconds
+sanctifiedmind=Magical healing also restores mana equal to [[0]]% of the healing done
+sanctifiedarmor=Magical healing also restores resilience equal to [[0]] of the healing done
+radiantexpansion=When you magically heal yourself or an ally, deal [[0]]% of the healing as Holy Damage to nearby enemies of the healed target
 
 // Druid
-naturesfavor=Gain +§a[[2 x <skilllevel>]] Health Regen§0 per second while standing on grass
-primalburst=Increases Damage and Speed by [[6 x <skillevel>]]% for the first 5 seconds after transforming
-phoenixspirit=Requires at least 4 points to work:\n\nIf you would die while transformed with an active skill, you instead survive\nwith §a[4 + 8 x <skilllevel>]%§0 health, and that skill is placed on a 1-hour cooldown\n\nDoes not trigger if you already have at least §a[[0.25 x <skilllevel> ↓]] transformation skill(s)§0 on a cooldown longer than 1 minute
+naturesfavor=Gain +[[0]] Health Regen per second while standing on grass
+primalburst=Increases Damage and Speed by [[0]]% for the first [[1]] seconds after transforming
+phoenixspirit=Requires at least [[0]] points to work:\n\nIf you would die while transformed with an active skill, you instead survive\nwith [[1]]% health, and that skill is placed on a 1-hour cooldown\n\nDoes not trigger if you already have at least [[2]] transformation skill(s)§0 on a cooldown longer than 1 minute
 
 
 [activeskills]
@@ -323,89 +323,91 @@ treanttransformation=Treant Transformation
 
 
 [activeskillsdesc]
+empty=Empty
+
 // Warrior
-fury=For the next 6 seconds, increase your Melee Damage and Attack Speed by §a[[20 x <skilllevel>]]%
-recovery=For the next 10 seconds greatly boosts Combat Health Regeneration, restoring §a[[20 + <endurance> x <skilllevel>]] health§0 over the duration
-provocation=For the next §a[[2 x <skilllevel>]] seconds§0, force nearby enemies to focus their attacks on you
-berserkercharge=Rush forward a short distance, dealing §i[[10 x <playerlevel> + 2 x <strength> x <skilllevel> + 2 x <speed> x <skilllevel>]] Damage§0 to all enemies passed by\nConsumes 50% Stamina
+fury=For the next [[0]] seconds, increase your Melee Damage and Attack Speed by [[1]]%
+recovery=For the next [[0]] seconds, increase your Health Regeneration in +[[1]]
+provocation=For the next [[0]] seconds, force nearby enemies to focus their attacks on you
+berserkercharge=Rush forward a short distance, dealing [[0]] Damage to all enemies passed by\nConsumes [[1]]% Stamina
 
-groundslam=Area attack that deals §i[[5 x <strength>]] Melee Damage§0 and §9Stuns§0 for §a[[1 x <skilllevel>]] seconds§0
-grounddestruction=Area attack that deals §i[[5 x <playerlevel> + 5 x <strength> x <skilllevel>]] Melee Damage§0 and §9Stuns§0 for 2 seconds
-parry=Become invulnerable for 0.5 seconds and return 500% of the original Damage received\nConsumes 100% Stamina
-battlecry=For the next 10 seconds, increase your and nearby allies' All Damage and Movement Speed by §a[[10 x <skilllevel>]]%
+groundslam=Area attack that deals [[0]] Melee Damage and §9Stuns for [[1]] seconds
+grounddestruction=Area attack that deals [[0]] Melee Damage and §9Stuns for [[1]] seconds
+parry=Become invulnerable for [[0]] seconds and return [[1]]% of the original Damage received\nConsumes [[2]]% Stamina
+battlecry=For the next [[0]] seconds, increase your and nearby allies' All Damage and Movement Speed by [[1]]%
 
-ironguard=-50% Incoming Damage for §a[[4 x <skilllevel>]] seconds
-intimidation=For the next §a[[<skilllevel>]] seconds§0, make nearby enemies run away
+ironguard=-[[0]]% Incoming Damage for [[1]] seconds
+intimidation=For the next [[0]] seconds, make nearby enemies run away
 
-objectthrowing=Step 1: Grab an object in front of you\nStep 2: Throw it forwards dealing §i[[20 x <playerlevel> + 10 x <strength> x <skilllevel>]] Melee Damage§0
+objectthrowing=Step 1: Grab an object in front of you\nStep 2: Throw it forwards dealing [[0]] Melee Damage
 
 // Ranger
-shortdash=Perfom a short dash\nConsumes 15% Stamina
-longdash=Perfom a long dash\nConsumes 25% Stamina
-lethalshot=Shoot an §hLethal Arrow§0 at the closest enemy, dealing §i[[5 x <playerlevel> + 5 x <strength> x <skilllevel>]] Ranger Damage§0
-venomshot=Shoot an §bVenom Arrow§0 at the closest enemy, dealing §i[[4 x <playerlevel> + 2 x <strength> x <skilllevel> + 2 x <intelligence> x <skilllevel>]] Ranger Damage§0
-explosiveshot=Shoot an §iExplosive Arrow§0 at the closest enemy, dealing §i[[4 x <playerlevel> + 2 x <strength> x <skilllevel> + 2 x <intelligence> x <skilllevel>]] Ranger Damage§0
+shortdash=Perfom a short dash\nConsumes [[0]]% Stamina
+longdash=Perfom a long dash\nConsumes [[0]]% Stamina
+lethalshot=Shoot an §hLethal Arrow§0 at the closest enemy, dealing [[0]] Ranger Damage
+venomshot=Shoot an §bVenom Arrow§0 at the closest enemy, dealing [[0]] Ranger Damage
+explosiveshot=Shoot an §iExplosive Arrow§0 at the closest enemy, dealing [[0]] Ranger Damage
 
-shotsrampage=While you have at least 1 stack of Shots Rampage, hitting an enemy with a ranged attack grants 1 additional stack for 5 seconds\nEach stack of Shots Rampage increases Attack Speed by 5%, up to a maximum of 30 stacks
-huntersmark=§hMark§0 the nearby enemy with the highest health for 10 seconds\nIf you kill a marked target, gain §a+[[20 x <skilllevel>]]%§0 Ranged Attack Speed and Movement Speed for 5 seconds
-beartrap=Place a bear trap on the ground that disappears if triggered or after 20 seconds\nIf an enemy triggers it, they will take §i[[10 x <playerlevel>]] Damage§0 and be trapped for 5 seconds
+shotsrampage=While you have at least 1 stack of Shots Rampage, hitting an enemy with a ranged attack grants 1 additional stack for [[0]] seconds\nEach stack of Shots Rampage increases Attack Speed by [[1]]%, up to a maximum of [[2]] stacks
+huntersmark=§hMark§0 the nearby enemy with the highest health for [[0]] seconds\nIf you kill a marked target, gain +[[1]]% Ranged Attack Speed and Movement Speed for [[2]] seconds
+beartrap=Place a bear trap on the ground that disappears if triggered or after [[0]] seconds\nIf an enemy triggers it, they will take [[1]] Damage and be trapped for [[2]] seconds
 
-huntersinstinct=For the next 12 seconds, increase your §7Dodge Chance§0 by §a[[5 x <skilllevel>]]%\n§hMark§0 for 5 seconds the enemies you dodge
-arrowstorm=Shoot a basic arrow to each close enemy, dealing §i[[2 x <playerlevel> + <strength> x <skilllevel> + <speed> x <skilllevel>]] Ranger Damage§0 each arrow
+huntersinstinct=For the next [[0]] seconds, increase your §7Dodge Chance§0 by [[1]]%\n§hMark§0 for [[2]] seconds the enemies you dodge
+arrowstorm=Shoot a basic arrow to each close enemy, dealing [[0]] Ranger Damage each arrow
 
 // Wizard
-arcaneoverload=While active, increases your Magic Attack Speed by §a[[30 x <skilllevel>]]%§0, but you won't be able to move\nEnds when you run out of mana, or if used again\nConsumes §a[[10 + 2 x <skilllevel>]] Mana per second
-manarecharge=While active, gain §a+[[<skilllevel>]] Mana Regen§0, but you will be paralyzed and take double damage\nEnds when used again
-firedance=Summons 4 §bDancing Flames§0, each dealing §i[[<playerlevel> + <intelligence> x <skilllevel>]] Magic Damage§0\nSummon another one every 5 seconds\nAll summons disappear 20 seconds after the skill is activated\nConsumes §a[[30 + 6 x <skilllevel>]] Mana
-iceball=Throw an §aIce Ball§0 to the closest enemy, dealing §i[[5 x <playerlevel> + 5 x <intelligence> x <skilllevel>]] Magic Damage§0\nConsumes §a[[40 + 8 x <skilllevel>]] Mana
-zap=Start a zap that jumps between mobs for 2 seconds, dealing §i[[<playerlevel> + <intelligence> x <skilllevel>]] Magic Damage§0 and stunning 1 second\nConsumes §a[[10 + 2 x <skilllevel>]] Mana
+arcaneoverload=While active, increases your Magic Attack Speed by [[0]]%, but your speed is set to [[1]]%\nEnds when you run out of mana, or if used again
+manarecharge=While active, gain +[[0]] Mana Regen (a lot), but you will be paralyzed and take double damage\nEnds when used again
+firedance=Summons [[0]] §bDancing Flames§0, each dealing [[1]] Magic Damage\nSummon another one every 5 seconds\nAll summons disappear 20 seconds after the skill is activated
+iceball=Throw an §aIce Ball§0 to the closest enemy, dealing [[0]] Magic Damage
+zap=Start a zap that jumps between mobs for [[0]] seconds, dealing [[1]] Magic Damage and stunning [[2]] second
 
-teleport=Teleports in front of you\nConsumes 8 Mana
-inferno=Ignite all nearby enemies, dealing §i[[0.5 x <playerlevel> + 0.5 x <intelligence> x <skilllevel>]] Fire Damage§0 per second for 10 seconds\nConsumes §a[[30 + 6 x <skilllevel>]] Mana
-fireenchantment=For the next 10 seconds, attacks from you and nearby allies ignite enemies, dealing §a[[5 x <skilllevel>]]%§0 of the damage per second for 5 seconds\nConsumes §a[[20 + 4 x <skilllevel>]] Mana
-iceenchantment=For the next 10 seconds, attacks from you and nearby allies freeze enemies for §a[[2 x <skilllevel>]] seconds§0\nConsumes 20 Mana
+teleport=Teleports in front of you
+inferno=Ignite all nearby enemies, dealing [[0]] Fire Damage per second for [[1]] seconds
+fireenchantment=Enchant yourself and your nearby allies\nFor the next [[0]] seconds, the attacks ignite enemies, dealing [[1]]% of the damage per second for [[2]] seconds
+iceenchantment=Enchant yourself and your nearby allies\nFor the next [[0]] seconds, the attacks freeze enemies for [[1]] seconds and totally freeze them for [[2]] seconds
 
-fireball=Throw a §iFireball§0 to the closest enemy, dealing §i[[5 x <playerlevel> + 5 x <intelligence> x <skilllevel>]] Magic Damage§0\nConsumes §a[[60 + 12 x <skilllevel>]] Mana
-lightning=Start a lightning that jumps between mobs for 1 second, dealing §i[[4 x <playerlevel> + 4 x <intelligence> x <skilllevel>]] Magic Damage§0 and stunning 2 second\nCannot hit multiple times the same target\nConsumes §a[[30 + 6 x <skilllevel>]] Mana
+fireball=Throw a §iFireball§0 to the closest enemy, dealing [[0]] Magic Damage
+lightning=Start a lightning that jumps between mobs for [[0]] second, dealing [[1]] Magic Damage and stunning [[2]] second\nCannot hit multiple times the same target
 
 // Necromancer
-skeletonhorde=Summons §a[[1 + <skilllevel>]] §bSkeletons§0
-skeletonwarrior=Summons a §bSkeleton Warrior§0 with §a+[[40 x <skilllevel>]]%§0 Health and Damage
-sacrifice=The nearest necrotic summon dies, and you then recover §a[[10 + <endurance> x <skilllevel> + <intelligence> + <skilllevel> - <grace> ↓]] Health§0 as magical healing
-siegecry=Gain §a+[[50 x <skilllevel>]]%§0 Summon Speed for 6 seconds
+skeletonhorde=Summons [[0]] §bSkeletons§0
+skeletonwarrior=Summons a §bSkeleton Warrior§0 with +[[0]]% Health and Damage
+sacrifice=The nearest necrotic summon dies, and you then recover [[0]]% of your total Health
+siegecry=Gain +[[0]]% Summon Speed for [[1]] seconds
 
-boneslingerhorde=Summons §a[[1 + <skilllevel>]]§0 §bBoneslingers§0
-tomb=Generates a structure that summons a §bSkeleton§0 every §a[[10 - <skilllevel>]] seconds§0\nThe Tomb has Health equal to §a[[5 x <playerlevel> x <skilllevel>]]§0\nThe Tomb loses 2% of its Total Health per second
-necroticbloom=Accelerates the effect of poison on all nearby enemies by reducing its duration to 10%, but increasing its damage per second to maintain total damage
-wardingtaunt=The nearest necrotic summon forces nearby enemies within a §a[[50 x <skilllevel>]] radius§0 to target it
+boneslingerhorde=Summons [[0]] §bBoneslingers§0
+tomb=Generates a structure that summons a §bSkeleton§0 every [[0]] seconds\nThe Tomb has Health equal to [[1]]\nThe Tomb loses 2% of its Total Health per second
+necroticbloom=Accelerates the effect of poison on all nearby enemies by reducing its duration to [[0]]%, but increasing its damage per second to increase the total damage in [[1]]%
+necrotichero=The nearest necrotic summon forces nearby enemies to target it\nIt also gets +[[0]]% Damage and -[[1]]% Incoming Damage for [[2]] seconds
 
-unholyground=Extends an aura of corruption around you for 10 seconds\nEnemies within this area take §i[[<playerlevel> + <intelligence> x <skilllevel> - <grace>]] Poison Damage§0 per second and are §7Constrained
-necroticbarrage=All necrotic summons explode upon dying, dealing §i[[5 x <playerlevel> + 5 x <intelligence> x <skilllevel>]] Magic Damage§0 to nearby enemies\nand poisoning them for 10 seconds with 20% of the original damage per second
+unholyground=Extends an aura of corruption around you for [[0]] seconds\nEnemies within this area take [[1]] Poison Damage per second and are §7Constrained
+necroticbarrage=All necrotic summons explode upon dying, dealing [[0]] Magic Damage to nearby enemies\nand poisoning them for [[1]] seconds with [[2]]% of the original damage per second
 
 // Cleric
-smite=Call down a beam of holy light on the closest enemy, dealing §i[[4 x <playerlevel> + 2 x <intelligence> x <skilllevel> + 2 x <grace> x <skilllevel>]] Holy Damage§0\nDeals double damage to Undead and Demonic mobs\nConsumes §a[[10 + 2 x <skilllevel>]] Mana§0
-divineblessing=Magic healing aura that restores §a[[20 + 3 x <grace> x <skilllevel> ↓]] health§0 to you and your allies\nConsumes §a[[20 + 4 x <skilllevel>]] Mana§0
-purify=Cleanse yourself and nearby allies of all negative effects\nConsumes 10 Mana
-lightinfusion=For the next 8 seconds, you gain §a+[[20 x <skilllevel>]]%§0 Magic Healing and Holy Damage
+smite=Call down a beam of holy light on the closest enemy, dealing [[0]] Holy Damage\nDeals double damage to Undead and Demonic mobs
+divineblessing=Magic healing aura that restores [[0]] health to you and your allies
+purify=Cleanse yourself and nearby allies of all negative effects
+lightinfusion=For the next [[0]] seconds, you gain +[[1]]% Magic Healing and Holy Damage
 
-holyguard=Apply to you and all nearby allies a Holy Shield for up to 30 seconds\nThey gain §a+[[10 x <skilllevel>]]%§0 Magic Healing Received and the shield blocks one hit before breaking\nConsumes §a[[40 + 8 x <skilllevel>]] Mana§0
-judgment=Unleash a wave of radiant energy, dealing §i[[4 x <playerlevel> + 2 x <intelligence> x <skilllevel> + 2 x <grace> x <skilllevel>]] Holy Damage§0 to all nearby enemies\nUndead and Demonic mobs are §7Constrained§0 for 5 seconds\nConsumes §a[[20 + 4 x <skilllevel>]] Mana§0
-sanctuary=Create a holy zone for 8 seconds\nYou and allies inside are immune to negative effects and gain §a[[0.2 x <grace> x <skilllevel>]]§0 health regen per second\nUndead and Demonic mobs inside are §7Constrained§0\nConsumes §a[[30 + 6 x <skilllevel>]] Mana§0
+holyguard=Apply to you and all nearby allies a Holy Shield for up to [[0]] seconds\nThey gain +[[1]]% Magic Healing Received and the shield blocks one hit before breaking
+judgment=Unleash a wave of radiant energy, dealing [[0]] Holy Damage to all nearby enemies\nUndead and Demonic mobs are §7Constrained§0 for [[1]] seconds
+sanctuary=Create a holy zone for 8 seconds\nYou and allies inside are immune to negative effects and gain [[0]] health regen per second\nUndead and Demonic mobs inside are §7Constrained§0
 
-divineintervention=Instantly heal the most damaged close ally to their maximum health and grant immunity to all damage for §a[[<skilllevel>]]§0 seconds\nConsumes §a[[60 + 12 x <skilllevel>]] Mana§0
-resurrection=Revive the lasted dead player ally in your same island with §a[[10 x <skilllevel>]]%§0 of their maximum health in your position\nYou cannot revive players who died more than 10 seconds ago\nConsumes §a[[100 - 10 x <skilllevel>]]%§0 of your Mana (at least §a[[60 + 12 x <skilllevel>]]§0)
-wrathoflight=Summon a column of light on the closest enemy, dealing §i[[2 x <playerlevel> + <intelligence> x <skilllevel> + <grace> x <skilllevel>]] Holy Damage§0 per second for 5 seconds in area\nUndead and Demonic mobs inside are §7Constrained§0\nConsumes §a[[40 + 8 x <skilllevel>]] Mana§0
+divineintervention=Instantly heal the most damaged close ally to their maximum health and grant immunity to all damage for [[0]] seconds
+resurrection=Revive the lasted dead player ally in your same island with [[0]]% of their maximum health in your position\nYou cannot revive players who died more than [[1]] seconds ago\nWorks in hardcore, but its cooldown is 2 minutes
+wrathoflight=Summon a column of light on the closest enemy, dealing [[0]] Holy Damage per second for 5 seconds in area\nUndead and Demonic mobs inside are §7Constrained§0
 
 // Druid
-wolftransformation=Takes 3 seconds to transform into a Wolf\n\nMovement Speed: 60\n\nPress [input=transformationability1] to Dash Bite: Leap forward and bite, dealing §i[[2 x <playerlevel> + <strength> x <skilllevel> + <speed> x <skilllevel>]] Melee Damage§0 (3 resilience gain)\n\nPress [input=transformationability2] to Bark: Force nearby enemies to target you for 2 seconds\n\nHold [input=trinketability] to Sprint
-queenbeetransformation=Takes 2 seconds to transform into a Queen Bee\n\nMovement Speed: 30\n-50% Enemy Detection\n§6+1000% Incoming Damage§0\nTaking a hit summons maximum bees instead of dying (60s cooldown)\n\nPress [input=transformationability1] to Shoot Honey: Deal §i[[2 x <playerlevel> + <strength> x <skilllevel>]] Ranged Damage§0 (2 resilience gain)\n\nPress [input=transformationability2] to summon a §9Bee§0 up to §a[[2 x <skilllevel>]]§0\n\nHold [input=trinketability] to command your Bees to attack
+wolftransformation=Takes [[0]] seconds to transform into a Wolf\n\nMovement Speed: [[1]]\n\nPress [input=transformationability1] to Dash Bite: Leap forward and bite, dealing [[2]] Melee Damage ([[3]] resilience gain)\n\nPress [input=transformationability2] to Bark: Close enemies take +[[5]]% damage and target you for [[4]] seconds.\n\nHold [input=trinketability] to Sprint
+queenbeetransformation=Takes [[0]] seconds to transform into a Queen Bee\nMovement Speed: [[1]]\n-[[2]]% Enemy Detection\n§6+[[3]]% Incoming Damage\nTaking a hit summons maximum bees instead of dying ([[4]]s cooldown)\n\nPress [input=transformationability1] to Shoot Honey: Deal [[5]] Ranged Damage ([[6]] resilience gain)\n\nPress [input=transformationability2] to summon a §9Bee§0 up to [[7]]\n\nHold [input=trinketability] to command your Bees to attack
 
-beartransformation=Takes 4 seconds to transform into a Bear\n\nMovement Speed: 20\n-50% Incoming Damage\n\nPress [input=transformationability1] to Ground Slam: Area attack that deals §i[[4 x <playerlevel> + 4 x <strength> x <skilllevel>]] Melee Damage§0\nand §9Stuns§0 for §a[[0.5 x <skilllevel>]] seconds§0 (4 resilience gain)\n\nPress [input=transformationability2] to Growl: Make nearby enemies run away for 1 second\n\nHold [input=trinketability] to Sprint
-foxtransformation=Takes 3 seconds to transform into a Fox\n\nMovement Speed: 50\n§6+50% Incoming Damage§0\n\nPress [input=transformationability1] to Shoot Fireballs: Deal §i[[<playerlevel> + 0.5 x <intelligence> x <skilllevel>]] Magic Damage§0 (2 resilience gain)\n\nPress [input=transformationability2] to summon a §bDancing Flames§0 up to §a[[2 + <skilllevel>]]§0, each dealing the same damage as a Fireball\n\nPress [input=trinketability] to Dash\n§!Vulpes Nova fox!
-rattransformation=Takes 2 seconds to transform into a Rat\n\nMovement Speed: 25\n-50% Enemy Detection\nGrants max Dodge Chance\n§6+1000% Incoming Damage§0\n\nPress [input=transformationability1] to Bite: Deals §i[[0.5 x <playerlevel> + 0.5 x <strength> x <skilllevel> + 0.5 x <intelligence> x <skilllevel>]] Melee Damage§0 and poisons the target\nfor 100% of the damage dealt per second for 10 seconds\n\nHold [input=trinketability] to Sprint
+beartransformation=Takes [[0]] seconds to transform into a Bear\n\nMovement Speed: [[1]]\n[[2]]% Incoming Damage\n\nPress [input=transformationability1] to Ground Slam: Area attack that deals [[3]] Melee Damage\nand §9Stuns§0 for [[4]] seconds ([[5]] resilience gain)\n\nPress [input=transformationability2] to Growl: Make nearby enemies run away for [[6]] seconds\n\nHold [input=trinketability] to Sprint
 
-treanttransformation=Takes 4 seconds to transform into a Treant\n\nMovement Speed: 0\n-§a[50 + 5 <skilllevel>]%§0 Incoming Damage\n+50% Armor\nEnemies ignore you if hidden for 3 seconds\n\nPress [input=transformationability1] to Shoot random Seeds: Deal §i[[0.5 x <playerlevel> + <strength> x <skilllevel>]] Ranged Damage§0 with random effects (1 resilience gain)\n\nPress [input=transformationability2] to summon a §9Dryad Sapling§0\n\nHold [input=trinketability] to Reveal and Sprint if moving
+foxtransformation=Takes [[0]] seconds to transform into a Fox\n\nMovement Speed: [[1]]\n§6+[[2]]% Incoming Damage\n\nPress [input=transformationability1] to Shoot Fireballs: Deal [[3]] Magic Damage ( [[4]] resilience gain)\n\nPress [input=transformationability2] to summon a §bDancing Flames§0 up to [[5]], each dealing the same damage as a Fireball\n\nPress [input=trinketability] to Dash\n§!Vulpes Nova fox!
+rattransformation=Takes [[0]] seconds to transform into a Rat\nMovement Speed: [[1]]\n[[2]]% Enemy Detection\nGrants max Dodge Chance\n§6+[[3]]% Incoming Damage\n\nPress [input=transformationability1] to Bite: Deals [[4]] Melee Damage and poisons the target\nfor [[5]]% of the damage dealt per second for [[6]] seconds\n\nHold [input=trinketability] to Sprint
 
+treanttransformation=Takes [[0]] seconds to transform into a Treant\n\nMovement Speed: [[1]]\n-[[2]]% Incoming Damage\n+[[3]]% Armor\nEnemies ignore you if hidden for [[4]] seconds\n\nPress [input=transformationability1] to Shoot random Seeds: Deal [[5]] Ranged Damage with random effects ( [[6]] resilience gain)\n\nPress [input=transformationability2] to summon a §9Dryad Sapling§0\n\nHold [input=trinketability] to Reveal and Sprint if moving
 
 [mastery]
 bastion=Bastion
@@ -429,24 +431,24 @@ shapeshifter=Shapeshifter
 
 
 [masterydesc]
-bastion=Gain Resilience per second equal to 25% of your Health Regen
-bloodborn=Heal for 5% of the damage you deal to enemies\nAlways lose 5% of your Max Health per second, but cannot die from this effect\nHealth Regen is always 0
-chronomancer=Reduces the cooldown and cast time of all active skills by 20%
-barbarian=+100% Max Health and +200% Health Regen, but your armor will be always 0
-berserker=When below 50% health, gain +25% Melee Crit Chance\nMelee Crit hits increase your Attack Speed and Movement Speed by 25% for 2 second
-sniper=Ranged attacks have up to +100% damage based on distance to target
+bastion=Gain Resilience per second equal to [[0]]% of your Health Regen
+bloodborn=Heal for [[0]]% of the damage you deal to enemies for each [[1]] health you have\nAlways lose [[2]]% of your Max Health per second, but cannot die from this effect\nHealth Regen is always 0
+chronomancer=Reduces the cooldown and cast time of all active skills by [[0]]%
+barbarian=+[[0]]% Max Health, +[[1]]% Health Regen and +[[2]]% Melee Damage, but your armor will be always 0
+berserker=When below [[0]]% health, gain +[[1]]% Melee Crit Chance\nMelee Crit hits increase your Attack Speed and Movement Speed by [[2]]% for [[3]] second
+sniper=Ranged attacks have up to +[[0]]% damage based on distance to target
 marksman=Enemies you mark are marked to all players
-hunter=When you mark a enemy it's §7Constrained§0 for 5 seconds
-trapper=+50% Damage to trapped or constrained enemies
+hunter=When you mark a enemy it's §7Constrained§0 for [[0]] seconds
+trapper=+[[0]]% Damage to trapped or constrained enemies
 pyromancer=Your ignitions can stack on the same enemy
-frostweaver=+50% Damage to enemies with Frostslow, Freezing or Frostburn
-stormcaller=Every 20 seconds, all enemies in vision are hit by a lightning strike\nDeal §i[[<playerlevel> + <intelligence>]] Magic Damage§0 and stun 1 second to all of them
-ironinvoker=Your damageable summons gain a shield that blocks one attack and recharges after 10 seconds
+frostweaver=+[[0]]% Damage to enemies with Frostslow, Freezing or Frostburn
+stormcaller=Every [[0]] seconds, all enemies in vision are hit by a lightning strike\nDeal [[1]] Magic Damage and stun [[2]] seconds to all of them
+ironinvoker=Your damageable summons gain a shield that blocks one attack and recharges after [[0]] seconds
 plaguebearer=Your poisons last twice as long on enemies
-darkeminence=Whenever you lose more than 15% of your max health from a single attack,\nyou summon a §bSkeleton Warrior§0 that takes the damage exceeding that 15% (3s cooldown)
+darkeminence=Whenever you lose more than [[0]]% of your max health from a single attack,\nyou summon a §bSkeleton Warrior§0 that takes the damage exceeding that [[0]]% ([[1]]s cooldown)
 inquisitor=Your attacks and effects judge all your enemies as Demonic
-timekeeper=Magic healing, whether on yourself or an ally, reduces the target's active skill cooldowns by 0.02 seconds per point healed
-shapeshifter=After transforming, you become invulnerable for 3 seconds (5s cooldown)
+timekeeper=Magic healing, whether on yourself or an ally, reduces the target's active skill cooldowns by [[0]] seconds per point healed
+shapeshifter=After transforming, you become invulnerable for [[0]] seconds ([[1]]s cooldown)
 
 
 [skillsdesckeys]
@@ -491,12 +493,12 @@ fireball=§iFireball:§0 Magic projectile that explodes and ignite mobs repeatin
 dancingflame=§bDancing Flame:§0 Summon that acts like a projectile. Ignite enemies on hit\nRepeats 20% of its original damage per second for 5 seconds
 
 // Damageable Summons
-necromancerskeleton=§bSkeleton:§0 Necrotic damageable summon\nHealth: §a[[5 x <playerlevel> + 5 x <intelligence> ↓]]§0\nDamage: §a[[<playerlevel> + <intelligence>]]§0\nSpeed: 60\nLoses 2% of Total Health per second
-necromancerskeletonwarrior=§bSkeleton Warrior:§0 Necrotic damageable summon\nHealth: §a[[8 x <playerlevel> + 8 x <intelligence> ↓]]§0\nDamage: §a[[2 x <playerlevel> + 2 x <intelligence>]]§0\nSpeed: 60\nLoses 2% of Total Health per second
-necromancerboneslinger=§bBoneslinger:§0 Necrotic damageable summon\nHealth: §a[[2 x <playerlevel> + 2 x <intelligence> ↓]]§0\nDamage: §a[[<playerlevel> + <intelligence>]]§0 (320 distance)\nSpeed: 60\nLoses 2% of Total Health per second
+necromancerskeleton=§bSkeleton:§0 Necrotic damageable summon\nHealth: [[0]]\nSummon Damage: [[1]]\nSpeed: 60\nLoses 2% of Total Health per second
+necromancerskeletonwarrior=§bSkeleton Warrior:§0 Necrotic damageable summon\nHealth: [[0]]\nSummon Damage: [[1]]\nSpeed: 60\nLoses 2% of Total Health per second
+necromancerboneslinger=§bBoneslinger:§0 Necrotic damageable summon\nHealth: [[0]]§0\nSummon Damage: [[1]] (320 distance)\nSpeed: 60\nLoses 2% of Total Health per second
 
-bee=§9Bee:§0 Damageable summon\nHealth: 1\nDamage: §a[[<playerlevel> + <intelligence> ↓]]§0\nSpeed: 100\n\nDies on attack, but poisons the target for 20% of the damage dealt per second for 10 seconds
-dryadsapling=§9Dryad Sapling:§0 Damageable summon\nHealth: §a[[2 x <playerlevel> + 2 x <intelligence> ↓]]§0\nDamage: §a[[3 x <playerlevel> + 3 x <intelligence>]]§0\n\nSpeed: 65\nLoses 2% of Total Health per second
+bee=§9Bee:§0 Damageable summon\nHealth: [[0]]\nSummon Damage: [[1]]\nSpeed: 100\n\nDies on attack, but poisons the target for 20% of the damage dealt per second for 10 seconds
+dryadsapling=§9Dryad Sapling:§0 Damageable summon\nHealth: [[0]]§0\nSummon Damage: [[1]]§0\n\nSpeed: 65\nLoses 2% of Total Health per second
 
 [item]
 scrollofoblivion=Scroll of Oblivion
@@ -590,10 +592,13 @@ activeskillsusetip2=Only the first four skills appear in the Active Skills Wheel
 activeskillsequipinstructions=Click on a slot to equip an Active Skill. You cannot unequip an Active Skill on cooldown
 noactiveskills=You have no Active Skills. Unlock them through the classes
 
+consumesmana=Consumes [[mana]] mana
+consumesmanapersecond=Consumes [[mana]] mana per second
+
 activeskillcast=§9Cast time: <seconds>s
 
 activeskillcooldown=§9Cooldown: <seconds>s
-activeskillcooldownmod=§9Cooldown: [[<seconds> <sign> <mod> x <skilllevel>]]s
+activeskillcooldownmod=§9Cooldown: [[cooldown]]s
 requiredclasslevel=§bClass lvl <level> required
 requiredactiveskill=§bRequires '<skill>' level <level>
 maxlevel=§aMax Level: <level>

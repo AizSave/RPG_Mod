@@ -14,14 +14,14 @@ import necesse.gfx.gameFont.FontOptions;
 import necesse.gfx.gameTexture.GameTexture;
 import necesse.gfx.ui.ButtonColor;
 import necesse.gfx.ui.GameInterfaceStyle;
-import rpgclasses.forms.rpgmenu.MenuContainer;
-import rpgclasses.forms.rpgmenu.MenuContainerForm;
-import rpgclasses.forms.rpgmenu.components.SkillComponent;
 import rpgclasses.content.player.PlayerClass;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.ActiveSkill;
 import rpgclasses.content.player.SkillsLogic.Passives.Passive;
 import rpgclasses.data.PlayerClassData;
 import rpgclasses.data.PlayerDataList;
+import rpgclasses.forms.rpgmenu.MenuContainer;
+import rpgclasses.forms.rpgmenu.MenuContainerForm;
+import rpgclasses.forms.rpgmenu.components.SkillComponent;
 
 import java.awt.*;
 import java.util.Arrays;

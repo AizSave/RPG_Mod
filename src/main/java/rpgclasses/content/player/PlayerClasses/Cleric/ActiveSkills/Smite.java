@@ -17,6 +17,7 @@ import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.maps.Level;
 import rpgclasses.RPGResources;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.ActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.MobData;
 import rpgclasses.data.PlayerData;
 import rpgclasses.registry.RPGBuffs;
@@ -26,13 +27,26 @@ import rpgclasses.utils.RPGUtils;
 import java.util.List;
 
 public class Smite extends ActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.damageParam(5),
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
+    @Override
+    public SkillParam getManaParam() {
+        return SkillParam.manaParam(10);
+    }
 
     public Smite(int levelMax, int requiredClassLevel) {
         super("smite", "#ffff66", levelMax, requiredClassLevel);
     }
 
     @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 8000;
     }
 
@@ -42,7 +56,7 @@ public class Smite extends ActiveSkill {
         Mob target = RPGUtils.findBestTarget(player, 300);
 
         if (target != null) {
-            float damage = 4 * playerData.getLevel() + 2 * activeSkillLevel * (playerData.getIntelligence(player) + playerData.getGrace(player));
+            float damage = params[0].value(playerData.getLevel(), activeSkillLevel);
             if (MobData.isWeakToHoly(target, player)) damage *= 2;
             target.isServerHit(new GameDamage(RPGDamageType.HOLY, damage), player.x, player.y, 0, player);
             RPGBuffs.applyStun(target, 300);
@@ -62,18 +76,13 @@ public class Smite extends ActiveSkill {
     }
 
     @Override
-    public float manaUsage(PlayerMob player, int activeSkillLevel) {
-        return 10 + activeSkillLevel * 2;
-    }
-
-    @Override
-    public String canActive(PlayerMob player, PlayerData playerData, boolean isInUSe) {
+    public String canActive(PlayerMob player, PlayerData playerData, int activeSkillLevel, boolean isInUSe) {
         return RPGUtils.anyTarget(player, 300) ? null : "notarget";
     }
 
     @Override
     public String[] getExtraTooltips() {
-        return new String[]{"holydamage", "constrained", "manausage"};
+        return new String[]{"holydamage", "constrained"};
     }
 
     public static class SmiteParticle extends Particle {

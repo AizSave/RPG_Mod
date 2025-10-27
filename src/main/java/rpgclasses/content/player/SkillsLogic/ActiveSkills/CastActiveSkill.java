@@ -41,7 +41,7 @@ abstract public class CastActiveSkill extends ActiveSkill {
                 player.buffManager.addBuff(ab, true);
             } else {
                 castedRunServer(player, playerData, activeSkillLevel, seed);
-                playerData.getInUseActiveSkillSlot().startCooldown(playerData, player.getTime(), activeSkillLevel);
+                playerData.getInUseActiveSkillSlot().startCooldown(player, playerData, player.getTime(), activeSkillLevel);
             }
         }
     }
@@ -54,7 +54,7 @@ abstract public class CastActiveSkill extends ActiveSkill {
         } else {
             if (player.buffManager.getModifier(RPGModifiers.CAST_TIME) <= 0F) {
                 castedRunClient(player, playerData, activeSkillLevel, seed);
-                playerData.getInUseActiveSkillSlot().startCooldown(playerData, player.getTime(), activeSkillLevel);
+                playerData.getInUseActiveSkillSlot().startCooldown(player, playerData, player.getTime(), activeSkillLevel);
             }
         }
     }

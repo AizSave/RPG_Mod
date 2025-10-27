@@ -9,12 +9,24 @@ import necesse.gfx.gameFont.FontManager;
 import rpgclasses.buffs.Skill.MasteryBuff;
 import rpgclasses.content.player.Mastery.Mastery;
 import rpgclasses.content.player.PlayerClasses.Wizard.Passives.Stormbound;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParamColors;
 import rpgclasses.data.EquippedActiveSkill;
 import rpgclasses.packets.PacketMobResetBuffTime;
 import rpgclasses.registry.RPGBuffs;
 import rpgclasses.utils.RPGUtils;
 
 public class StormCaller extends Mastery {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(20),
+            new SkillParam("20 x <playerlevel>", SkillParamColors.DAMAGE),
+            SkillParam.staticParam(2)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
 
     public StormCaller(String stringID, String color) {
         super(stringID, color);
@@ -35,16 +47,16 @@ public class StormCaller extends Mastery {
                 int time = activeBuff.getGndData().getInt("time", 0);
                 time += 50;
 
-                if (time > 20000) {
+                if (time > ((int) params[0].value() * 1000)) {
                     time = 0;
 
                     PlayerMob player = (PlayerMob) activeBuff.owner;
 
                     RPGUtils.getAllTargets(activeBuff.owner, 2000).forEach(
                             target -> {
-                                target.isServerHit(new GameDamage(DamageTypeRegistry.MAGIC, getPlayerLevel(player) + getIntelligence(player)), player.x, player.y, 0, player);
+                                target.isServerHit(new GameDamage(DamageTypeRegistry.MAGIC, params[1].value(getPlayerLevel(player))), player.x, player.y, 0, player);
 
-                                RPGBuffs.applyStun(target, 1F);
+                                RPGBuffs.applyStun(target, params[2].value());
 
                                 player.getServer().network.sendToClientsAtEntireLevel(new Stormbound.LightningPacket(target.getX(), target.getY()), player.getLevel());
                             }
@@ -68,7 +80,7 @@ public class StormCaller extends Mastery {
             public void drawIcon(int x, int y, ActiveBuff activeBuff) {
                 super.drawIcon(x, y, activeBuff);
                 int time = activeBuff.getGndData().getInt("time", 0) - 50;
-                String text = EquippedActiveSkill.getTimeLeftString(20000 - time);
+                String text = EquippedActiveSkill.getTimeLeftString((int) (params[0].value() * 1000) - time);
                 int width = FontManager.bit.getWidthCeil(text, durationFontOptions);
                 FontManager.bit.drawString((float) (x + 28 - width), (float) (y + 30 - FontManager.bit.getHeightCeil(text, durationFontOptions)), text, durationFontOptions);
             }

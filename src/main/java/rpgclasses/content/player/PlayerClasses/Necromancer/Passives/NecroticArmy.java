@@ -7,6 +7,7 @@ import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.mobs.itemAttacker.FollowPosition;
 import rpgclasses.buffs.Skill.PrincipalPassiveBuff;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.content.player.SkillsLogic.Passives.SimpleBuffPassive;
 import rpgclasses.data.PlayerData;
 import rpgclasses.data.PlayerDataList;
@@ -14,6 +15,15 @@ import rpgclasses.mobs.summons.damageable.DamageableFollowingMob;
 import rpgclasses.utils.RPGUtils;
 
 public class NecroticArmy extends SimpleBuffPassive {
+    public static SkillParam[] params = new SkillParam[]{
+            new SkillParam("100 - 3 x <skilllevel>").setDecimals(2, 0)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
     public NecroticArmy(int levelMax, int requiredClassLevel) {
         super("necroticarmy", "#669966", levelMax, requiredClassLevel);
     }
@@ -42,7 +52,7 @@ public class NecroticArmy extends SimpleBuffPassive {
                     DamageableFollowingMob mob = (DamageableFollowingMob) MobRegistry.getMob("necromancerskeleton", player.getLevel());
                     player.serverFollowersManager.addFollower(stringID, mob, FollowPosition.WALK_CLOSE, null, 1, Integer.MAX_VALUE, null, activeBuff.owner.isServer());
 
-                    mob.updateStats(player, playerData, getLevel(activeBuff) * 0.03F);
+                    mob.updateStats(player, playerData, 1F - params[0].value(getLevel(activeBuff)));
 
                     player.getLevel().entityManager.addMob(mob, event.target.x, event.target.y);
                 }

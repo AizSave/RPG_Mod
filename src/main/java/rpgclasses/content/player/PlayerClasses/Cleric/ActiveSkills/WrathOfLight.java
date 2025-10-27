@@ -24,9 +24,9 @@ import necesse.gfx.drawables.LevelSortedDrawable;
 import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.maps.Level;
-import necesse.level.maps.regionSystem.RegionPosition;
 import rpgclasses.RPGResources;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.SimpleLevelEventActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.MobData;
 import rpgclasses.data.PlayerData;
 import rpgclasses.registry.RPGBuffs;
@@ -35,18 +35,30 @@ import rpgclasses.utils.RPGArea;
 import rpgclasses.utils.RPGUtils;
 
 import java.awt.*;
-import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 
 public class WrathOfLight extends SimpleLevelEventActiveSkill {
+
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.damageParam(3)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
+    @Override
+    public SkillParam getManaParam() {
+        return SkillParam.manaParam(40);
+    }
 
     public WrathOfLight(int levelMax, int requiredClassLevel) {
         super("wrathoflight", "#ffff66", levelMax, requiredClassLevel);
     }
 
     @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 20000;
     }
 
@@ -56,11 +68,8 @@ public class WrathOfLight extends SimpleLevelEventActiveSkill {
         Mob target = RPGUtils.findBestTarget(player, 500);
 
         if (target != null) {
-            float damage = 5 * playerData.getLevel() + 3 * activeSkillLevel * (playerData.getIntelligence(player) + playerData.getGrace(player));
-            if (MobData.isWeakToHoly(target, player)) damage *= 2;
-            target.isServerHit(new GameDamage(RPGDamageType.HOLY, damage), player.x, player.y, 0, player);
             RPGBuffs.applyStun(target, 500);
-            return new WrathOfLightLevelEvent(player, target.getX(), target.getY(), (2 * playerData.getLevel() + activeSkillLevel * (playerData.getIntelligence(player) + playerData.getGrace(player))) / 2);
+            return new WrathOfLightLevelEvent(player, target.getX(), target.getY(), params[0].value(playerData.getLevel(), activeSkillLevel) / 2);
         }
         return null;
     }
@@ -71,18 +80,13 @@ public class WrathOfLight extends SimpleLevelEventActiveSkill {
     }
 
     @Override
-    public float manaUsage(PlayerMob player, int activeSkillLevel) {
-        return 40 + activeSkillLevel * 8;
-    }
-
-    @Override
-    public String canActive(PlayerMob player, PlayerData playerData, boolean isInUSe) {
+    public String canActive(PlayerMob player, PlayerData playerData, int activeSkillLevel, boolean isInUSe) {
         return RPGUtils.anyTarget(player, 500) ? null : "notarget";
     }
 
     @Override
     public String[] getExtraTooltips() {
-        return new String[]{"holydamage", "constrained", "manausage"};
+        return new String[]{"holydamage", "constrained"};
     }
 
     public static class WrathOfLightLevelEvent extends MobAbilityLevelEvent implements Attacker {

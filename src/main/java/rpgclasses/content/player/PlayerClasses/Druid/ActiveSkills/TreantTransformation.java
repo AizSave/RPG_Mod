@@ -33,6 +33,7 @@ import necesse.inventory.item.toolItem.projectileToolItem.gunProjectileToolItem.
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.SimpleTranformationActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.PlayerData;
 import rpgclasses.data.PlayerDataList;
 import rpgclasses.mobs.mount.SkillTransformationMountMob;
@@ -44,6 +45,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TreantTransformation extends SimpleTranformationActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(4),
+            SkillParam.staticParam(0),
+            new SkillParam("50 + 5 x <skilllevel>").setDecimals(2, 0),
+            SkillParam.staticParam(50).setDecimals(2, 0),
+            SkillParam.staticParam(5),
+            SkillParam.damageParam(0.5F),
+            SkillParam.staticParam(1)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
     public TreantTransformation(int levelMax, int requiredClassLevel) {
         super("treanttransformation", "#753b09", levelMax, requiredClassLevel);
     }
@@ -54,13 +70,13 @@ public class TreantTransformation extends SimpleTranformationActiveSkill {
     }
 
     @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 10000;
     }
 
     @Override
     public int castingDuration() {
-        return 4000;
+        return (int) (params[0].value() * 1000);
     }
 
     @Override
@@ -72,7 +88,7 @@ public class TreantTransformation extends SimpleTranformationActiveSkill {
         public TreantMob() {
             super();
 
-            this.setSpeed(0.0F);
+            this.setSpeed(params[1].value());
             this.setFriction(2.0F);
             this.setSwimSpeed(0.75F);
             this.setFriction(3.0F);
@@ -89,9 +105,9 @@ public class TreantTransformation extends SimpleTranformationActiveSkill {
         public List<ModifierValue<?>> getRiderModifiers() {
             List<ModifierValue<?>> modifiers = super.getRiderModifiers();
             int skillLevel = getActualSkillLevel();
-            modifiers.add(new ModifierValue<>(BuffModifiers.INCOMING_DAMAGE_MOD, 0.5F - 0.05F * skillLevel));
+            modifiers.add(new ModifierValue<>(BuffModifiers.INCOMING_DAMAGE_MOD, 1F - params[2].value(skillLevel)));
             modifiers.add(new ModifierValue<>(BuffModifiers.TARGET_RANGE, -1F));
-            modifiers.add(new ModifierValue<>(BuffModifiers.ARMOR, 0.5F));
+            modifiers.add(new ModifierValue<>(BuffModifiers.ARMOR, params[3].value()));
             return modifiers;
         }
 
@@ -164,8 +180,8 @@ public class TreantTransformation extends SimpleTranformationActiveSkill {
 
             PlayerData playerData = PlayerDataList.getPlayerData(player);
             int skillLevel = getActualSkillLevel();
-            SeedBulletProjectile projectile = new SeedBulletProjectile(player.x, player.y, newX, newY, 150, 400, new GameDamage(DamageTypeRegistry.RANGED, 0.5F * playerData.getLevel() + playerData.getStrength(player) * skillLevel), 10, player);
-            projectile.setModifier(new ResilienceOnHitProjectileModifier(1));
+            SeedBulletProjectile projectile = new SeedBulletProjectile(player.x, player.y, newX, newY, 150, 400, new GameDamage(DamageTypeRegistry.RANGED, params[5].value(playerData.getLevel(), skillLevel)), 10, player);
+            projectile.setModifier(new ResilienceOnHitProjectileModifier(params[6].value()));
             projectile.resetUniqueID(new GameRandom(Item.getRandomAttackSeed(GameRandom.globalRandom)));
             Item item = ItemRegistry.getItem(GameRandom.globalRandom.getOneOf(new ArrayList<>(SeedGunProjectileToolItem.SEED_AMMO_TYPES)));
             if (item instanceof SeedObjectItem) projectile.setSeedBulletVariant((SeedObjectItem) item);
@@ -224,13 +240,13 @@ public class TreantTransformation extends SimpleTranformationActiveSkill {
         protected void doMountedLogic() {
             super.doMountedLogic();
             if (this.getRider() != null)
-                this.getRider().addBuff(new ActiveBuff(RPGBuffs.TARGET_RANGE_TO_100, this.getRider(), 3.0F, null), this.isServer());
+                this.getRider().addBuff(new ActiveBuff(RPGBuffs.TARGET_RANGE_TO_100, this.getRider(), params[4].value(), null), this.isServer());
         }
 
         @Override
         public void onActiveMountAbilityStarted(PlayerMob player, Packet content) {
             this.buffManager.addBuff(new ActiveBuff(BuffRegistry.LEATHER_DASHERS_ACTIVE, this, 1.0F, null), false);
-            player.buffManager.addBuff(new ActiveBuff(RPGBuffs.TARGET_RANGE_TO_100, player, 3.0F, null), false);
+            player.buffManager.addBuff(new ActiveBuff(RPGBuffs.TARGET_RANGE_TO_100, player, params[4].value(), null), false);
         }
 
         @Override

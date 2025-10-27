@@ -6,7 +6,6 @@ import necesse.gfx.GameBackground;
 import necesse.gfx.drawOptions.texture.SharedTextureDrawOptions;
 
 import java.awt.*;
-import java.util.Set;
 
 public class BorderFormGameBackground extends GameBackground {
     int padding;

@@ -9,6 +9,7 @@ import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.gfx.GameResources;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.SimpleLevelEventActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.MobData;
 import rpgclasses.data.PlayerData;
 import rpgclasses.levelevents.RPGExplosionLevelEvent;
@@ -18,19 +19,33 @@ import rpgclasses.registry.RPGDamageType;
 import java.awt.*;
 
 public class Judgment extends SimpleLevelEventActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.damageParam(5),
+            SkillParam.staticParam(5)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
+    @Override
+    public SkillParam getManaParam() {
+        return SkillParam.manaParam(20, false);
+    }
 
     public Judgment(int levelMax, int requiredClassLevel) {
         super("judgment", "#ffff66", levelMax, requiredClassLevel);
     }
 
     @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 20000;
     }
 
     @Override
     public LevelEvent getLevelEvent(PlayerMob player, PlayerData playerData, int activeSkillLevel, int seed, boolean isInUse) {
-        return new JudgmentLevelEvent(player.x, player.y, 200, new GameDamage(RPGDamageType.HOLY, 4 * playerData.getLevel() + 2 * activeSkillLevel * (playerData.getIntelligence(player) + playerData.getGrace(player))), player);
+        return new JudgmentLevelEvent(player.x, player.y, 200, new GameDamage(RPGDamageType.HOLY, params[0].value(playerData.getLevel(), activeSkillLevel)), player);
     }
 
     @Override
@@ -39,13 +54,8 @@ public class Judgment extends SimpleLevelEventActiveSkill {
     }
 
     @Override
-    public float manaUsage(PlayerMob player, int activeSkillLevel) {
-        return 20 + activeSkillLevel * 4;
-    }
-
-    @Override
     public String[] getExtraTooltips() {
-        return new String[]{"holydamage", "constrained", "manausage"};
+        return new String[]{"holydamage", "constrained"};
     }
 
     public static class JudgmentLevelEvent extends RPGExplosionLevelEvent {
@@ -67,7 +77,7 @@ public class Judgment extends SimpleLevelEventActiveSkill {
         protected void onMobWasHit(Mob mob, float distance) {
             super.onMobWasHit(mob, distance);
             if (MobData.isWeakToHoly(mob, ownerMob)) {
-                mob.buffManager.addBuff(new ActiveBuff(RPGBuffs.CONSTRAINED, mob, 5000, null), mob.isServer());
+                mob.buffManager.addBuff(new ActiveBuff(RPGBuffs.CONSTRAINED, mob, params[1].value(), null), mob.isServer());
             }
         }
     }

@@ -34,24 +34,4 @@ public class ActiveSkillBuff extends SkillBuff {
     public String skillID() {
         return this.getStringID().replace("activeskillbuff", "");
     }
-
-    public float getEndurance(ActiveBuff activeBuff) {
-        return activeBuff.getGndData().getFloat("endurance");
-    }
-
-    public float getSpeed(ActiveBuff activeBuff) {
-        return activeBuff.getGndData().getFloat("speed");
-    }
-
-    public float getStrength(ActiveBuff activeBuff) {
-        return activeBuff.getGndData().getFloat("strength");
-    }
-
-    public float getIntelligence(ActiveBuff activeBuff) {
-        return activeBuff.getGndData().getFloat("intelligence");
-    }
-
-    public float getGrace(ActiveBuff activeBuff) {
-        return activeBuff.getGndData().getFloat("grace");
-    }
 }

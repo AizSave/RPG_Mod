@@ -38,7 +38,7 @@ public class NecromancerPlayerClass extends PlayerClass {
 
         skillsList.addSkill(new NecroticBloom(5, requiredLevel));
 
-        skillsList.addSkill(new WardingTaunt(5, requiredLevel));
+        skillsList.addSkill(new NecroticHero(5, requiredLevel));
 
         requiredLevel = 10;
 
@@ -57,7 +57,7 @@ public class NecromancerPlayerClass extends PlayerClass {
                 "darkpower", "#666666", 10, 1,
                 new FloatPercentModifierBuff(BuffModifiers.SUMMON_DAMAGE, 0.05F),
                 new FloatPercentModifierBuff(BuffModifiers.SUMMON_CRIT_CHANCE, 0.02F),
-                new FloatPercentModifierBuff(BuffModifiers.SPEED, -0.1F)
+                new FloatPercentModifierBuff(BuffModifiers.SPEED, -0.08F)
         ));
         skillsList.addSkill(new NecroticPower(10, 1));
         skillsList.addSkill(new DarkMagic(10, 1));

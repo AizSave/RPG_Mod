@@ -7,9 +7,9 @@ import necesse.gfx.forms.Form;
 import necesse.gfx.gameFont.FontManager;
 import necesse.gfx.gameFont.FontOptions;
 import necesse.inventory.item.Item;
-import rpgclasses.forms.rpgmenu.components.SkillIconComponent;
 import rpgclasses.data.EquippedActiveSkill;
 import rpgclasses.data.PlayerData;
+import rpgclasses.forms.rpgmenu.components.SkillIconComponent;
 
 import java.awt.*;
 

@@ -13,8 +13,8 @@ import necesse.entity.particle.Particle;
 import rpgclasses.buffs.MarkedBuff;
 import rpgclasses.buffs.Skill.ActiveSkillBuff;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.SimpleBuffActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.PlayerData;
-import rpgclasses.data.PlayerDataList;
 import rpgclasses.utils.RPGUtils;
 
 import java.awt.*;
@@ -23,6 +23,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class HuntersMark extends SimpleBuffActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(10),
+            new SkillParam("20 x <skilllevel>").setDecimals(2, 0),
+            SkillParam.staticParam(5)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
 
     public HuntersMark(int levelMax, int requiredClassLevel) {
         super("huntersmark", "#ff0000", levelMax, requiredClassLevel);
@@ -31,7 +41,7 @@ public class HuntersMark extends SimpleBuffActiveSkill {
     @Override
     public void runServer(PlayerMob player, PlayerData playerData, int activeSkillLevel, int seed, boolean isInUse) {
         super.runServer(player, playerData, activeSkillLevel, seed, isInUse);
-        super.giveBuff(player, player, playerData, activeSkillLevel);
+        super.giveBuff(player, player, activeSkillLevel);
 
         List<Mob> validMobs = RPGUtils.getAllTargets(player, 400)
                 .collect(Collectors.toList());
@@ -45,7 +55,7 @@ public class HuntersMark extends SimpleBuffActiveSkill {
     }
 
     @Override
-    public String canActive(PlayerMob player, PlayerData playerData, boolean isInUSe) {
+    public String canActive(PlayerMob player, PlayerData playerData, int activeSkillLevel, boolean isInUSe) {
         return RPGUtils.anyTarget(player, 400) ? null : "notarget";
     }
 
@@ -66,7 +76,7 @@ public class HuntersMark extends SimpleBuffActiveSkill {
                 super.onHasAttacked(activeBuff, event);
                 PlayerMob player = (PlayerMob) activeBuff.owner;
                 if (!event.wasPrevented && MarkedBuff.isMarked(player, event.target) && 0 >= event.target.getHealth()) {
-                    giveBuff2(player, player, PlayerDataList.getPlayerData(player), getLevel(activeBuff));
+                    giveBuff2(player, player, getLevel(activeBuff));
                     player.buffManager.removeBuff(getBuffStringID(), activeBuff.owner.isServer());
                 }
             }
@@ -78,8 +88,9 @@ public class HuntersMark extends SimpleBuffActiveSkill {
         return new ActiveSkillBuff() {
             @Override
             public void init(ActiveBuff activeBuff, BuffEventSubscriber buffEventSubscriber) {
-                activeBuff.setModifier(BuffModifiers.RANGED_ATTACK_SPEED, 0.2F * getLevel(activeBuff));
-                activeBuff.setModifier(BuffModifiers.SPEED, 0.2F * getLevel(activeBuff));
+                float value = params[1].value(getLevel(activeBuff));
+                activeBuff.setModifier(BuffModifiers.RANGED_ATTACK_SPEED, value);
+                activeBuff.setModifier(BuffModifiers.SPEED, value);
             }
 
             @Override
@@ -94,16 +105,16 @@ public class HuntersMark extends SimpleBuffActiveSkill {
 
     @Override
     public int getDuration(int activeSkillLevel) {
-        return 10000;
+        return (int) (params[0].value() * 1000);
     }
 
     @Override
     public int getDuration2(int activeSkillLevel) {
-        return 5000;
+        return (int) (params[2].value() * 1000);
     }
 
     @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 30000;
     }
 }

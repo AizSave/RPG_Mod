@@ -2,15 +2,32 @@ package rpgclasses.content.player.PlayerClasses.Warrior.ActiveSkills;
 
 import necesse.engine.util.GameRandom;
 import necesse.entity.mobs.Mob;
+import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.particle.Particle;
 import rpgclasses.buffs.Skill.ActiveSkillBuff;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.SimpleBuffActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParamColors;
 import rpgclasses.utils.RPGColors;
 
 public class Recovery extends SimpleBuffActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(10),
+            new SkillParam("1 + 0.1 x <playerlevel> x <skilllevel>", SkillParamColors.HEALING)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
+    @Override
+    public SkillParam getManaParam() {
+        return SkillParam.manaParam(10);
+    }
 
     public Recovery(int levelMax, int requiredClassLevel) {
         super("recovery", "#00ff00", levelMax, requiredClassLevel);
@@ -22,7 +39,7 @@ public class Recovery extends SimpleBuffActiveSkill {
             @Override
             public void init(ActiveBuff activeBuff, BuffEventSubscriber buffEventSubscriber) {
                 int level = getLevel(activeBuff);
-                float healthRegen = (20F + level * getEndurance(activeBuff)) / 10F;
+                float healthRegen = params[1].value(level);
                 activeBuff.setModifier(BuffModifiers.COMBAT_HEALTH_REGEN_FLAT, healthRegen);
             }
 
@@ -38,11 +55,11 @@ public class Recovery extends SimpleBuffActiveSkill {
 
     @Override
     public int getDuration(int activeSkillLevel) {
-        return 10000;
+        return (int) (params[0].value() * 1000);
     }
 
     @Override
-    public int getBaseCooldown() {
-        return 20000;
+    public int getBaseCooldown(PlayerMob player) {
+        return 24000;
     }
 }

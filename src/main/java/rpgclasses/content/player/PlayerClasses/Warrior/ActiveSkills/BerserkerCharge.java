@@ -17,31 +17,41 @@ import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.particle.Particle;
 import necesse.gfx.GameResources;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.SimpleLevelEventActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.PlayerData;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
 
 public class BerserkerCharge extends SimpleLevelEventActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.damageParam(10),
+            SkillParam.staticParam(50).setDecimals(2, 0),
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
 
     public BerserkerCharge(int levelMax, int requiredClassLevel) {
         super("berserkercharge", "#ff6600", levelMax, requiredClassLevel);
     }
 
     @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 14000;
     }
 
     @Override
     public float consumedStaminaBase() {
-        return 0.5F;
+        return params[1].value();
     }
 
     @Override
     public LevelEvent getLevelEvent(PlayerMob player, PlayerData playerData, int activeSkillLevel, int seed, boolean isInUse) {
         Point2D.Float dir = getDir(player);
-        return new BerserkerChargeLevelEvent(player, seed, dir.x, dir.y, 200, 200, new GameDamage(DamageTypeRegistry.MELEE, 10 * playerData.getLevel() + 2 * playerData.getStrength(player) * activeSkillLevel + 2 * playerData.getSpeed(player) * activeSkillLevel));
+        return new BerserkerChargeLevelEvent(player, seed, dir.x, dir.y, 200, 200, new GameDamage(DamageTypeRegistry.MELEE, params[0].value(playerData.getLevel(), activeSkillLevel)));
     }
 
     @Override

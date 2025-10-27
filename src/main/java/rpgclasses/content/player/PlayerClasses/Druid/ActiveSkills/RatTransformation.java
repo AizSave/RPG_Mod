@@ -34,6 +34,7 @@ import necesse.level.maps.light.GameLight;
 import rpgclasses.RPGResources;
 import rpgclasses.buffs.MagicPoisonBuff;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.SimpleTranformationActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.PlayerData;
 import rpgclasses.data.PlayerDataList;
 import rpgclasses.mobs.mount.SkillTransformationMountMob;
@@ -44,6 +45,21 @@ import java.awt.geom.Point2D;
 import java.util.List;
 
 public class RatTransformation extends SimpleTranformationActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(2),
+            SkillParam.staticParam(25),
+            SkillParam.staticParam(50).setDecimals(2, 0),
+            SkillParam.staticParam(1000).setDecimals(2, 0),
+            SkillParam.damageParam(0.3F),
+            SkillParam.staticParam(100).setDecimals(2, 0),
+            SkillParam.staticParam(10)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
     public RatTransformation(int levelMax, int requiredClassLevel) {
         super("rattransformation", "#6c6e6b", levelMax, requiredClassLevel);
     }
@@ -54,13 +70,13 @@ public class RatTransformation extends SimpleTranformationActiveSkill {
     }
 
     @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 2000;
     }
 
     @Override
     public int castingDuration() {
-        return 2000;
+        return (int) (params[0].value() * 1000);
     }
 
     @Override
@@ -72,7 +88,7 @@ public class RatTransformation extends SimpleTranformationActiveSkill {
         public RatMob() {
             super();
 
-            this.setSpeed(25.0F);
+            this.setSpeed(params[1].value());
             this.setFriction(3.0F);
             this.collision = new Rectangle(-10, -7, 20, 14);
             this.hitBox = new Rectangle(-12, -14, 24, 24);
@@ -85,9 +101,10 @@ public class RatTransformation extends SimpleTranformationActiveSkill {
         @Override
         public List<ModifierValue<?>> getRiderModifiers() {
             List<ModifierValue<?>> modifiers = super.getRiderModifiers();
-            modifiers.add(new ModifierValue<>(BuffModifiers.INCOMING_DAMAGE_MOD, 10F).min(10F));
+            float incomingDamage = params[3].value();
+            modifiers.add(new ModifierValue<>(BuffModifiers.INCOMING_DAMAGE_MOD, incomingDamage).min(incomingDamage));
+            modifiers.add(new ModifierValue<>(BuffModifiers.TARGET_RANGE, -params[2].value()));
             modifiers.add(new ModifierValue<>(RPGModifiers.DODGE_CHANCE, 0.8F).min(0.8F));
-            modifiers.add(new ModifierValue<>(BuffModifiers.TARGET_RANGE, -0.5F));
             return modifiers;
         }
 
@@ -148,7 +165,7 @@ public class RatTransformation extends SimpleTranformationActiveSkill {
             float dirY = dy / length;
 
             int skillLevel = getActualSkillLevel();
-            LevelEvent event = new RatChargeLevelEvent(this, Item.getRandomAttackSeed(GameRandom.globalRandom), dirX, dirY, 20, 100, new GameDamage(DamageTypeRegistry.MELEE, playerData.getLevel() + 0.5F * playerData.getStrength(player) * skillLevel + 0.5F * playerData.getIntelligence(player) * skillLevel));
+            LevelEvent event = new RatChargeLevelEvent(this, Item.getRandomAttackSeed(GameRandom.globalRandom), dirX, dirY, 20, 100, new GameDamage(DamageTypeRegistry.MELEE, params[4].value(playerData.getLevel(), skillLevel)));
             player.getLevel().entityManager.events.add(event);
             player.getServer().network.sendToClientsWithEntity(new PacketLevelEvent(event), event);
         }
@@ -262,7 +279,7 @@ public class RatTransformation extends SimpleTranformationActiveSkill {
                     PlayerMob player = getPlayer();
                     if (player != null) {
                         target.isServerHit(this.damage, this.dirX, this.dirY, 10.0F, player);
-                        MagicPoisonBuff.apply(player, target, this.damage.damage, 10F);
+                        MagicPoisonBuff.apply(player, target, params[5].value() * this.damage.damage, params[6].value());
                     }
                 }
 

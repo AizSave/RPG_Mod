@@ -24,6 +24,7 @@ import necesse.gfx.drawables.OrderableDrawables;
 import necesse.inventory.item.armorItem.ArmorItem;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
+import rpgclasses.content.player.SkillsLogic.ComplexExtraToolTip;
 import rpgclasses.data.PlayerData;
 
 import java.awt.*;
@@ -111,12 +112,12 @@ public class NecromancerSkeletonMob extends NecroticFollowingMob {
 
     @Override
     public int getHealthStat(PlayerMob player, PlayerData playerData) {
-        return (int) (5 * (playerData.getLevel() + playerData.getIntelligence(player)));
+        return ComplexExtraToolTip.get("necromancerskeleton")[0].valuePlayerInt(playerData.getLevel());
     }
 
     @Override
     public float getDamageStat(PlayerMob player, PlayerData playerData) {
-        return playerData.getLevel() + playerData.getIntelligence(player);
+        return ComplexExtraToolTip.get("necromancerskeleton")[1].valuePlayerInt(playerData.getLevel());
     }
 
 }

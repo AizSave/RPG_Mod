@@ -15,11 +15,25 @@ import necesse.entity.particle.Particle;
 import necesse.gfx.GameResources;
 import rpgclasses.buffs.Skill.ActiveSkillBuff;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.SimpleBuffActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.PlayerData;
 import rpgclasses.utils.RPGArea;
 import rpgclasses.utils.RPGUtils;
 
 public class DivineIntervention extends SimpleBuffActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            new SkillParam("2 x <skilllevel>")
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
+    @Override
+    public SkillParam getManaParam() {
+        return SkillParam.manaParam(60, false);
+    }
 
     public DivineIntervention(int levelMax, int requiredClassLevel) {
         super("divineintervention", "#ffff00", levelMax, requiredClassLevel);
@@ -69,7 +83,7 @@ public class DivineIntervention extends SimpleBuffActiveSkill {
         if (healing > 0) {
             target.getLevel().entityManager.events.add(new MobHealthChangeEvent(target, healing));
         }
-        giveBuff(player, target, playerData, activeSkillLevel);
+        giveBuff(player, target, activeSkillLevel);
     }
 
     @Override
@@ -83,23 +97,8 @@ public class DivineIntervention extends SimpleBuffActiveSkill {
     }
 
     @Override
-    public float manaUsage(PlayerMob player, int activeSkillLevel) {
-        return 60 + activeSkillLevel * 12;
-    }
-
-    @Override
-    public int getBaseCooldown() {
-        return 40000;
-    }
-
-    @Override
-    public int getCooldownModPerLevel() {
-        return -4000;
-    }
-
-    @Override
-    public String[] getExtraTooltips() {
-        return new String[]{"manausage"};
+    public int getBaseCooldown(PlayerMob player) {
+        return 30000;
     }
 
     @Override
@@ -130,6 +129,6 @@ public class DivineIntervention extends SimpleBuffActiveSkill {
 
     @Override
     public int getDuration(int activeSkillLevel) {
-        return activeSkillLevel * 1000;
+        return (int) (params[0].value(activeSkillLevel) * 1000);
     }
 }

@@ -3,17 +3,30 @@ package rpgclasses.content.player.PlayerClasses.Warrior.Passives;
 import necesse.engine.network.packet.PacketLifelineEvent;
 import necesse.engine.registries.BuffRegistry;
 import necesse.engine.util.GameRandom;
-import necesse.entity.mobs.*;
+import necesse.entity.mobs.Mob;
+import necesse.entity.mobs.MobBeforeDamageOverTimeTakenEvent;
+import necesse.entity.mobs.MobBeforeHitCalculatedEvent;
+import necesse.entity.mobs.MobBeforeHitEvent;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.particle.Particle;
 import necesse.level.maps.Level;
 import rpgclasses.buffs.Skill.PrincipalPassiveBuff;
 import rpgclasses.buffs.Skill.SecondaryPassiveBuff;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.content.player.SkillsLogic.Passives.SimpleBuffPassive;
 import rpgclasses.utils.RPGColors;
 
 public class LastBreath extends SimpleBuffPassive {
+    public static SkillParam[] params = new SkillParam[]{
+            new SkillParam("3 x <skilllevel>")
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
     public LastBreath(int levelMax, int requiredClassLevel) {
         super("lastbreath", "#ff0000", levelMax, requiredClassLevel);
     }
@@ -45,7 +58,7 @@ public class LastBreath extends SimpleBuffPassive {
                 Level level = activeBuff.owner.getLevel();
                 if (!activeBuff.owner.buffManager.hasBuff(getSecondaryBuffStringID()) && level.isServer() && expectedHealth <= 0) {
                     activeBuff.owner.setHealth(1);
-                    giveDatalessSecondaryPassiveBuff((PlayerMob) activeBuff.owner, getLevel(activeBuff) * 3000);
+                    giveDatalessSecondaryPassiveBuff(activeBuff.owner, params[0].value(getLevel(activeBuff)));
                     level.getServer().network.sendToClientsWithEntity(new PacketLifelineEvent(activeBuff.owner.getUniqueID()), activeBuff.owner);
                     activeBuff.owner.buffManager.addBuff(new ActiveBuff(BuffRegistry.Debuffs.LIFELINE_COOLDOWN, activeBuff.owner, 300.0F, null), activeBuff.owner.isServer());
                     return true;

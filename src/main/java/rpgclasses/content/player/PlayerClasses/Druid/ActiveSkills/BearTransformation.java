@@ -31,6 +31,7 @@ import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.SimpleTranformationActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.PlayerData;
 import rpgclasses.data.PlayerDataList;
 import rpgclasses.mobs.mount.SkillTransformationMountMob;
@@ -41,18 +42,33 @@ import java.awt.*;
 import java.util.List;
 
 public class BearTransformation extends SimpleTranformationActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(4),
+            SkillParam.staticParam(25),
+            SkillParam.staticParam(50).setDecimals(2, 0),
+            SkillParam.damageParam(4),
+            new SkillParam("0.5 x <skilllevel>"),
+            SkillParam.staticParam(4),
+            SkillParam.staticParam(2)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
     public BearTransformation(int levelMax, int requiredClassLevel) {
         super("beartransformation", "#6c3b2a", levelMax, requiredClassLevel);
     }
 
     @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 8000;
     }
 
     @Override
     public int castingDuration() {
-        return 4000;
+        return (int) (params[0].value() * 1000);
     }
 
     @Override
@@ -64,7 +80,7 @@ public class BearTransformation extends SimpleTranformationActiveSkill {
         public WolfMob() {
             super();
 
-            this.setSpeed(20.0F);
+            this.setSpeed(params[1].value());
             this.setKnockbackModifier(0.2F);
             this.moveAccuracy = 8;
             this.collision = new Rectangle(-10, -7, 20, 14);
@@ -80,7 +96,7 @@ public class BearTransformation extends SimpleTranformationActiveSkill {
         @Override
         public List<ModifierValue<?>> getRiderModifiers() {
             List<ModifierValue<?>> modifiers = super.getRiderModifiers();
-            modifiers.add(new ModifierValue<>(BuffModifiers.INCOMING_DAMAGE_MOD, 0.5F));
+            modifiers.add(new ModifierValue<>(BuffModifiers.INCOMING_DAMAGE_MOD, 1F - params[2].value()));
             return modifiers;
         }
 
@@ -152,10 +168,10 @@ public class BearTransformation extends SimpleTranformationActiveSkill {
             AphAreaList areaList = new AphAreaList(
                     new RPGArea(120, colorArea)
                             .addOnTargetDamaged(
-                                    target -> doResilienceGain(target, 4)
+                                    target -> doResilienceGain(target, params[5].value())
                             )
-                            .setDebuffArea(500 * skillLevel, AphBuffs.STUN.getStringID())
-                            .setDamageArea(new GameDamage(DamageTypeRegistry.MELEE, 4 * playerData.getLevel() + 4 * playerData.getStrength(player) * skillLevel))
+                            .setDebuffArea((int) (params[4].value(skillLevel) * 1000), AphBuffs.STUN.getStringID())
+                            .setDamageArea(new GameDamage(DamageTypeRegistry.MELEE, params[3].value(playerData.getLevel(), skillLevel)))
             );
             areaList.execute(player, false);
         }
@@ -182,7 +198,7 @@ public class BearTransformation extends SimpleTranformationActiveSkill {
             super.secondaryClickRun(level, x, y, player);
             AphAreaList areaList = new AphAreaList(
                     new AphArea(100, new Color(51, 0, 255, 51))
-                            .setDebuffArea(1000, "intimidationactiveskillbuff")
+                            .setDebuffArea((int) (params[6].value() * 1000), "intimidationactiveskillbuff")
             ).setOnlyVision(false);
             areaList.execute(player, false);
         }

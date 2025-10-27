@@ -16,6 +16,7 @@ import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
+import rpgclasses.content.player.SkillsLogic.ComplexExtraToolTip;
 import rpgclasses.data.PlayerData;
 
 import java.awt.*;
@@ -84,11 +85,11 @@ public class DryadSaplingDamageableSummonMob extends DamageableFollowingMob {
 
     @Override
     public int getHealthStat(PlayerMob player, PlayerData playerData) {
-        return (int) (2 * playerData.getLevel() + 2 * playerData.getIntelligence(player));
+        return ComplexExtraToolTip.get("dryadsapling")[0].valuePlayerInt(playerData.getLevel());
     }
 
     @Override
     public float getDamageStat(PlayerMob player, PlayerData playerData) {
-        return 3 * playerData.getLevel() + 3 * playerData.getIntelligence(player);
+        return ComplexExtraToolTip.get("dryadsapling")[1].valuePlayerInt(playerData.getLevel());
     }
 }

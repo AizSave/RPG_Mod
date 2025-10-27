@@ -1,10 +1,10 @@
 package rpgclasses.mobs.summons.damageable.necrotic;
 
 import necesse.entity.mobs.Attacker;
-import necesse.entity.mobs.GameDamage;
 import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.buffs.ActiveBuff;
+import rpgclasses.content.player.PlayerClasses.Necromancer.Passives.NecroticRemains;
 import rpgclasses.data.PlayerData;
 import rpgclasses.data.PlayerDataList;
 import rpgclasses.levelevents.NecroticExplosionLevelEvent;
@@ -26,7 +26,7 @@ abstract public class NecroticFollowingMob extends DamageableFollowingMob {
                     int necroticRemainsLevel = ab.getGndData().getInt("skillLevel");
                     if (necroticRemainsLevel > 0) {
                         PlayerData playerData = PlayerDataList.getPlayerData(player);
-                        getLevel().entityManager.events.add(new NecroticExplosionLevelEvent(x, y, 150, new GameDamage(0), player, 0.1F * necroticRemainsLevel * playerData.getIntelligence(player)));
+                        getLevel().entityManager.events.add(new NecroticExplosionLevelEvent(x, y, 100, player, NecroticRemains.params[0].value(playerData.getLevel(), necroticRemainsLevel), NecroticRemains.params[1].value()));
                     }
                 }
             }

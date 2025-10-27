@@ -20,7 +20,7 @@ abstract public class Passive extends Skill {
     }
 
     @Override
-    public List<String> getToolTipsText() {
+    public List<String> getToolTipsText(PlayerMob player) {
         List<String> tooltips = new ArrayList<>();
         tooltips.add("§" + color + Localization.translate("passives", stringID));
         tooltips.add(" ");

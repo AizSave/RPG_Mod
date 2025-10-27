@@ -9,9 +9,24 @@ import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.gfx.GameResources;
 import rpgclasses.buffs.Skill.ActiveSkillBuff;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.SimpleBuffActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.PlayerData;
 
 public class SiegeCry extends SimpleBuffActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            new SkillParam("50 x <skilllevel>").setDecimals(2, 0),
+            SkillParam.staticParam(6)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
+    @Override
+    public SkillParam getManaParam() {
+        return SkillParam.manaParam(5);
+    }
 
     public SiegeCry(int levelMax, int requiredClassLevel) {
         super("siegecry", "#ff6600", levelMax, requiredClassLevel);
@@ -28,19 +43,18 @@ public class SiegeCry extends SimpleBuffActiveSkill {
         return new ActiveSkillBuff() {
             @Override
             public void init(ActiveBuff activeBuff, BuffEventSubscriber buffEventSubscriber) {
-                int level = getLevel(activeBuff);
-                activeBuff.setModifier(BuffModifiers.SUMMONS_SPEED, level * 0.5F);
+                activeBuff.setModifier(BuffModifiers.SUMMONS_SPEED, params[0].value(getLevel(activeBuff)));
             }
         };
     }
 
     @Override
     public int getDuration(int activeSkillLevel) {
-        return 6000;
+        return (int) (params[1].value() * 1000);
     }
 
     @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 20000;
     }
 }

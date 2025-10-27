@@ -12,7 +12,6 @@ import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.objectEntity.interfaces.OEInventory;
 import necesse.inventory.item.toolItem.ToolType;
 import necesse.level.gameObject.*;
-import necesse.level.gameObject.container.CraftingStationObject;
 import necesse.level.gameObject.furniture.RoomFurniture;
 import necesse.level.maps.Level;
 import org.jetbrains.annotations.NotNull;
@@ -171,6 +170,7 @@ public class PlayerData {
         }
 
         for (int i = 0; i < EQUIPPED_SKILLS_MAX; i++) {
+            if (equippedActiveSkills[i] == null) equippedActiveSkills[i] = new EquippedActiveSkill();
             equippedActiveSkills[i].saveData(saveData, i);
         }
 
@@ -238,13 +238,12 @@ public class PlayerData {
     }
 
     public static float pointsConversion(int amount) {
-        int level = amount + 5;
-        if (level <= 10) return level;
+        if (amount <= 10) return amount;
 
         float total = 0;
         float valor = 1;
 
-        for (int i = 1; i <= level; i++) {
+        for (int i = 1; i <= amount; i++) {
             if (i > 10) {
                 valor *= 0.99f;
             }
@@ -365,7 +364,7 @@ public class PlayerData {
             }
         }
 
-        if(isServer) {
+        if (isServer) {
             boolean hasOverlevelBuff = player.buffManager.hasBuff(RPGBuffs.PASSIVES.OVER_LEVEL);
             if (someOverlevel && !hasOverlevelBuff) {
                 player.buffManager.addBuff(new ActiveBuff(RPGBuffs.PASSIVES.OVER_LEVEL, player, 1000, null), true);
@@ -457,6 +456,7 @@ public class PlayerData {
 
         // Equipped Active Skills
         for (EquippedActiveSkill equippedActiveSkill : equippedActiveSkills) {
+            if (equippedActiveSkill == null) equippedActiveSkill = new EquippedActiveSkill();
             equippedActiveSkill.setupPacket(writer);
         }
 

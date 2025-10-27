@@ -12,12 +12,12 @@ import necesse.gfx.gameFont.FontOptions;
 import necesse.gfx.gameTexture.GameTexture;
 import necesse.gfx.ui.ButtonColor;
 import necesse.gfx.ui.GameInterfaceStyle;
+import rpgclasses.content.player.Mastery.Mastery;
+import rpgclasses.data.PlayerDataList;
 import rpgclasses.forms.rpgmenu.MenuContainer;
 import rpgclasses.forms.rpgmenu.MenuContainerForm;
 import rpgclasses.forms.rpgmenu.components.ClassComponent;
 import rpgclasses.forms.rpgmenu.components.MasteryComponent;
-import rpgclasses.content.player.Mastery.Mastery;
-import rpgclasses.data.PlayerDataList;
 
 import java.awt.*;
 import java.util.ArrayList;

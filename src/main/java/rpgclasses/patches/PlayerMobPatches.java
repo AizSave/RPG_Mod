@@ -7,8 +7,6 @@ import necesse.engine.modLoader.annotations.ModMethodPatch;
 import necesse.engine.network.PacketReader;
 import necesse.engine.network.PacketWriter;
 import necesse.engine.network.client.Client;
-import necesse.engine.network.packet.PacketPlayerBuffs;
-import necesse.engine.network.packet.PacketRequestPlayerData;
 import necesse.engine.save.LoadData;
 import necesse.engine.save.SaveData;
 import necesse.engine.state.MainGame;
@@ -28,7 +26,6 @@ import rpgclasses.data.PlayerDataList;
 import rpgclasses.mobs.mount.TransformationMountMob;
 import rpgclasses.packets.TransformationAbility1Packet;
 import rpgclasses.packets.TransformationAbility2Packet;
-import rpgclasses.registry.RPGBuffs;
 import rpgclasses.registry.RPGControls;
 
 import java.util.HashSet;

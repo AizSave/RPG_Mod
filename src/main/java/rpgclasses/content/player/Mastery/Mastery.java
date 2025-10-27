@@ -4,6 +4,7 @@ import necesse.engine.localization.Localization;
 import necesse.engine.modLoader.LoadedMod;
 import necesse.engine.registries.BuffRegistry;
 import necesse.entity.mobs.Mob;
+import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.gfx.gameTexture.GameTexture;
 import rpgclasses.buffs.Skill.MasteryBuff;
@@ -39,7 +40,7 @@ abstract public class Mastery extends SimpleBuffPassive {
         registerMastery(new Berserker("berserker", "#ff0000"));
         registerMastery(new Sniper("sniper", "#ff0000"));
         MARKSMAN = registerMastery(new FlatMastery("marksman", "#00ff00"));
-        HUNTER = registerMastery(new FlatMastery("hunter", "#00cc00", "constrained"));
+        HUNTER = registerMastery(new Hunter("hunter", "#00cc00", "constrained"));
         registerMastery(new Trapper("trapper", "#009900"));
         PYROMANCER = registerMastery(new FlatMastery("pyromancer", "#ff3300"));
         registerMastery(new FrostWeaver("frostweaver", "#00ffff"));
@@ -73,7 +74,7 @@ abstract public class Mastery extends SimpleBuffPassive {
     }
 
     @Override
-    public List<String> getToolTipsText() {
+    public List<String> getToolTipsText(PlayerMob player) {
         List<String> tooltips = new ArrayList<>();
         tooltips.add("§" + color + Localization.translate("mastery", stringID) + " §0- " + mod.name);
         tooltips.add(" ");

@@ -1,7 +1,6 @@
 package rpgclasses.registry;
 
 import aphorea.registry.AphRecipes;
-import necesse.engine.registries.ItemRegistry;
 import necesse.engine.registries.RecipeTechRegistry;
 import necesse.inventory.recipe.Ingredient;
 

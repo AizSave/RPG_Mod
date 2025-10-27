@@ -16,12 +16,23 @@ import necesse.inventory.item.toolItem.ToolItem;
 import necesse.inventory.item.toolItem.projectileToolItem.gunProjectileToolItem.DeathRipperProjectileToolItem;
 import necesse.inventory.item.toolItem.projectileToolItem.gunProjectileToolItem.ShardCannonProjectileToolItem;
 import rpgclasses.buffs.Skill.PrincipalPassiveBuff;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.content.player.SkillsLogic.Passives.SimpleBuffPassive;
 import rpgclasses.projectiles.PlasmaGrenadeProjectile;
 
 import java.util.Objects;
 
 public class PlasmaGrenade extends SimpleBuffPassive {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(8),
+            new SkillParam("30 x <skilllevel>").setDecimals(2, 0)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
     public PlasmaGrenade(int levelMax, int requiredClassLevel) {
         super("plasmagrenade", "#00ffff", levelMax, requiredClassLevel);
     }
@@ -71,7 +82,8 @@ public class PlasmaGrenade extends SimpleBuffPassive {
                     activeBuff.getGndData().setInt("attacks", 1);
                 } else {
                     int attacks = activeBuff.getGndData().getInt("attacks");
-                    if (attacks < 7) {
+                    int skillLevel = getLevel(activeBuff);
+                    if (attacks < (params[0].valueInt(skillLevel) - 1)) {
                         this.isVisible = true;
                         activeBuff.getGndData().setInt("attacks", attacks + 1);
                     } else {
@@ -79,9 +91,12 @@ public class PlasmaGrenade extends SimpleBuffPassive {
                         activeBuff.getGndData().setInt("attacks", 0);
 
                         if (activeBuff.owner.isServer()) {
-                            GameDamage damage = toolItem.getAttackDamage(item)
-                                    .modDamage(getLevel(activeBuff) * 0.3F);
-                            attacker.getLevel().entityManager.projectiles.add(new PlasmaGrenadeProjectile(attacker.getLevel(), attacker, attacker.x, attacker.y, targetX, targetY, 200, 2000, damage, 0));
+                            if (attacker.isPlayer) {
+                                PlayerMob player = (PlayerMob) attacker;
+                                GameDamage damage = toolItem.getAttackDamage(item)
+                                        .modDamage(getLevel(activeBuff) * params[1].value(getPlayerLevel(player), skillLevel));
+                                player.getLevel().entityManager.projectiles.add(new PlasmaGrenadeProjectile(player.getLevel(), player, player.x, player.y, targetX, targetY, 200, 2000, damage, 0));
+                            }
                         }
                     }
                 }

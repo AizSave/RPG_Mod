@@ -10,8 +10,18 @@ import rpgclasses.buffs.Interfaces.TransformationClassBuff;
 import rpgclasses.buffs.Skill.MasteryBuff;
 import rpgclasses.buffs.Skill.SecondaryMasteryBuff;
 import rpgclasses.content.player.Mastery.Mastery;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 
 public class Shapeshifter extends Mastery {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(3),
+            SkillParam.staticParam(5)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
 
     public Shapeshifter(String stringID, String color) {
         super(stringID, color);
@@ -34,8 +44,8 @@ public class Shapeshifter extends Mastery {
         public void onTransform(ActiveBuff activeBuff, PlayerMob player, Mob target) {
             long lastUse = activeBuff.getGndData().getLong("lastUse");
             long now = player.getTime();
-            if (lastUse + 5000 <= now) {
-                giveDatalessSecondaryPassiveBuff(player, 3000);
+            if (lastUse + (int) (params[1].value() * 1000) <= now) {
+                giveDatalessSecondaryPassiveBuff(player, (int) (params[0].value() * 1000));
                 activeBuff.getGndData().setLong("lastUse", now);
             }
         }

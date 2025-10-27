@@ -3,6 +3,7 @@ package rpgclasses.content.player.PlayerClasses.Wizard.ActiveSkills;
 import necesse.engine.modifiers.ModifierValue;
 import necesse.engine.util.GameRandom;
 import necesse.entity.ParticleTypeSwitcher;
+import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.mobs.buffs.BuffModifiers;
@@ -10,17 +11,26 @@ import necesse.entity.particle.Particle;
 import rpgclasses.buffs.Skill.PassiveActiveSkillBuff;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.ActiveSkill;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.SimplePassiveBuffActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 
 import java.awt.*;
 
 public class ManaRecharge extends SimplePassiveBuffActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            new SkillParam("<skilllevel>")
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
 
     public ManaRecharge(int levelMax, int requiredClassLevel) {
         super("manarecharge", "#0099ff", levelMax, requiredClassLevel);
     }
 
     @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 2000;
     }
 
@@ -44,7 +54,7 @@ public class ManaRecharge extends SimplePassiveBuffActiveSkill {
         public void init(ActiveBuff activeBuff, BuffEventSubscriber buffEventSubscriber) {
             super.init(activeBuff, buffEventSubscriber);
             int level = getLevel(activeBuff);
-            activeBuff.setModifier(BuffModifiers.COMBAT_MANA_REGEN_FLAT, 1F * level);
+            activeBuff.setModifier(BuffModifiers.COMBAT_MANA_REGEN_FLAT, params[0].value(level));
             new ModifierValue<>(BuffModifiers.SLOW, 1.0F).min(1F).apply(activeBuff);
             new ModifierValue<>(BuffModifiers.SPEED, -1.0F).max(-1F).apply(activeBuff);
             activeBuff.addModifier(BuffModifiers.INCOMING_DAMAGE_MOD, 2F);

@@ -25,11 +25,11 @@ import necesse.gfx.ui.ButtonState;
 import necesse.gfx.ui.GameInterfaceStyle;
 import rpgclasses.RPGMod;
 import rpgclasses.RPGResources;
-import rpgclasses.forms.rpgmenu.components.PlayerDataComponent;
-import rpgclasses.forms.rpgmenu.entries.*;
 import rpgclasses.content.player.PlayerClass;
 import rpgclasses.data.PlayerData;
 import rpgclasses.data.PlayerDataList;
+import rpgclasses.forms.rpgmenu.components.PlayerDataComponent;
+import rpgclasses.forms.rpgmenu.entries.*;
 import rpgclasses.settings.RPGSettings;
 
 import java.awt.*;

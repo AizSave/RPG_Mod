@@ -4,6 +4,7 @@ import necesse.engine.localization.Localization;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import rpgclasses.content.player.SkillsLogic.ModifierBuffs.ModifierBuff;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.PlayerData;
 
 import java.util.ArrayList;
@@ -31,7 +32,7 @@ public class BasicPassive extends Passive {
         return this;
     }
 
-    public List<String> getToolTipsText() {
+    public List<String> getToolTipsText(PlayerMob player) {
         List<String> tooltips = new ArrayList<>();
         tooltips.add("§" + color + Localization.translate("passives", stringID));
         tooltips.add(" ");
@@ -76,5 +77,10 @@ public class BasicPassive extends Passive {
     @Override
     public String[] getExtraTooltips() {
         return extraTooltips;
+    }
+
+    @Override
+    public SkillParam[] getParams() {
+        return new SkillParam[0];
     }
 }

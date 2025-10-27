@@ -15,10 +15,19 @@ import necesse.entity.projectile.Projectile;
 import necesse.gfx.GameResources;
 import org.jetbrains.annotations.NotNull;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.ActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.PlayerData;
 import rpgclasses.utils.RPGUtils;
 
 public class ArrowStorm extends ActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.damageParam(3)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
 
     public ArrowStorm(int levelMax, int requiredClassLevel) {
         super("arrowstorm", "#009900", levelMax, requiredClassLevel);
@@ -42,7 +51,7 @@ public class ArrowStorm extends ActiveSkill {
     }
 
     @Override
-    public String canActive(PlayerMob player, PlayerData playerData, boolean isInUSe) {
+    public String canActive(PlayerMob player, PlayerData playerData, int activeSkillLevel, boolean isInUSe) {
         return RPGUtils.anyTarget(player, 400) ? null : "notarget";
     }
 
@@ -57,11 +66,11 @@ public class ArrowStorm extends ActiveSkill {
     }
 
     private static @NotNull Projectile getProjectile(PlayerMob player, Mob target, PlayerData playerData, int activeSkillLevel) {
-        return ProjectileRegistry.getProjectile("stonearrow", player.getLevel(), player.x, player.y, target.x, target.y, 200, 1000, new GameDamage(DamageTypeRegistry.RANGED, 4 * playerData.getLevel() + playerData.getStrength(player) * activeSkillLevel + playerData.getSpeed(player) * activeSkillLevel), 100, player);
+        return ProjectileRegistry.getProjectile("stonearrow", player.getLevel(), player.x, player.y, target.x, target.y, 200, 1000, new GameDamage(DamageTypeRegistry.RANGED, params[0].value(playerData.getLevel(), activeSkillLevel)), 100, player);
     }
 
     @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 15000;
     }
 }

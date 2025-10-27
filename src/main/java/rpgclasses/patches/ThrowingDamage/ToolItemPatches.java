@@ -39,7 +39,7 @@ public class ToolItemPatches {
     public static class getTooltips {
 
         @Advice.OnMethodEnter
-        static boolean onEnter(@Advice.This ToolItem This) {
+        public static boolean onEnter(@Advice.This ToolItem This) {
             if (changeToThrowingDamage(This)) {
                 try {
                     Field damageTypeField = ToolItem.class.getDeclaredField("damageType");

@@ -5,14 +5,26 @@ import necesse.engine.registries.DamageTypeRegistry;
 import necesse.engine.util.GameRandom;
 import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.MobWasHitEvent;
+import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.particle.Particle;
 import rpgclasses.buffs.Skill.ActiveSkillBuff;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.SimpleBuffActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 
 public class ShotsRampage extends SimpleBuffActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(5),
+            SkillParam.staticParam(5).setDecimals(2, 0),
+            new SkillParam("15 + 5 x <skilllevel>").setDecimals(0)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
 
     public ShotsRampage(int levelMax, int requiredClassLevel) {
         super("shotsrampage", "#00ffff", levelMax, requiredClassLevel);
@@ -23,12 +35,12 @@ public class ShotsRampage extends SimpleBuffActiveSkill {
         return new ActiveSkillBuff() {
             @Override
             public void init(ActiveBuff activeBuff, BuffEventSubscriber buffEventSubscriber) {
-                new ModifierValue<>(BuffModifiers.ATTACK_SPEED, 0.05F).apply(activeBuff);
+                new ModifierValue<>(BuffModifiers.ATTACK_SPEED, params[1].value()).apply(activeBuff);
             }
 
             @Override
             public int getStackSize(ActiveBuff activeBuff) {
-                return 30;
+                return params[2].valueInt(getLevel(activeBuff));
             }
 
             @Override
@@ -56,16 +68,11 @@ public class ShotsRampage extends SimpleBuffActiveSkill {
 
     @Override
     public int getDuration(int activeSkillLevel) {
-        return 5000;
+        return (int) (params[0].value(activeSkillLevel) * 1000);
     }
 
     @Override
-    public int getBaseCooldown() {
-        return 60000;
-    }
-
-    @Override
-    public int getCooldownModPerLevel() {
-        return -6000;
+    public int getBaseCooldown(PlayerMob player) {
+        return 30000;
     }
 }

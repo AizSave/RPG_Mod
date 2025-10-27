@@ -15,19 +15,31 @@ import necesse.entity.mobs.PlayerMob;
 import necesse.entity.particle.Particle;
 import necesse.entity.trails.LightningTrail;
 import necesse.entity.trails.TrailVector;
-import necesse.level.maps.regionSystem.RegionPosition;
 import rpgclasses.RPGResources;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.CastLevelEventActiveSkill;
-import rpgclasses.content.player.SkillsLogic.ActiveSkills.SimpleLevelEventActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.PlayerData;
 import rpgclasses.registry.RPGBuffs;
 import rpgclasses.utils.RPGColors;
 import rpgclasses.utils.RPGUtils;
 
-import java.util.Collections;
-import java.util.Set;
-
 public class Zap extends CastLevelEventActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(2),
+            SkillParam.damageParam(1),
+            SkillParam.staticParam(1)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
+    @Override
+    public SkillParam getManaParam() {
+        return SkillParam.manaParam(10);
+    }
+
     public Zap(int levelMax, int requiredClassLevel) {
         super("zap", RPGColors.HEX.lighting, levelMax, requiredClassLevel);
     }
@@ -39,7 +51,7 @@ public class Zap extends CastLevelEventActiveSkill {
 
     @Override
     public LevelEvent getLevelEvent(PlayerMob player, PlayerData playerData, int activeSkillLevel, int seed, boolean isInUse) {
-        return new ZapLevelEvent(player, player.x, player.y, playerData.getLevel() + playerData.getIntelligence(player) * activeSkillLevel);
+        return new ZapLevelEvent(player, player.x, player.y, params[1].value(playerData.getLevel(), activeSkillLevel));
     }
 
     @Override
@@ -47,20 +59,9 @@ public class Zap extends CastLevelEventActiveSkill {
         return ZapLevelEvent.class;
     }
 
-
     @Override
-    public float manaUsage(PlayerMob player, int activeSkillLevel) {
-        return 10 + activeSkillLevel * 2;
-    }
-
-    @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 8000;
-    }
-
-    @Override
-    public String[] getExtraTooltips() {
-        return new String[]{"manausage"};
     }
 
     public static class ZapLevelEvent extends MobAbilityLevelEvent implements Attacker {
@@ -130,7 +131,7 @@ public class Zap extends CastLevelEventActiveSkill {
 
         public void tick() {
             lifeTime += 50;
-            if (lifeTime > 2000) {
+            if (lifeTime > params[0].value() * 1000) {
                 this.over();
             } else if (lifeTime >= nextHit) {
                 Mob target = RPGUtils.findBestTarget(getAttackOwner(), currentX, currentY, lastHit == -1 ? 500 : 150, m -> lastHit != m.getUniqueID());
@@ -140,7 +141,7 @@ public class Zap extends CastLevelEventActiveSkill {
                     if (this.isServer()) {
                         target.isServerHit(damage, currentX, currentY, 10, owner);
 
-                        RPGBuffs.applyStun(target, 1F);
+                        RPGBuffs.applyStun(target, params[2].value());
 
                         SoundManager.playSound(RPGResources.SOUNDS.Zap, SoundEffect.effect(target).volume(1F));
                     }

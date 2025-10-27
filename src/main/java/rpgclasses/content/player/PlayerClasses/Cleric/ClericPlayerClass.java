@@ -6,7 +6,7 @@ import rpgclasses.content.player.PlayerClass;
 import rpgclasses.content.player.PlayerClasses.Cleric.ActiveSkills.*;
 import rpgclasses.content.player.PlayerClasses.Cleric.Passives.*;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.ActiveSkill;
-import rpgclasses.content.player.SkillsLogic.ModifierBuffs.FloatModifierBuff;
+import rpgclasses.content.player.SkillsLogic.ModifierBuffs.FloatPercentModifierBuff;
 import rpgclasses.content.player.SkillsLogic.Passives.BasicPassive;
 import rpgclasses.content.player.SkillsLogic.Passives.Passive;
 import rpgclasses.content.player.SkillsLogic.SkillsList;
@@ -48,11 +48,11 @@ public class ClericPlayerClass extends PlayerClass {
 
         skillsList.addSkill(new BasicPassive(
                 "healer", "#00ff00", 10, 1,
-                new FloatModifierBuff(AphModifiers.MAGIC_HEALING, 0.1F)
+                new FloatPercentModifierBuff(AphModifiers.MAGIC_HEALING, 0.1F)
         ));
         skillsList.addSkill(new BasicPassive(
                 "shaman", "#00ffff", 10, 1,
-                new FloatModifierBuff(BuffModifiers.LIFE_ESSENCE_GAIN, 0.1F)
+                new FloatPercentModifierBuff(BuffModifiers.LIFE_ESSENCE_GAIN, 0.1F)
         ));
         skillsList.addSkill(new VitalAura(10, 1));
         skillsList.addSkill(new DivineJudge(10, 1));

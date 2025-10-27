@@ -6,12 +6,24 @@ import necesse.engine.sound.SoundManager;
 import necesse.entity.mobs.PlayerMob;
 import necesse.gfx.GameResources;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.ActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.PlayerData;
 import rpgclasses.registry.RPGBuffs;
 import rpgclasses.utils.RPGArea;
 import rpgclasses.utils.RPGUtils;
 
 public class Purify extends ActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{};
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
+    @Override
+    public SkillParam getManaParam() {
+        return SkillParam.manaParam(10);
+    }
 
     public Purify(int levelMax, int requiredClassLevel) {
         super("purify", "#ccffcc", levelMax, requiredClassLevel);
@@ -36,17 +48,7 @@ public class Purify extends ActiveSkill {
     }
 
     @Override
-    public float manaUsage(PlayerMob player, int activeSkillLevel) {
-        return 10;
-    }
-
-    @Override
-    public String[] getExtraTooltips() {
-        return new String[]{"manausage"};
-    }
-
-    @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 20000;
     }
 

@@ -1,11 +1,14 @@
 package rpgclasses.content.player.PlayerClasses.Cleric.ActiveSkills;
 
+import necesse.engine.GameDeathPenalty;
 import necesse.engine.network.NetworkClient;
 import necesse.engine.network.packet.PacketPlayerRespawn;
 import necesse.engine.network.server.ServerClient;
 import necesse.entity.mobs.PlayerMob;
+import necesse.level.gameObject.RespawnObject;
 import necesse.level.maps.Level;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.ActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.PlayerData;
 import rpgclasses.utils.RPGUtils;
 
@@ -14,6 +17,21 @@ import java.lang.reflect.Field;
 
 public class Resurrection extends ActiveSkill {
 
+    public static SkillParam[] params = new SkillParam[]{
+            new SkillParam("10 x <skilllevel>").setDecimals(2, 0),
+            new SkillParam("10 + <skilllevel>")
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
+    @Override
+    public SkillParam getManaParam() {
+        return SkillParam.manaParam(50, false);
+    }
+
     public Resurrection(int levelMax, int requiredClassLevel) {
         super("resurrection", "#ff00ff", levelMax, requiredClassLevel);
     }
@@ -21,12 +39,18 @@ public class Resurrection extends ActiveSkill {
     @Override
     public void runServer(PlayerMob player, PlayerData playerData, int activeSkillLevel, int seed, boolean isInUse) {
         super.runServer(player, playerData, activeSkillLevel, seed, isInUse);
-        ServerClient lastDeath = RPGUtils.lastDeathPlayer(player.getLevel(), 10000, c -> c.isSameTeam(player.getTeam()));
+        ServerClient lastDeath = RPGUtils.lastDeathPlayer(player.getLevel(), params[1].value(activeSkillLevel), c -> c.isSameTeam(player.getTeam()));
 
         if (lastDeath != null) {
-            Point spawnPos = new Point();
-            spawnPos.setLocation(player.x, player.y);
-            Level spawnLevel = player.getLevel();
+            lastDeath.validateSpawnPoint(true);
+            Point spawnPos;
+            Level spawnLevel = lastDeath.getServer().world.getLevel(lastDeath.spawnLevelIdentifier);
+            if (!lastDeath.isDefaultSpawnPoint()) {
+                Point offset = RespawnObject.calculateSpawnOffset(spawnLevel, lastDeath.spawnTile.x, lastDeath.spawnTile.y, lastDeath);
+                spawnPos = new Point(lastDeath.spawnTile.x * 32 + offset.x, lastDeath.spawnTile.y * 32 + offset.y);
+            } else {
+                spawnPos = lastDeath.getPlayerPosFromTile(spawnLevel, lastDeath.spawnTile.x, lastDeath.spawnTile.y);
+            }
 
             lastDeath.playerMob.restore();
 
@@ -39,11 +63,12 @@ public class Resurrection extends ActiveSkill {
                 isDeadField.setAccessible(true);
                 isDeadField.set(lastDeath, false);
 
-                lastDeath.setLevelIdentifier(spawnLevel.getIdentifier());
+
+                lastDeath.setLevelIdentifier(lastDeath.spawnLevelIdentifier);
                 lastDeath.playerMob.setPos((float) spawnPos.x, (float) spawnPos.y, true);
                 lastDeath.playerMob.dx = 0.0F;
                 lastDeath.playerMob.dy = 0.0F;
-                lastDeath.playerMob.setHealth(Math.max((int) (lastDeath.playerMob.getMaxHealth() * 0.1F * activeSkillLevel), 1));
+                lastDeath.playerMob.setHealth(Math.max((int) (lastDeath.playerMob.getMaxHealth() * params[0].value(activeSkillLevel)), 1));
                 lastDeath.playerMob.setMana((float) Math.max(lastDeath.playerMob.getMaxMana(), 1));
                 lastDeath.playerMob.hungerLevel = Math.max(0.5F, lastDeath.playerMob.hungerLevel);
                 lastDeath.getServer().network.sendToAllClients(new PacketPlayerRespawn(lastDeath));
@@ -53,28 +78,18 @@ public class Resurrection extends ActiveSkill {
         }
     }
 
+
     @Override
-    public String canActive(PlayerMob player, PlayerData playerData, boolean isInUSe) {
-        return (player.isClient() || RPGUtils.streamDeathPlayers(player.getLevel(), 10000, serverClient -> serverClient.isSameTeam(player.getTeam())).findAny().isPresent()) ? null : "nodeathplayers";
+    public String canActive(PlayerMob player, PlayerData playerData, int activeSkillLevel, boolean isInUSe) {
+        return (player.isClient() || RPGUtils.streamDeathPlayers(player.getLevel(), params[1].value(activeSkillLevel), serverClient -> serverClient.isSameTeam(player.getTeam())).findAny().isPresent()) ? null : "nodeathplayers";
     }
 
     @Override
-    public float manaUsage(PlayerMob player, int activeSkillLevel) {
-        return Math.max(60 + activeSkillLevel * 12, (100 - activeSkillLevel * 10) * player.getMaxMana());
-    }
-
-    @Override
-    public int getBaseCooldown() {
-        return 60000;
-    }
-
-    @Override
-    public int getCooldownModPerLevel() {
-        return -4000;
-    }
-
-    @Override
-    public String[] getExtraTooltips() {
-        return new String[]{"manausage"};
+    public int getBaseCooldown(PlayerMob player) {
+        if (player.getWorldSettings().deathPenalty == GameDeathPenalty.HARDCORE) {
+            return 12000;
+        } else {
+            return 40000;
+        }
     }
 }

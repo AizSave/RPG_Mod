@@ -12,10 +12,20 @@ import necesse.entity.particle.Particle;
 import necesse.gfx.GameResources;
 import rpgclasses.buffs.Skill.ActiveSkillBuff;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.SimpleBuffActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.PlayerData;
 import rpgclasses.utils.RPGColors;
 
 public class IronGuard extends SimpleBuffActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(50).setDecimals(2, 0),
+            new SkillParam("4 x <skilllevel>")
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
 
     public IronGuard(int levelMax, int requiredClassLevel) {
         super("ironguard", RPGColors.HEX.iron, levelMax, requiredClassLevel);
@@ -33,7 +43,7 @@ public class IronGuard extends SimpleBuffActiveSkill {
         return new ActiveSkillBuff() {
             @Override
             public void init(ActiveBuff activeBuff, BuffEventSubscriber buffEventSubscriber) {
-                activeBuff.setModifier(BuffModifiers.INCOMING_DAMAGE_MOD, 0.5F);
+                activeBuff.setModifier(BuffModifiers.INCOMING_DAMAGE_MOD, 1F - params[0].value());
             }
 
             @Override
@@ -48,11 +58,11 @@ public class IronGuard extends SimpleBuffActiveSkill {
 
     @Override
     public int getDuration(int activeSkillLevel) {
-        return 4000 * activeSkillLevel;
+        return (int) (params[1].value(activeSkillLevel) * 1000);
     }
 
     @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 30000;
     }
 

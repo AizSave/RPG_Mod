@@ -10,8 +10,20 @@ import rpgclasses.buffs.Skill.MasteryBuff;
 import rpgclasses.buffs.Skill.SecondaryMasteryBuff;
 import rpgclasses.buffs.Skill.SimpleSecondaryMasteryBuff;
 import rpgclasses.content.player.Mastery.Mastery;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 
 public class Berserker extends Mastery {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(50).setDecimals(2, 0),
+            SkillParam.staticParam(25).setDecimals(2, 0),
+            SkillParam.staticParam(25).setDecimals(2, 0),
+            SkillParam.staticParam(3)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
 
     public Berserker(String stringID, String color) {
         super(stringID, color);
@@ -40,9 +52,9 @@ public class Berserker extends Mastery {
 
             public void updateBuff(ActiveBuff activeBuff) {
                 float healthPercent = activeBuff.owner.getHealthPercent();
-                if (healthPercent <= 0.5F) {
+                if (healthPercent <= params[0].value()) {
                     activeBuff.setModifier(
-                            BuffModifiers.MELEE_CRIT_CHANCE, 0.25F
+                            BuffModifiers.MELEE_CRIT_CHANCE, params[1].value()
                     );
                     this.isVisible = true;
                 } else {
@@ -57,7 +69,7 @@ public class Berserker extends Mastery {
             public void onHasAttacked(ActiveBuff activeBuff, MobWasHitEvent event) {
                 super.onHasAttacked(activeBuff, event);
                 if (activeBuff.owner.isServer() && event.isCrit && event.damageType.equals(DamageTypeRegistry.MELEE) && !event.wasPrevented && event.target.isHostile) {
-                    giveDatalessSecondaryPassiveBuff(activeBuff.owner, 2000);
+                    giveDatalessSecondaryPassiveBuff(activeBuff.owner, params[3].value());
                 }
             }
         };
@@ -65,9 +77,10 @@ public class Berserker extends Mastery {
 
     @Override
     public SecondaryMasteryBuff secondaryMasteryBuff() {
+        float value = params[2].value();
         return new SimpleSecondaryMasteryBuff(
-                new ModifierValue<>(BuffModifiers.ATTACK_SPEED, 0.25F),
-                new ModifierValue<>(BuffModifiers.SPEED, 0.25F)
+                new ModifierValue<>(BuffModifiers.ATTACK_SPEED, value),
+                new ModifierValue<>(BuffModifiers.SPEED, value)
         );
     }
 }

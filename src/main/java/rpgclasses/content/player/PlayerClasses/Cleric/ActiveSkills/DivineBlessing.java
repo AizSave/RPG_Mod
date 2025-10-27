@@ -6,10 +6,24 @@ import necesse.engine.sound.SoundManager;
 import necesse.entity.mobs.PlayerMob;
 import necesse.gfx.GameResources;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.ActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.PlayerData;
 import rpgclasses.utils.RPGArea;
 
 public class DivineBlessing extends ActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.healingParam(3),
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
+    @Override
+    public SkillParam getManaParam() {
+        return SkillParam.manaParam(20);
+    }
 
     public DivineBlessing(int levelMax, int requiredClassLevel) {
         super("divineblessing", "#00ff00", levelMax, requiredClassLevel);
@@ -21,7 +35,7 @@ public class DivineBlessing extends ActiveSkill {
 
         AphAreaList areaList = new AphAreaList(
                 new RPGArea(300, getColor())
-                        .setHealingArea((int) (20 + 3 * playerData.getGrace(player) * activeSkillLevel))
+                        .setHealingArea(params[0].valueInt(playerData.getLevel(), activeSkillLevel))
         ).setOnlyVision(false);
         areaList.execute(player, false);
     }
@@ -33,17 +47,7 @@ public class DivineBlessing extends ActiveSkill {
     }
 
     @Override
-    public float manaUsage(PlayerMob player, int activeSkillLevel) {
-        return 20 + activeSkillLevel * 4;
-    }
-
-    @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 12000;
-    }
-
-    @Override
-    public String[] getExtraTooltips() {
-        return new String[]{"manausage"};
     }
 }

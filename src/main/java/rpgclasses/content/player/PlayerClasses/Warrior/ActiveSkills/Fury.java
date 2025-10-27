@@ -12,10 +12,20 @@ import necesse.entity.particle.Particle;
 import necesse.gfx.GameResources;
 import rpgclasses.buffs.Skill.ActiveSkillBuff;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.SimpleBuffActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.PlayerData;
 import rpgclasses.utils.RPGColors;
 
 public class Fury extends SimpleBuffActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(6),
+            new SkillParam("20 x <skilllevel>").setDecimals(2, 0)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
 
     public Fury(int levelMax, int requiredClassLevel) {
         super("fury", "#ff0000", levelMax, requiredClassLevel);
@@ -34,8 +44,9 @@ public class Fury extends SimpleBuffActiveSkill {
             @Override
             public void init(ActiveBuff activeBuff, BuffEventSubscriber buffEventSubscriber) {
                 int level = getLevel(activeBuff);
-                activeBuff.setModifier(BuffModifiers.MELEE_DAMAGE, level * 0.2F);
-                activeBuff.setModifier(BuffModifiers.ATTACK_SPEED, level * 0.2F);
+                float value = params[1].value(level);
+                activeBuff.setModifier(BuffModifiers.MELEE_DAMAGE, value);
+                activeBuff.setModifier(BuffModifiers.ATTACK_SPEED, value);
             }
 
             @Override
@@ -50,11 +61,11 @@ public class Fury extends SimpleBuffActiveSkill {
 
     @Override
     public int getDuration(int activeSkillLevel) {
-        return 6000;
+        return (int) (params[0].value() * 1000);
     }
 
     @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 20000;
     }
 }

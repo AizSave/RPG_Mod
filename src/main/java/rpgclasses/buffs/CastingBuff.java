@@ -40,7 +40,7 @@ public class CastingBuff extends Buff {
             PlayerMob player = (PlayerMob) activeBuff.owner;
             PlayerData playerData = PlayerDataList.getPlayerData(player);
             EquippedActiveSkill equippedActiveSkill = playerData.getInUseActiveSkillSlot();
-            if(equippedActiveSkill != null) equippedActiveSkill.run(player);
+            if (equippedActiveSkill != null) equippedActiveSkill.run(player);
         }
     }
 

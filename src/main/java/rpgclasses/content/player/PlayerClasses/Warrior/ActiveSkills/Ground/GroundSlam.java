@@ -11,12 +11,23 @@ import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.gfx.GameResources;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.ActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParamColors;
 import rpgclasses.data.PlayerData;
 import rpgclasses.utils.RPGColors;
 
 import java.awt.*;
 
 public class GroundSlam extends ActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            new SkillParam("5 x <skilllevel>", SkillParamColors.DAMAGE),
+            new SkillParam("<skilllevel>")
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
 
     public GroundSlam(int levelMax, int requiredClassLevel) {
         super("groundslam", RPGColors.HEX.dirt, levelMax, requiredClassLevel);
@@ -37,8 +48,8 @@ public class GroundSlam extends ActiveSkill {
 
         AphAreaList areaList = new AphAreaList(
                 new AphArea(120, colorArea)
-                        .setDebuffArea(1000 * activeSkillLevel, AphBuffs.STUN.getStringID())
-                        .setDamageArea(new GameDamage(DamageTypeRegistry.MELEE, 5 * playerData.getStrength(player)))
+                        .setDebuffArea((int) (params[1].value(activeSkillLevel) * 1000), AphBuffs.STUN.getStringID())
+                        .setDamageArea(new GameDamage(DamageTypeRegistry.MELEE, params[0].value(activeSkillLevel)))
         );
         areaList.execute(player, false);
     }
@@ -51,7 +62,7 @@ public class GroundSlam extends ActiveSkill {
     }
 
     @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 12000;
     }
 }

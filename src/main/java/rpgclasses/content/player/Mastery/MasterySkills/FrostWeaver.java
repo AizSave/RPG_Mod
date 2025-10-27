@@ -5,8 +5,17 @@ import necesse.entity.mobs.MobBeforeHitEvent;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import rpgclasses.buffs.Skill.MasteryBuff;
 import rpgclasses.content.player.Mastery.Mastery;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 
 public class FrostWeaver extends Mastery {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(50).setDecimals(2, 0)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
 
     public FrostWeaver(String stringID, String color) {
         super(stringID, color);
@@ -22,7 +31,7 @@ public class FrostWeaver extends Mastery {
                         event.target.buffManager.hasBuff(BuffRegistry.Debuffs.FREEZING) ||
                         event.target.buffManager.hasBuff(BuffRegistry.Debuffs.FROSTBURN)
                 ) {
-                    event.damage = event.damage.modDamage(1.5F);
+                    event.damage = event.damage.modDamage(1 + params[0].value());
                 }
             }
         };

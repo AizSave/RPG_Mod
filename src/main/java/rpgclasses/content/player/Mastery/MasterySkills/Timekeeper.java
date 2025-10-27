@@ -9,12 +9,21 @@ import necesse.inventory.item.toolItem.ToolItem;
 import org.jetbrains.annotations.Nullable;
 import rpgclasses.buffs.Skill.MasteryBuff;
 import rpgclasses.content.player.Mastery.Mastery;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.EquippedActiveSkill;
 import rpgclasses.data.PlayerData;
 import rpgclasses.data.PlayerDataList;
 import rpgclasses.packets.PacketModAllSkillsTime;
 
 public class Timekeeper extends Mastery {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(0.02F)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
 
     public Timekeeper(String stringID, String color) {
         super(stringID, color);
@@ -31,7 +40,7 @@ public class Timekeeper extends Mastery {
             if (target instanceof PlayerMob && realHealing > 0) {
                 PlayerMob playerTarget = (PlayerMob) target;
                 PlayerData playerData = PlayerDataList.getPlayerData(playerTarget);
-                int mod = -realHealing * 20;
+                int mod = -realHealing * (int) (params[0].value() * 1000);
                 for (EquippedActiveSkill equippedActiveSkill : playerData.equippedActiveSkills) {
                     if (!equippedActiveSkill.isEmpty()) equippedActiveSkill.modCooldown(mod);
                 }

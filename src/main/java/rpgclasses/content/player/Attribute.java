@@ -93,7 +93,7 @@ public class Attribute extends BasicPassive {
         texture = GameTexture.fromFile("attributes/" + stringID);
     }
 
-    public List<String> getToolTipsText() {
+    public List<String> getToolTipsText(PlayerMob player) {
         List<String> tooltips = new ArrayList<>();
         tooltips.add("§" + color + Localization.translate("attributes", stringID) + " §0- " + mod.name);
         tooltips.add(" ");

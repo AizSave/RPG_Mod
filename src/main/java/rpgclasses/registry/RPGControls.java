@@ -6,9 +6,9 @@ import necesse.engine.input.InputEvent;
 import necesse.engine.input.InputID;
 import necesse.engine.network.client.Client;
 import necesse.engine.state.MainGame;
-import rpgclasses.forms.rpgmenu.RPGMenuPacket;
 import rpgclasses.data.PlayerData;
 import rpgclasses.data.PlayerDataList;
+import rpgclasses.forms.rpgmenu.RPGMenuPacket;
 
 public class RPGControls {
 

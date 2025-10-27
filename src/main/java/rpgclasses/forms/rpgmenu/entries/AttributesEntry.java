@@ -11,12 +11,12 @@ import necesse.gfx.forms.components.localComponents.FormLocalTextButton;
 import necesse.gfx.gameFont.FontOptions;
 import necesse.gfx.ui.ButtonColor;
 import necesse.gfx.ui.GameInterfaceStyle;
+import rpgclasses.content.player.Attribute;
+import rpgclasses.data.PlayerDataList;
 import rpgclasses.forms.rpgmenu.MenuContainer;
 import rpgclasses.forms.rpgmenu.MenuContainerForm;
 import rpgclasses.forms.rpgmenu.components.AttributeComponent;
 import rpgclasses.forms.rpgmenu.components.ClassComponent;
-import rpgclasses.content.player.Attribute;
-import rpgclasses.data.PlayerDataList;
 
 import java.awt.*;
 import java.util.Arrays;
@@ -184,7 +184,7 @@ public class AttributesEntry extends MenuEntry {
             if (difference > 0) reducedAttributes += difference;
         }
 
-        return !Arrays.equals(attributes, mutableAttributes) && mutableAttributesTotal <= maxAttributes && (reducedAttributes >= 0 || reducedAttributes <= resetPoints);
+        return !Arrays.equals(attributes, mutableAttributes) && mutableAttributesTotal <= maxAttributes && reducedAttributes <= resetPoints;
     }
 
 }

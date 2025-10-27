@@ -4,11 +4,11 @@ import necesse.engine.modLoader.ModSettings;
 import necesse.engine.modLoader.annotations.ModEntry;
 import necesse.engine.registries.TileRegistry;
 import necesse.level.gameTile.GameTile;
-import necesse.level.maps.biomes.Biome;
 import rpgclasses.content.MobClass;
 import rpgclasses.content.player.Attribute;
 import rpgclasses.content.player.Mastery.Mastery;
 import rpgclasses.content.player.PlayerClass;
+import rpgclasses.content.player.SkillsLogic.ComplexExtraToolTip;
 import rpgclasses.content.player.SkillsLogic.Passives.Passive;
 import rpgclasses.content.player.SkillsLogic.Passives.SimpleBuffPassive;
 import rpgclasses.content.player.SkillsLogic.Skill;
@@ -18,7 +18,7 @@ import rpgclasses.settings.RPGSettings;
 @ModEntry
 public class RPGMod {
 
-    public static String currentVersion = "v0.6.19";
+    public static String currentVersion = "v0.7.14";
 
     static {
         new RPGModifiers();
@@ -36,6 +36,8 @@ public class RPGMod {
         Mastery.registerCore();
 
         Mastery.masterySkillsList.forEach(SimpleBuffPassive::registry);
+
+        ComplexExtraToolTip.registerCore();
 
         PlayerClass.registerCore();
 

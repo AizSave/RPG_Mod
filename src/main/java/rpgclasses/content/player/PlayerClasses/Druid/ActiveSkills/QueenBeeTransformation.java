@@ -32,6 +32,7 @@ import necesse.inventory.item.Item;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.SimpleTranformationActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.PlayerData;
 import rpgclasses.data.PlayerDataList;
 import rpgclasses.mobs.mount.SkillTransformationMountMob;
@@ -44,6 +45,22 @@ import java.util.List;
 public class QueenBeeTransformation extends SimpleTranformationActiveSkill {
     public static Buff queenBeeWasHitBuff;
 
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(2),
+            SkillParam.staticParam(30),
+            SkillParam.staticParam(50).setDecimals(2, 0),
+            SkillParam.staticParam(1000).setDecimals(2, 0),
+            new SkillParam("20 - 2 x <skilllevel>"),
+            SkillParam.damageParam(3),
+            SkillParam.staticParam(2),
+            new SkillParam("3 + <skilllevel>").setDecimals(0)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
     public QueenBeeTransformation(int levelMax, int requiredClassLevel) {
         super("queenbeetransformation", "#a98307", levelMax, requiredClassLevel);
     }
@@ -54,13 +71,13 @@ public class QueenBeeTransformation extends SimpleTranformationActiveSkill {
     }
 
     @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 4000;
     }
 
     @Override
     public int castingDuration() {
-        return 2000;
+        return (int) (params[0].value() * 1000);
     }
 
     @Override
@@ -78,7 +95,7 @@ public class QueenBeeTransformation extends SimpleTranformationActiveSkill {
         public QueenBeeMob() {
             super();
 
-            this.setSpeed(30.0F);
+            this.setSpeed(params[1].value());
             this.setFriction(2.0F);
             this.setSwimSpeed(1.0F);
             this.collision = new Rectangle(-7, -5, 14, 10);
@@ -101,8 +118,9 @@ public class QueenBeeTransformation extends SimpleTranformationActiveSkill {
         @Override
         public List<ModifierValue<?>> getRiderModifiers() {
             List<ModifierValue<?>> modifiers = super.getRiderModifiers();
-            modifiers.add(new ModifierValue<>(BuffModifiers.INCOMING_DAMAGE_MOD, 10F).min(10F));
-            modifiers.add(new ModifierValue<>(BuffModifiers.TARGET_RANGE, -0.5F));
+            float incomingDamage = params[3].value();
+            modifiers.add(new ModifierValue<>(BuffModifiers.INCOMING_DAMAGE_MOD, incomingDamage).min(incomingDamage));
+            modifiers.add(new ModifierValue<>(BuffModifiers.TARGET_RANGE, -params[2].value()));
             return modifiers;
         }
 
@@ -152,8 +170,8 @@ public class QueenBeeTransformation extends SimpleTranformationActiveSkill {
 
             PlayerData playerData = PlayerDataList.getPlayerData(player);
             int skillLevel = getActualSkillLevel();
-            Projectile projectile = new HoneyProjectile(level, player, player.x, player.y, x, y, 100, 200, new GameDamage(DamageTypeRegistry.RANGED, 2 * playerData.getLevel() + playerData.getStrength(player) * skillLevel), 20);
-            projectile.setModifier(new ResilienceOnHitProjectileModifier(2));
+            Projectile projectile = new HoneyProjectile(level, player, player.x, player.y, x, y, 100, 200, new GameDamage(DamageTypeRegistry.RANGED, params[5].value(playerData.getLevel(), skillLevel)), 20);
+            projectile.setModifier(new ResilienceOnHitProjectileModifier(params[6].value()));
             projectile.resetUniqueID(new GameRandom(Item.getRandomAttackSeed(GameRandom.globalRandom)));
 
             this.getLevel().entityManager.projectiles.addHidden(projectile);
@@ -230,9 +248,9 @@ public class QueenBeeTransformation extends SimpleTranformationActiveSkill {
                 event.playHitSound = false;
 
                 if (player.isServer()) {
-                    player.buffManager.addBuff(new ActiveBuff(queenBeeWasHitBuff, player, 60F, null), true);
                     int skillLevel = getActualSkillLevel();
-                    int amount = (int) (2 * skillLevel - player.serverFollowersManager.getFollowerCount(getStringID() + "follower"));
+                    player.buffManager.addBuff(new ActiveBuff(queenBeeWasHitBuff, player, params[4].value(skillLevel), null), true);
+                    int amount = (int) (params[7].valueInt(skillLevel) - player.serverFollowersManager.getFollowerCount(getStringID() + "follower"));
                     for (int i = 0; i < amount; i++) {
                         summonBee(player);
                     }
@@ -243,7 +261,7 @@ public class QueenBeeTransformation extends SimpleTranformationActiveSkill {
         public void summonBee(PlayerMob player) {
             BeeDamageableSummonMob mob = (BeeDamageableSummonMob) MobRegistry.getMob("beedamageablesummon", player.getLevel());
             int skillLevel = getActualSkillLevel();
-            player.serverFollowersManager.addFollower(getStringID() + "follower", mob, FollowPosition.WALK_CLOSE, null, 1, 2 * skillLevel, null, true);
+            player.serverFollowersManager.addFollower(getStringID() + "follower", mob, FollowPosition.WALK_CLOSE, null, 1, params[7].valueInt(skillLevel), null, true);
             mob.updateStats(player, PlayerDataList.getPlayerData(player));
 
             mob.getLevel().entityManager.addMob(mob, player.x + GameRandom.globalRandom.getFloatOffset(0, 32), player.y + GameRandom.globalRandom.getFloatOffset(0, 32));

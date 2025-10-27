@@ -33,6 +33,7 @@ import rpgclasses.packets.UpdateClientEquippedActiveSkillsPacket;
 import rpgclasses.settings.RPGSettings;
 
 import java.util.HashSet;
+import java.util.Objects;
 
 public class MobPatches {
 
@@ -101,12 +102,12 @@ public class MobPatches {
     @ModMethodPatch(target = Mob.class, name = "onDeath", arguments = {Attacker.class, HashSet.class})
     public static class MobDeathPatch {
 
-        @Advice.OnMethodEnter
+        @Advice.OnMethodExit
         public static void onExit(@Advice.This Mob This, @Advice.Argument(0) Attacker attacker, @Advice.Argument(1) HashSet<Attacker> attackers) {
             MobData mobData = MobData.getMob(This);
-            if (This.isServer() && mobData != null && !MobData.bossNoEXPMobs.contains(This.getStringID())) {
+            if (This.isServer() && mobData != null && !MobData.mobsForcedBossClass.contains(This.getStringID()) && !(Objects.equals(mobData.mobClass.stringID, "boss") && !This.isBoss())) {
 
-                float exp = mobData.levelScaling() * mobData.mobClass.expMod * GameRandom.globalRandom.getFloatBetween(0.9F, 1.1F) * RPGSettings.experienceMod();
+                float exp = mobData.level * mobData.mobClass.expMod * GameRandom.globalRandom.getFloatBetween(0.9F, 1.1F) * RPGSettings.experienceMod();
                 exp = (float) Math.pow(exp, 1.5F);
 
                 HashSet<PlayerMob> processedPlayers = new HashSet<>();
@@ -144,13 +145,13 @@ public class MobPatches {
     public static class mount {
         @Advice.OnMethodExit
         public static void onExit(@Advice.This Mob This, @Advice.Argument(0) Mob mount) {
-            if (This.isPlayer) {
+            if (This.isPlayer && This.isServer()) {
                 PlayerMob player = (PlayerMob) This;
                 PlayerData playerData = PlayerDataList.getPlayerData(player);
                 EquippedActiveSkill equippedActiveSkill = playerData.getInUseActiveSkillSlot();
 
                 if (equippedActiveSkill != null && equippedActiveSkill.getActiveSkill() instanceof SimpleTranformationActiveSkill && (!(mount instanceof SkillTransformationMountMob) || !((SimpleTranformationActiveSkill) equippedActiveSkill.getActiveSkill()).getMobStringID().equals(mount.getStringID()))) {
-                    equippedActiveSkill.startCooldown(playerData, player.getTime(), equippedActiveSkill.getActiveSkill().getLevel(playerData));
+                    equippedActiveSkill.startCooldown(player, playerData, player.getTime(), equippedActiveSkill.getActiveSkill().getLevel(playerData));
                     This.getServer().network.sendToAllClients(new UpdateClientEquippedActiveSkillsPacket(playerData));
                 }
 

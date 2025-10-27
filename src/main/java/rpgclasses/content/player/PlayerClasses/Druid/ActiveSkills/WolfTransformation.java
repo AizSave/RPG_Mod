@@ -1,12 +1,12 @@
 package rpgclasses.content.player.PlayerClasses.Druid.ActiveSkills;
 
 import aphorea.registry.AphBuffs;
-import aphorea.utils.area.AphArea;
 import aphorea.utils.area.AphAreaList;
 import necesse.engine.Settings;
 import necesse.engine.gameLoop.tickManager.TickManager;
 import necesse.engine.input.Control;
 import necesse.engine.network.Packet;
+import necesse.engine.network.gameNetworkData.GNDItemMap;
 import necesse.engine.network.packet.PacketLevelEvent;
 import necesse.engine.registries.BuffRegistry;
 import necesse.engine.registries.DamageTypeRegistry;
@@ -21,6 +21,9 @@ import necesse.entity.levelEvent.LevelEvent;
 import necesse.entity.levelEvent.mobAbilityLevelEvent.MobDashLevelEvent;
 import necesse.entity.mobs.*;
 import necesse.entity.mobs.buffs.ActiveBuff;
+import necesse.entity.mobs.buffs.BuffEventSubscriber;
+import necesse.entity.mobs.buffs.BuffModifiers;
+import necesse.entity.mobs.buffs.staticBuffs.Buff;
 import necesse.entity.mobs.buffs.staticBuffs.StaminaBuff;
 import necesse.entity.particle.FleshParticle;
 import necesse.entity.particle.Particle;
@@ -33,25 +36,49 @@ import necesse.inventory.item.Item;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
 import rpgclasses.RPGResources;
+import rpgclasses.buffs.Skill.ActiveSkillBuff;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.SimpleTranformationActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.PlayerData;
 import rpgclasses.data.PlayerDataList;
 import rpgclasses.mobs.mount.SkillTransformationMountMob;
 import rpgclasses.mobs.mount.TransformationMountMob;
 import rpgclasses.mobs.summons.passive.RangerWolfMob;
+import rpgclasses.utils.RPGArea;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
 import java.util.List;
 
 public class WolfTransformation extends SimpleTranformationActiveSkill {
+    public static Buff wolfBarkBuff;
+
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(3),
+            SkillParam.staticParam(60),
+            SkillParam.damageParam(3),
+            SkillParam.staticParam(3),
+            SkillParam.staticParam(2),
+            new SkillParam("10 x <skilllevel>").setDecimals(2, 0)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
     public WolfTransformation(int levelMax, int requiredClassLevel) {
         super("wolftransformation", "#E6D9CC", levelMax, requiredClassLevel);
     }
 
     @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 6000;
+    }
+
+    @Override
+    public int castingDuration() {
+        return (int) (params[0].value() * 1000);
     }
 
     @Override
@@ -59,11 +86,24 @@ public class WolfTransformation extends SimpleTranformationActiveSkill {
         return WolfMob.class;
     }
 
+    @Override
+    public void registry() {
+        super.registry();
+        LevelEventRegistry.registerEvent(stringID + "chargelevelevent", WolfChargeLevelEvent.class);
+
+        wolfBarkBuff = BuffRegistry.registerBuff("wolfbark", new ActiveSkillBuff() {
+            @Override
+            public void init(ActiveBuff activeBuff, BuffEventSubscriber buffEventSubscriber) {
+                activeBuff.setModifier(BuffModifiers.INCOMING_DAMAGE_MOD, 1F + activeBuff.getGndData().getFloat("incomingDamage"));
+            }
+        });
+    }
+
     public static class WolfMob extends SkillTransformationMountMob {
         public WolfMob() {
             super();
 
-            this.setSpeed(60.0F);
+            this.setSpeed(params[1].value());
             this.setFriction(4.0F);
             this.setKnockbackModifier(0.5F);
             this.moveAccuracy = 8;
@@ -128,7 +168,7 @@ public class WolfTransformation extends SimpleTranformationActiveSkill {
             float dirY = dy / length;
 
             int skillLevel = getActualSkillLevel();
-            LevelEvent event = new WolfChargeLevelEvent(this, Item.getRandomAttackSeed(GameRandom.globalRandom), dirX, dirY, 50, 200, new GameDamage(DamageTypeRegistry.MELEE, 2 * playerData.getLevel() + playerData.getStrength(player) * skillLevel + playerData.getSpeed(player) * skillLevel));
+            LevelEvent event = new WolfChargeLevelEvent(this, Item.getRandomAttackSeed(GameRandom.globalRandom), dirX, dirY, 80, 200, new GameDamage(DamageTypeRegistry.MELEE, params[2].value(playerData.getLevel(), skillLevel)));
             player.getLevel().entityManager.events.addHidden(event);
             player.getServer().network.sendToClientsWithEntity(new PacketLevelEvent(event), event);
         }
@@ -193,8 +233,9 @@ public class WolfTransformation extends SimpleTranformationActiveSkill {
         public void secondaryClickRun(Level level, int x, int y, PlayerMob player) {
             super.secondaryClickRun(level, x, y, player);
             AphAreaList areaList = new AphAreaList(
-                    new AphArea(100, new Color(255, 0, 0, 51))
-                            .setDebuffArea(2000, "provocationactiveskillbuff")
+                    new RPGArea(100, new Color(255, 0, 0, 51))
+                            .addBuffGND(wolfBarkBuff.getStringID(), new GNDItemMap().setFloat("incomingDamage", params[5].value()))
+                            .setDebuffArea((int) (params[4].value() * 1000), "provocationactiveskillbuff", wolfBarkBuff.getStringID())
             ).setOnlyVision(false);
             areaList.execute(player, false);
         }
@@ -204,12 +245,6 @@ public class WolfTransformation extends SimpleTranformationActiveSkill {
             super.secondaryClickRunClient(level, x, y, player);
             SoundManager.playSound(RPGResources.SOUNDS.Bark, SoundEffect.effect(this).volume(0.8F).pitch(GameRandom.globalRandom.getFloatOffset(0.9F, 0.1F)));
         }
-    }
-
-    @Override
-    public void registry() {
-        super.registry();
-        LevelEventRegistry.registerEvent(stringID + "chargelevelevent", WolfChargeLevelEvent.class);
     }
 
     public static class WolfChargeLevelEvent extends MobDashLevelEvent {
@@ -266,7 +301,7 @@ public class WolfTransformation extends SimpleTranformationActiveSkill {
                     }
                 }
 
-                TransformationMountMob.doResilienceGain(getRider(), target, 3);
+                TransformationMountMob.doResilienceGain(getRider(), target, params[3].value());
 
                 this.hitCooldowns.startCooldown(target);
             }

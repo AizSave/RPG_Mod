@@ -5,8 +5,8 @@ import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.PlayerMob;
 import necesse.gfx.gameTexture.GameTexture;
 import necesse.gfx.gameTooltips.ListGameTooltips;
-import org.jetbrains.annotations.NotNull;
 import rpgclasses.content.player.PlayerClass;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.PlayerClassData;
 import rpgclasses.data.PlayerData;
 import rpgclasses.data.PlayerDataList;
@@ -14,7 +14,6 @@ import rpgclasses.utils.RPGColors;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
-import java.util.ArrayList;
 import java.util.List;
 
 abstract public class Skill {
@@ -35,12 +34,18 @@ abstract public class Skill {
         this.requiredClassLevel = requiredClassLevel;
     }
 
-    public static String[] changes = new String[]{"skilllevel", "playerlevel", "endurance", "speed", "strength", "intelligence", "grace"};
+    public static String[] changes = new String[]{"skilllevel", "playerlevel"};
 
-    public ListGameTooltips getToolTips() {
+    public ListGameTooltips getBaseToolTips(PlayerMob player) {
         ListGameTooltips tooltips = new ListGameTooltips();
-        for (String string : getToolTipsText()) {
-            if (string.contains("<") && string.contains(">")) {
+        for (String string : getToolTipsText(player)) {
+            if (string.contains("[[") && string.contains("]]")) {
+                string = baseToolTipsReplaces(player, string);
+                SkillParam[] params = getParams();
+                for (int i = 0; i < params.length; i++) {
+                    SkillParam param = params[i];
+                    string = string.replaceAll("\\[\\[" + i + "]]", param.baseParamValue());
+                }
                 for (String change : changes) {
                     string = string.replaceAll("<" + change + ">", Localization.translate("skillsdesckeys", change));
                 }
@@ -50,12 +55,16 @@ abstract public class Skill {
         return tooltips;
     }
 
+    public String baseToolTipsReplaces(PlayerMob player, String string) {
+        return string;
+    }
+
     public Skill setFamily(String family) {
         this.family = family;
         return this;
     }
 
-    abstract public List<String> getToolTipsText();
+    abstract public List<String> getToolTipsText(PlayerMob player);
 
     abstract public void initResources();
 
@@ -76,186 +85,95 @@ abstract public class Skill {
 
     public ListGameTooltips getFinalToolTips(PlayerMob player, int skillLevel, boolean onlyChanges) {
         if (!containsComplexTooltips() || skillLevel <= 0) {
-            return getToolTips();
+            return getBaseToolTips(player);
         }
 
         PlayerData playerData = PlayerDataList.getPlayerData(player);
+
+        if (playerData == null) {
+            return getBaseToolTips(player);
+        }
+
         ListGameTooltips tooltips = new ListGameTooltips();
 
-        List<String> raw = getToolTipsText();
+        List<String> raw = getToolTipsText(player);
         raw.set(0, raw.get(0) + " - " + Localization.translate("ui", "level", "level", skillLevel));
 
-        for (String rawTip : raw) {
-            String processed = processToolTip(rawTip, skillLevel, player, playerData, onlyChanges);
-            if (processed != null) {
-                tooltips.add(processed);
+        for (String string : raw) {
+            if (string.contains("[[") && string.contains("]]")) {
+                string = finalToolTipsReplaces(player, string, playerData, skillLevel);
+                SkillParam[] params = getParams();
+                for (int i = 0; i < params.length; i++) {
+                    SkillParam param = params[i];
+                    string = string.replaceAll("\\[\\[" + i + "]]", param.paramValue(playerData.getLevel(), skillLevel));
+                }
+                tooltips.add(string);
+            } else if (!onlyChanges) {
+                tooltips.add(string);
             }
         }
+
         return tooltips;
     }
 
+    public String finalToolTipsReplaces(PlayerMob player, String string, PlayerData playerData, int skillLevel) {
+        return string;
+    }
+
+    public String[] getAllExtraTooltips() {
+        String[] baseTooltips = getExtraTooltips();
+
+        if (addManaUsageExtraToolTip()) {
+            String[] result = new String[baseTooltips.length + 1];
+            System.arraycopy(baseTooltips, 0, result, 0, baseTooltips.length);
+            result[baseTooltips.length] = "manausage";
+            return result;
+        } else {
+            return baseTooltips;
+        }
+    }
 
     public String[] getExtraTooltips() {
         return new String[0];
     }
 
-    public String[] getFinalExtraTooltips(PlayerMob player, boolean processComplex) {
-        String[] tooltips = getExtraTooltips().clone();
+    public String[] getAllExtraTooltips(PlayerMob player, int skillLevel, boolean processFinal) {
+        String[] tooltips = getAllExtraTooltips().clone();
 
-        PlayerData playerData = PlayerDataList.getPlayerData(player);
+        PlayerData playerData = processFinal ? PlayerDataList.getPlayerData(player) : null;
 
         for (int i = 0; i < tooltips.length; i++) {
-            String tooltip = Localization.translate("extraskilldesc", tooltips[i]);
-            String finalTooltip = processComplex ? processToolTip(tooltip, 0, player, playerData) : tooltip;
-            if (finalTooltip != null) {
-                tooltips[i] = finalTooltip;
+            String extraToolTip = tooltips[i];
+            String tooltip = Localization.translate("extraskilldesc", extraToolTip);
+
+            SkillParam[] params = ComplexExtraToolTip.get(extraToolTip);
+            if (params != null && params.length > 0) {
+                if (processFinal) {
+                    for (int j = 0; j < params.length; j++) {
+                        SkillParam param = params[j];
+                        tooltip = tooltip.replaceAll("\\[\\[" + j + "]]", param.paramValue(playerData.getLevel(), skillLevel));
+                    }
+                } else {
+                    for (int j = 0; j < params.length; j++) {
+                        SkillParam param = params[j];
+                        tooltip = tooltip.replaceAll("\\[\\[" + j + "]]", param.baseParamValue());
+                    }
+
+                    for (String change : changes) {
+                        tooltip = tooltip.replaceAll("<" + change + ">", Localization.translate("skillsdesckeys", change));
+                    }
+                }
             }
+            tooltips[i] = tooltip;
         }
         return tooltips;
     }
 
-    public static String processToolTip(String toolTip, int skillLevel, PlayerMob player, PlayerData playerData) {
-        return processToolTip(toolTip, skillLevel, player, playerData, false);
-    }
-
-    public static String processToolTip(String toolTip, int skillLevel, PlayerMob player, PlayerData playerData, boolean onlyChanges) {
-        if (toolTip.contains("<") && toolTip.contains(">")) {
-            List<String> parts = splitToolTip(toolTip);
-
-            int playerLevel = playerData.getLevel();
-            float endurance = playerData.getEndurance(player);
-            float speed = playerData.getSpeed(player);
-            float strength = playerData.getStrength(player);
-            float intelligence = playerData.getIntelligence(player);
-            float grace = playerData.getGrace(player);
-
-            for (int i = 0; i < parts.size(); i++) {
-                String part = parts.get(i);
-                if (part.startsWith("[[") && part.endsWith("]]")) {
-                    int removeEnd = 2;
-                    int round = -1;
-                    if (part.endsWith("↓]]")) {
-                        round = 0;
-                        removeEnd++;
-                    } else if (part.endsWith("→]]")) {
-                        round = 1;
-                        removeEnd++;
-                    } else if (part.endsWith("↑]]")) {
-                        round = 2;
-                        removeEnd++;
-                    }
-                    String expr = part.substring(2, part.length() - removeEnd)
-                            .replaceAll("<skilllevel>", String.valueOf(skillLevel))
-                            .replaceAll("<playerlevel>", String.valueOf(playerLevel))
-                            .replaceAll("<endurance>", String.valueOf(endurance))
-                            .replaceAll("<speed>", String.valueOf(speed))
-                            .replaceAll("<strength>", String.valueOf(strength))
-                            .replaceAll("<intelligence>", String.valueOf(intelligence))
-                            .replaceAll("<grace>", String.valueOf(grace));
-
-                    float val = calculateValue(expr);
-                    String text;
-                    if (round == 0) {
-                        text = String.valueOf((int) Math.floor(val));
-                    } else if (round == 1) {
-                        text = String.valueOf(Math.round(val));
-                    } else if (round == 2) {
-                        text = String.valueOf((int) Math.ceil(val));
-                    } else {
-                        text = (val == (int) val)
-                                ? String.valueOf((int) val)
-                                : String.format("%.1f", val);
-                    }
-                    parts.set(i, text);
-                }
-            }
-
-            StringBuilder builder = new StringBuilder();
-            for (String p : parts) builder.append(p);
-            return builder.toString();
-
-        } else {
-            return onlyChanges ? null : toolTip;
-        }
-    }
-
-    private static @NotNull List<String> splitToolTip(String toolTip) {
-        List<String> parts = new ArrayList<>();
-        int lastIndex = 0;
-
-        while (lastIndex < toolTip.length()) {
-            int startIndex = toolTip.indexOf("[[", lastIndex);
-            if (startIndex == -1) {
-                parts.add(toolTip.substring(lastIndex));
-                break;
-            }
-
-            if (startIndex > lastIndex) {
-                parts.add(toolTip.substring(lastIndex, startIndex));
-            }
-
-            int endIndex = toolTip.indexOf("]]", startIndex);
-            if (endIndex == -1) {
-                parts.add(toolTip.substring(startIndex));
-                break;
-            }
-
-            parts.add(toolTip.substring(startIndex, endIndex + 2));
-            lastIndex = endIndex + 2;
-        }
-
-        return parts;
-    }
 
     public boolean containsComplexTooltips() {
         return false;
     }
 
-    private static float calculateValue(String expression) {
-        String[] tokens = expression.split(" ");
-        List<Float> values = new ArrayList<>();
-        List<String> operators = new ArrayList<>();
-
-        for (int i = 0; i < tokens.length; i++) {
-            String token = tokens[i];
-
-            if (token.equals("x")) {
-                float prev = values.remove(values.size() - 1);
-                float next;
-
-                try {
-                    next = Float.parseFloat(tokens[++i]);
-                } catch (RuntimeException e) {
-                    next = 0;
-                }
-
-                values.add(prev * next);
-            } else if (token.equals("+") || token.equals("-")) {
-                operators.add(token);
-            } else {
-                try {
-                    float n = Float.parseFloat(token);
-                    values.add(n);
-                } catch (RuntimeException e) {
-                    values.add(0F);
-                }
-            }
-        }
-
-        float result = values.get(0);
-        int opIndex = 0;
-
-        for (int i = 1; i < values.size(); i++) {
-            String op = operators.get(opIndex++);
-            if (op.equals("+")) {
-                result += values.get(i);
-            } else if (op.equals("-")) {
-                result -= values.get(i);
-            }
-        }
-
-        return result;
-    }
 
     public static Point2D.Float getDir(Mob mob) {
         float dirX, dirY;
@@ -309,5 +227,11 @@ abstract public class Skill {
 
     public Color getColor() {
         return RPGColors.getColor(color);
+    }
+
+    abstract public SkillParam[] getParams();
+
+    public boolean addManaUsageExtraToolTip() {
+        return false;
     }
 }

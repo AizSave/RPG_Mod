@@ -10,8 +10,8 @@ import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.projectile.Projectile;
 import necesse.gfx.GameResources;
-import rpgclasses.content.player.SkillsLogic.ActiveSkills.ActiveSkill;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.CastActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.PlayerData;
 import rpgclasses.projectiles.IceBallProjectile;
 import rpgclasses.utils.RPGUtils;
@@ -19,6 +19,19 @@ import rpgclasses.utils.RPGUtils;
 import java.awt.geom.Point2D;
 
 public class Iceball extends CastActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.damageParam(20)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
+    @Override
+    public SkillParam getManaParam() {
+        return SkillParam.manaParam(40);
+    }
 
     public Iceball(int levelMax, int requiredClassLevel) {
         super("iceball", "#00ccff", levelMax, requiredClassLevel);
@@ -64,21 +77,16 @@ public class Iceball extends CastActiveSkill {
             distance = (int) player.getDistance(target);
         }
 
-        return new IceBallProjectile(player.getLevel(), player, player.x, player.y, targetX, targetY, 100, distance, new GameDamage(DamageTypeRegistry.MAGIC, 5 * playerData.getLevel() + 5 * playerData.getIntelligence(player) * activeSkillLevel), 100);
+        return new IceBallProjectile(player.getLevel(), player, player.x, player.y, targetX, targetY, 100, distance, new GameDamage(DamageTypeRegistry.MAGIC, params[0].value(playerData.getLevel(), activeSkillLevel)), 100);
     }
 
     @Override
-    public float manaUsage(PlayerMob player, int activeSkillLevel) {
-        return 40 + activeSkillLevel * 8;
-    }
-
-    @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 15000;
     }
 
     @Override
     public String[] getExtraTooltips() {
-        return new String[]{"iceball", "manausage"};
+        return new String[]{"iceball"};
     }
 }

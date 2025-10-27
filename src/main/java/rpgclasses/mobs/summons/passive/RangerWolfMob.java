@@ -16,6 +16,7 @@ import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
+import rpgclasses.content.player.PlayerClasses.Ranger.Passives.WolfCompanion;
 import rpgclasses.data.PlayerData;
 import rpgclasses.data.PlayerDataList;
 import rpgclasses.mobs.ai.CustomSummonCollisionChaserAI;
@@ -94,6 +95,6 @@ public class RangerWolfMob extends PassiveFollowingMob {
         if (client == null) return new GameDamage(0);
         PlayerData playerData = PlayerDataList.getPlayerData(client.playerMob);
         int skillLevel = getPassiveLevel(playerData);
-        return new GameDamage(DamageTypeRegistry.SUMMON, playerData.getLevel() + playerData.getIntelligence(client.playerMob) * skillLevel);
+        return new GameDamage(DamageTypeRegistry.SUMMON, WolfCompanion.params[0].value(playerData.getLevel(), skillLevel));
     }
 }

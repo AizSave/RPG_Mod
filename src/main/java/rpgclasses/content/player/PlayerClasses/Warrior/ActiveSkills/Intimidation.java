@@ -17,6 +17,7 @@ import necesse.entity.particle.Particle;
 import necesse.gfx.GameResources;
 import rpgclasses.buffs.Skill.ActiveSkillBuff;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.SimpleBuffActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.PlayerData;
 import rpgclasses.mobs.ai.RunningAwayAI;
 import rpgclasses.utils.RPGUtils;
@@ -26,19 +27,27 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 public class Intimidation extends SimpleBuffActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            new SkillParam("<skilllevel>")
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
 
     public Intimidation(int levelMax, int requiredClassLevel) {
         super("intimidation", "#9900cc", levelMax, requiredClassLevel);
     }
 
     @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 20000;
     }
 
     @Override
     public int getDuration(int activeSkillLevel) {
-        return 500 * activeSkillLevel;
+        return (int) (params[0].value(activeSkillLevel) * 1000);
     }
 
     @Override
@@ -47,7 +56,7 @@ public class Intimidation extends SimpleBuffActiveSkill {
                 .filter(m -> !m.isBoss())
                 .filter(RPGUtils.isValidTargetFilter(player))
                 .forEach(
-                        target -> super.giveBuff(player, target, playerData, activeSkillLevel)
+                        target -> super.giveBuff(player, target, activeSkillLevel)
                 );
 
     }

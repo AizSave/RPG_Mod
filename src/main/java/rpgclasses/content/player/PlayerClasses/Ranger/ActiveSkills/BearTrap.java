@@ -24,26 +24,35 @@ import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.maps.Level;
 import necesse.level.maps.LevelObjectHit;
 import necesse.level.maps.light.GameLight;
-import necesse.level.maps.regionSystem.RegionPosition;
 import rpgclasses.RPGResources;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.SimpleLevelEventActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.PlayerData;
 import rpgclasses.registry.RPGBuffs;
 import rpgclasses.utils.RPGColors;
 
 import java.awt.*;
-import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 
 public class BearTrap extends SimpleLevelEventActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(20),
+            SkillParam.damageParam(5),
+            SkillParam.staticParam(5)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
     public BearTrap(int levelMax, int requiredClassLevel) {
         super("beartrap", RPGColors.HEX.iron, levelMax, requiredClassLevel);
     }
 
     @Override
     public LevelEvent getLevelEvent(PlayerMob player, PlayerData playerData, int activeSkillLevel, int seed, boolean isInUse) {
-        return new BearTrapLevelEvent(player, player.x, player.y, 10 * playerData.getLevel());
+        return new BearTrapLevelEvent(player, player.x, player.y, params[1].value(playerData.getLevel(), activeSkillLevel));
     }
 
     @Override
@@ -52,13 +61,13 @@ public class BearTrap extends SimpleLevelEventActiveSkill {
     }
 
     @Override
-    public int getBaseCooldown() {
-        return 35000;
+    public int getBaseCooldown(PlayerMob player) {
+        return 30000;
     }
 
     @Override
     public int getCooldownModPerLevel() {
-        return -5000;
+        return -3000;
     }
 
     public static class BearTrapLevelEvent extends HitboxEffectEvent implements Attacker {
@@ -127,7 +136,7 @@ public class BearTrap extends SimpleLevelEventActiveSkill {
 
             if (trappedMob) {
                 this.trappedLifeTime += 50;
-                if (this.trappedLifeTime >= 5000) {
+                if (this.trappedLifeTime >= (int) (params[0].value() * 1000)) {
                     this.over();
                     bearTrapParticle.remove();
                 }
@@ -150,7 +159,7 @@ public class BearTrap extends SimpleLevelEventActiveSkill {
 
             if (trappedMob) {
                 this.trappedLifeTime += 50;
-                if (this.trappedLifeTime >= 5000) {
+                if (this.trappedLifeTime >= (int) (params[0].value() * 1000)) {
                     this.over();
                 }
             } else {
@@ -180,7 +189,7 @@ public class BearTrap extends SimpleLevelEventActiveSkill {
         public void serverHit(Mob target, boolean clientSubmitted) {
             if (!trappedMob && ready) {
                 target.isServerHit(damage, target.x - targetX, target.y - targetY, 0, this.owner);
-                target.addBuff(new ActiveBuff(RPGBuffs.TRAPPED, target, 5000, this), true);
+                target.addBuff(new ActiveBuff(RPGBuffs.TRAPPED, target, params[2].value(), this), true);
                 trappedMob = true;
                 target.setPos(targetX, targetY, true);
             }

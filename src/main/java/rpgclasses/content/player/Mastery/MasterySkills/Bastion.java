@@ -6,8 +6,17 @@ import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.mobs.buffs.BuffModifiers;
 import rpgclasses.buffs.Skill.MasteryBuff;
 import rpgclasses.content.player.Mastery.Mastery;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 
 public class Bastion extends Mastery {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(25).setDecimals(2, 0)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
 
     public Bastion(String stringID, String color) {
         super(stringID, color);
@@ -31,7 +40,7 @@ public class Bastion extends Mastery {
 
             private void updateModifiers(ActiveBuff activeBuff) {
                 Mob owner = activeBuff.owner;
-                activeBuff.setModifier(BuffModifiers.RESILIENCE_REGEN_FLAT, 0.25F * (owner.isInCombat() ? (1.0F + owner.getCombatRegen()) : (1.0F + owner.getRegen() + owner.getCombatRegen())));
+                activeBuff.setModifier(BuffModifiers.RESILIENCE_REGEN_FLAT, params[0].value() * (owner.isInCombat() ? (1.0F + owner.getCombatRegen()) : (1.0F + owner.getRegen() + owner.getCombatRegen())));
             }
         };
     }

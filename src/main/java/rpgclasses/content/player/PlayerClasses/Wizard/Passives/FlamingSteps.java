@@ -16,6 +16,7 @@ import necesse.inventory.item.Item;
 import necesse.level.maps.LevelObjectHit;
 import rpgclasses.buffs.IgnitedBuff;
 import rpgclasses.buffs.Skill.PrincipalPassiveBuff;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.content.player.SkillsLogic.Passives.SimpleBuffPassive;
 import rpgclasses.data.PlayerData;
 import rpgclasses.data.PlayerDataList;
@@ -24,6 +25,16 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class FlamingSteps extends SimpleBuffPassive {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(3),
+            SkillParam.damageParam(0.2F)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
     public static ArrayList<String> sprintBuffIDs = new ArrayList<>();
 
     static {
@@ -157,7 +168,7 @@ public class FlamingSteps extends SimpleBuffPassive {
         public void serverHit(Mob target, boolean clientSubmitted) {
             PlayerMob player = (PlayerMob) owner;
             PlayerData playerData = PlayerDataList.getPlayerData(player);
-            IgnitedBuff.apply(owner, target, 0.5F * playerData.getLevel() + 0.5F * playerData.getIntelligence(player) * skillLevel, 3F, false);
+            IgnitedBuff.apply(owner, target, params[1].value(playerData.getLevel(), skillLevel), params[0].value(), false);
         }
 
         @Override

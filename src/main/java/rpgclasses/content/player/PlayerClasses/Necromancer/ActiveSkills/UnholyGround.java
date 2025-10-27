@@ -14,18 +14,31 @@ import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.particle.Particle;
 import necesse.gfx.GameResources;
-import necesse.level.maps.regionSystem.RegionPosition;
 import rpgclasses.buffs.MagicPoisonBuff;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.SimpleLevelEventActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.PlayerData;
 import rpgclasses.registry.RPGBuffs;
 import rpgclasses.utils.RPGUtils;
 
 import java.awt.*;
-import java.util.Collections;
-import java.util.Set;
 
 public class UnholyGround extends SimpleLevelEventActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(10),
+            SkillParam.damageParam(0.8F)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
+    @Override
+    public SkillParam getManaParam() {
+        return SkillParam.manaParam(15);
+    }
+
     public UnholyGround(int levelMax, int requiredClassLevel) {
         super("unholyground", "#6633ff", levelMax, requiredClassLevel);
     }
@@ -41,7 +54,7 @@ public class UnholyGround extends SimpleLevelEventActiveSkill {
     }
 
     @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 60000;
     }
 

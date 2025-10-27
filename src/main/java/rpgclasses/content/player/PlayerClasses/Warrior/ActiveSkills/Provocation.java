@@ -14,6 +14,7 @@ import necesse.entity.particle.Particle;
 import necesse.gfx.GameResources;
 import rpgclasses.buffs.Skill.ActiveSkillBuff;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.SimpleBuffActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.PlayerData;
 import rpgclasses.utils.RPGUtils;
 
@@ -21,6 +22,14 @@ import java.awt.*;
 import java.util.Objects;
 
 public class Provocation extends SimpleBuffActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            new SkillParam("2 x <skilllevel>")
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
 
     public Provocation(int levelMax, int requiredClassLevel) {
         super("provocation", "#ff0000", levelMax, requiredClassLevel);
@@ -28,18 +37,18 @@ public class Provocation extends SimpleBuffActiveSkill {
 
     @Override
     public int getDuration(int activeSkillLevel) {
-        return 1000 * activeSkillLevel;
+        return (int) (params[0].value(activeSkillLevel) * 1000);
     }
 
     @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 15000;
     }
 
     @Override
-    public ActiveBuff getActiveBuff(PlayerMob player, Mob target, PlayerData playerData, int activeSkillLevel) {
-        ActiveBuff ab = super.getActiveBuff(player, target, playerData, activeSkillLevel);
-        ab.getGndData().setString("playerTarget", playerData.playerName);
+    public ActiveBuff getActiveBuff(PlayerMob player, Mob target, int activeSkillLevel) {
+        ActiveBuff ab = super.getActiveBuff(player, target, activeSkillLevel);
+        ab.getGndData().setString("playerTarget", player.playerName);
         return ab;
     }
 
@@ -49,7 +58,7 @@ public class Provocation extends SimpleBuffActiveSkill {
                 .filter(RPGUtils.isValidAttackerFilter(player))
                 .filter(mob -> !mob.isPlayer)
                 .forEach(
-                        target -> super.giveBuff(player, target, playerData, activeSkillLevel)
+                        target -> super.giveBuff(player, target, activeSkillLevel)
                 );
 
     }

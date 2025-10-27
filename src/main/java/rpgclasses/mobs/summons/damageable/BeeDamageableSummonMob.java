@@ -19,6 +19,7 @@ import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
 import rpgclasses.buffs.MagicPoisonBuff;
 import rpgclasses.content.player.PlayerClasses.Druid.ActiveSkills.QueenBeeTransformation;
+import rpgclasses.content.player.SkillsLogic.ComplexExtraToolTip;
 import rpgclasses.data.PlayerData;
 import rpgclasses.mobs.ai.CustomSummonCollisionChaserAI;
 import rpgclasses.registry.RPGBuffs;
@@ -103,12 +104,12 @@ public class BeeDamageableSummonMob extends DamageableFollowingMob {
 
     @Override
     public int getHealthStat(PlayerMob player, PlayerData playerData) {
-        return 1;
+        return ComplexExtraToolTip.get("bee")[0].valuePlayerInt(playerData.getLevel());
     }
 
     @Override
     public float getDamageStat(PlayerMob player, PlayerData playerData) {
-        return (playerData.getLevel() + playerData.getIntelligence(player));
+        return ComplexExtraToolTip.get("bee")[1].valuePlayerInt(playerData.getLevel());
     }
 
     @Override

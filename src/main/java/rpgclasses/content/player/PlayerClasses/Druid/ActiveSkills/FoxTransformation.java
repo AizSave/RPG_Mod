@@ -28,6 +28,7 @@ import necesse.inventory.item.Item;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.SimpleTranformationActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.content.player.SkillsLogic.Skill;
 import rpgclasses.data.PlayerData;
 import rpgclasses.data.PlayerDataList;
@@ -41,6 +42,20 @@ import java.awt.geom.Point2D;
 import java.util.List;
 
 public class FoxTransformation extends SimpleTranformationActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(3),
+            SkillParam.staticParam(50),
+            SkillParam.staticParam(50).setDecimals(2, 0),
+            SkillParam.damageParam(4),
+            SkillParam.staticParam(2),
+            new SkillParam("2 + <skilllevel>").setDecimals(0)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
     public FoxTransformation(int levelMax, int requiredClassLevel) {
         super("foxtransformation", "#ff3300", levelMax, requiredClassLevel);
     }
@@ -51,8 +66,13 @@ public class FoxTransformation extends SimpleTranformationActiveSkill {
     }
 
     @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 4000;
+    }
+
+    @Override
+    public int castingDuration() {
+        return (int) (params[0].value() * 1000);
     }
 
     @Override
@@ -69,7 +89,7 @@ public class FoxTransformation extends SimpleTranformationActiveSkill {
         public FoxMob() {
             super();
 
-            this.setSpeed(50.0F);
+            this.setSpeed(params[1].value());
             this.collision = new Rectangle(-10, -7, 20, 14);
             this.hitBox = new Rectangle(-14, -12, 28, 24);
             this.selectBox = new Rectangle(-18, -24, 36, 36);
@@ -78,7 +98,7 @@ public class FoxTransformation extends SimpleTranformationActiveSkill {
         @Override
         public List<ModifierValue<?>> getRiderModifiers() {
             List<ModifierValue<?>> modifiers = super.getRiderModifiers();
-            modifiers.add(new ModifierValue<>(BuffModifiers.INCOMING_DAMAGE_MOD, 1.5F));
+            modifiers.add(new ModifierValue<>(BuffModifiers.INCOMING_DAMAGE_MOD, 1F + params[2].value()));
             return modifiers;
         }
 
@@ -120,7 +140,7 @@ public class FoxTransformation extends SimpleTranformationActiveSkill {
             this.buffManager.forceUpdateBuffs();
 
             Point2D.Float dir = Skill.getDir(this);
-            int strength = 120;
+            int strength = 150;
             float forceX = dir.x * strength;
             float forceY = dir.y * strength;
 
@@ -145,7 +165,7 @@ public class FoxTransformation extends SimpleTranformationActiveSkill {
         public GameDamage getDamage(PlayerMob player) {
             PlayerData playerData = PlayerDataList.getPlayerData(player);
             int skillLevel = getActualSkillLevel();
-            return new GameDamage(DamageTypeRegistry.MAGIC, playerData.getLevel() + 0.5F * playerData.getIntelligence(player) * skillLevel);
+            return new GameDamage(DamageTypeRegistry.MAGIC, params[3].value(playerData.getLevel(), skillLevel));
         }
 
         @Override
@@ -168,7 +188,7 @@ public class FoxTransformation extends SimpleTranformationActiveSkill {
             super.clickRunServer(level, x, y, player);
 
             Projectile projectile = new MiniFireballProjectile(level, player, player.x, player.y, x, y, 200, 600, getDamage(player), 20);
-            projectile.setModifier(new ResilienceOnHitProjectileModifier(2));
+            projectile.setModifier(new ResilienceOnHitProjectileModifier(params[4].value()));
             projectile.resetUniqueID(new GameRandom(Item.getRandomAttackSeed(GameRandom.globalRandom)));
 
             this.getLevel().entityManager.projectiles.addHidden(projectile);
@@ -187,7 +207,7 @@ public class FoxTransformation extends SimpleTranformationActiveSkill {
             super.secondaryClickRunServer(level, x, y, player);
             DancingFlameMob mob = (DancingFlameMob) MobRegistry.getMob("dancingflame", player.getLevel());
             int skillLevel = getActualSkillLevel();
-            player.serverFollowersManager.addFollower(getStringID() + "follower", mob, FollowPosition.FLYING_CIRCLE_FAST, null, 1, 2 + skillLevel, null, true);
+            player.serverFollowersManager.addFollower(getStringID() + "follower", mob, FollowPosition.FLYING_CIRCLE_FAST, null, 1, params[5].valueInt(skillLevel), null, true);
             mob.updateDamage(getDamage(player));
             mob.getLevel().entityManager.addMob(mob, player.x, player.y);
         }

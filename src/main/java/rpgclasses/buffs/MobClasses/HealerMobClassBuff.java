@@ -53,7 +53,7 @@ public class HealerMobClassBuff extends MobClassBuff {
             if ((now - lastArea) > cooldown) {
                 int range = 300;
 
-                if(owner.getHealthPercent() < 1 || RPGUtils.streamMobs(owner, range).anyMatch(
+                if (owner.getHealthPercent() < 1 || RPGUtils.streamMobs(owner, range).anyMatch(
                         t -> AphMagicHealing.canHealMob(owner, t) && t.getHealthPercent() < 1
                 )) {
                     int heal = mobData.levelScaling() * 5;

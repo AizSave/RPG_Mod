@@ -9,11 +9,21 @@ import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.particle.Particle;
 import necesse.gfx.GameResources;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.ActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.PlayerData;
 
 import java.awt.geom.Point2D;
 
 public class ShortDash extends ActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(15).setDecimals(2, 0)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
     public ShortDash(int levelMax, int requiredClassLevel) {
         super("shortdash", "#ffcc99", levelMax, requiredClassLevel);
     }
@@ -52,7 +62,7 @@ public class ShortDash extends ActiveSkill {
     }
 
     @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 3000;
     }
 
@@ -63,6 +73,6 @@ public class ShortDash extends ActiveSkill {
 
     @Override
     public float consumedStamina(PlayerMob player) {
-        return 0.15F;
+        return params[0].value();
     }
 }

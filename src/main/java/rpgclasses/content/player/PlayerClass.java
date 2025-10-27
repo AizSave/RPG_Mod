@@ -33,7 +33,6 @@ public class PlayerClass {
         registerClass(new ClericPlayerClass());
         registerClass(new UpcomingPlayerClass("rogue", "#8B0000"));
         registerClass(new UpcomingPlayerClass("warlock", "#B22222"));
-        registerClass(new UpcomingPlayerClass("paladin", "#F1C40F"));
         registerClass(new DruidPlayerClass());
     }
 

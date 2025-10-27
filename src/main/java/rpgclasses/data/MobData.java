@@ -35,13 +35,13 @@ public class MobData {
     public static String levelDataName = prefixDataName + "level";
     public static String classDataName = prefixDataName + "class";
 
-    public static List<String> bossNoEXPMobs = new ArrayList<>();
+    public static List<String> mobsForcedBossClass = new ArrayList<>();
 
     public static List<String> undeadMobs = new ArrayList<>();
     public static List<String> demonicMobs = new ArrayList<>();
 
     static {
-        bossNoEXPMobs.addAll(
+        mobsForcedBossClass.addAll(
                 Arrays.stream(new String[]{
                         // Evil's Protector
                         "evilsportal",
@@ -51,7 +51,11 @@ public class MobData {
                         "reaperspirit",
 
                         // Sunlight Champion
-                        "sunlightgauntlet"
+                        "sunlightgauntlet",
+
+                        // The Void
+                        "thevoidhorn",
+                        "thevoidclaw"
                 }).collect(Collectors.toList())
         );
 
@@ -92,6 +96,7 @@ public class MobData {
                         "ancientskeletonraider",
                         "reaper",
                         "reaperspirit",
+                        "reaperspiritportal",
                         "incursioncrawlingzombie",
 
                         // RPG Mod
@@ -112,6 +117,10 @@ public class MobData {
                         "voidwizardclone",
                         "voidadept",
                         "thecursedcrone",
+                        "thevoid",
+                        "thevoidhorn",
+                        "thevoidclaw",
+                        "voidapprenticeraider",
 
                         // AphoreaMod
                         "fallenwizard"
@@ -140,7 +149,7 @@ public class MobData {
     }
 
     public static boolean isBossClass(Mob mob) {
-        return mob.isBoss() || bossNoEXPMobs.contains(mob.getStringID());
+        return mob.isBoss() || mobsForcedBossClass.contains(mob.getStringID()) || (mob.getLevel() != null && mob.getLevel().entityManager.mobs.stream().anyMatch(m -> m.isBoss() && m.getDistance(mob) <= 1024));
     }
 
     public static boolean shouldInitMob(Mob mob) {

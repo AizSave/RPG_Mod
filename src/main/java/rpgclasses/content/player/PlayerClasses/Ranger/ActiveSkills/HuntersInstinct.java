@@ -11,10 +11,21 @@ import rpgclasses.buffs.Interfaces.DodgeClassBuff;
 import rpgclasses.buffs.MarkedBuff;
 import rpgclasses.buffs.Skill.ActiveSkillBuff;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.SimpleBuffActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.registry.RPGModifiers;
 import rpgclasses.utils.RPGColors;
 
 public class HuntersInstinct extends SimpleBuffActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(12),
+            new SkillParam("5 x <skilllevel>").setDecimals(2, 0),
+            SkillParam.staticParam(5)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
 
     public HuntersInstinct(int levelMax, int requiredClassLevel) {
         super("huntersinstinct", "#ff0000", levelMax, requiredClassLevel);
@@ -27,11 +38,11 @@ public class HuntersInstinct extends SimpleBuffActiveSkill {
 
     @Override
     public int getDuration(int activeSkillLevel) {
-        return 12000;
+        return (int) (params[0].value() * 1000);
     }
 
     @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 26000;
     }
 
@@ -45,7 +56,7 @@ public class HuntersInstinct extends SimpleBuffActiveSkill {
         @Override
         public void init(ActiveBuff activeBuff, BuffEventSubscriber buffEventSubscriber) {
             int level = getLevel(activeBuff);
-            activeBuff.setModifier(RPGModifiers.DODGE_CHANCE, level * 0.1F);
+            activeBuff.setModifier(RPGModifiers.DODGE_CHANCE, params[1].value(getLevel(activeBuff)));
         }
 
         @Override
@@ -60,7 +71,7 @@ public class HuntersInstinct extends SimpleBuffActiveSkill {
         public void onDodge(ActiveBuff activeBuff, MobBeforeHitEvent event) {
             Mob attacker = event.attacker.getFirstAttackOwner();
             if (attacker != null) {
-                MarkedBuff.markMob(((PlayerMob) activeBuff.owner), attacker, 5000);
+                MarkedBuff.markMob(((PlayerMob) activeBuff.owner), attacker, params[2].value());
             }
         }
     }

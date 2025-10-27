@@ -8,8 +8,19 @@ import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.mobs.buffs.BuffModifiers;
 import rpgclasses.buffs.Skill.MasteryBuff;
 import rpgclasses.content.player.Mastery.Mastery;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 
 public class BloodBorn extends Mastery {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(1).setDecimals(2, 0),
+            SkillParam.staticParam(20),
+            SkillParam.staticParam(2).setDecimals(2, 0)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
 
     public BloodBorn(String stringID, String color) {
         super(stringID, color);
@@ -28,18 +39,22 @@ public class BloodBorn extends Mastery {
             @Override
             public void serverTick(ActiveBuff activeBuff) {
                 super.serverTick(activeBuff);
+
+                int trueDamage;
                 if (activeBuff.owner.getHealth() > 1) {
-                    float damage = Math.min(activeBuff.owner.getMaxHealth() * 0.05F * 0.05F, activeBuff.owner.getHealth() - 1) + activeBuff.getGndData().getFloat("damageDot");
-                    int trueDamage = (int) damage;
+                    float damage = Math.min(activeBuff.owner.getMaxHealth() * params[2].value() * 0.05F, activeBuff.owner.getHealth() - 1) + activeBuff.getGndData().getFloat("damageDot");
+                    trueDamage = (int) damage;
 
                     activeBuff.getGndData().setFloat("damageDot", damage - trueDamage);
-
-                    trueDamage -= activeBuff.getGndData().getInt("healthApply");
-                    activeBuff.getGndData().setInt("healthApply", 0);
-
-                    if (trueDamage != 0)
-                        activeBuff.owner.getLevel().entityManager.events.add(new MobHealthChangeEvent(activeBuff.owner, -trueDamage));
+                } else {
+                    trueDamage = 0;
                 }
+
+                trueDamage -= activeBuff.getGndData().getInt("healthApply");
+                activeBuff.getGndData().setInt("healthApply", 0);
+
+                if (trueDamage != 0)
+                    activeBuff.owner.getLevel().entityManager.events.add(new MobHealthChangeEvent(activeBuff.owner, -trueDamage));
 
             }
 
@@ -47,7 +62,7 @@ public class BloodBorn extends Mastery {
             public void onHasAttacked(ActiveBuff activeBuff, MobWasHitEvent event) {
                 super.onHasAttacked(activeBuff, event);
                 if (activeBuff.owner.isServer() && !event.wasPrevented && event.target.isHostile) {
-                    float healing = event.damage * 0.05F + activeBuff.getGndData().getFloat("healthDot");
+                    float healing = event.damage * params[0].value() * (activeBuff.owner.getMaxHealth() / params[1].value()) + activeBuff.getGndData().getFloat("healthDot");
                     int trueHealing = (int) healing;
 
                     activeBuff.getGndData().setFloat("healthDot", healing - trueHealing);

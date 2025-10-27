@@ -20,6 +20,7 @@ import necesse.gfx.GameResources;
 import necesse.gfx.gameFont.FontManager;
 import necesse.level.maps.Level;
 import rpgclasses.buffs.Skill.PrincipalPassiveBuff;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.content.player.SkillsLogic.Passives.SimpleBuffPassive;
 import rpgclasses.data.EquippedActiveSkill;
 import rpgclasses.packets.PacketMobResetBuffTime;
@@ -28,6 +29,17 @@ import rpgclasses.utils.RPGColors;
 import rpgclasses.utils.RPGUtils;
 
 public class Stormbound extends SimpleBuffPassive {
+    public static SkillParam[] params = new SkillParam[]{
+            new SkillParam("11 - 0.5 x <skilllevel>"),
+            SkillParam.damageParam(1),
+            SkillParam.staticParam(1)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
     public Stormbound(int levelMax, int requiredClassLevel) {
         super("stormbound", RPGColors.HEX.lighting, levelMax, requiredClassLevel);
     }
@@ -41,7 +53,7 @@ public class Stormbound extends SimpleBuffPassive {
                 int time = activeBuff.getGndData().getInt("time", 0);
                 time += 50;
 
-                if (time > (11000 - 500 * getLevel(activeBuff))) {
+                if (time > (int) (params[0].value(getLevel(activeBuff)) * 1000)) {
                     time = 0;
 
                     Mob target = RPGUtils.getRandomTarget(activeBuff.owner, 500);
@@ -49,9 +61,9 @@ public class Stormbound extends SimpleBuffPassive {
                     PlayerMob player = (PlayerMob) activeBuff.owner;
 
                     if (target != null) {
-                        target.isServerHit(new GameDamage(DamageTypeRegistry.MAGIC, 0.5F * getPlayerLevel(player) + 0.5F * getIntelligence(player) * getLevel(activeBuff)), player.x, player.y, 0, player);
+                        target.isServerHit(new GameDamage(DamageTypeRegistry.MAGIC, params[1].value(getPlayerLevel(player), getLevel(activeBuff))), player.x, player.y, 0, player);
 
-                        RPGBuffs.applyStun(target, 1F);
+                        RPGBuffs.applyStun(target, params[2].value());
 
                         player.getServer().network.sendToClientsAtEntireLevel(new LightningPacket(target.getX(), target.getY()), player.getLevel());
                     }
@@ -74,7 +86,7 @@ public class Stormbound extends SimpleBuffPassive {
             public void drawIcon(int x, int y, ActiveBuff activeBuff) {
                 super.drawIcon(x, y, activeBuff);
                 int time = activeBuff.getGndData().getInt("time", 0) - 50;
-                String text = EquippedActiveSkill.getTimeLeftString((11000 - 500 * getLevel(activeBuff)) - time);
+                String text = EquippedActiveSkill.getTimeLeftString((int) (params[0].value(getLevel(activeBuff)) * 1000) - time);
                 int width = FontManager.bit.getWidthCeil(text, durationFontOptions);
                 FontManager.bit.drawString((float) (x + 28 - width), (float) (y + 30 - FontManager.bit.getHeightCeil(text, durationFontOptions)), text, durationFontOptions);
             }

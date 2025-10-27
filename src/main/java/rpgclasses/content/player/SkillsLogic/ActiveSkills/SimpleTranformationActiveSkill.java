@@ -40,16 +40,16 @@ abstract public class SimpleTranformationActiveSkill extends ActiveSkill {
             }
             for (EquippedActiveSkill equippedActiveSkill : playerData.equippedActiveSkills) {
                 if (equippedActiveSkill.getActiveSkill() != this && equippedActiveSkill.isInUse())
-                    equippedActiveSkill.startCooldown(playerData, player.getTime(), activeSkillLevel);
+                    equippedActiveSkill.startCooldown(player, playerData, player.getTime(), activeSkillLevel);
             }
         }
     }
 
     @Override
-    public String canActive(PlayerMob player, PlayerData playerData, boolean isInUSe) {
+    public String canActive(PlayerMob player, PlayerData playerData, int activeSkillLevel, boolean isInUSe) {
         if (player.isRiding() && !isInUSe && !(playerData.getInUseActiveSkill() instanceof SimpleTranformationActiveSkill))
             return "canotusemounted";
-        return super.canActive(player, playerData, isInUSe);
+        return super.canActive(player, playerData, activeSkillLevel, isInUSe);
     }
 
     @Override
@@ -63,7 +63,7 @@ abstract public class SimpleTranformationActiveSkill extends ActiveSkill {
             }
             for (EquippedActiveSkill equippedActiveSkill : playerData.equippedActiveSkills) {
                 if (equippedActiveSkill.getActiveSkill() != this && equippedActiveSkill.isInUse())
-                    equippedActiveSkill.startCooldown(playerData, player.getTime(), activeSkillLevel);
+                    equippedActiveSkill.startCooldown(player, playerData, player.getTime(), activeSkillLevel);
             }
         }
     }

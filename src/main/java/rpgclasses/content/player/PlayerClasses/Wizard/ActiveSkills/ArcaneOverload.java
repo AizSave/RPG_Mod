@@ -10,19 +10,39 @@ import necesse.entity.particle.Particle;
 import rpgclasses.buffs.Skill.PassiveActiveSkillBuff;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.ActiveSkill;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.SimplePassiveBuffActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.EquippedActiveSkill;
 import rpgclasses.data.PlayerData;
 import rpgclasses.data.PlayerDataList;
 
 public class ArcaneOverload extends SimplePassiveBuffActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            new SkillParam("30 x <skilllevel>").setDecimals(2, 0),
+            SkillParam.staticParam(50).setDecimals(2, 0)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
+    @Override
+    public SkillParam getManaParam() {
+        return SkillParam.manaParam(10);
+    }
 
     public ArcaneOverload(int levelMax, int requiredClassLevel) {
         super("arcaneoverload", "#6633ff", levelMax, requiredClassLevel);
     }
 
     @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 6000;
+    }
+
+    @Override
+    public boolean consumesManaPerSecond() {
+        return true;
     }
 
     @Override
@@ -43,9 +63,8 @@ public class ArcaneOverload extends SimplePassiveBuffActiveSkill {
         public void init(ActiveBuff activeBuff, BuffEventSubscriber buffEventSubscriber) {
             super.init(activeBuff, buffEventSubscriber);
             int level = getLevel(activeBuff);
-            activeBuff.setModifier(BuffModifiers.MAGIC_ATTACK_SPEED, level * 0.3F);
-            new ModifierValue<>(BuffModifiers.SLOW, 1.0F).min(1F).apply(activeBuff);
-            new ModifierValue<>(BuffModifiers.SPEED, -1.0F).max(-1F).apply(activeBuff);
+            activeBuff.setModifier(BuffModifiers.MAGIC_ATTACK_SPEED, params[0].value(level));
+            new ModifierValue<>(BuffModifiers.SPEED).max(params[1].value()).apply(activeBuff);
         }
 
         @Override
@@ -63,7 +82,7 @@ public class ArcaneOverload extends SimplePassiveBuffActiveSkill {
             PlayerMob player = (PlayerMob) activeBuff.owner;
 
             int level = getLevel(activeBuff);
-            float manaUsage = (10 + 2 * level) / 20F;
+            float manaUsage = getManaParam().value(level) / 20F;
 
             player.useMana(manaUsage, player.isServer() ? player.getServerClient() : null);
 
@@ -73,7 +92,7 @@ public class ArcaneOverload extends SimplePassiveBuffActiveSkill {
                 PlayerData playerData = PlayerDataList.getPlayerData(player);
                 for (EquippedActiveSkill equippedActiveSkill : playerData.equippedActiveSkills) {
                     if (equippedActiveSkill.isSameSkill(skill)) {
-                        equippedActiveSkill.startCooldown(playerData, player.getTime(), level);
+                        equippedActiveSkill.startCooldown(player, playerData, player.getTime(), level);
                     }
                 }
             }

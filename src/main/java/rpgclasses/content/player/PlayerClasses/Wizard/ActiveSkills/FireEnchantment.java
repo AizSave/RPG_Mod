@@ -15,10 +15,26 @@ import necesse.gfx.GameResources;
 import rpgclasses.buffs.IgnitedBuff;
 import rpgclasses.buffs.Skill.ActiveSkillBuff;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.CastBuffActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.PlayerData;
 import rpgclasses.utils.RPGUtils;
 
 public class FireEnchantment extends CastBuffActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(10),
+            new SkillParam("5 + <skilllevel>"),
+            SkillParam.staticParam(5)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
+    @Override
+    public SkillParam getManaParam() {
+        return SkillParam.manaParam(20);
+    }
 
     public FireEnchantment(int levelMax, int requiredClassLevel) {
         super("fireenchantment", "#ff3300", levelMax, requiredClassLevel);
@@ -33,13 +49,13 @@ public class FireEnchantment extends CastBuffActiveSkill {
     public void castedRunServer(PlayerMob player, PlayerData playerData, int activeSkillLevel, int seed) {
         GameUtils.streamServerClients(player.getLevel()).forEach(targetPlayer -> {
             if (targetPlayer.isSameTeam(player.getTeam()))
-                super.giveBuff(player, targetPlayer.playerMob, playerData, activeSkillLevel);
+                super.giveBuff(player, targetPlayer.playerMob, activeSkillLevel);
         });
 
         RPGUtils.streamMobsAndPlayers(player, 200)
                 .filter(m -> m == player || m.isSameTeam(player))
                 .forEach(
-                        target -> super.giveBuff(player, target, playerData, activeSkillLevel)
+                        target -> super.giveBuff(player, target, activeSkillLevel)
                 );
     }
 
@@ -69,7 +85,7 @@ public class FireEnchantment extends CastBuffActiveSkill {
             public void onHasAttacked(ActiveBuff activeBuff, MobWasHitEvent event) {
                 super.onHasAttacked(activeBuff, event);
                 if (event.damage > 0 && !event.wasPrevented) {
-                    IgnitedBuff.apply(activeBuff.owner, event.target, event.damage * 0.05F * getLevel(activeBuff), 5F, false);
+                    IgnitedBuff.apply(activeBuff.owner, event.target, event.damage * params[1].value(getLevel(activeBuff)), params[2].value(), false);
                 }
             }
         };
@@ -77,22 +93,11 @@ public class FireEnchantment extends CastBuffActiveSkill {
 
     @Override
     public int getDuration(int activeSkillLevel) {
-        return 10000;
+        return (int) (params[0].value() * 1000);
     }
 
     @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 30000;
     }
-
-    @Override
-    public float manaUsage(PlayerMob player, int activeSkillLevel) {
-        return 20 + activeSkillLevel * 4;
-    }
-
-    @Override
-    public String[] getExtraTooltips() {
-        return new String[]{"manausage"};
-    }
-
 }

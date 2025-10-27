@@ -77,7 +77,15 @@ public class RPGUtils {
         return streamDeathPlayers(level.getServer(), maxTime, level.getIdentifier(), filter);
     }
 
+    public static Stream<? extends ServerClient> streamDeathPlayers(Level level, float maxTime, Predicate<ServerClient> filter) {
+        return streamDeathPlayers(level, (int) (maxTime * 1000), filter);
+    }
+
     // GET LAST DEATH PLAYER
+    public static ServerClient lastDeathPlayer(Level level, float maxTime, Predicate<ServerClient> filter) {
+        return lastDeathPlayer(level, (int) (maxTime * 1000), filter);
+    }
+
     public static ServerClient lastDeathPlayer(Level level, int maxTime, Predicate<ServerClient> filter) {
         ServerClient[] bestHolder = new ServerClient[]{null};
         long[] bestTime = {0};
@@ -120,8 +128,8 @@ public class RPGUtils {
                     return false;
                 }
             }
-        } else if(attacker.isHostile) {
-            if(!target.isPlayer && !target.isHuman) return false;
+        } else if (attacker.isHostile) {
+            if (!target.isPlayer && !target.isHuman) return false;
         }
         return target.canBeTargeted(attacker, client);
     }

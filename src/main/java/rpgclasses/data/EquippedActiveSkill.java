@@ -18,6 +18,7 @@ import necesse.level.maps.hudManager.floatText.UniqueFloatText;
 import org.jetbrains.annotations.NotNull;
 import rpgclasses.RPGResources;
 import rpgclasses.content.player.Mastery.Mastery;
+import rpgclasses.content.player.Mastery.MasterySkills.Chronomancer;
 import rpgclasses.content.player.PlayerClass;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.ActiveSkill;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.SimplePassiveBuffActiveSkill;
@@ -251,19 +252,19 @@ public class EquippedActiveSkill {
         this.activeSkill = activeSkill;
     }
 
-    public void startCooldown(PlayerData playerData, long currentTime, int skillLevel) {
-        this.startCooldown(playerData, currentTime, skillLevel, 0);
+    public void startCooldown(PlayerMob player, PlayerData playerData, long currentTime, int skillLevel) {
+        this.startCooldown(player, playerData, currentTime, skillLevel, 0);
     }
 
-    public void startCooldown(PlayerData playerData, long currentTime, int skillLevel, int addedCooldown) {
-        this.startCustomCooldown(playerData, currentTime, activeSkill.getCooldown(skillLevel) + addedCooldown);
+    public void startCooldown(PlayerMob player, PlayerData playerData, long currentTime, int skillLevel, int addedCooldown) {
+        this.startCustomCooldown(playerData, currentTime, activeSkill.getCooldown(player, skillLevel) + addedCooldown);
     }
 
     public void startCustomCooldown(PlayerData playerData, long currentTime, int cooldown) {
         this.lastUse = currentTime;
         float mod = 1;
         if (playerData != null) {
-            if (playerData.hasMasterySkill(Mastery.CHRONOMANCER)) mod -= 0.2F;
+            if (playerData.hasMasterySkill(Mastery.CHRONOMANCER)) mod -= Chronomancer.params[0].value();
         }
         this.cooldown = (int) (cooldown * mod);
     }
@@ -362,6 +363,6 @@ public class EquippedActiveSkill {
             if (cooldownLeft > 0) return "incooldown";
         }
 
-        return activeSkill.canActive(player, playerData, isInUse);
+        return activeSkill.canActive(player, playerData, activeSkillLevel, isInUse);
     }
 }

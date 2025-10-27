@@ -11,6 +11,7 @@ import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.StaminaBuff;
 import necesse.gfx.gameTexture.GameTexture;
 import rpgclasses.content.player.PlayerClass;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.content.player.SkillsLogic.Skill;
 import rpgclasses.data.EquippedActiveSkill;
 import rpgclasses.data.PlayerData;
@@ -48,36 +49,29 @@ abstract public class ActiveSkill extends Skill {
     }
 
     @Override
-    public List<String> getToolTipsText() {
+    public List<String> getToolTipsText(PlayerMob player) {
         List<String> tooltips = new ArrayList<>();
         tooltips.add("§" + color + Localization.translate("activeskills", stringID));
         tooltips.add(" ");
         tooltips.add(Localization.translate("activeskillsdesc", stringID));
 
+        addManaToolTip(tooltips);
+
         addInfoTooltips(tooltips);
 
         tooltips.add(" ");
-        float rawCooldown = getBaseCooldown();
-        float seconds = rawCooldown / 1000f;
-        String formattedCooldown = (seconds == (int) seconds)
-                ? Integer.toString((int) seconds)
-                : String.format("%.2f", seconds);
 
         int modCooldown = getCooldownModPerLevel();
         if (modCooldown == 0) {
+            float cooldown = getBaseCooldown(player);
+            float seconds = cooldown / 1000;
+            String formattedCooldown = (seconds == (int) seconds)
+                    ? Integer.toString((int) seconds)
+                    : String.format("%.2f", seconds);
+
             tooltips.add(Localization.translate("ui", "activeskillcooldown", "seconds", formattedCooldown));
         } else {
-            float modSeconds = Math.abs(modCooldown / 1000f);
-            String formattedModCooldown = (modSeconds == (int) modSeconds)
-                    ? Integer.toString((int) modSeconds)
-                    : String.format("%.2f", modSeconds);
-
-            tooltips.add(Localization.translate(
-                    "ui", "activeskillcooldownmod",
-                    "seconds", formattedCooldown,
-                    "sign", modCooldown > 0 ? "+" : "-",
-                    "mod", formattedModCooldown
-            ));
+            tooltips.add(Localization.translate("ui", "activeskillcooldownmod"));
         }
 
         if (requiredClassLevel > 1 || !requiredSkills.isEmpty()) {
@@ -91,11 +85,67 @@ abstract public class ActiveSkill extends Skill {
             }
         }
 
-
         tooltips.add(" ");
         tooltips.add(Localization.translate("ui", "maxlevel", "level", levelMax));
 
         return tooltips;
+    }
+
+    @Override
+    public String baseToolTipsReplaces(PlayerMob player, String string) {
+        float cooldown = getBaseCooldown(player);
+        int modCooldown = getCooldownModPerLevel();
+
+        float seconds = cooldown / 1000;
+        String formattedCooldown = (seconds == (int) seconds)
+                ? Integer.toString((int) seconds)
+                : String.format("%.2f", seconds);
+
+        float modSeconds = Math.abs(modCooldown / 1000);
+        String formattedModCooldown = (modSeconds == (int) modSeconds)
+                ? Integer.toString((int) modSeconds)
+                : String.format("%.2f", modSeconds);
+
+        string = string.replaceAll("\\[\\[cooldown]]", formattedCooldown + " " + (modCooldown > 0 ? "+" : "-") + " " + formattedModCooldown + " <skilllevel>");
+
+        SkillParam manaParam = getManaParam();
+        if (manaParam != null) {
+            string = string.replaceAll("\\[\\[mana]]", manaParam.baseParamValue());
+        }
+
+        return string;
+    }
+
+    @Override
+    public String finalToolTipsReplaces(PlayerMob player, String string, PlayerData playerData, int skillLevel) {
+        float cooldown = getBaseCooldown(player);
+        int modCooldown = getCooldownModPerLevel();
+
+        float seconds = (cooldown + modCooldown * skillLevel) / 1000;
+        String formattedCooldown = (seconds == (int) seconds)
+                ? Integer.toString((int) seconds)
+                : String.format("%.2f", seconds);
+
+        string = string.replaceAll("\\[\\[cooldown]]", formattedCooldown);
+
+        SkillParam manaParam = getManaParam();
+        if (manaParam != null) {
+            string = string.replaceAll("\\[\\[mana]]", manaParam.paramValue(playerData.getLevel(), skillLevel));
+        }
+
+        return string;
+    }
+
+    public void addManaToolTip(List<String> tooltips) {
+        SkillParam manaParam = getManaParam();
+        if (manaParam != null) {
+            tooltips.add(" ");
+            if (consumesManaPerSecond()) {
+                tooltips.add(Localization.translate("ui", "consumesmanapersecond"));
+            } else {
+                tooltips.add(Localization.translate("ui", "consumesmana"));
+            }
+        }
     }
 
     public void addInfoTooltips(List<String> tooltips) {
@@ -109,20 +159,20 @@ abstract public class ActiveSkill extends Skill {
     public void run(PlayerMob player, PlayerData playerData, int activeSkillLevel, int seed, boolean isInUSe) {
         boolean enoughMana = true;
 
-        if(!isInUSe) {
+        if (!isInUSe) {
             float consumedStamina = consumedStamina(player);
             if (consumedStamina > 0) {
                 StaminaBuff.useStaminaAndGetValid(player, consumedStamina);
             }
 
-            float manaUsage = manaUsage(player, activeSkillLevel);
+            float manaUsage = manaUsage(activeSkillLevel);
             if (manaUsage > 0) {
                 if (manaUsage > player.getMana()) enoughMana = false;
                 player.useMana(manaUsage, player.isServer() ? player.getServerClient() : null);
             }
         }
 
-        int addedCooldown = enoughMana ? 0 : getCooldown(activeSkillLevel);
+        int addedCooldown = enoughMana ? 0 : getCooldown(player, activeSkillLevel);
 
         long useTime = player.getTime();
         for (EquippedActiveSkill equippedActiveSkill : playerData.equippedActiveSkills) {
@@ -130,7 +180,7 @@ abstract public class ActiveSkill extends Skill {
                 if (equippedActiveSkill.getActiveSkill().isInUseSkill() && !equippedActiveSkill.isInUse()) {
                     equippedActiveSkill.setInUse();
                 } else {
-                    equippedActiveSkill.startCooldown(playerData, useTime, activeSkillLevel, addedCooldown);
+                    equippedActiveSkill.startCooldown(player, playerData, useTime, activeSkillLevel, addedCooldown);
                 }
             }
         }
@@ -145,8 +195,8 @@ abstract public class ActiveSkill extends Skill {
     }
 
 
-    public String canActive(PlayerMob player, PlayerData playerData, boolean isInUSe) {
-        if(!isInUSe) {
+    public String canActive(PlayerMob player, PlayerData playerData, int activeSkillLevel, boolean isInUSe) {
+        if (!isInUSe) {
             float consumedStamina = consumedStamina(player);
             if (consumedStamina > 0 && (getStamina(player) < consumedStamina)) {
                 return "notenoughstamina";
@@ -155,10 +205,10 @@ abstract public class ActiveSkill extends Skill {
         return null;
     }
 
-    abstract public int getBaseCooldown();
+    abstract public int getBaseCooldown(PlayerMob player);
 
-    public int getCooldown(int activeSkillLevel) {
-        return getBaseCooldown() + activeSkillLevel * getCooldownModPerLevel();
+    public int getCooldown(PlayerMob player, int activeSkillLevel) {
+        return getBaseCooldown(player) + activeSkillLevel * getCooldownModPerLevel();
     }
 
     public int getCooldownModPerLevel() {
@@ -200,10 +250,6 @@ abstract public class ActiveSkill extends Skill {
         return consumedStaminaBase() * staminaUSage;
     }
 
-    public float manaUsage(PlayerMob player, int activeSkillLevel) {
-        return 0;
-    }
-
     public boolean isInUseSkill() {
         return false;
     }
@@ -239,5 +285,27 @@ abstract public class ActiveSkill extends Skill {
 
     public int getLevel(PlayerData playerData) {
         return playerData.getClassesData()[playerClass.id].getActiveSkillLevels()[id];
+    }
+
+    public SkillParam getManaParam() {
+        return null;
+    }
+
+    public boolean consumesManaPerSecond() {
+        return false;
+    }
+
+    @Override
+    public boolean addManaUsageExtraToolTip() {
+        return getManaParam() != null && !consumesManaPerSecond();
+    }
+
+    public float manaUsage(int activeSkillLevel) {
+        SkillParam manaParam = getManaParam();
+        if (manaParam == null || consumesManaPerSecond()) {
+            return 0;
+        } else {
+            return manaParam.value(activeSkillLevel);
+        }
     }
 }

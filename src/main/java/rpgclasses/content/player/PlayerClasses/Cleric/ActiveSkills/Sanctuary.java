@@ -13,27 +13,42 @@ import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.mobs.buffs.BuffModifiers;
+import necesse.entity.mobs.buffs.staticBuffs.Buff;
 import necesse.entity.particle.Particle;
-import necesse.level.maps.regionSystem.RegionPosition;
 import rpgclasses.buffs.Skill.ActiveSkillBuff;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.SimpleLevelEventActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.MobData;
 import rpgclasses.data.PlayerData;
 import rpgclasses.registry.RPGBuffs;
 import rpgclasses.utils.RPGUtils;
 
 import java.awt.*;
-import java.util.Collections;
-import java.util.Set;
 
 public class Sanctuary extends SimpleLevelEventActiveSkill {
+    public static Buff sanctuaryBuff;
+
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.healingParam(0.2F).setDecimals(2)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
+    @Override
+    public SkillParam getManaParam() {
+        return SkillParam.manaParam(30, false);
+    }
+
     public Sanctuary(int levelMax, int requiredClassLevel) {
         super("sanctuary", "#ffff22", levelMax, requiredClassLevel);
     }
 
     @Override
     public LevelEvent getLevelEvent(PlayerMob player, PlayerData playerData, int activeSkillLevel, int seed, boolean isInUse) {
-        return new SanctuaryLevelEvent(player, player.getX(), player.getY(), 0.2F * playerData.getGrace(player) * activeSkillLevel, getBuffStringID());
+        return new SanctuaryLevelEvent(player, player.getX(), player.getY(), 8F);
     }
 
     @Override
@@ -42,18 +57,24 @@ public class Sanctuary extends SimpleLevelEventActiveSkill {
     }
 
     @Override
-    public int getBaseCooldown() {
-        return 30000;
+    public int getBaseCooldown(PlayerMob player) {
+        return 40000;
     }
 
     @Override
-    public float manaUsage(PlayerMob player, int activeSkillLevel) {
-        return 30 + activeSkillLevel * 6;
+    public int getCooldownModPerLevel() {
+        return -2000;
     }
 
     @Override
-    public String[] getExtraTooltips() {
-        return new String[]{"manausage"};
+    public void registry() {
+        super.registry();
+        sanctuaryBuff = BuffRegistry.registerBuff(getBuffStringID(), new ActiveSkillBuff() {
+            @Override
+            public void init(ActiveBuff activeBuff, BuffEventSubscriber buffEventSubscriber) {
+                activeBuff.setModifier(BuffModifiers.COMBAT_HEALTH_REGEN_FLAT, activeBuff.getGndData().getFloat("healthRegen"));
+            }
+        });
     }
 
     public static class SanctuaryLevelEvent extends MobAbilityLevelEvent implements Attacker {
@@ -63,17 +84,15 @@ public class Sanctuary extends SimpleLevelEventActiveSkill {
         public int targetX;
         public int targetY;
         public float healthRegen;
-        public String buffStringID;
 
         public SanctuaryLevelEvent() {
         }
 
-        public SanctuaryLevelEvent(Mob owner, int targetX, int targetY, float healthRegen, String buffStringID) {
+        public SanctuaryLevelEvent(Mob owner, int targetX, int targetY, float healthRegen) {
             super(owner, new GameRandom());
             this.targetX = targetX;
             this.targetY = targetY;
             this.healthRegen = healthRegen;
-            this.buffStringID = buffStringID;
         }
 
         @Override
@@ -85,7 +104,6 @@ public class Sanctuary extends SimpleLevelEventActiveSkill {
             writer.putNextInt(this.targetX);
             writer.putNextInt(this.targetY);
             writer.putNextFloat(this.healthRegen);
-            writer.putNextString(this.buffStringID);
         }
 
         @Override
@@ -97,7 +115,6 @@ public class Sanctuary extends SimpleLevelEventActiveSkill {
             this.targetX = reader.getNextInt();
             this.targetY = reader.getNextInt();
             this.healthRegen = reader.getNextFloat();
-            this.buffStringID = reader.getNextString();
         }
 
         @Override
@@ -135,7 +152,7 @@ public class Sanctuary extends SimpleLevelEventActiveSkill {
                                     mob -> {
                                         if (mob == owner || mob.isSameTeam(owner)) {
                                             RPGBuffs.purify(mob, true);
-                                            ActiveBuff ab = new ActiveBuff(buffStringID, mob, 100, null);
+                                            ActiveBuff ab = new ActiveBuff(sanctuaryBuff.getStringID(), mob, 100, null);
                                             ab.getGndData().setFloat("healthRegen", healthRegen);
                                             mob.buffManager.addBuff(ab, true);
                                         } else if (MobData.isWeakToHoly(mob, owner)) {
@@ -164,17 +181,6 @@ public class Sanctuary extends SimpleLevelEventActiveSkill {
                 }
             }
         }
-    }
-
-    @Override
-    public void registry() {
-        super.registry();
-        BuffRegistry.registerBuff(getBuffStringID(), new ActiveSkillBuff() {
-            @Override
-            public void init(ActiveBuff activeBuff, BuffEventSubscriber buffEventSubscriber) {
-                activeBuff.setModifier(BuffModifiers.COMBAT_HEALTH_REGEN_FLAT, activeBuff.getGndData().getFloat("healthRegen"));
-            }
-        });
     }
 
     public void giveBuff(Mob target, int duration) {

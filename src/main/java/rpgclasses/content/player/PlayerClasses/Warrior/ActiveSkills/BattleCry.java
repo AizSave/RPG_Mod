@@ -15,10 +15,20 @@ import necesse.entity.particle.Particle;
 import necesse.gfx.GameResources;
 import rpgclasses.buffs.Skill.ActiveSkillBuff;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.SimpleBuffActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.PlayerData;
 import rpgclasses.utils.RPGUtils;
 
 public class BattleCry extends SimpleBuffActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(10),
+            new SkillParam("10 x <skilllevel>").setDecimals(2, 0)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
 
     public BattleCry(int levelMax, int requiredClassLevel) {
         super("battlecry", "#ff6600", levelMax, requiredClassLevel);
@@ -26,17 +36,17 @@ public class BattleCry extends SimpleBuffActiveSkill {
 
     @Override
     public void giveBuffOnRun(PlayerMob player, PlayerData playerData, int activeSkillLevel) {
-        super.giveBuff(player, player, playerData, activeSkillLevel);
+        super.giveBuff(player, player, activeSkillLevel);
 
         GameUtils.streamServerClients(player.getLevel()).forEach(targetPlayer -> {
             if (targetPlayer.isSameTeam(player.getTeam()))
-                super.giveBuff(player, targetPlayer.playerMob, playerData, activeSkillLevel);
+                super.giveBuff(player, targetPlayer.playerMob, activeSkillLevel);
         });
 
         RPGUtils.streamMobsAndPlayers(player, 200)
                 .filter(m -> m == player || m.isSameTeam(player))
                 .forEach(
-                        target -> super.giveBuff(player, target, playerData, activeSkillLevel)
+                        target -> super.giveBuff(player, target, activeSkillLevel)
                 );
     }
 
@@ -56,8 +66,9 @@ public class BattleCry extends SimpleBuffActiveSkill {
             @Override
             public void init(ActiveBuff activeBuff, BuffEventSubscriber buffEventSubscriber) {
                 int level = getLevel(activeBuff);
-                activeBuff.setModifier(BuffModifiers.ALL_DAMAGE, level * 0.1F);
-                activeBuff.setModifier(BuffModifiers.SPEED, level * 0.1F);
+                float value = params[1].value(level);
+                activeBuff.setModifier(BuffModifiers.ALL_DAMAGE, value);
+                activeBuff.setModifier(BuffModifiers.SPEED, value);
             }
 
             @Override
@@ -72,11 +83,11 @@ public class BattleCry extends SimpleBuffActiveSkill {
 
     @Override
     public int getDuration(int activeSkillLevel) {
-        return 10000;
+        return (int) (params[0].value() * 1000);
     }
 
     @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 30000;
     }
 }

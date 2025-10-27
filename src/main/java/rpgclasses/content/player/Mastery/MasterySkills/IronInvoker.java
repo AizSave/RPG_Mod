@@ -15,12 +15,21 @@ import necesse.gfx.gameTexture.GameTexture;
 import rpgclasses.buffs.Skill.MasteryBuff;
 import rpgclasses.buffs.Skill.SecondaryMasteryBuff;
 import rpgclasses.content.player.Mastery.Mastery;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.packets.PacketMobResetBuffTime;
 
 import java.awt.*;
 import java.util.LinkedList;
 
 public class IronInvoker extends Mastery {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(5)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
 
     public IronInvoker(String stringID, String color) {
         super(stringID, color);
@@ -59,7 +68,7 @@ public class IronInvoker extends Mastery {
             if (!activeBuff.getGndData().getBoolean("ready")) {
                 int time = activeBuff.getGndData().getInt("time", 0);
                 time += 50;
-                if (time >= 10000) {
+                if (time >= (int) (params[0].value() * 1000)) {
                     activeBuff.getGndData().setBoolean("ready", true);
                 }
                 activeBuff.getGndData().setInt("time", time);
@@ -75,7 +84,7 @@ public class IronInvoker extends Mastery {
                     SoundManager.playSound(GameResources.shatter2, SoundEffect.effect(activeBuff.owner).volume(1F).pitch(0.8F));
                 }
                 time += 50;
-                if (time >= 10000) {
+                if (time >= (int) (params[0].value() * 1000)) {
                     activeBuff.getGndData().setBoolean("ready", true);
                     SoundManager.playSound(GameResources.cling, SoundEffect.effect(activeBuff.owner).volume(0.5F));
                     SoundManager.playSound(GameResources.jingle, SoundEffect.effect(activeBuff.owner).volume(0.5F));
@@ -105,7 +114,7 @@ public class IronInvoker extends Mastery {
 
         @Override
         public void addFrontDrawOptions(ActiveBuff activeBuff, LinkedList<DrawOptions> list, int x, int y, TickManager tickManager, GameCamera camera, PlayerMob perspective) {
-            if(perspective == null) return;
+            if (perspective == null) return;
             if (activeBuff.getGndData().getBoolean("ready")) {
                 Rectangle selectBox = activeBuff.owner.getSelectBox(x, y);
 

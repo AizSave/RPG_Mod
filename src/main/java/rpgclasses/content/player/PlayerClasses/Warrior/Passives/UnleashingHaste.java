@@ -4,9 +4,20 @@ import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.mobs.buffs.BuffModifiers;
 import rpgclasses.buffs.Skill.PrincipalPassiveBuff;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.content.player.SkillsLogic.Passives.SimpleBuffPassive;
 
 public class UnleashingHaste extends SimpleBuffPassive {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(1).setDecimals(2, 0),
+            SkillParam.staticParam(10)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
     public UnleashingHaste(int levelMax, int requiredClassLevel) {
         super("unleashinghaste", "#ffff00", levelMax, requiredClassLevel, false);
     }
@@ -35,7 +46,7 @@ public class UnleashingHaste extends SimpleBuffPassive {
 
             public void updateBuff(ActiveBuff activeBuff) {
                 float healthPercent = activeBuff.owner.getHealthPercent();
-                float increment = getLevel(activeBuff) * 0.01F * (1 - healthPercent) * 10;
+                float increment = getLevel(activeBuff) * params[1].value() * (1 - healthPercent) * params[0].value();
                 activeBuff.setModifier(
                         BuffModifiers.SPEED, increment
                 );

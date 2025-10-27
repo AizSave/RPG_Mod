@@ -8,6 +8,7 @@ import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.level.maps.Level;
 import rpgclasses.buffs.Skill.PrincipalPassiveBuff;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.SimpleTranformationActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.content.player.SkillsLogic.Passives.SimpleBuffPassive;
 import rpgclasses.data.EquippedActiveSkill;
 import rpgclasses.data.PlayerData;
@@ -15,6 +16,17 @@ import rpgclasses.data.PlayerDataList;
 import rpgclasses.packets.UpdateClientEquippedActiveSkillsPacket;
 
 public class PhoenixSpirit extends SimpleBuffPassive {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(4).setDecimals(0),
+            new SkillParam("4 + 8 + <skilllevel>").setDecimals(2, 0),
+            new SkillParam("0.25 x <skilllevel>").setDecimals(0).roundFloor()
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
     public PhoenixSpirit(int levelMax, int requiredClassLevel) {
         super("phoenixspirit", "#ff3300", levelMax, requiredClassLevel);
     }
@@ -26,7 +38,7 @@ public class PhoenixSpirit extends SimpleBuffPassive {
             @Override
             public void init(ActiveBuff activeBuff, BuffEventSubscriber eventSubscriber) {
                 int level = getLevel(activeBuff);
-                if (level >= 4) {
+                if (level >= params[0].valueInt()) {
                     this.isVisible = false;
                     eventSubscriber.subscribeEvent(MobBeforeDamageOverTimeTakenEvent.class, (event) -> {
                         if (this.runLogic(activeBuff, level, event.getExpectedHealth())) {
@@ -40,7 +52,7 @@ public class PhoenixSpirit extends SimpleBuffPassive {
             public void onBeforeHitCalculated(ActiveBuff activeBuff, MobBeforeHitCalculatedEvent event) {
                 super.onBeforeHitCalculated(activeBuff, event);
                 int level = getLevel(activeBuff);
-                if (level >= 4) {
+                if (level >= params[0].valueInt()) {
                     if (this.runLogic(activeBuff, level, event.getExpectedHealth())) {
                         event.prevent();
                     }
@@ -54,7 +66,7 @@ public class PhoenixSpirit extends SimpleBuffPassive {
                     PlayerMob player = (PlayerMob) activeBuff.owner;
                     PlayerData playerData = PlayerDataList.getPlayerData(player);
                     if (playerData.getInUseActiveSkill() instanceof SimpleTranformationActiveSkill) {
-                        int maxNumber = skillLevel / 4;
+                        int maxNumber = params[2].valueInt(skillLevel);
                         int inCooldownNumber = 0;
                         for (EquippedActiveSkill equippedActiveSkill : playerData.equippedActiveSkills) {
                             if (equippedActiveSkill.getActiveSkill() instanceof SimpleTranformationActiveSkill && equippedActiveSkill.getCooldownLeft(player.getTime()) > 60000)
@@ -62,7 +74,7 @@ public class PhoenixSpirit extends SimpleBuffPassive {
                         }
                         if (inCooldownNumber < maxNumber) {
                             player.dismount();
-                            player.setHealth((int) (player.getMaxHealth() * (0.04F + 0.08F * skillLevel)));
+                            player.setHealth((int) (player.getMaxHealth() * params[1].value(skillLevel)));
                             playerData.getInUseActiveSkillSlot().startCustomCooldown(playerData, player.getTime(), 3600_000);
                             player.getServer().network.sendToAllClients(new UpdateClientEquippedActiveSkillsPacket(playerData));
                             return true;

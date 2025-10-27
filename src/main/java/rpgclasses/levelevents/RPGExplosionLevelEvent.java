@@ -69,8 +69,12 @@ public class RPGExplosionLevelEvent extends ExplosionEvent implements Attacker {
 
     @Override
     protected void playExplosionEffects() {
-        SoundManager.playSound(GameResources.explosionHeavy, SoundEffect.effect(this.x, this.y).volume(0.8F).pitch(1F));
-        this.level.getClient().startCameraShake(this.x, this.y, 200, 40, 1F, 0.8F, true);
+        if (damage.damage < 2) {
+            SoundManager.playSound(GameResources.explosionLight, SoundEffect.effect(this.x, this.y).volume(0.1F).pitch(1F));
+        } else {
+            SoundManager.playSound(GameResources.explosionHeavy, SoundEffect.effect(this.x, this.y).volume(0.8F).pitch(1F));
+            this.level.getClient().startCameraShake(this.x, this.y, 200, 40, 1F, 0.8F, true);
+        }
     }
 
     @Override
@@ -105,7 +109,7 @@ public class RPGExplosionLevelEvent extends ExplosionEvent implements Attacker {
 
     @Override
     protected void onMobWasHit(Mob mob, float distance) {
-        if (damage.damage > 0) {
+        if (damage.damage > 1) {
             super.onMobWasHit(mob, distance);
         }
     }

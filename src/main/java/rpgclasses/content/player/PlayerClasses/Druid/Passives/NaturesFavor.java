@@ -4,10 +4,20 @@ import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.mobs.buffs.BuffModifiers;
 import rpgclasses.buffs.Skill.PrincipalPassiveBuff;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.content.player.SkillsLogic.Passives.SimpleBuffPassive;
 import rpgclasses.registry.RPGTiles;
 
 public class NaturesFavor extends SimpleBuffPassive {
+    public static SkillParam[] params = new SkillParam[]{
+            new SkillParam("2 x <skilllevel>")
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
     public NaturesFavor(int levelMax, int requiredClassLevel) {
         super("naturesfavor", "#00ff00", levelMax, requiredClassLevel);
     }
@@ -38,7 +48,7 @@ public class NaturesFavor extends SimpleBuffPassive {
 
                 this.isVisible = inGrass;
                 activeBuff.setModifier(
-                        BuffModifiers.COMBAT_HEALTH_REGEN_FLAT, inGrass ? getLevel(activeBuff) : 0F
+                        BuffModifiers.COMBAT_HEALTH_REGEN_FLAT, inGrass ? params[0].value(getLevel(activeBuff)) : 0F
                 );
             }
         };

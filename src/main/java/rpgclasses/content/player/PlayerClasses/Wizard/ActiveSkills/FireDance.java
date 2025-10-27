@@ -13,7 +13,7 @@ import necesse.gfx.GameResources;
 import rpgclasses.buffs.Skill.ActiveSkillBuff;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.ActiveSkill;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.CastBuffActiveSkill;
-import rpgclasses.content.player.SkillsLogic.ActiveSkills.SimpleBuffActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.PlayerData;
 import rpgclasses.data.PlayerDataList;
 import rpgclasses.mobs.summons.DancingFlameMob;
@@ -21,6 +21,20 @@ import rpgclasses.mobs.summons.DancingFlameMob;
 import java.util.ArrayList;
 
 public class FireDance extends CastBuffActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(4),
+            SkillParam.damageParam(3)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
+    @Override
+    public SkillParam getManaParam() {
+        return SkillParam.manaParam(30);
+    }
 
     public FireDance(int levelMax, int requiredClassLevel) {
         super("firedance", "#6633cc", levelMax, requiredClassLevel);
@@ -35,7 +49,7 @@ public class FireDance extends CastBuffActiveSkill {
     public void castedRunServer(PlayerMob player, PlayerData playerData, int activeSkillLevel, int seed) {
         super.castedRunServer(player, playerData, activeSkillLevel, seed);
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < params[0].valueInt(); i++) {
             summonDancingFlame(player, playerData, activeSkillLevel, stringID);
         }
     }
@@ -53,23 +67,18 @@ public class FireDance extends CastBuffActiveSkill {
     }
 
     @Override
-    public float manaUsage(PlayerMob player, int activeSkillLevel) {
-        return 30 + activeSkillLevel * 6;
-    }
-
-    @Override
     public int getDuration(int activeSkillLevel) {
         return 20000;
     }
 
     @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 20000;
     }
 
     @Override
     public String[] getExtraTooltips() {
-        return new String[]{"dancingflame", "manausage"};
+        return new String[]{"dancingflame"};
     }
 
     public static class DancingFlameBuff extends ActiveSkillBuff {
@@ -118,7 +127,7 @@ public class FireDance extends CastBuffActiveSkill {
     public static void summonDancingFlame(PlayerMob player, PlayerData playerData, int activeSkillLevel, String skillStringID) {
         DancingFlameMob mob = (DancingFlameMob) MobRegistry.getMob("dancingflame", player.getLevel());
         player.serverFollowersManager.addFollower(skillStringID, mob, FollowPosition.FLYING_CIRCLE_FAST, null, 1, 7, null, true);
-        mob.updateDamage(new GameDamage(DamageTypeRegistry.MAGIC, playerData.getLevel() * activeSkillLevel + playerData.getIntelligence(player) * activeSkillLevel));
+        mob.updateDamage(new GameDamage(DamageTypeRegistry.MAGIC, params[1].value(playerData.getLevel(), activeSkillLevel)));
         mob.setPurple();
         mob.getLevel().entityManager.addMob(mob, player.x, player.y);
     }

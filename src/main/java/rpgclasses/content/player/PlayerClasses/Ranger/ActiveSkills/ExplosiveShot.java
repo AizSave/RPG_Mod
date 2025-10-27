@@ -12,6 +12,7 @@ import necesse.entity.projectile.Projectile;
 import necesse.gfx.GameResources;
 import org.jetbrains.annotations.NotNull;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.ActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.PlayerData;
 import rpgclasses.projectiles.ExplosiveArrowProjectile;
 import rpgclasses.utils.RPGUtils;
@@ -19,6 +20,19 @@ import rpgclasses.utils.RPGUtils;
 import java.awt.geom.Point2D;
 
 public class ExplosiveShot extends ActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.damageParam(6)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
+    @Override
+    public SkillParam getManaParam() {
+        return SkillParam.manaParam(20);
+    }
 
     public ExplosiveShot(int levelMax, int requiredClassLevel) {
         super("explosiveshot", "#ff6600", levelMax, requiredClassLevel);
@@ -56,11 +70,11 @@ public class ExplosiveShot extends ActiveSkill {
             targetY = target.y;
         }
 
-        return new ExplosiveArrowProjectile(player.getLevel(), player, player.x, player.y, targetX, targetY, 200, 1000, new GameDamage(DamageTypeRegistry.RANGED, 5 * playerData.getLevel() + 5 * playerData.getIntelligence(player) * activeSkillLevel), 100);
+        return new ExplosiveArrowProjectile(player.getLevel(), player, player.x, player.y, targetX, targetY, 200, 1000, new GameDamage(DamageTypeRegistry.RANGED, params[0].value(playerData.getLevel(), activeSkillLevel)), 100);
     }
 
     @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 15000;
     }
 

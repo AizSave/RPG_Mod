@@ -66,7 +66,7 @@ public class WizardPlayerClass extends PlayerClass {
         skillsList.addSkill(new BasicPassive(
                 "arcanepower", "#6633ff", 10, 1,
                 new FloatPercentModifierBuff(BuffModifiers.MAGIC_DAMAGE, 0.1F),
-                new FloatPercentModifierBuff(BuffModifiers.SPEED, -0.1F)
+                new FloatPercentModifierBuff(BuffModifiers.SPEED, -0.08F)
         ));
         skillsList.addSkill(new ManaPower(10, 1));
         skillsList.addSkill(new BasicPassive(

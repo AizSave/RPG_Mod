@@ -8,7 +8,6 @@ import necesse.engine.network.PacketWriter;
 import necesse.engine.network.client.Client;
 import necesse.engine.network.client.ClientClient;
 import necesse.engine.network.packet.PacketDisconnect;
-import necesse.engine.network.packet.PacketRequestPlayerData;
 import necesse.engine.network.server.Server;
 import necesse.engine.network.server.ServerClient;
 import necesse.entity.mobs.Mob;
@@ -46,8 +45,6 @@ public class TransformationAbility1Packet extends Packet {
                     TransformationMountMob transformation = (TransformationMountMob) mount;
                     transformation.clickRunClient(client.getLevel(), x, y, target.playerMob);
                 }
-            } else {
-                client.network.sendPacket(new PacketRequestPlayerData(this.slot));
             }
         }
 

@@ -1,19 +1,11 @@
 package rpgclasses.projectiles;
 
 import necesse.engine.gameLoop.tickManager.TickManager;
-import necesse.engine.sound.SoundEffect;
-import necesse.engine.sound.SoundManager;
-import necesse.engine.util.GameRandom;
-import necesse.entity.ParticleTypeSwitcher;
-import necesse.entity.levelEvent.explosionEvent.ExplosionEvent;
-import necesse.entity.mobs.Attacker;
 import necesse.entity.mobs.GameDamage;
 import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.PlayerMob;
-import necesse.entity.particle.Particle;
 import necesse.entity.projectile.followingProjectile.FollowingProjectile;
 import necesse.entity.trails.Trail;
-import necesse.gfx.GameResources;
 import necesse.gfx.camera.GameCamera;
 import necesse.gfx.drawables.LevelSortedDrawable;
 import necesse.gfx.drawables.OrderableDrawables;

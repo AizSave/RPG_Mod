@@ -16,20 +16,34 @@ import necesse.entity.particle.Particle;
 import necesse.entity.trails.LightningTrail;
 import necesse.entity.trails.TrailVector;
 import necesse.gfx.GameResources;
-import necesse.level.maps.regionSystem.RegionPosition;
 import rpgclasses.RPGResources;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.CastLevelEventActiveSkill;
-import rpgclasses.content.player.SkillsLogic.ActiveSkills.SimpleLevelEventActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.PlayerData;
 import rpgclasses.registry.RPGBuffs;
 import rpgclasses.utils.RPGColors;
 import rpgclasses.utils.RPGUtils;
 
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
 public class Lightning extends CastLevelEventActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(1),
+            SkillParam.damageParam(10),
+            SkillParam.staticParam(2)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
+    @Override
+    public SkillParam getManaParam() {
+        return SkillParam.manaParam(30);
+    }
+
     public Lightning(int levelMax, int requiredClassLevel) {
         super("lightning", RPGColors.HEX.lighting, levelMax, requiredClassLevel);
     }
@@ -41,7 +55,7 @@ public class Lightning extends CastLevelEventActiveSkill {
 
     @Override
     public LevelEvent getLevelEvent(PlayerMob player, PlayerData playerData, int activeSkillLevel, int seed, boolean isInUse) {
-        return new LightningLevelEvent(player, player.x, player.y, 4 * playerData.getLevel() + 4 * playerData.getIntelligence(player) * activeSkillLevel);
+        return new LightningLevelEvent(player, player.x, player.y, params[1].value(playerData.getLevel(), activeSkillLevel));
     }
 
     @Override
@@ -50,18 +64,8 @@ public class Lightning extends CastLevelEventActiveSkill {
     }
 
     @Override
-    public float manaUsage(PlayerMob player, int activeSkillLevel) {
-        return 30 + activeSkillLevel * 6;
-    }
-
-    @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 20000;
-    }
-
-    @Override
-    public String[] getExtraTooltips() {
-        return new String[]{"manausage"};
     }
 
     public static class LightningLevelEvent extends MobAbilityLevelEvent implements Attacker {
@@ -131,7 +135,7 @@ public class Lightning extends CastLevelEventActiveSkill {
 
         public void tick() {
             lifeTime += 50;
-            if (lifeTime > 1000) {
+            if (lifeTime > params[0].value() * 1000) {
                 this.over();
             } else if (lifeTime >= nextHit) {
                 Mob target = RPGUtils.findBestTarget(getAttackOwner(), currentX, currentY, 500, m -> !targetedMobs.contains(m.getUniqueID()));
@@ -141,7 +145,7 @@ public class Lightning extends CastLevelEventActiveSkill {
                     if (this.isServer()) {
                         target.isServerHit(damage, currentX, currentY, 50, owner);
 
-                        RPGBuffs.applyStun(target, 2F);
+                        RPGBuffs.applyStun(target, params[2].value());
 
                         SoundManager.playSound(GameResources.electricExplosion, SoundEffect.effect(target).volume(1.5F));
                     }

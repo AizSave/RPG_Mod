@@ -5,11 +5,20 @@ import necesse.entity.mobs.PlayerMob;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.itemAttacker.FollowPosition;
 import rpgclasses.buffs.Skill.PrincipalPassiveBuff;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.content.player.SkillsLogic.Passives.Passive;
 import rpgclasses.content.player.SkillsLogic.Passives.SimpleBuffPassive;
 import rpgclasses.mobs.summons.passive.PassiveFollowingMob;
 
 public class WolfCompanion extends SimpleBuffPassive {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.damageParam(2)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
 
     public WolfCompanion(int levelMax, int requiredClassLevel) {
         super("wolfcompanion", "#E6D9CC", levelMax, requiredClassLevel);

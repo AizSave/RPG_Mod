@@ -12,11 +12,25 @@ import necesse.entity.particle.Particle;
 import necesse.gfx.GameResources;
 import rpgclasses.buffs.Skill.ActiveSkillBuff;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.SimpleBuffActiveSkill;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.data.PlayerData;
 import rpgclasses.registry.RPGBuffs;
 import rpgclasses.registry.RPGModifiers;
 
 public class LightInfusion extends SimpleBuffActiveSkill {
+    public static SkillParam[] params = new SkillParam[]{
+            SkillParam.staticParam(8)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
+    @Override
+    public SkillParam getManaParam() {
+        return SkillParam.manaParam(10, false);
+    }
 
     public LightInfusion(int levelMax, int requiredClassLevel) {
         super("lightinfusion", "#ffff66", levelMax, requiredClassLevel);
@@ -59,21 +73,11 @@ public class LightInfusion extends SimpleBuffActiveSkill {
 
     @Override
     public int getDuration(int activeSkillLevel) {
-        return 8000 + 300;
+        return (int) (params[0].value() * 1000) + 300;
     }
 
     @Override
-    public float manaUsage(PlayerMob player, int activeSkillLevel) {
-        return 10 + activeSkillLevel * 2;
-    }
-
-    @Override
-    public String[] getExtraTooltips() {
-        return new String[]{"holydamage", "manausage"};
-    }
-
-    @Override
-    public int getBaseCooldown() {
+    public int getBaseCooldown(PlayerMob player) {
         return 14000;
     }
 }

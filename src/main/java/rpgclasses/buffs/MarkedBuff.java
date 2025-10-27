@@ -13,6 +13,7 @@ import necesse.entity.mobs.buffs.staticBuffs.Buff;
 import necesse.entity.particle.Particle;
 import necesse.gfx.gameFont.FontManager;
 import rpgclasses.content.player.Mastery.Mastery;
+import rpgclasses.content.player.Mastery.MasterySkills.Hunter;
 import rpgclasses.data.PlayerData;
 import rpgclasses.data.PlayerDataList;
 import rpgclasses.registry.RPGBuffs;
@@ -61,6 +62,10 @@ public class MarkedBuff extends Buff {
         }
     }
 
+    public static void markMob(PlayerMob attacker, Mob target, float duration) {
+        markMob(attacker, target, (int) (duration * 1000));
+    }
+
     public static void markMob(PlayerMob attacker, Mob target, int duration) {
         if (attacker.isServer()) {
             ActiveBuff ab = new ActiveBuff(RPGBuffs.MARKED, target, duration, attacker);
@@ -68,7 +73,7 @@ public class MarkedBuff extends Buff {
             PlayerData playerData = PlayerDataList.getPlayerData(attacker);
             if (playerData.hasMasterySkill(Mastery.MARKSMAN)) ab.getGndData().setBoolean("markedToAll", true);
             if (playerData.hasMasterySkill(Mastery.HUNTER))
-                target.addBuff(new ActiveBuff(RPGBuffs.CONSTRAINED, target, 5F, null), true);
+                target.addBuff(new ActiveBuff(RPGBuffs.CONSTRAINED, target, Hunter.params[0].value(), null), true);
             target.addBuff(ab, true);
         }
     }

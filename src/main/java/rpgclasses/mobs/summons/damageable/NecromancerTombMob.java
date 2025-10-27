@@ -23,6 +23,7 @@ import necesse.gfx.drawables.OrderableDrawables;
 import necesse.gfx.gameTexture.GameTexture;
 import necesse.level.maps.Level;
 import necesse.level.maps.light.GameLight;
+import rpgclasses.content.player.PlayerClasses.Necromancer.ActiveSkills.Tomb;
 import rpgclasses.data.PlayerData;
 import rpgclasses.data.PlayerDataList;
 
@@ -158,7 +159,7 @@ public class NecromancerTombMob extends DamageableFollowingMob {
 
     @Override
     public int getHealthStat(PlayerMob player, PlayerData playerData) {
-        return 5 * playerData.getLevel();
+        return Tomb.params[1].valueInt(playerData.getLevel(), skillLevel);
     }
 
     @Override

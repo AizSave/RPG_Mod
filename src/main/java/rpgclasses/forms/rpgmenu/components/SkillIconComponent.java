@@ -1,7 +1,6 @@
 package rpgclasses.forms.rpgmenu.components;
 
 import necesse.engine.gameLoop.tickManager.TickManager;
-import necesse.engine.input.InputEvent;
 import necesse.engine.localization.Localization;
 import necesse.entity.mobs.PlayerMob;
 import necesse.gfx.forms.components.FormButton;
@@ -13,8 +12,8 @@ import necesse.gfx.gameTooltips.ListGameTooltips;
 import necesse.gfx.gameTooltips.SpriteTooltip;
 import necesse.gfx.gameTooltips.TooltipLocation;
 import rpgclasses.RPGResources;
-import rpgclasses.forms.rpgmenu.BorderFormGameBackground;
 import rpgclasses.content.player.SkillsLogic.Skill;
+import rpgclasses.forms.rpgmenu.BorderFormGameBackground;
 
 import java.awt.*;
 import java.util.List;
@@ -36,9 +35,7 @@ public class SkillIconComponent extends FormButton implements FormPositionContai
         this.height = height;
         this.showLevelVersion = true;
 
-        this.onClicked(c -> {
-            if (getSkillLevel() > 0) this.showLevelVersion = !this.showLevelVersion;
-        });
+        this.onClicked((e) -> showLevelVersion = !showLevelVersion);
     }
 
     public void setSkillLevel(int skillLevel) {
@@ -64,23 +61,25 @@ public class SkillIconComponent extends FormButton implements FormPositionContai
         }
 
         if (isHovering()) {
+            int showLevel = skillLevel == 0 ? 1 : skillLevel;
+
             ListGameTooltips tooltips;
-            if (skill.containsComplexTooltips() && skillLevel > 0) {
+            if (skill.containsComplexTooltips()) {
                 if (showLevelVersion) {
-                    tooltips = skill.getFinalToolTips(player, skillLevel, false);
+                    tooltips = skill.getFinalToolTips(player, showLevel, false);
                     tooltips.add(" ");
                     tooltips.add(Localization.translate("ui", "clicktoseebase"));
                 } else {
-                    tooltips = skill.getToolTips();
+                    tooltips = skill.getBaseToolTips(player);
                     tooltips.add(" ");
-                    tooltips.add(Localization.translate("ui", "clicktoseelevel", "level", skillLevel));
+                    tooltips.add(Localization.translate("ui", "clicktoseelevel", "level", showLevel));
                 }
             } else {
-                tooltips = skill.getToolTips();
+                tooltips = skill.getBaseToolTips(player);
             }
             GameTooltipManager.addTooltip(tooltips, new BorderFormGameBackground(12), TooltipLocation.FORM_FOCUS);
 
-            String[] extraTooltipsString = skill.getFinalExtraTooltips(player, skillLevel > 0 && showLevelVersion);
+            String[] extraTooltipsString = skill.getAllExtraTooltips(player, showLevel, showLevelVersion);
             for (String extraTooltip : extraTooltipsString) {
                 GameTooltipManager.addTooltip(new ListGameTooltips(extraTooltip), new BorderFormGameBackground(12), TooltipLocation.FORM_FOCUS);
             }
@@ -93,11 +92,6 @@ public class SkillIconComponent extends FormButton implements FormPositionContai
     @Override
     public List<Rectangle> getHitboxes() {
         return singleBox(new Rectangle(this.getX(), this.getY(), this.width, this.height));
-    }
-
-    @Override
-    public void handleInputEvent(InputEvent event, TickManager tickManager, PlayerMob perspective) {
-        super.handleInputEvent(event, tickManager, perspective);
     }
 
     public FormPosition getPosition() {

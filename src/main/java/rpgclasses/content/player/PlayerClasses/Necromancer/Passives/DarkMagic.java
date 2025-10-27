@@ -4,9 +4,19 @@ import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.BuffEventSubscriber;
 import necesse.entity.mobs.buffs.BuffModifiers;
 import rpgclasses.buffs.Skill.PrincipalPassiveBuff;
+import rpgclasses.content.player.SkillsLogic.Params.SkillParam;
 import rpgclasses.content.player.SkillsLogic.Passives.SimpleBuffPassive;
 
 public class DarkMagic extends SimpleBuffPassive {
+    public static SkillParam[] params = new SkillParam[]{
+            new SkillParam("5 x <skilllevel>").setDecimals(2, 0)
+    };
+
+    @Override
+    public SkillParam[] getParams() {
+        return params;
+    }
+
     public DarkMagic(int levelMax, int requiredClassLevel) {
         super("darkmagic", "#666666", levelMax, requiredClassLevel);
     }
@@ -34,7 +44,7 @@ public class DarkMagic extends SimpleBuffPassive {
             }
 
             public void updateBuff(ActiveBuff activeBuff) {
-                float transference = getLevel(activeBuff) * 0.05F;
+                float transference = params[0].value(getLevel(activeBuff));
 
                 activeBuff.setModifier(
                         BuffModifiers.MAGIC_DAMAGE, activeBuff.owner.buffManager.getModifier(BuffModifiers.SUMMON_DAMAGE) * transference

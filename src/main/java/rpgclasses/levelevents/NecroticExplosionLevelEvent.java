@@ -12,15 +12,34 @@ import java.awt.*;
 
 public class NecroticExplosionLevelEvent extends RPGExplosionLevelEvent {
     public float poisonDamage;
+    public int poisonTime;
 
     public NecroticExplosionLevelEvent() {
         super();
         this.poisonDamage = 0;
+        this.poisonTime = 0;
     }
 
-    public NecroticExplosionLevelEvent(float x, float y, int range, GameDamage damage, Mob owner, float poisonDamage) {
-        super(x, y, range, damage, owner, false, new Color(10, 40, 10), new Color(80, 255, 120));
+    public NecroticExplosionLevelEvent(float x, float y, int range, GameDamage damage, Mob owner, float poisonDamage, int poisonTime) {
+        super(x, y, range, damage, owner, false, new Color(10, 40, 10, damage == null ? 153 : 255), new Color(80, 255, 120, damage == null ? 153 : 255));
         this.poisonDamage = poisonDamage;
+        this.poisonTime = poisonTime;
+    }
+
+    public NecroticExplosionLevelEvent(float x, float y, int range, Mob owner, float poisonDamage, int poisonTime) {
+        this(x, y, range, new GameDamage(0), owner, poisonDamage, poisonTime);
+    }
+
+    public NecroticExplosionLevelEvent(float x, float y, int range, GameDamage damage, Mob owner) {
+        this(x, y, range, damage, owner, 0, 0);
+    }
+
+    public NecroticExplosionLevelEvent(float x, float y, int range, GameDamage damage, Mob owner, float poisonDamage, float poisonTime) {
+        this(x, y, range, damage, owner, poisonDamage, (int) (poisonTime * 1000));
+    }
+
+    public NecroticExplosionLevelEvent(float x, float y, int range, Mob owner, float poisonDamage, float poisonTime) {
+        this(x, y, range, new GameDamage(0), owner, poisonDamage, poisonTime);
     }
 
     @Override
@@ -50,6 +69,8 @@ public class NecroticExplosionLevelEvent extends RPGExplosionLevelEvent {
     @Override
     protected void onMobWasHit(Mob mob, float distance) {
         super.onMobWasHit(mob, distance);
-        MagicPoisonBuff.apply(ownerMob, mob, poisonDamage, 10F);
+        if (poisonTime > 0 && poisonDamage > 0) {
+            MagicPoisonBuff.apply(ownerMob, mob, poisonDamage, poisonTime);
+        }
     }
 }

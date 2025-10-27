@@ -13,12 +13,12 @@ import necesse.gfx.gameFont.FontOptions;
 import necesse.gfx.ui.ButtonColor;
 import necesse.gfx.ui.GameInterfaceStyle;
 import rpgclasses.RPGResources;
-import rpgclasses.forms.rpgmenu.entries.ActiveSkillsEntry;
 import rpgclasses.content.player.PlayerClass;
 import rpgclasses.content.player.SkillsLogic.ActiveSkills.ActiveSkill;
 import rpgclasses.data.EquippedActiveSkill;
 import rpgclasses.data.PlayerData;
 import rpgclasses.data.PlayerDataList;
+import rpgclasses.forms.rpgmenu.entries.ActiveSkillsEntry;
 
 import java.util.function.Consumer;
 

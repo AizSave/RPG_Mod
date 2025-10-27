@@ -1,7 +1,6 @@
 package rpgclasses.registry;
 
 import necesse.engine.registries.MobRegistry;
-import rpgclasses.mobs.mount.LichSkeletonMob;
 import rpgclasses.mobs.summons.DancingFlameMob;
 import rpgclasses.mobs.summons.damageable.BeeDamageableSummonMob;
 import rpgclasses.mobs.summons.damageable.DryadSaplingDamageableSummonMob;
@@ -14,10 +13,6 @@ import rpgclasses.mobs.summons.passive.RangerWolfMob;
 public class RPGMobs {
 
     public static void registerCore() {
-
-        // Mounts
-        MobRegistry.registerMob("lichskeletonmob", LichSkeletonMob.class, false);
-
         // Summons
         MobRegistry.registerMob("dancingflame", DancingFlameMob.class, false);
 
